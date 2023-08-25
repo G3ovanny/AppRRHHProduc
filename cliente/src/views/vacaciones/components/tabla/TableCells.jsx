@@ -3,7 +3,7 @@ import { useCronogramaVacacionesStore } from '../../../../hooks'
 import { Button, Checkbox, Switch, TableBody, TableCell, TableRow } from '@mui/material'
 import dayjs from 'dayjs';
 
-export const TableCells = () => {
+export const TableCells = ({ list }) => {
   const { listCronograma, activeCronograma, setActiveCronograma } = useCronogramaVacacionesStore()
 
   const onSelected = (event, cronograma) => {
@@ -27,12 +27,20 @@ export const TableCells = () => {
     setActiveCronograma(newSelected)
   }
   const isSelected = (id) => activeCronograma.indexOf(id) !== -1
+
+  let lista = null
+
+  if (!list) {
+    lista = listCronograma
+  } else {
+    lista = list
+  }
   return (
     <TableBody
       component="div"
     >
       {
-        listCronograma.map((cronograma) => {
+        lista.map((cronograma) => {
           const isItemSelected = isSelected(cronograma);
           const inicio = dayjs(cronograma.fecha_inicio).format('DD/MM/YYYY');
           const fin = dayjs(cronograma.fecha_fin).format('DD/MM/YYYY');
