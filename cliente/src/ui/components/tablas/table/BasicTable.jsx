@@ -40,7 +40,6 @@ export const BasicTable = ({ title, objetos, objactive, setObjecActive, startLoa
         //startLoadingObjects()
     }, [])
 
-
     return (
         <div>
             <Paper

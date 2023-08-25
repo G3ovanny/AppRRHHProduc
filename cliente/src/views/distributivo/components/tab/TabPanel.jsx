@@ -34,7 +34,7 @@ export const TabPanel = () => {
                     <Tab label='Modalidad laboral' {...a11yProps(2)} />
                     <Tab label='Unidad orgánica' {...a11yProps(3)} />
                     <Tab label='Dominación puesto' {...a11yProps(4)} />
-                    <Tab label='Esrtructura programática' {...a11yProps(5)} />
+                    <Tab label='Estructura programática' {...a11yProps(5)} />
                 </Tabs>
             </Box>
 

@@ -2,7 +2,6 @@ import pandas as pd
 import psycopg2
 from rest_framework.response import Response
 from sqlalchemy import create_engine
-
 from rest_framework import status
 from .models import ArchivoTrabajadores
 from core.distributivo.models import *
@@ -11,11 +10,18 @@ from core.trabajadores.models import *
 
 def analisis_trabajadores():
     engine = create_engine(
+
         'postgresql+psycopg2://postgres:admin@localhost:5432/TalentoHumano_db')
     # engine = create_engine('postgresql+psycopg2://phhlodnsitnoam:965304b8f993a45fd005b0515bcdc205c4672180d6a2aab7304ab98d448ad887@ec2-3-219-111-26.compute-1.amazonaws.com:5432/d85gt08imns7s2')
 
     documento = ArchivoTrabajadores.objects.latest('id').doc
     distributivo = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)}, dtype={'cod_unidad_organica': str, 'cod_denominacion_puesto': str,'cod_regimen': str,'cod_modalidad': str,'nivel_ocupacional': str,'estructura_programatica': str})
+
+    # engine = create_engine('postgresql+psycopg2://phhlodnsitnoam:965304b8f993a45fd005b0515bcdc205c4672180d6a2aab7304ab98d448ad887@ec2-3-219-111-26.compute-1.amazonaws.com:5432/d85gt08imns7s2')
+
+    documento = ArchivoTrabajadores.objects.latest('id').doc
+    distributivo = pd.read_excel(documento, index_col=False, converters={
+                                 'numero_identificacion': lambda x: str(x)})
     id_doc = ArchivoTrabajadores.objects.latest('id').id  # permite obtener el id del documento
 
     cedula = 'numero_identificacion' in distributivo.columns
@@ -31,7 +37,8 @@ def analisis_trabajadores():
             distributivo['state'] = 'True'
             distributivo['celular'] = ''
             distributivo['dias_vacaciones']
-            
+        
+            #distributivo['dias_vacaciones'] = ''
             cedula = distributivo['numero_identificacion']
             codigoUnidad = distributivo['cod_unidad_organica']
             codigoDenominacion = distributivo['cod_denominacion_puesto']
@@ -51,6 +58,7 @@ def analisis_trabajadores():
                     distributivo.loc[distributivo['cod_unidad_organica']== cod_unidad, 'id_unidad_organica_id'] = id_unidad
                 else:
                     return Response({'Error en el codigo de unidad organica: ', codigo})
+                    #print('Error en el codigo de unidad organica: ', codigo)
 
             for denomi in codigoDenominacion:
                 denominacion = Denominacion_Puesto.objects.all().filter(cod_denominacion_puesto=denomi)
@@ -80,7 +88,6 @@ def analisis_trabajadores():
                                     == cod_niv, 'id_nivel_ocupacional_id'] = id_niv
                 else:
                     return Response({'Error en el codigo del nivel ocupacional', niv})
-
             for mod in codigoModalidad:
                 modalidad = Modalidad_Laboral.objects.all().filter(cod_modalidad=mod)
                 if modalidad:
@@ -99,39 +106,39 @@ def analisis_trabajadores():
                     distributivo.loc[distributivo['estructura_programatica']
                                     == cod_par, 'id_estructura_programatica_id'] = id_par
                 else:
-                    return Response({'Error en el codigo de la partida programatica: ', par})
+                    print('Error en el codigo de la partida programatica: ', par)
 
 
             for ced in cedula:
                 servidor = Trabajador.objects.all().filter(numero_identificacion = ced)
                 if servidor:
-                    #print('El servidor existe')
-                    return Response({'El servidor existe'})
+                    print('El servidor existe')
                 else:
-                    #print('El servidor no existe')
-                    return Response({'El servidor no existe'})
-
-            nuevoDocumento = distributivo[[
-                'tipo_identificacion',
-                'partida_individual',
-                'id_unidad_organica_id',
-                'id_denominacion_puesto_id',
-                'id_estructura_programatica_id',
-                'id_regimen_laboral_id',
-                'id_nivel_ocupacional_id',
-                'id_modalidad_laboral_id',
-                'numero_identificacion',
-                'rmu_puesto',
-                'nombres',
-                'celular',
-                'state',
-                'estado_servidor',
-                'dias_vacaciones',
-            ]]
-            #print(nuevoDocumento)
-            nuevoDocumento.to_sql('Trabajador', engine, if_exists='append', index=False)
-            return Response({'mensaje': 'El documento se ha guardado correctamente'}, status= status.HTTP_200_OK)
+                    print('El servidor no existe')
+            
+            asd = distributivo['dias_vacaciones']
+            print(asd)
+            # nuevoDocumento = distributivo[[
+            #     'tipo_identificacion',
+            #     'partida_individual',
+            #     'id_unidad_organica_id',
+            #     'id_denominacion_puesto_id',
+            #     'id_estructura_programatica_id',
+            #     'id_regimen_laboral_id',
+            #     'id_nivel_ocupacional_id',
+            #     'id_modalidad_laboral_id',
+            #     'numero_identificacion',
+            #     'rmu_puesto',
+            #     'nombres',
+            #     'celular',
+            #     'state',
+            #     'estado_servidor',
+            #     'dias_vacaciones',
+            # ]]
+            # print(nuevoDocumento)
+            #nuevoDocumento.to_sql('Trabajador', engine, if_exists='fail', index=False)
+            return Response({'mensaje': 'El documento se ha guardado correctamente'})
         else:
-            return Response({'mensaje': 'El documento no se ha guardado correctamente'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'mensaje': 'El documento no se ha guardado correctamente'})
     except Exception as e:
-        return Response({"Proceso terminado: {}".format(e)})
+        print("Proceso terminado: {}".format(e))
