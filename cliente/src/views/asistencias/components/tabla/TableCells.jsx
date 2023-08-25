@@ -3,7 +3,7 @@ import React from 'react'
 import { useAsistenciaStore } from '../../../../hooks'
 import dayjs from 'dayjs';
 
-export const TableCells = () => {
+export const TableCells = ({ list }) => {
   const { listAsistencia, activeAsistencia, setActiveAsistencia } = useAsistenciaStore();
 
   const onSelected = (event, asistencia) => {
@@ -27,12 +27,21 @@ export const TableCells = () => {
     setActiveAsistencia(newSelected)
   }
   const isSelected = (id) => activeAsistencia.indexOf(id) !== -1
+
+  let lista = null
+
+  if (!list) {
+    lista = listAsistencia
+  } else {
+    lista = list
+  }
+
   return (
     <TableBody
       component='div'
     >
       {
-        listAsistencia.map((asistencia) => {
+        lista.map((asistencia) => {
           const isItemSelected = isSelected(asistencia)
           return (
             <TableRow
