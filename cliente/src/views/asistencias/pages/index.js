@@ -1,0 +1,6 @@
+export * from './Asistencias'
+export * from './EdAdminstrativo'
+export * from './EdAulas1'
+export * from './EdAulas2'
+export * from './EdAulas3'
+export * from './EdAulas4'

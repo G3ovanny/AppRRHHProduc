@@ -1,0 +1,7 @@
+export * from './base'
+export * from './dashboard'
+export * from './distributivo'
+export * from './permisos'
+export * from './trabajadores'
+export * from './accionesPersonal'
+export * from './vacaciones'
