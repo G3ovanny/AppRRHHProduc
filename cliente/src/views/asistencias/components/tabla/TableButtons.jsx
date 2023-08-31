@@ -21,6 +21,7 @@ export const TableButtons = () => {
             <Tooltip title='Eliminar' color='error'>
               <IconButton
                 component='div'
+                disabled={!numActivos}
                 onClick={handleDelete}
               >
                 <DeleteOutline />
@@ -30,8 +31,8 @@ export const TableButtons = () => {
         ) : (
           <div>
             <Tooltip
-              component= 'div'
-              title='Eliminar' 
+              component='div'
+              title='Eliminar'
               color='error'
             >
               <IconButton

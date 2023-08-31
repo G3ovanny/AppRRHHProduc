@@ -6,7 +6,6 @@ import { TableButtons } from './TableButtons';
 import { TableCells } from './TableCells';
 import { TableFilters } from './TableFilters';
 import dayjs from 'dayjs'
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
 
 
 export const Table = () => {

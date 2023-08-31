@@ -25,13 +25,15 @@ export const useUnidadOrganicaStore = () => {
             await rhApi.post('/distributivo/unidad/', unidad);
             dispatch(onAddNewUnidad({ ...unidad }))
         }
+        setTimeout(() => {
+            dispatch(clearMessageUnidad());
+        }, 3000);
     }
 
     const startDeletingUnidad = async (unidad) => {
-        const element = unidad.id
         try {
-            if (element) {
-                await rhApi.delete(`/distributivo/unidad/${element}`)
+            if (unidad.id) {
+                await rhApi.delete(`/distributivo/unidad/${unidad.id}`)
             }
             dispatch(onDeleteUnidad());
         } catch (error) {

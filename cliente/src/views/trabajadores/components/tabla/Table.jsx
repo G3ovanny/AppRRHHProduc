@@ -8,7 +8,7 @@ export const Table = () => {
 
     const { trabajadores, startLoadingTrab, setActiveTrab, activeTrab } = useTrabStore()
 
-    const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
+    const [resultadoBusqueda, setResultadoBusqueda] = useState('');
 
     const handleBuscar = (valorBuscar, columna) => {
         const resultadosFiltrados = trabajadores.filter((trabajador) => {
@@ -18,6 +18,10 @@ export const Table = () => {
                     return trabajador.numero_identificacion.includes(valorBuscar)
                 case 'nombresTrab':
                     return trabajador.nombres.toLowerCase().includes(valorBuscar.toLowerCase())
+                case 'regimen':
+                    return trabajador.regimen_laboral.toLowerCase().includes(valorBuscar.toLowerCase())
+                case 'modalidad':
+                    return trabajador.modalidad_laboral.toLowerCase().includes(valorBuscar.toLowerCase())
                 default:
                     break;
                 //return permiso.motivo.toLowerCase().includes(valorBuscar.toLowerCase())

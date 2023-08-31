@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import { rhApi } from "../../api"
-import { onAddNewDenominacion, onDeleteDenominacion, onLoadDenominacion, onSetActiveDenominacion, onUpdateDenominacion } from "../../store/distributivo";
+import { onAddNewDenominacion, onDeleteDenominacion, onLoadDenominacion, onSetActiveDenominacion, onUpdateDenominacion, clearMessageDenominacion } from "../../store/distributivo";
 
 export const useDenominacionPuestoStore = () => {
     const dispatch = useDispatch();
 
-    const { listDenominacion, activeDenominacion, clearMessageDenominacion } = useSelector(state => state.denominacionPuesto)
+    const { listDenominacion, activeDenominacion, mensajeDenominacion } = useSelector(state => state.denominacionPuesto)
 
     const startLoadingDenominacion = async () => {
         try {
@@ -24,15 +24,17 @@ export const useDenominacionPuestoStore = () => {
             await rhApi.post('/distributivo/denominacion/', denominacion);
             dispatch(onAddNewDenominacion({ ...denominacion }))
         }
+        setTimeout(() => {
+            dispatch(clearMessageDenominacion());
+        }, 3000);
     }
 
     const startDeletingDenominacion = async (denominacion) => {
-        const element = denominacion.id
         try {
-            if (element) {
-                await rhApi.delete(`/distributivo/denominacion/${element}`)
+            if (denominacion.id) {
+                await rhApi.delete(`/distributivo/denominacion/${denominacion.id}`)
             }
-            dispatch(onDeleteDenominacion());
+            dispatch(onDeleteDenominacion({ ...denominacion }));
         } catch (error) {
             console.log(error)
             console.log('Error al eliminar el denominacion ocupacional')
@@ -52,6 +54,7 @@ export const useDenominacionPuestoStore = () => {
         //*Propiedades
         listDenominacion,
         activeDenominacion,
+        mensajeDenominacion,
         //*Metodos
         startSavingDenominacion,
         startLoadingDenominacion,

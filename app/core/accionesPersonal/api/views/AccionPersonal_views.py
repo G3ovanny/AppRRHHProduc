@@ -20,10 +20,9 @@ class AccionPersonalViewSet(viewsets.ModelViewSet):
             else:
                 if accion_anterior:
                     ultima_accion = accion_anterior.latest('id')
-                    contador = ultima_accion.contador
-                    accion_serializer.save(contador= contador + 1)
+                    conta = ultima_accion.contador
+                    accion_serializer.save(contador = conta + 1)
                 else:
-                    
                     accion_serializer.save()
            
             return Response({'mensaje': 'Acción de personal creada correctamente'}, status= status.HTTP_200_OK)

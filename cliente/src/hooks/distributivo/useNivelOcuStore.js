@@ -24,15 +24,17 @@ export const useNivelOcuStore = () => {
             await rhApi.post('/distributivo/nivel/', nivel);
             dispatch(onAddNewNivel({ ...nivel }))
         }
+        setTimeout(() => {
+            dispatch(clearMessageNivel());
+        }, 3000);
     }
 
     const startDeletingNivel = async (nivel) => {
-        const element = nivel.id
         try {
-            if (element) {
-                await rhApi.delete(`/distributivo/nivel/${element}`)
+            if (nivel.id) {
+                await rhApi.delete(`/distributivo/nivel/${nivel.id}`)
             }
-            dispatch(onDeleteNivel());
+            dispatch(onDeleteNivel({...nivel}));
         } catch (error) {
             console.log(error)
             console.log('Error al eliminar el nivel ocupacional')

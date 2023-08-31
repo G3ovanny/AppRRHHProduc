@@ -241,16 +241,16 @@ export const DocPdf = React.forwardRef((props, ref) => {
                             </Box>
                             <Box style={styles.rect_dos}>
                                 <Typography style={styles.text} >
-                                    No.
+                                    No. {data.num_doc}
                                 </Typography>
                                 <Typography style={styles.text} >
-                                    FECHA:
+                                    FECHA: {data.fecha_doc}
                                 </Typography>
                             </Box>
                             <Box style={styles.rect_cuatro}>
                                 <Box style={styles.rect_pequeño}>
                                     <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.nombres} paddingTop={"10px"}>{data.apellido_paterno} {data.apellido_materno}</Typography>
+                                        <Typography style={styles.nombres}>{data.apellido_paterno} {data.apellido_materno}</Typography>
                                     </Box>
                                     <Box style={styles.rect_pequeño_tres}>
                                         <Typography style={styles.text} >APELLIDOS</Typography>

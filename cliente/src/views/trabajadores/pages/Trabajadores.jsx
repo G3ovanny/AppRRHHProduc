@@ -6,8 +6,9 @@ import { useArchivoStore, useModalStore, useTrabStore } from '../../../hooks'
 
 
 
+
 export const Trabajadores = () => {
-  const { startSavingListTrab } = useTrabStore();
+  const {  setActiveTrab } = useTrabStore();
   const { startSavingArchivo, mensaje } = useArchivoStore();
   const { openModal, nameModal } = useModalStore()
   const [ vista, setVista ] = useState('list')
@@ -19,6 +20,7 @@ export const Trabajadores = () => {
   }
 
   const handeleAddTrabajador = () => {
+    setActiveTrab('')
     openModal('Nuevo Servidor')
   }
   const handleView = (e, vista) => {
@@ -44,7 +46,7 @@ export const Trabajadores = () => {
         </Typography>
 
 
-        <Tooltip title="Cargar" color="secondary" >
+        <Tooltip title="Carga multiple" color="secondary" >
           <IconButton >
             <label htmlFor="btnFile" >
               <UploadOutlined />
@@ -66,7 +68,7 @@ export const Trabajadores = () => {
             <PersonAdd />
           </IconButton>
         </Tooltip>
-        <Tooltip title="Lista" color="secondary" >
+        {/* <Tooltip title="Lista" color="secondary" >
           <IconButton
             onClick={e => handleView(e, 'list')}
           >
@@ -79,7 +81,7 @@ export const Trabajadores = () => {
           >
             <BadgeOutlined />
           </IconButton>
-        </Tooltip>
+        </Tooltip> */}
       </Toolbar>
       <Divider />
       <Toolbar>

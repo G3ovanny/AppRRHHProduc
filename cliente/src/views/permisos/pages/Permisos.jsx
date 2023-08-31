@@ -5,10 +5,12 @@ import { PermisoModal, Table } from '../components'
 import { useModalStore, usePermisoStore } from '../../../hooks'
 
 export const Permisos = () => {
+    
     const { openModal, nameModal } = useModalStore();
-    const { mensajePermiso } = usePermisoStore();
+    const { mensajePermiso, setActivePermiso } = usePermisoStore();
     
     const handleAddPermiso = () => {
+        setActivePermiso('')
         openModal('Nuevo Permiso')
     }
     return (

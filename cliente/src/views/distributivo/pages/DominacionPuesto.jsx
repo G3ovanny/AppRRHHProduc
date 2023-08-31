@@ -11,7 +11,7 @@ const formData = {
 }
 
 export const DominacionPuesto = () => {
-  const { listDenominacion, startDeletingDenominacion, setActiveDenominacion, startSavingDenominacion, startLoadingDenominacion, activeDenominacion, inicialDenominacion = [] } = useDenominacionPuestoStore();
+  const { listDenominacion, startDeletingDenominacion, setActiveDenominacion, startSavingDenominacion, startLoadingDenominacion, activeDenominacion, inicialDenominacion = [], mensajeDenominacion } = useDenominacionPuestoStore();
 
   const [resultadoBusqueda, setResultadoBusqueda] = useState('')
 
@@ -89,9 +89,9 @@ export const DominacionPuesto = () => {
           className='animate__animated animate__backInRight'
           item
           sx={{ flex: ' 1 1 100%' }}
-          display={!!mensaje ? '' : 'none'}
+          display={!!mensajeDenominacion ? '' : 'none'}
         >
-          <Alert severity='success' >{mensaje}</Alert>
+          <Alert severity='success' >{mensajeDenominacion}</Alert>
         </Grid>
       </Toolbar>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 3, sm: 3, md: 3 }}>

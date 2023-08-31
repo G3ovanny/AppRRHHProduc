@@ -32,17 +32,14 @@ export const modalidadLaboralSlice = createSlice({
             })
             state.mensajeModalidad = 'Los datos se actualizaron correctamente'
         },
-        onDeleteModalidad: (state) => {
-            const modalidadActivo = state.activeModalidad
-            for (let i = 0; i < modalidadActivo.length; i++) {
-                const element = modalidadActivo[i].id;
-                if (element) {
-                    state.listModalidad = state.listModalidad.filter(modalidadLaboral => modalidadLaboral.id !== element);
-                    state.activeModalidad = [];
-                    state.inicialModalidad = [];
-                    state.mensajeModalidad = 'Los datos se han eliminado correctamente'
-                }
+        onDeleteModalidad: (state, { payload }) => {
+            if (payload.id) {
+                state.listModalidad = state.listModalidad.filter(modalidadLaboral => modalidadLaboral.id !== payload.id);
+                state.activeModalidad = [];
+                state.inicialModalidad = [];
+                state.mensajeModalidad = 'Los datos se han eliminado correctamente'
             }
+
         },
         onLoadModalidad: (state, { payload }) => {
             state.isLoadingModalidad = false;

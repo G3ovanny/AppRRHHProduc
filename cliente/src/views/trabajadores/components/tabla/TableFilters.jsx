@@ -3,18 +3,9 @@ import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import React, { useEffect, useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { filterOptions } from './tableFilterIndex';
 
-const filterOptions = [
-    {
-        id: 'cedulaTrab',
-        label: 'Cédula',
-    },
-    {
-        id: 'nombresTrab',
-        label: 'Nombres',
-    },
 
-]
 export const TableFilters = (props) => {
     const [valorBuscar, setValorBuscar] = useState('')
     const [columnaBuscar, setColumnaBuscar] = useState('cedulaTrab')

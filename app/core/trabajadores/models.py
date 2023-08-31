@@ -75,7 +75,7 @@ class Trabajador(BaseModel):
         verbose_name = 'trabajador'
         verbose_name_plural = 'trabajadores'
         db_table = 'Trabajador'
-        ordering = ['id']
+        ordering = ['nombres']
 
     def __str__(self):
         return f'{self.nombres}'

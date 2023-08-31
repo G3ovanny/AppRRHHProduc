@@ -6,18 +6,14 @@ import { TableButtons } from './TableButtons';
 import { indexCells } from './tableindex';
 import { Box } from '@mui/material';
 import { TableFilters } from './TableFilters';
+import dayjs from 'dayjs';
 
 export const Table = ({ title }) => {
   const { listAsistencia, startLoadingAsistencia, setActiveAsistencia, activeAsistencia } = useAsistenciaStore();
 
   const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
-
   const handleBuscar = (valorBuscar, columna, fechaDesde, fechaHasta) => {
     const resultadosFiltrados = listAsistencia.filter((asistencia) => {
-      //return dayjs(asistencia.hora).isBetween(fechaDesde, fechaHasta)
-      //se filt
-      //'regLaboral',
-      //'estado',
       switch (columna) {
         case 'cedulaTrab':
           return asistencia.numero_identificacion.includes(valorBuscar)
@@ -25,6 +21,8 @@ export const Table = ({ title }) => {
           return asistencia.nombres.toLowerCase().includes(valorBuscar.toLowerCase())
         case 'regLaboral':
           return asistencia.regimen_laboral.toLowerCase().includes(valorBuscar.toLowerCase())
+        case 'edificio':
+          return asistencia.edificio.toLowerCase().includes(valorBuscar.toLowerCase())
         default:
           return asistencia.estado.toLowerCase().includes(valorBuscar.toLowerCase())
       }
@@ -48,6 +46,8 @@ export const Table = ({ title }) => {
     });
     setResultadoBusqueda(resultadosFiltrados);
   }
+
+
 
   useEffect(() => {
     setResultadoBusqueda()

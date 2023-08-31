@@ -1,37 +1,55 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { IconButton, Tooltip } from '@mui/material';
 import { DeleteOutline, Edit, EditOutlined, LocalPrintshopOutlined, NoteAddOutlined } from '@mui/icons-material';
 import { useAccionPersonalStore, useCronogramaVacacionesStore, useForm, useModalStore } from '../../../../hooks'
 import { VacacionesDocPdf } from '../documentoPDF';
 import { useReactToPrint } from 'react-to-print'
 import dayjs from 'dayjs';
+import { useSelector } from 'react-redux';
 
 
 export const TableButtons = () => {
-    const { activeCronograma, startSavingCronograma, startDeletingCrongrama } = useCronogramaVacacionesStore();
+
+    const { activeCronograma, startSavingCronograma, startDeletingCrongrama, setChangeMessageCronograma } = useCronogramaVacacionesStore();
     const { startLoadingAccion, listAccion, startSavingAccion } = useAccionPersonalStore();
     const { openModal } = useModalStore();
 
     const componentRef = useRef();
     const numActivos = activeCronograma.length;
 
+    const ultAccion = () => {
+        if (listAccion.length > 0) {
+            let ultimoID = -1;
+            for (let i = 0; i < listAccion.length; i++) {
+                if (listAccion[i].id > ultimoID) {
+                    ultimoID = listAccion[i].id;
+                }
+            }
+
+            const accionUltimoId = listAccion.find(accion => accion.id === ultimoID);
+            const accionCont = accionUltimoId.contador
+            return accionCont
+        } else {
+            const accionCont = 0
+            return accionCont
+        }
+    }
 
     const handleAccion = () => {
 
-        startLoadingAccion()
-        const unltAccion = listAccion[listAccion.length - 1]
+        const accionUltimoId = ultAccion()
+
         let contUltiAccion
 
         for (let i = 0; i < activeCronograma.length; i++) {
 
-            if (unltAccion) {
-                contUltiAccion = unltAccion.contador + 1
+            if (accionUltimoId) {
+                contUltiAccion = accionUltimoId.contador + 1
             } else {
                 contUltiAccion = 1
             }
 
             const sigCont = contUltiAccion + i
-
             const element = activeCronograma[i];
             const estadoAccion = element.estado_accion
 
@@ -50,7 +68,8 @@ export const TableButtons = () => {
                 }
                 startSavingCronograma(formDataCronograma)
             } else {
-                console.log('La acción de personal ya esta creada')
+                const mensaje = 'La acción de personal ya esta creada'
+                setChangeMessageCronograma(mensaje)
             }
         }
     }
@@ -66,6 +85,11 @@ export const TableButtons = () => {
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     })
+
+    useEffect(() => {
+        startLoadingAccion()
+    }, [])
+
 
     return (
         <>

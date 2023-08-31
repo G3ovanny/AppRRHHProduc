@@ -9,19 +9,8 @@ from ..asistencias.models import Asistencia
 
 # Register your models here.
 
-# TODO
-# FILTRAR USUARIOS POR NOMBRES
-# CONSULTAR EL REGIMEN DE CADA UNO DE LOS USUARIOS DEL BIOMETRICO
-# AGREGAR UNA NUEVA COLUMNA EN EL DF CON EL NOMBRE DE CEDULA
-# AGREGAR UNA NUEVA COLUMNA EN EL DF CON EL NOMBRE DE REGIMEN
-# AGREGAR LA CEDULA DE CADA UNO DE LOS USUARIOS DEL BIOMETRICO EN LA COLUMNA CEDULA
-# DISTRIBUIR POR REGIMEN A CADA UNO DE LOS USUARIOS DEL BIOMETRICO
-# ANALISAR LAS ASISTENCIAS DE GRUPO DE TRABAJADORES(SERVICIOS)
-# CARGAR A LA BASE DE DATOS LA INFORMACION DEL DF
-
-
 def cargar_datos(documento):
-    engine = create_engine('postgresql+psycopg2://postgres:admin123@localhost:5432/TalentoHumano_db')
+    engine = create_engine('postgresql+psycopg2://postgres:admin@localhost:5432/TalentoHumano_db')
     nuevoDocumento = documento[[
         'id_trabajador_id',
         'fecha_registro',

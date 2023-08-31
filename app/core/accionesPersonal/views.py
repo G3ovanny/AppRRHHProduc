@@ -10,7 +10,7 @@ from ..trabajadores.models import Trabajador
 #me permite generar acciones de personal de forma masiva utilizando la libria pandas#
 def analisis_Archivo():
     engine = create_engine(
-        'postgresql+psycopg2://postgres:admin123@localhost:5432/TalentoHumano_db')
+        'postgresql+psycopg2://postgres:admin@localhost:5432/TalentoHumano_db')
 
     documento = ArchivoAcciones.objects.latest('id').doc
     docAcciones = pd.read_excel(documento, index_col=False, converters={

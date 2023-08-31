@@ -32,16 +32,12 @@ export const nivelOcupacionalSlice = createSlice({
             })
             state.mensaje = 'Los datos se actualizaron correctamente'
         },
-        onDeleteNivel: (state) => {
-            const nivelgActivo = state.activeNivel
-            for (let i = 0; i < nivelgActivo.length; i++) {
-                const element = nivelgActivo[i].id;
-                if (element) {
-                    state.listNivel = state.listNivel.filter(nivelOcupacional => nivelOcupacional.id !== element);
-                    state.activeNivel = [];
-                    state.inicialNivel = [];
-                    state.mensaje = 'Los datos se han eliminado correctamente'
-                }
+        onDeleteNivel: (state, { payload }) => {
+            if (payload.id) {
+                state.listNivel = state.listNivel.filter(nivelOcupacional => nivelOcupacional.id !== payload.id);
+                state.activeNivel = [];
+                state.inicialNivel = [];
+                state.mensaje = 'Los datos se han eliminado correctamente'
             }
         },
         onLoadNivel: (state, { payload }) => {

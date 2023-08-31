@@ -1,11 +1,11 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { onAddNewCronograma, onDeleteCronograma, onLoadCronograma, onSetActiveCronograma, onUpdateCronograma } from '../../store';
+import { onAddNewCronograma, onDeleteCronograma, onLoadCronograma, onSetActiveCronograma, onUpdateCronograma, onChangeMessageCreonograma, clearMessageCronograma } from '../../store';
 import { rhApi } from '../../api';
 
 export const useCronogramaVacacionesStore = () => {
     const dispatch = useDispatch();
-    const { listCronograma, activeCronograma, clearMessageCronograma } = useSelector(state => state.cronograma)
+    const { listCronograma, activeCronograma, mensajeCronograma } = useSelector(state => state.cronograma)
 
     const startLoadingCronograma = async () => {
         try {
@@ -24,6 +24,9 @@ export const useCronogramaVacacionesStore = () => {
             await rhApi.post('/vacaciones/cronograma/', cronograma);
             dispatch(onAddNewCronograma({ ...cronograma }))
         }
+        setTimeout(() => {
+            dispatch(clearMessageCronograma());
+        }, 3000);
     }
 
     const startDeletingCrongrama = async () => {
@@ -49,15 +52,24 @@ export const useCronogramaVacacionesStore = () => {
         dispatch(onSetActiveCronograma(cronograma))
     }
 
+    const setChangeMessageCronograma = (mensaje) => {
+        dispatch(onChangeMessageCreonograma(mensaje))
+        setTimeout(() => {
+            dispatch(clearMessageCronograma());
+        }, 3000);
+    }
+
 
     return {
         //*Propiedades
         listCronograma,
         activeCronograma,
+        mensajeCronograma,
         //*Metodos
         startSavingCronograma,
         startLoadingCronograma,
         startDeletingCrongrama,
         setActiveCronograma,
+        setChangeMessageCronograma,
     }
 }

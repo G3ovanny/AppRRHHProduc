@@ -2,7 +2,7 @@ import { Navigate, Route, Router, Routes, Link, Outlet } from 'react-router-dom'
 import { LoginPage } from '../auth/pages/LoginPage'
 import { useAuthStore } from '../hooks'
 import { useEffect } from 'react'
-import { AccionesPersonal, Cronograma, Dashboard } from '../views'
+import { AccionesPersonal, Cronograma, Dashboard, Usuarios } from '../views'
 import { ThBase } from '../views/base'
 import { Trabajadores } from '../views/trabajadores/pages/Trabajadores'
 import { MotivoPermisos, Permisos } from '../views/permisos/pages'
@@ -10,6 +10,7 @@ import { Parametros } from '../views/distributivo'
 import { Navbar } from '../layout'
 import { Box, Toolbar } from '@mui/material'
 import { Asistencias } from '../views/asistencias'
+
 
 export const AppRouter = () => {
     const { status, checkAuthToken } = useAuthStore();
@@ -62,7 +63,8 @@ export const AppRouter = () => {
                                     <Route path='/cronograma' element={<Cronograma />} />
                                     {/* ASISTENCIAS*/}
                                     <Route path='/asistencia' element={<Asistencias />} />
-
+                                    {/* USUARIOS */}
+                                    <Route path='/usuarios' element = {<Usuarios />} />
                                 </Routes>
                             </Box>
                         </Box>

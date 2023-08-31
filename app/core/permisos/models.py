@@ -23,7 +23,7 @@ class MotivoPermiso(BaseModel):
         verbose_name = 'motivo de permiso',
         verbose_name_plural = 'motivos del permiso'
         db_table= 'Motivo_Permiso'
-        ordering = ['id']
+        ordering = ['motivo']
 
     def __str__(self):
         return f'{self.id} {self.motivo}'

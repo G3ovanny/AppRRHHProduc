@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 import { Box, Button, Grid, List, Paper, Toolbar, Typography } from '@mui/material'
 import { useAuthStore, useTrabStore } from '../../../hooks';
-import { Cards, ChartAtrasosoMes, ChartPermisosMes, ChartTrabModalidad, ChartTrabTRegimen } from '../components';
+import { Cards, ChartAtrasosoMes, ChartMasPermisoMes, ChartPermisosMes, ChartTrabModalidad, ChartTrabTRegimen } from '../components';
 import { Group } from '@mui/icons-material';
 
 export const Dashboard = () => {
@@ -49,7 +49,7 @@ export const Dashboard = () => {
             </Grid>
             {/* Fila 3 */}
             <Grid item xs={12}>
-              <Cards />
+              {/* <Cards /> */}
             </Grid>
           </Grid>
         </Grid>
@@ -67,13 +67,13 @@ export const Dashboard = () => {
             {/* Fila 2 */}
             <Grid item xs={12}>
               <Cards
-                titulo={'Atrasos por mes'}
-                children={<ChartAtrasosoMes />}
+                titulo={'Servidores con mas permisos'}
+                children={<ChartMasPermisoMes />}
               />
             </Grid>
             {/* Fila 3 */}
             <Grid item xs={12}>
-              <Cards />
+              {/* <Cards /> */}
             </Grid>
           </Grid>
         </Grid>
@@ -90,11 +90,11 @@ export const Dashboard = () => {
             </Grid>
             {/* Fila 2 */}
             <Grid item xs={12}>
-              <Cards />
+              {/* <Cards /> */}
             </Grid>
             {/* Fila 3 */}
             <Grid item xs={12}>
-              <Cards />
+              {/* <Cards /> */}
             </Grid>
           </Grid>
         </Grid>

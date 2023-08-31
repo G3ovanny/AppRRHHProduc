@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
         borderBottom: "3px solid #000000",
         flexDirection: "column",
         alignItems: "center",
+        //maxHeight: "100px",
     },
     rect_pequeño_uno: {
         display: "flex",
@@ -93,6 +94,7 @@ const styles = StyleSheet.create({
         width: "100%",
         flexDirection: "column",
         alignItems: "center",
+        //maxHeight: "200px",
     },
     explicacion: {
         borderBottom: "3px solid #000000",
@@ -102,7 +104,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         display: "flex",
         width: "100%",
-        minHeight: "120px",
+        minHeight: "100px",
         justifyContent: "center"
     },
     firmas: {

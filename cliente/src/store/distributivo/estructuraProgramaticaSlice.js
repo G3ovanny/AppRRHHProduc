@@ -33,17 +33,14 @@ export const estructuraProgramaticaSlice = createSlice({
             })
             state.mensajeEstructura = 'Los datos se actualizaron correctamente'
         },
-        onDeleteEstructura: (state) => {
-            const estructura = state.activeEstructura
-            for (let i = 0; i < estructura.length; i++) {
-                const element = estructura[i].id;
-                if (element) {
-                    state.listEstructura = state.listEstructura.filter(estructuraProgramatica => estructuraProgramatica.id !== element);
-                    state.activeEstructura = [];
-                    state.inicialEstructura = [];
-                    state.mensajeEstructura = 'Los datos se han eliminado correctamente'
-                }
+        onDeleteEstructura: (state, { payload }) => {
+            if (payload.id) {
+                state.listEstructura = state.listEstructura.filter(estructuraProgramatica => estructuraProgramatica.id !== payload.id);
+                state.activeEstructura = [];
+                state.inicialEstructura = [];
+                state.mensajeEstructura = 'Los datos se han eliminado correctamente'
             }
+
         },
         onLoadEstructura: (state, { payload }) => {
             state.isLoadinEstructura = false;

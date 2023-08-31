@@ -27,7 +27,7 @@ class Regimen_Laboral(BaseModel):
         verbose_name = 'regimen laboral'
         verbose_name_plural = 'regimen laboral'
         db_table = 'Regimen_laboral'
-        ordering = ['id']
+        ordering = ['regimen_laboral']
 
 
 class Nivel_Ocupacional(BaseModel):
@@ -52,7 +52,7 @@ class Nivel_Ocupacional(BaseModel):
         verbose_name = 'nivel ocupacional'
         verbose_name_plural = 'nivel ocupacional'
         db_table = 'Nivel_ocupacional'
-        ordering = ['id']
+        ordering = ['nivel_ocupacional']
 
 
 class Modalidad_Laboral(BaseModel):
@@ -77,7 +77,7 @@ class Modalidad_Laboral(BaseModel):
         verbose_name = 'modalidad laboral'
         verbose_name_plural = 'modalidades laborales'
         db_table = 'Modalida_Laboral'
-        ordering = ['id']
+        ordering = ['modalidad_laboral']
 
 
 class Estado_Puesto(BaseModel):
@@ -100,7 +100,7 @@ class Estado_Puesto(BaseModel):
         verbose_name = 'estado puesto'
         verbose_name_plural = 'estados puesto'
         db_table = 'Estado_puesto'
-        ordering = ['id']
+        ordering = ['estado_puesto']
 
 
 class Grado(BaseModel):
@@ -123,7 +123,7 @@ class Grado(BaseModel):
         verbose_name = 'grado'
         verbose_name_plural = 'grados'
         db_table = 'Grado'
-        ordering = ['id']
+        ordering = ['grado']
 
 
 class Denominacion_Puesto(BaseModel):
@@ -148,7 +148,7 @@ class Denominacion_Puesto(BaseModel):
         verbose_name = 'denominacion puesto'
         verbose_name_plural = 'denominaciones puestos'
         db_table = 'Denominacion_Puesto'
-        ordering = ['id']
+        ordering = ['denominacion_puesto']
 
 
 class Unidad_Organica(BaseModel):
@@ -196,4 +196,4 @@ class Estructura_Programatica(BaseModel):
         verbose_name = 'estructura programatica'
         verbose_name_plural = 'estructuras programaticas'
         db_table = 'Estructura_Programatica'
-        ordering = ['id']
+        ordering = ['estructura_programatica']

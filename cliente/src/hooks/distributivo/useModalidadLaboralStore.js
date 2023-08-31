@@ -25,15 +25,17 @@ export const useModalidadLaboralStore = () => {
             await rhApi.post('/distributivo/modalidad/', modalidad);
             dispatch(onAddNewModalidad({ ...modalidad }))
         }
+        setTimeout(() => {
+            dispatch(clearMessageModalidad());
+        }, 3000);
     }
 
     const startDeletingModalidad = async (modalidad) => {
-        const element = modalidad.id
         try {
-            if (element) {
-                await rhApi.delete(`/distributivo/modalidad/${element}`)
+            if (modalidad.id) {
+                await rhApi.delete(`/distributivo/modalidad/${modalidad.id}`)
             }
-            dispatch(onDeleteModalidad());
+            dispatch(onDeleteModalidad({ ...modalidad }));
         } catch (error) {
             console.log(error)
             console.log('Error al eliminar el modalidad ocupacional')

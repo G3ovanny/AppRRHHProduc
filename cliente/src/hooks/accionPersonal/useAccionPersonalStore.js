@@ -1,13 +1,13 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { rhApi } from '../../api';
-import { onAddNewAccion, onDeleteAccion, onLoadAccion, onSetActiveAccion, onUpdateAccion } from '../../store/accionPersonal';
+import { onAddNewAccion, onDeleteAccion, onLoadAccion, onSetActiveAccion, onUpdateAccion, clearMessageAccion } from '../../store/accionPersonal';
 
 
 export const useAccionPersonalStore = () => {
     const dispatch = useDispatch();
 
-    const { listAccion, activeAccion, clearMessageAccion } = useSelector(state => state.accionPersonal)
+    const { listAccion, activeAccion, mensajeAccion } = useSelector(state => state.accionPersonal)
 
     const startLoadingAccion = async () => {
         try {
@@ -25,6 +25,9 @@ export const useAccionPersonalStore = () => {
             await rhApi.post(`/acciones/accion/`, accion);
             dispatch(onAddNewAccion({ ...accion }))
         }
+        setTimeout(() => {
+            dispatch(clearMessageAccion());
+        }, 3000);
     }
     const startDeletingAccion = async () => {
         try {
@@ -51,6 +54,7 @@ export const useAccionPersonalStore = () => {
         //*Propiedades
         listAccion,
         activeAccion,
+        mensajeAccion,
         //*Metodos
         startSavingAccion,
         startLoadingAccion,

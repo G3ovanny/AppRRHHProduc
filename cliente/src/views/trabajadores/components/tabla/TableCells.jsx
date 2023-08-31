@@ -2,7 +2,7 @@ import React from 'react'
 import { Checkbox, TableBody, TableCell, TableRow } from '@mui/material'
 import { useTrabStore } from '../../../../hooks'
 
-export const TableCells = ({list}) => {
+export const TableCells = ({ list }) => {
 
     const { trabajadores, activeTrab, setActiveTrab } = useTrabStore();
 
@@ -30,12 +30,13 @@ export const TableCells = ({list}) => {
     const isSelected = (id) => activeTrab.indexOf(id) !== -1
 
     let lista = null
-    
+
     if (!list) {
         lista = trabajadores
     } else {
         lista = list
     }
+
 
     return (
         <TableBody

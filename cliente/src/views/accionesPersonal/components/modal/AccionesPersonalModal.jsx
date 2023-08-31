@@ -10,7 +10,6 @@ import { tipos_accion, tipos_doc } from '../../tipos-accion'
 
 
 const tipos_acc = tipos_accion.tipos
-
 const tipos_docBase = tipos_doc.tipos
 
 const style = {
@@ -64,16 +63,45 @@ export const AccionesPersonalModal = ({ titleModal }) => {
     const [inputValue, setInputValue] = React.useState('');
 
     let component = null;
-    const {
-        id_trabajador,
 
+    const formValidations = {
+        id_trabajador: [
+            (value) => !!value,
+            'El campo es obligatorio'
+        ],
+        fecha_accion: [
+            (value) => !!value && value.length > 0 !== '',
+            'El campo es obligatorio'
+        ],
+        fecha_rigue: [
+            (value) => !!value && value.length > 0 !== '',
+            'El campo es obligatorio'
+        ],
+        tipo_accion: [
+            (value) => !!value,
+            'El campo es obligatorio'
+        ],
+        explicacion: [
+            (value) => !!value,
+            'El campo es obligatorio'
+        ],
+    }
+
+
+    const {
+        id_trabajadorValid,
+        fecha_accionValid,
+        fecha_rigueValid,
+        tipo_accionValid,
+        explicacionValid,
+
+        id_trabajador,
         proceso_propuesta,
         subproceso_propuesta,
         puesto_propuesta,
         rmu_propuesta,
         estructura_propuesta,
         partida_propuesta,
-
         fecha_accion,
         fecha_rigue,
         tipo_accion,
@@ -82,17 +110,26 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         fecha_doc,
         explicacion,
         contador,
-
         onInputChange,
         isFormValid,
+        onResetForm,
         formState,
         setFormState
-    } = useForm(formData);
+    } = useForm(formData, formValidations);
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        startSavingAccion(formState)
+        if (isFormValid) {
+            startSavingAccion(formState)
+            closeModal()
+            onResetForm()
+        } else {
+            console.log('Error en el formulario')
+        }
+    }
+    const handleCancel = () => {
         closeModal()
+        onResetForm()
     }
     useEffect(() => {
         startLoadingTrab()
@@ -135,6 +172,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                         <Grid item container columnSpacing={{ xs: 2, sm: 2, md: 2 }}>
                             <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
                                 <Autocomplete
+                                    error={id_trabajadorValid !== null}
                                     size='small'
                                     //value={component.cedula}
                                     options={trabajadores}
@@ -225,6 +263,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                             <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <DatePicker
+                                        error={fecha_accionValid !== null}
                                         format="D/M/YYYY"
                                         label="Fecha de acción personal"
                                         slotProps={{ textField: { size: 'small' } }}
@@ -237,6 +276,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                             <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <DatePicker
+                                        error={fecha_rigueValid !== null}
                                         format="D/M/YYYY"
                                         label="Rigue a partir de:"
                                         slotProps={{ textField: { size: 'small' } }}
@@ -254,6 +294,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                 >
                                     <InputLabel id="demo-simple-select-label">Tipo acción de personal </InputLabel>
                                     <Select
+                                        error ={tipo_accionValid !== null}
                                         labelId="demo-simple-select-label"
                                         id="demo-simple-select"
                                         label="Tipo acción de personal"
@@ -289,8 +330,10 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                     <TextField sx={{ minWidth: 180 }} size="small"
                                         id="outlined-read-only-input"
                                         label="Proceso actual"
-                                        defaultValue={component.puesto}
-                                        readOnly
+                                        autoComplete='false'
+                                        //defaultValue={component.puesto}
+                                        type='text'
+                                        //readOnly
                                         fullWidth
                                         value={component.puesto || ''}
                                         onChange={onInputChange}
@@ -300,8 +343,10 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                     <TextField sx={{ minWidth: 180 }} size="small"
                                         id="outlined-read-only-input"
                                         label="Subproceso actual"
-                                        defaultValue={component.puesto}
-                                        readOnly
+                                        autoComplete='false'
+                                        //defaultValue={component.puesto}
+                                        type='text'
+                                        //readOnly
                                         fullWidth
                                         value={component.puesto || ''}
                                         onChange={onInputChange}
@@ -470,14 +515,16 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                         >
                             <Button
                                 variant="outlined"
-                                startIcon={<CancelScheduleSend />}
+                                //startIcon={<CancelScheduleSend />}
+                                onClick={handleCancel}
                             >
                                 Cancelar
                             </Button>
                             <Button
                                 variant='contained'
-                                startIcon={<Send />}
+                                //startIcon={<Send />}
                                 onClick={onSubmit}
+                                disabled={!isFormValid}
                             >
                                 Guardar
                             </Button>

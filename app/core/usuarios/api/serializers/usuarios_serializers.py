@@ -11,14 +11,13 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ('username', 'correo', 'nombre', 'apellido_paterno')
+        fields = ('id','username', 'correo', 'nombre', 'apellido_paterno', 'is_staff')
 
 
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        exclude = ('is_superuser', 'is_staff', 'last_login', 'groups', 'user_permissions')
-        #fields = ("__all__")
+        exclude = ('is_superuser', 'last_login', 'groups', 'user_permissions')
 
 
 class UsuarioUpdateSerializer(serializers.ModelSerializer):

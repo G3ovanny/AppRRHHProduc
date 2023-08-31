@@ -33,17 +33,13 @@ export const regimenSlice = createSlice({
             })
             state.mensaje = 'Los datos se actualizaron correctamente'
         },
-        onDeleteReg: (state) => {
-            const regActivo = state.activeReg
-            for (let i = 0; i < regActivo.length; i++) {
-                const element = regActivo[i].id;
-                if (element) {
-                    state.listReg = state.listReg.filter(regimen => regimen.id !== element);
-                }
+        onDeleteReg: (state, { payload }) => {
+            if (payload.id) {
+                state.listReg = state.listReg.filter(regimen => regimen.id !== payload.id);
+                state.activeReg = [];
+                state.inicialReg = [];
+                state.mensaje = 'Los datos se han eliminado correctamente'
             }
-            state.activeReg = [];
-            state.inicialReg = [];
-            state.mensaje = 'Los datos se han eliminado correctamente'
         },
         onLoadReg: (state, { payload }) => {
             state.isLoadingReg = false;

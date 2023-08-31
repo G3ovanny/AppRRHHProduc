@@ -53,10 +53,8 @@ export const ChartAtrasosoMes = () => {
         ]
     };
     return (
-        <>
             <ReactECharts
                 option={option}
             />
-        </>
     )
 }

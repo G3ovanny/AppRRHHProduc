@@ -53,8 +53,8 @@ export const RegimenLaboral = () => {
     formState,
     setFormState } = useForm(formData, formValidations);
 
-  const handleDelete = () => {
-    startDeletingReg()
+  const handleDelete = (e, element) => {
+    startDeletingReg(element)
   }
 
   const handleEdit = (e, element) => {
@@ -158,7 +158,7 @@ export const RegimenLaboral = () => {
                             />
                             <Tooltip title="Eliminar" color="error">
                               <IconButton
-                                onClick={handleDelete}
+                                onClick={e => handleDelete(e, regimen)}
                               >
                                 <DeleteOutline />
                               </IconButton>

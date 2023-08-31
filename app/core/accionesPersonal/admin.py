@@ -5,4 +5,4 @@ from .models import *
 
 @admin.register(AccionPersonal)
 class AccionPersonal_Admin(admin.ModelAdmin):
-    list_display=('id', 'tipo_accion')
+    list_display=('id', 'tipo_accion', 'contador')

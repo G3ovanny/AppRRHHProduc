@@ -8,6 +8,7 @@ import { permisoSlice } from './permisos'
 import { accionPersonalSlice, archivoAccionesSlice } from './accionPersonal'
 import { cronogramaVacacionesSlice } from './vacaciones'
 import { asistenciasSlice } from './asistencias'
+import { usuariosSlice } from './usuarios'
 
 export const store = configureStore({
     reducer: {
@@ -28,6 +29,7 @@ export const store = configureStore({
         archivoAcc: archivoAccionesSlice.reducer,
         cronograma: cronogramaVacacionesSlice.reducer,
         asistencia: asistenciasSlice.reducer,
+        usuarios: usuariosSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false

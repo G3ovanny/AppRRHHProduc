@@ -29,16 +29,17 @@ export const useRegimenStore = () => {
 
     }
 
-    const startDeletingReg = async () => {
+    const startDeletingReg = async (regimen) => {
         try {
-            if (element) {
-                await rhApi.delete(`/distributivo/regimen/${element}`)
+            if (regimen.id) {
+                await rhApi.delete(`/distributivo/regimen/${regimen.id}`)
             }
-            dispatch(onDeleteReg());
+            dispatch(onDeleteReg({...regimen}));
         } catch (error) {
             console.log(error)
             console.log('Error al eliminar el régimen')
         }
+
         setTimeout(() => {
             dispatch(clearMessage());
         }, 3000);

@@ -5,7 +5,7 @@ import { useAccionPersonalStore } from '../../../../hooks'
 import { Checkbox, TableBody, TableCell, TableRow } from '@mui/material';
 import dayjs from 'dayjs';
 
-export const TableCells = () => {
+export const TableCells = ({list}) => {
   const { listAccion, activeAccion, setActiveAccion } = useAccionPersonalStore();
 
   const onSelected = (event, accion) => {
@@ -29,12 +29,21 @@ export const TableCells = () => {
     setActiveAccion(newSelected)
   }
   const isSelected = (id) => activeAccion.indexOf(id) !== -1
+
+  let lista = null
+
+  if (!list) {
+    lista = listAccion
+  } else {
+    lista = list 
+  }
+
   return (
     <TableBody
       component="div"
     >
       {
-        listAccion.map((accion) => {
+        lista.map((accion) => {
           const isItemSelected = isSelected(accion);
 
           return (

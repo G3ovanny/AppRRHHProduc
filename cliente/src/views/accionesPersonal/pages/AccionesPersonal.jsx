@@ -2,10 +2,11 @@ import { NoteAdd, DriveFolderUpload } from '@mui/icons-material'
 import { Alert, Box, Divider, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Toolbar, Tooltip, Typography } from '@mui/material'
 import React from 'react'
 import { AccionesPersonalModal, Table } from '../components'
-import { useArchivoAccStore, useModalStore } from '../../../hooks'
+import { useAccionPersonalStore, useArchivoAccStore, useModalStore } from '../../../hooks'
 
 export const AccionesPersonal = () => {
     const { startSavingArchivoAcc, mensajeArchivoAcc } = useArchivoAccStore();
+    const { mensajeAccion, setActiveAccion } = useAccionPersonalStore();
     const { openModal, nameModal } = useModalStore()
     const [age, setAge] = React.useState('');
 
@@ -20,7 +21,15 @@ export const AccionesPersonal = () => {
         setAge(event.target.value);
     };
     const handleAddAccion = () => {
+        setActiveAccion([])
         openModal('Nueva Acción')
+    }
+
+    let mensaje
+    if (mensajeAccion) {
+        mensaje = mensajeAccion
+    }else {
+        mensaje = mensajeArchivoAcc
     }
     return (
         <Box>
@@ -67,9 +76,9 @@ export const AccionesPersonal = () => {
                     className='animate__animated animate__backInRight'
                     item
                     sx={{ flex: ' 1 1 100%' }}
-                    display={!!mensajeArchivoAcc ? '' : 'none'}
+                    display={!!mensaje ? '' : 'none'}
                 >
-                    <Alert severity='success' >{mensajeArchivoAcc}</Alert>
+                    <Alert severity='success' >{mensaje}</Alert>
 
                 </Grid>
             </Toolbar>

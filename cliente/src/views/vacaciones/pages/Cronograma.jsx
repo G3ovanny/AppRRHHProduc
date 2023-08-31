@@ -5,13 +5,14 @@ import { useCronogramaVacacionesStore, useModalStore } from '../../../hooks'
 import { CronogramaModal, Table } from '../components'
 
 export const Cronograma = () => {
-  const { mensajeCronograma } = useCronogramaVacacionesStore()
+  const { mensajeCronograma, setActiveCronograma } = useCronogramaVacacionesStore()
   const { openModal, nameModal } = useModalStore();
 
   const handleAddCronograma = () => {
+    setActiveCronograma([])
     openModal('Nuevo Cronograma')
   }
-
+  
   return (
     <Box>
       <Toolbar

@@ -1903,6 +1903,14 @@
         "documentation": {}
     },
     {
+        "label": "CustomUserSerializer",
+        "importPath": "core.usuarios.api.serializers.usuarios_serializers",
+        "description": "core.usuarios.api.serializers.usuarios_serializers",
+        "isExtraImport": true,
+        "detail": "core.usuarios.api.serializers.usuarios_serializers",
+        "documentation": {}
+    },
+    {
         "label": "UsuarioViewSet",
         "importPath": "core.usuarios.api.views.usuarios_views",
         "description": "core.usuarios.api.views.usuarios_views",
@@ -2570,7 +2578,7 @@
         "kind": 6,
         "importPath": "app.core.accionesPersonal.admin",
         "description": "app.core.accionesPersonal.admin",
-        "peekOfCode": "class AccionPersonal_Admin(admin.ModelAdmin):\n    list_display=('id', 'tipo_accion')",
+        "peekOfCode": "class AccionPersonal_Admin(admin.ModelAdmin):\n    list_display=('id', 'tipo_accion', 'contador')",
         "detail": "app.core.accionesPersonal.admin",
         "documentation": {}
     },
@@ -2606,7 +2614,7 @@
         "kind": 2,
         "importPath": "app.core.accionesPersonal.views",
         "description": "app.core.accionesPersonal.views",
-        "peekOfCode": "def analisis_Archivo():\n    engine = create_engine(\n        'postgresql+psycopg2://postgres:admin123@localhost:5432/TalentoHumano_db')\n    documento = ArchivoAcciones.objects.latest('id').doc\n    docAcciones = pd.read_excel(documento, index_col=False, converters={\n                                'numero_identificacion': lambda x: str(x)})\n    cedula = 'numero_identificacion' in docAcciones.columns\n    explic = 'En función de lo dispuesto en el literar gj del Art. 23 de la LOSEP, en concordancia con los Art. 20 y 30 del Reglamento de la misma Ley, se consede el uso de vacaciones mismas que estaran formadas desde el'\n    if cedula:\n        docAcciones['id_trabajador_id'] = ' '",
+        "peekOfCode": "def analisis_Archivo():\n    engine = create_engine(\n        'postgresql+psycopg2://postgres:admin@localhost:5432/TalentoHumano_db')\n    documento = ArchivoAcciones.objects.latest('id').doc\n    docAcciones = pd.read_excel(documento, index_col=False, converters={\n                                'numero_identificacion': lambda x: str(x)})\n    cedula = 'numero_identificacion' in docAcciones.columns\n    explic = 'En función de lo dispuesto en el literar gj del Art. 23 de la LOSEP, en concordancia con los Art. 20 y 30 del Reglamento de la misma Ley, se consede el uso de vacaciones mismas que estaran formadas desde el'\n    if cedula:\n        docAcciones['id_trabajador_id'] = ' '",
         "detail": "app.core.accionesPersonal.views",
         "documentation": {}
     },
@@ -2678,7 +2686,7 @@
         "kind": 2,
         "importPath": "app.core.asistencias.admin",
         "description": "app.core.asistencias.admin",
-        "peekOfCode": "def cargar_datos(documento):\n    engine = create_engine('postgresql+psycopg2://postgres:admin123@localhost:5432/TalentoHumano_db')\n    nuevoDocumento = documento[[\n        'id_trabajador_id',\n        'fecha_registro',\n        'estado',\n        'edificio',\n        'hora',\n        'state',\n    ]]",
+        "peekOfCode": "def cargar_datos(documento):\n    engine = create_engine('postgresql+psycopg2://postgres:admin@localhost:5432/TalentoHumano_db')\n    nuevoDocumento = documento[[\n        'id_trabajador_id',\n        'fecha_registro',\n        'estado',\n        'edificio',\n        'hora',\n        'state',\n    ]]",
         "detail": "app.core.asistencias.admin",
         "documentation": {}
     },
@@ -3371,7 +3379,7 @@
         "kind": 2,
         "importPath": "app.core.trabajadores.views",
         "description": "app.core.trabajadores.views",
-        "peekOfCode": "def analisis_trabajadores():\n    engine = create_engine(\n        'postgresql+psycopg2://postgres:admin@localhost:5432/TalentoHumano_db')\n    # engine = create_engine('postgresql+psycopg2://phhlodnsitnoam:965304b8f993a45fd005b0515bcdc205c4672180d6a2aab7304ab98d448ad887@ec2-3-219-111-26.compute-1.amazonaws.com:5432/d85gt08imns7s2')\n    documento = ArchivoTrabajadores.objects.latest('id').doc\n    distributivo = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)}, dtype={'cod_unidad_organica': str, 'cod_denominacion_puesto': str,'cod_regimen': str,'cod_modalidad': str,'nivel_ocupacional': str,'estructura_programatica': str})\n    # engine = create_engine('postgresql+psycopg2://phhlodnsitnoam:965304b8f993a45fd005b0515bcdc205c4672180d6a2aab7304ab98d448ad887@ec2-3-219-111-26.compute-1.amazonaws.com:5432/d85gt08imns7s2')\n    documento = ArchivoTrabajadores.objects.latest('id').doc\n    distributivo = pd.read_excel(documento, index_col=False, converters={\n                                 'numero_identificacion': lambda x: str(x)})",
+        "peekOfCode": "def analisis_trabajadores():\n    engine = create_engine('postgresql+psycopg2://postgres:admin@localhost:5432/TalentoHumano_db')\n    # engine = create_engine('postgresql+psycopg2://phhlodnsitnoam:965304b8f993a45fd005b0515bcdc205c4672180d6a2aab7304ab98d448ad887@ec2-3-219-111-26.compute-1.amazonaws.com:5432/d85gt08imns7s2')\n    documento = ArchivoTrabajadores.objects.latest('id').doc\n    distributivo = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)}, dtype={'cod_unidad_organica': str, 'cod_denominacion_puesto': str,'cod_regimen': str,'cod_modalidad': str,'nivel_ocupacional': str,'estructura_programatica': str})\n    # engine = create_engine('postgresql+psycopg2://phhlodnsitnoam:965304b8f993a45fd005b0515bcdc205c4672180d6a2aab7304ab98d448ad887@ec2-3-219-111-26.compute-1.amazonaws.com:5432/d85gt08imns7s2')\n    documento = ArchivoTrabajadores.objects.latest('id').doc\n    distributivo = pd.read_excel(documento, index_col=False, converters={\n                                 'numero_identificacion': lambda x: str(x)})\n    id_doc = ArchivoTrabajadores.objects.latest('id').id  # permite obtener el id del documento",
         "detail": "app.core.trabajadores.views",
         "documentation": {}
     },
@@ -3380,7 +3388,7 @@
         "kind": 6,
         "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
         "description": "app.core.usuarios.api.serializers.usuarios_serializers",
-        "peekOfCode": "class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):\n    pass\nclass CustomUserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        fields = ('username', 'correo', 'nombre', 'apellido_paterno')\nclass UsuarioSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('is_superuser', 'is_staff', 'last_login', 'groups', 'user_permissions')",
+        "peekOfCode": "class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):\n    pass\nclass CustomUserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        fields = ('id','username', 'correo', 'nombre', 'apellido_paterno', 'is_staff')\nclass UsuarioSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('is_superuser', 'last_login', 'groups', 'user_permissions')",
         "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
         "documentation": {}
     },
@@ -3389,7 +3397,7 @@
         "kind": 6,
         "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
         "description": "app.core.usuarios.api.serializers.usuarios_serializers",
-        "peekOfCode": "class CustomUserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        fields = ('username', 'correo', 'nombre', 'apellido_paterno')\nclass UsuarioSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('is_superuser', 'is_staff', 'last_login', 'groups', 'user_permissions')\n        #fields = (\"__all__\")\nclass UsuarioUpdateSerializer(serializers.ModelSerializer):",
+        "peekOfCode": "class CustomUserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        fields = ('id','username', 'correo', 'nombre', 'apellido_paterno', 'is_staff')\nclass UsuarioSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('is_superuser', 'last_login', 'groups', 'user_permissions')\nclass UsuarioUpdateSerializer(serializers.ModelSerializer):\n    class Meta:",
         "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
         "documentation": {}
     },
@@ -3398,7 +3406,7 @@
         "kind": 6,
         "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
         "description": "app.core.usuarios.api.serializers.usuarios_serializers",
-        "peekOfCode": "class UsuarioSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('is_superuser', 'is_staff', 'last_login', 'groups', 'user_permissions')\n        #fields = (\"__all__\")\nclass UsuarioUpdateSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password', 'is_staff')",
+        "peekOfCode": "class UsuarioSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('is_superuser', 'last_login', 'groups', 'user_permissions')\nclass UsuarioUpdateSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password', 'is_staff')",
         "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
         "documentation": {}
     },
@@ -3416,7 +3424,7 @@
         "kind": 6,
         "importPath": "app.core.usuarios.api.views.usuarios_views",
         "description": "app.core.usuarios.api.views.usuarios_views",
-        "peekOfCode": "class UsuarioViewSet(viewsets.ModelViewSet):\n    serializer_class = UsuarioSerializer\n    queryset = UsuarioSerializer.Meta.model.objects.all()\n    def list(self, request, *args, **kwargs):\n        usuarios = Usuario.objects.all().filter(is_active = True)\n        usuario_serializer = UsuarioSerializer(usuarios, many=True)\n        return Response(usuario_serializer.data, status=status.HTTP_200_OK)\n    def create(self, request, format=None):\n        usuario_serializer = UsuarioSerializer(data=request.data)\n        if usuario_serializer.is_valid():",
+        "peekOfCode": "class UsuarioViewSet(viewsets.ModelViewSet):\n    serializer_class = UsuarioSerializer\n    queryset = UsuarioSerializer.Meta.model.objects.all()\n    def list(self, request, *args, **kwargs):\n        usuarios = Usuario.objects.all().filter(is_active = True)\n        usuario_serializer = CustomUserSerializer(usuarios, many=True)\n        return Response(usuario_serializer.data, status=status.HTTP_200_OK)\n    def create(self, request, format=None):\n        usuario_serializer = UsuarioSerializer(data=request.data)\n        if usuario_serializer.is_valid():",
         "detail": "app.core.usuarios.api.views.usuarios_views",
         "documentation": {}
     },

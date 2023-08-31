@@ -32,16 +32,12 @@ export const denominacionPuestoSlice = createSlice({
             })
             state.mensajeDenominacion = 'Los datos se actualizaron correctamente'
         },
-        onDeleteDenominacion: (state) => {
-            const denominacionActivo = state.activeDenominacion
-            for (let i = 0; i < denominacionActivo.length; i++) {
-                const element = denominacionActivo[i].id;
-                if (element) {
-                    state.listDenominacion = state.listDenominacion.filter(denominacionPuesto => denominacionPuesto.id !== element);
-                    state.activeDenominacion = [];
-                    state.inicialDenominacion = [];
-                    state.mensajeDenominacion = 'Los datos se han eliminado correctamente'
-                }
+        onDeleteDenominacion: (state, { payload }) => {
+            if (payload.id) {
+                state.listDenominacion = state.listDenominacion.filter(denominacionPuesto => denominacionPuesto.id !== payload.id);
+                state.activeDenominacion = [];
+                state.inicialDenominacion = [];
+                state.mensajeDenominacion = 'Los datos se han eliminado correctamente'
             }
         },
         onLoadDenominacion: (state, { payload }) => {

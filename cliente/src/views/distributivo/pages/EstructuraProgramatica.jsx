@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActions, CardContent, Divider, Grid, IconButton, List, ListItem, ListItemText, TextField, Tooltip, Typography } from '@mui/material'
+import { Alert, Box, Button, Card, CardActions, CardContent, Divider, Grid, IconButton, List, ListItem, ListItemText, TextField, Toolbar, Tooltip, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useForm, useEstructuraProgramaticaStore } from '../../../hooks'
 import { DeleteOutline, Edit } from '@mui/icons-material'
@@ -9,7 +9,7 @@ const formData = {
 }
 
 export const EstructuraProgramatica = () => {
-    const { listEstructura, startDeletingEstructura, setActiveEstructura, startSavingEstructura, startLoadingEstructura, activeEstructura, inicialEstructura = [] } = useEstructuraProgramaticaStore()
+    const { listEstructura, startDeletingEstructura, setActiveEstructura, startSavingEstructura, startLoadingEstructura, activeEstructura, inicialEstructura = [], mensajeEstructura } = useEstructuraProgramaticaStore()
 
     const [resultadoBusqueda, setResultadoBusqueda] = useState('')
 
@@ -81,6 +81,16 @@ export const EstructuraProgramatica = () => {
 
     return (
         <Box>
+            <Toolbar>
+                <Grid
+                    className='animate__animated animate__backInRight'
+                    item
+                    sx={{ flex: ' 1 1 100%' }}
+                    display={!!mensajeEstructura ? '' : 'none'}
+                >
+                    <Alert severity='success' >{mensajeEstructura}</Alert>
+                </Grid>
+            </Toolbar>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 3, sm: 3, md: 3 }}>
                 <Grid item xs={12} sm={12} md={6}>
                     <Card>

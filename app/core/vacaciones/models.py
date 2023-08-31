@@ -35,7 +35,7 @@ class CronogramaVacaciones(BaseModel):
         verbose_name = "cronograma vacaciones"
         verbose_name_plural = "cronogramas vacaciones"
         db_table = 'Cronograma_vacaciones'
-        ordering = ['id']
+        ordering = ['-id']
 
     def __str__(self):
         return str(self.fecha_inicio)

@@ -32,16 +32,12 @@ export const unidadOrganicaSlice = createSlice({
             })
             state.mensajeUnidad = 'Los datos se actualizaron correctamente'
         },
-        onDeleteUnidad: (state) => {
-            const unidadActiva = state.activeUnidad
-            for (let i = 0; i < unidadActiva.length; i++) {
-                const element = unidadActiva[i].id;
-                if (element) {
-                    state.listUnidad = state.listUnidad.filter(unidadOrganica => unidadOrganica.id !== element);
-                    state.activeUnidad = [];
-                    state.inicialUnidad = [];
-                    state.mensajeUnidad = 'Los datos se han eliminado correctamente'
-                }
+        onDeleteUnidad: (state, { payload }) => {
+            if (payload.id) {
+                state.listUnidad = state.listUnidad.filter(unidadOrganica => unidadOrganica.id !== payload.id);
+                state.activeUnidad = [];
+                state.inicialUnidad = [];
+                state.mensajeUnidad = 'Los datos se han eliminado correctamente'
             }
         },
         onLoadUnidad: (state, { payload }) => {

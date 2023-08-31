@@ -45,21 +45,7 @@ export const TableFilters = (props) => {
     }, [valorBuscar, columnaBuscar, fechaDesdeBuscar, fechaHastaBuscar]);
 
     return (
-        <Grid
-            container columnSpacing={{ xs: 1, sm: 1, md: 1 }} >
-            <Grid item xs={12} sm={12} md={2} sx={{ mt: 2 }} >
-                <TextField
-                    id="outlined-start-adornment"
-                    label="Buscar..."
-                    size='small'
-                    sx={{ minWidth: 185 }}
-                    value={valorBuscar}
-                    onChange={(e) => setValorBuscar(e.target.value)}
-                    InputProps={{
-                        startAdornment: <SearchIcon />,
-                    }}
-                />
-            </Grid>
+        <Grid container columnSpacing={{ xs: 1, sm: 1, md: 1 }} >
             <Grid item xs={12} sm={12} md={2} sx={{ mt: 2 }}>
                 <FormControl
                     sx={{ minWidth: 185 }}
@@ -80,6 +66,20 @@ export const TableFilters = (props) => {
                     </Select>
                 </FormControl>
             </Grid>
+            <Grid item xs={12} sm={12} md={2} sx={{ mt: 2 }} >
+                <TextField
+                    id="outlined-start-adornment"
+                    label="Buscar..."
+                    size='small'
+                    sx={{ minWidth: 185 }}
+                    value={valorBuscar}
+                    onChange={(e) => setValorBuscar(e.target.value)}
+                    InputProps={{
+                        startAdornment: <SearchIcon />,
+                    }}
+                />
+            </Grid>
+
             <Grid item xs={12} sm={12} md={2} sx={{ mt: 2 }}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker

@@ -54,10 +54,13 @@ export const cronogramaVacacionesSlice = createSlice({
                 }
             });
         },
+        onChangeMessageCreonograma : (state, { payload }) =>{
+            state.mensajeCronograma = payload
+        },
         clearMessageCronograma: (state) => {
             state.mensajeCronograma = null;
         }
     }
 })
 
-export const { onSetActiveCronograma, onAddNewCronograma, onUpdateCronograma, onDeleteCronograma, onLoadCronograma, clearMessageCronograma } = cronogramaVacacionesSlice.actions
+export const { onSetActiveCronograma, onAddNewCronograma, onUpdateCronograma, onDeleteCronograma, onLoadCronograma, onChangeMessageCreonograma, clearMessageCronograma } = cronogramaVacacionesSlice.actions

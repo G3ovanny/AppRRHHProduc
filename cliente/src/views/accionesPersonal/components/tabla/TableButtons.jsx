@@ -35,6 +35,8 @@ export const TableButtons = () => {
           <>
             <Tooltip title="Imprimir" color='secondary'>
               <IconButton
+                component='div'
+                disabled={!numActivos}
                 onClick={handlePrint}
               >
                 <LocalPrintshopOutlined />

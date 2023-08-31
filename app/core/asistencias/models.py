@@ -24,7 +24,7 @@ class Asistencia(BaseModel):
         verbose_name = "Asistencia"
         verbose_name_plural = "Asistencias"
         db_table = 'Asistencia'
-        ordering = ['id']
+        ordering = ['-id']
 
     def __str__(self):
         return f'{self.id}'
