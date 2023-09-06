@@ -3,11 +3,11 @@ import { Alert, Box, Divider, Grid, IconButton, Toolbar, Tooltip, Typography } f
 import React from 'react'
 import { Table } from '../components/tabla'
 import { UsuarioModal } from '../components/modal'
-import { useModalStore } from '../../../hooks'
+import { useModalStore, useUsuarioStore } from '../../../hooks'
 
 export const Usuarios = () => {
     const { openModal, nameModal } = useModalStore()
-    const mensaje = 'Creando vista de usuario'
+    const { mensajeUsuario }=useUsuarioStore();
 
     const handeleAddTrabajador = () => {
         console.log('creando usuarios')
@@ -42,9 +42,9 @@ export const Usuarios = () => {
                     className='animate__animated animate__backInRight'
                     item
                     sx={{ flex: ' 1 1 100%' }}
-                    display={!!mensaje ? '' : 'none'}
+                    display={!!mensajeUsuario ? '' : 'none'}
                 >
-                    <Alert severity='success' >{mensaje}</Alert>
+                    <Alert severity='success' >{mensajeUsuario}</Alert>
                 </Grid>
             </Toolbar>
             {/* Tabla */}

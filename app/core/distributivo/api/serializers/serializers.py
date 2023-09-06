@@ -37,3 +37,8 @@ class EstructuraProgramaticaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Estructura_Programatica
         exclude = ('state',)
+
+class ProcesoSerializer(serializers.ModelSerializer):
+    class Meta :
+        model = Proceso
+        exclude = ('state',)

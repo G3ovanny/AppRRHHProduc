@@ -79,7 +79,25 @@ class Trabajador(BaseModel):
 
     def __str__(self):
         return f'{self.nombres}'
-    
+
+class DatosPersonalesTrabajadores(BaseModel):
+    numHijos = models.IntegerField('Numero de hijos', blank= True, null=True)
+    historical = HistoricalRecords()
+
+    @property
+    def _history_user(self):
+        return self.changed_by
+
+    @_history_user.setter
+    def _history_user(self, value):
+        self.changed_by = value
+
+    class Meta:
+        verbose_name = "Dato personal trabajador"
+        verbose_name_plural = "Datos personales trabajadores"
+        db_table = 'Datos_personales_trabajador'
+        ordering = ['id']
+
 class ArchivoTrabajadores(BaseModel):
     doc= models.FileField(upload_to='./static/archivoTrabajadores')
     historical = HistoricalRecords()

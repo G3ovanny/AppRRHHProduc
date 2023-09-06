@@ -196,4 +196,26 @@ class Estructura_Programatica(BaseModel):
         verbose_name = 'estructura programatica'
         verbose_name_plural = 'estructuras programaticas'
         db_table = 'Estructura_Programatica'
-        ordering = ['estructura_programatica']
+        ordering = ['id']
+
+
+class Proceso(BaseModel):
+    proceso =  models.CharField(max_length=255, blank=True, null=True, verbose_name= 'Proceso')
+    historical = HistoricalRecords()
+
+    @property
+    def _history_user(self):
+        return self.changed_by
+
+    @_history_user.setter
+    def _history_user(self, value):
+        self.changed_by = value
+    
+    def __str__(self):
+        return self.proceso
+
+    class Meta:
+        verbose_name = 'proceso'
+        verbose_name_plural = 'procesos'
+        db_table = 'Proceso'
+        ordering = ['proceso']

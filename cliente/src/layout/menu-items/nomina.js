@@ -24,6 +24,13 @@ export const nomina = {
             type: 'item',
             url: '/servidores',
             icon: icons.Person,
+        },
+        {
+            id: 'datosServidores',
+            title: 'Más datos',
+            type: 'item',
+            url: '/datos_servidores',
+            icon: icons.Person,
         }
     ]
 }

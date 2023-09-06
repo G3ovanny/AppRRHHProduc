@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import { rhApi } from "../../api"
-import { onAddNewNivel, onDeleteNivel, onLoadNivel, onSetActiveNivel, onUpdateNivel } from "../../store/distributivo"
+import { onAddNewNivel, onDeleteNivel, onLoadNivel, onSetActiveNivel, onUpdateNivel, clearMessageNivel } from "../../store/distributivo"
 
 
 export const useNivelOcuStore = () => {
     const dispatch = useDispatch()
-    const { listNivel, activeNivel, clearMessageNivel } = useSelector(state => state.nivelOcupacional)
+    const { listNivel, activeNivel, mensajeNivel } = useSelector(state => state.nivelOcupacional)
 
     const startLoadingNivel = async () => {
         try {
@@ -34,7 +34,7 @@ export const useNivelOcuStore = () => {
             if (nivel.id) {
                 await rhApi.delete(`/distributivo/nivel/${nivel.id}`)
             }
-            dispatch(onDeleteNivel({...nivel}));
+            dispatch(onDeleteNivel({ ...nivel }));
         } catch (error) {
             console.log(error)
             console.log('Error al eliminar el nivel ocupacional')
@@ -54,6 +54,7 @@ export const useNivelOcuStore = () => {
         //*Propiedades
         listNivel,
         activeNivel,
+        mensajeNivel,
         //*Metodos
         startSavingNivel,
         startLoadingNivel,

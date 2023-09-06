@@ -10,7 +10,6 @@ export const useAuthStore = () => {
 
     const startLoging = async ({ username, password }) => {
         dispatch(onChecking)
-
         try {
             const { data } = await rhApi.post('/loging/', { username, password });
             localStorage.setItem('token', data.token);

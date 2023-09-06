@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from .tests import *
 from .models import *
 # Register your models here.
 
@@ -10,3 +10,6 @@ class Trabajador_Admin(admin.ModelAdmin):
 @admin.register(ArchivoTrabajadores)
 class ArchivoTrabajador_Admin(admin.ModelAdmin):
     list_display=('id', 'doc')
+
+
+#send_form()

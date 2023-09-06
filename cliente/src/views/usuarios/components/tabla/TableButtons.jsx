@@ -7,14 +7,14 @@ export const TableButtons = () => {
 
   const { activeUsuario, startSavingUsuario, startDeletingUsuario } = useUsuarioStore();
 
-  const {openModal} =useModalStore();
+  const { openModal } = useModalStore();
   const numActivos = activeUsuario.length;
   const handleEdit = () => {
     openModal('Editando datos')
   }
 
   const handleDelete = () => {
-    console.log('eliminando datos')
+    startDeletingUsuario()
   }
 
   return (
@@ -22,7 +22,7 @@ export const TableButtons = () => {
       {
         numActivos !== 1 ? (
           <>
-           
+
             <Tooltip
               title="Eliminar"
               color="error"
@@ -38,7 +38,7 @@ export const TableButtons = () => {
           </>
         ) : (
           <>
-           
+
             <Tooltip title="ELiminar" color="error">
               <IconButton
                 onClick={handleDelete}

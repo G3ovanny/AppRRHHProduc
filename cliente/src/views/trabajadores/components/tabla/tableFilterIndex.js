@@ -15,4 +15,12 @@ export const filterOptions = [
         id: 'modalidad',
         label: 'Modalidad laboral',
     },
+    {
+        id: 'denominacionPuesto',
+        label: 'Denominación del puesto',
+    },
+    {
+        id: 'unidadOrganica',
+        label: 'Unidad orgánica',
+    },
 ]

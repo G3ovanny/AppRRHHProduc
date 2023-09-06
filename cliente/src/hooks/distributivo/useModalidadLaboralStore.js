@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux"
 import { rhApi } from "../../api"
-import { onAddNewModalidad, onDeleteModalidad, onLoadModalidad, onSetActiveModalidad, onUpdateModalidad } from "../../store/distributivo";
+import { onAddNewModalidad, onDeleteModalidad, onLoadModalidad, onSetActiveModalidad, onUpdateModalidad, clearMessageModalidad } from "../../store/distributivo";
 
 
 export const useModalidadLaboralStore = () => {
     const dispatch = useDispatch();
 
-    const { listModalidad, activeModalidad, clearMessageModalidad } = useSelector(state => state.modalidadLaboral)
+    const { listModalidad, activeModalidad, mensajeModalidad  } = useSelector(state => state.modalidadLaboral)
 
     const startLoadingModalidad = async () => {
         try {
@@ -55,6 +55,7 @@ export const useModalidadLaboralStore = () => {
         //*Propiedades
         listModalidad,
         activeModalidad,
+        mensajeModalidad,
         //*Metodos
         startSavingModalidad,
         startLoadingModalidad,

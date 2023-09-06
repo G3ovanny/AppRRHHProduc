@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearMessageUsuario, onAddNewUsuario, onLoadUsuario, onSetActiveUsuario, onUpdateUsuario } from "../../store";
+import { clearMessageUsuario, onAddNewUsuario, onDeleteUsuario, onLoadUsuario, onSetActiveUsuario, onUpdateUsuario } from "../../store";
 import { rhApi } from '../../api';
 
 export const useUsuarioStore = () => {
@@ -36,7 +36,7 @@ export const useUsuarioStore = () => {
                     await rhApi.delete(`/usuarios/usuario/${element}`)
                 }
             }
-            dispatch(onDeleteusuario());
+            dispatch(onDeleteUsuario());
         } catch (error) {
             console.log(error)
             console.log('Error al eliminar el usuario')

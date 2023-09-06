@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, Button, Card, CardActions, CardContent, Divider, Grid, IconButton, List, ListItem, ListItemText, TextField, Tooltip, Typography } from '@mui/material';
+import { Alert, Box, Button, Card, CardActions, CardContent, Divider, Grid, IconButton, List, ListItem, ListItemText, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
 import { DeleteOutline, Edit } from '@mui/icons-material';
 import { useForm } from '../../../hooks';
 import { useNivelOcuStore } from '../../../hooks/distributivo';
@@ -11,7 +11,7 @@ const formData = {
 }
 
 export const NivelOcupacional = () => {
-  const { startDeletingNivel, setActiveNivel, startSavingNivel, startLoadingNivel, listNivel, activeNivel, inicialNivel = [] } = useNivelOcuStore();
+  const { startDeletingNivel, setActiveNivel, startSavingNivel, startLoadingNivel, listNivel, activeNivel, inicialNivel = [], mensajeNivel } = useNivelOcuStore();
 
   const [resultadoBusqueda, setResultadoBusqueda] = useState('')
 
@@ -85,6 +85,16 @@ export const NivelOcupacional = () => {
 
   return (
     <Box >
+        <Toolbar>
+        <Grid
+          className='animate__animated animate__backInRight'
+          item
+          sx={{ flex: ' 1 1 100%' }}
+          display={!!mensajeNivel ? '' : 'none'}
+        >
+          <Alert severity='success' >{mensajeNivel}</Alert>
+        </Grid>
+      </Toolbar>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 3, sm: 3, md: 3 }}>
         <Grid item xs={12} sm={12} md={6}>
           <Card>

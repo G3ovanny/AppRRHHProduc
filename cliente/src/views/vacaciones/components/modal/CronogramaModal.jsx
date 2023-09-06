@@ -81,8 +81,8 @@ export const CronogramaModal = ({ titleModal }) => {
     } = useForm(formData, formValidations);
 
     const onSubmit = () => {
-        startSavingCronograma(formState)
         if (isFormValid) {
+            startSavingCronograma(formState)
             closeModal()
             onResetForm()
         } else {

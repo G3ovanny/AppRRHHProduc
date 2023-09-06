@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux"
 import { rhApi } from "../../api"
-import { onAddNewUnidad, onDeleteUnidad, onLoadUnidad, onSetActiveUnidad, onUpdateUnidad } from "../../store/distributivo";
+import { onAddNewUnidad, onDeleteUnidad, onLoadUnidad, onSetActiveUnidad, onUpdateUnidad, clearMessageUnidad } from "../../store/distributivo";
 
 
 export const useUnidadOrganicaStore = () => {
     const dispatch = useDispatch();
 
-    const { listUnidad, activeUnidad, clearMessageUnidad } = useSelector(state => state.unidadOrganica)
+    const { listUnidad, activeUnidad, mensajeUnidad } = useSelector(state => state.unidadOrganica)
 
     const startLoadingUnidad = async () => {
         try {
@@ -55,6 +55,7 @@ export const useUnidadOrganicaStore = () => {
         //*Propiedades
         listUnidad,
         activeUnidad,
+        mensajeUnidad,
         //*Metodos
         startSavingUnidad,
         startLoadingUnidad,

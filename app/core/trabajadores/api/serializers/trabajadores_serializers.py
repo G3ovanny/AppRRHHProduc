@@ -10,6 +10,7 @@ class TrabajadorSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         return {
             'id': instance.id,
+            'tipo_identificacion': instance.tipo_identificacion,
             'numero_identificacion': instance.numero_identificacion,
             'nombres': instance.nombres,
             'celular': instance.celular,

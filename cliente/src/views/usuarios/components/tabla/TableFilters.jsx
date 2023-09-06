@@ -23,13 +23,11 @@ export const TableFilters = (props) => {
   const [columnaBuscar, setColumnaBuscar] = useState('userName')
 
   const filtrar = () => {
-    props.onBuscar(valorBuscar, columnaBuscar, fechaDesdeBuscar, fechaHastaBuscar)
+    props.onBuscar(valorBuscar, columnaBuscar)
   }
   const limpiarFIltros = () => {
     setValorBuscar('')
-    setColumnaBuscar('cedulaTrab')
-    setFechaDesdeBuscar(null)
-    setFechaHastaBuscar(null)
+    setColumnaBuscar('userName')
     filtrar()
   }
 

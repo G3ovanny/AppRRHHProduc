@@ -1,6 +1,8 @@
-import { Box, Button, Divider, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Stack, TextField, Typography } from "@mui/material"
+import { Box, Button, Divider, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Stack, TextField, Toolbar, Typography } from "@mui/material"
 import { useForm, useModalStore, useUsuarioStore } from "../../../../hooks"
 import { BaseModal } from "../../../../ui"
+import { FormPassword } from "./FormPassword"
+import { useEffect, useState } from "react"
 
 
 const style = {
@@ -9,7 +11,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '70%',
-  height: '72%',
+  height: '65%',
   overflow: 'auto',
   bgcolor: 'background.paper',
   //border: '2px solid #000',
@@ -24,12 +26,12 @@ const formData = {
   nombre: '',
   apellido_paterno: '',
   correo: '',
-  is_staff: 'True',
+  is_staff: true,
 }
-
 export const UsuarioModal = ({ titleModal }) => {
   const { closeModal } = useModalStore();
   const { activeUsuario, startSavingUsuario } = useUsuarioStore();
+  const [validationsPass, setValidationsPass] = useState(false)
   const formValidations = {
     username: [
       (value) => !!value,
@@ -44,22 +46,15 @@ export const UsuarioModal = ({ titleModal }) => {
       'El campo es obligatorio'
     ],
     correo: [
-      (value) => !!value,
-      'El campo es obligatorio'
+      (value) => (value && value.includes('@')),
+      'El campo tiene que ser un correo valido'
     ],
     is_staff: [
       (value) => !!value,
       'El campo es obligatorio'
     ],
-
   }
   const {
-    usernameValid,
-    nombreValid,
-    apellido_paternoValid,
-    correoValid,
-    is_staffValid,
-
     username,
     nombre,
     apellido_paterno,
@@ -72,9 +67,49 @@ export const UsuarioModal = ({ titleModal }) => {
     setFormState,
   } = useForm(formData, formValidations)
 
-  const onSubmit = () => {
-    startSavingUsuario(formState)
+  let addUsuario = false
+  if (titleModal == 'Nuevo Usuario') {
+    if (isFormValid && validationsPass) {
+      addUsuario = true
+    } else {
+      addUsuario = false
+    }
+  } else {
+    if (isFormValid) {
+      addUsuario = true
+    } else {
+      addUsuario = false
+    }
   }
+
+  //asigno valores de las contraseñas en el formulario
+  const passwords = (passwords) => {
+    formState.password = passwords.pass2
+  }
+
+  const passValidators = (passValidators) => {
+    setValidationsPass(passValidators)
+  }
+
+  const onSubmit = () => {
+    if (addUsuario) {
+      startSavingUsuario(formState)
+      closeModal()
+      onResetForm()
+    } else {
+      console.log('Error en el formulario')
+    }
+  }
+  const handleCancelarEnvio = () => {
+    closeModal()
+    onResetForm()
+  }
+
+  useEffect(() => {
+    if (activeUsuario !== null) {
+      setFormState({ ...activeUsuario[0] })
+    }
+  }, [activeUsuario])
   return (
     <BaseModal
       title={titleModal}
@@ -136,21 +171,29 @@ export const UsuarioModal = ({ titleModal }) => {
                   onChange={onInputChange}
                 />
               </Grid>
-              <FormControl>
-                <FormLabel id="demo-row-radio-buttons-group-label">Estado</FormLabel>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="estado"
-                  value={is_staff}
-                  onChange={e => onInputChange({ target: { value: e.target.value, name: 'is_staff' } })}
-                >
-                  <FormControlLabel value= 'True' control={<Radio />} label="Activo" sx={{ color: 'error' }} />
-                  <FormControlLabel value="False" control={<Radio />} label="Inactivo" />
-                </RadioGroup>
-              </FormControl>
+              <Grid item xs={12} sm={12} md={6} sx={{ mt: 2 }}>
+                <FormControl>
+                  <FormLabel id="demo-row-radio-buttons-group-label">Estado</FormLabel>
+                  <RadioGroup
+                    row
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="estado"
+                    value={is_staff}
+                    onChange={e => onInputChange({ target: { value: e.target.value, name: 'is_staff' } })}
+                  >
+                    <FormControlLabel value={true} control={<Radio />} label="Activo" sx={{ color: 'error' }} />
+                    <FormControlLabel value={false} control={<Radio />} label="Inactivo" />
+                  </RadioGroup>
+                </FormControl>
+              </Grid>
             </Grid>
           </Grid>
+          {
+            titleModal == 'Nuevo Usuario'
+              ? <FormPassword passwords={passwords} passValidators={passValidators} />
+              : <></>
+          }
+
           <Divider />
           <Stack
             direction='row'
@@ -158,16 +201,14 @@ export const UsuarioModal = ({ titleModal }) => {
             sx={{ mt: 2 }}>
             <Button
               variant="outlined"
-            //startIcon={<CancelScheduleSend />}
-            //onClick={handleCancelarEnvio}
+              onClick={handleCancelarEnvio}
             >
               Cancelar
             </Button>
 
             <Button
               variant="contained"
-              //disabled={!isFormValid}
-              //endIcon={<Send />}
+              disabled={!addUsuario}
               onClick={onSubmit}
             >
               Guardar

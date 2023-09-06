@@ -7,7 +7,7 @@ export const nivelOcupacionalSlice = createSlice({
         activeNivel: [],
         listNivel: [],
         inicialNivel: [],
-        mensaje: null
+        mensajeNivel: null
     },
     reducers: {
         onSetActiveNivel: (state, { payload }) => {
@@ -21,7 +21,7 @@ export const nivelOcupacionalSlice = createSlice({
             //state.listNivel.push(payload);
             state.activeNivel = [];
             state.inicialNivel = []
-            state.mensaje = 'Los datos se han guardado correctamente';
+            state.mensajeNivel = 'Los datos se han guardado correctamente';
         },
         onUpdateNivel: (state, { payload }) => {
             state.listNivel = state.listNivel.map(nivelOcupacional => {
@@ -30,14 +30,14 @@ export const nivelOcupacionalSlice = createSlice({
                 }
                 return nivelOcupacional
             })
-            state.mensaje = 'Los datos se actualizaron correctamente'
+            state.mensajeNivel = 'Los datos se actualizaron correctamente'
         },
         onDeleteNivel: (state, { payload }) => {
             if (payload.id) {
                 state.listNivel = state.listNivel.filter(nivelOcupacional => nivelOcupacional.id !== payload.id);
                 state.activeNivel = [];
                 state.inicialNivel = [];
-                state.mensaje = 'Los datos se han eliminado correctamente'
+                state.mensajeNivel = 'Los datos se han eliminado correctamente'
             }
         },
         onLoadNivel: (state, { payload }) => {
@@ -50,7 +50,7 @@ export const nivelOcupacionalSlice = createSlice({
             });
         },
         clearMessageNivel: (state) => {
-            state.mensaje = null;
+            state.mensajeNivel = null;
         }
     }
 })

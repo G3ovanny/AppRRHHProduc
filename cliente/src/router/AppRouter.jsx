@@ -2,9 +2,9 @@ import { Navigate, Route, Router, Routes, Link, Outlet } from 'react-router-dom'
 import { LoginPage } from '../auth/pages/LoginPage'
 import { useAuthStore } from '../hooks'
 import { useEffect } from 'react'
-import { AccionesPersonal, Cronograma, Dashboard, Usuarios } from '../views'
+import { AccionesPersonal, Cronograma, Dashboard, FormTrabmasDatos, Usuarios } from '../views'
 import { ThBase } from '../views/base'
-import { Trabajadores } from '../views/trabajadores/pages/Trabajadores'
+import { DatosPersonales, Trabajadores } from '../views/trabajadores/pages'
 import { MotivoPermisos, Permisos } from '../views/permisos/pages'
 import { Parametros } from '../views/distributivo'
 import { Navbar } from '../layout'
@@ -34,6 +34,7 @@ export const AppRouter = () => {
                         <Routes>
                             <Route path='/' element={<LoginPage />} />
                             <Route path='/*' element={<Navigate to="/" />} />
+                            <Route path='/enlace_formulario' element={<FormTrabmasDatos />} />
                         </Routes>
                     )
                     : (
@@ -54,6 +55,7 @@ export const AppRouter = () => {
                                     {/* NOMINA */}
                                     <Route path='/distributivo' element={<Parametros />} />
                                     <Route path='/servidores' element={<Trabajadores />} />
+                                    <Route path='/datos_servidores' element={<DatosPersonales / >} />
                                     {/* PERMISOS */}
                                     <Route path='/permisos' element={<Permisos />} />
                                     <Route path='/motivo' element={<MotivoPermisos />} />
@@ -64,7 +66,7 @@ export const AppRouter = () => {
                                     {/* ASISTENCIAS*/}
                                     <Route path='/asistencia' element={<Asistencias />} />
                                     {/* USUARIOS */}
-                                    <Route path='/usuarios' element = {<Usuarios />} />
+                                    <Route path='/usuarios' element={<Usuarios />} />
                                 </Routes>
                             </Box>
                         </Box>

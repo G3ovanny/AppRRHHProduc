@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { authSlice } from './auth/authSlice'
 import { menuSlice, modalSlice } from './ui'
-import { archivoSlice, trabajadorSlice } from './trabajadores'
+import { archivoSlice, datosPersonalesSlice, trabajadorSlice } from './trabajadores'
 import { regimenSlice, nivelOcupacionalSlice, modalidadLaboralSlice, unidadOrganicaSlice, denominacionPuestoSlice, estructuraProgramaticaSlice } from './distributivo'
 import { motivoPermisoSlice } from './permisos/motivoPermisoSlice'
 import { permisoSlice } from './permisos'
@@ -16,6 +16,7 @@ export const store = configureStore({
         menu: menuSlice.reducer,
         modal: modalSlice.reducer,
         trabajador: trabajadorSlice.reducer,
+        datosTrabajadores: datosPersonalesSlice.reducer,
         archivo: archivoSlice.reducer,
         regimen: regimenSlice.reducer,
         nivelOcupacional: nivelOcupacionalSlice.reducer,

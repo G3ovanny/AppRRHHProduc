@@ -22,6 +22,10 @@ export const Table = () => {
                     return trabajador.regimen_laboral.toLowerCase().includes(valorBuscar.toLowerCase())
                 case 'modalidad':
                     return trabajador.modalidad_laboral.toLowerCase().includes(valorBuscar.toLowerCase())
+                case 'denominacionPuesto':
+                    return trabajador.denominacion_puesto.toLowerCase().includes(valorBuscar.toLowerCase())
+                case 'unidadOrganica':
+                    return trabajador.unidad_organica.toLowerCase().includes(valorBuscar.toLowerCase())
                 default:
                     break;
                 //return permiso.motivo.toLowerCase().includes(valorBuscar.toLowerCase())

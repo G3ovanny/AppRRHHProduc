@@ -50,6 +50,30 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "timedelta",
         "importPath": "datetime",
         "description": "datetime",
@@ -210,6 +234,14 @@
         "documentation": {}
     },
     {
+        "label": "TokenObtainPairView",
+        "importPath": "rest_framework_simplejwt.views",
+        "description": "rest_framework_simplejwt.views",
+        "isExtraImport": true,
+        "detail": "rest_framework_simplejwt.views",
+        "documentation": {}
+    },
+    {
         "label": "Login",
         "importPath": "core.usuarios.views",
         "description": "core.usuarios.views",
@@ -223,6 +255,22 @@
         "description": "core.usuarios.views",
         "isExtraImport": true,
         "detail": "core.usuarios.views",
+        "documentation": {}
+    },
+    {
+        "label": "DatosFormulario",
+        "importPath": "core.trabajadores.api.views.datosFormulario_views",
+        "description": "core.trabajadores.api.views.datosFormulario_views",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.api.views.datosFormulario_views",
+        "documentation": {}
+    },
+    {
+        "label": "PermisoAA",
+        "importPath": "core.permisos.views",
+        "description": "core.permisos.views",
+        "isExtraImport": true,
+        "detail": "core.permisos.views",
         "documentation": {}
     },
     {
@@ -418,6 +466,22 @@
         "documentation": {}
     },
     {
+        "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "serializers",
         "importPath": "rest_framework",
         "description": "rest_framework",
@@ -482,6 +546,14 @@
         "documentation": {}
     },
     {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "status",
         "importPath": "rest_framework",
         "description": "rest_framework",
@@ -491,6 +563,22 @@
     },
     {
         "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
         "importPath": "rest_framework",
         "description": "rest_framework",
         "isExtraImport": true,
@@ -762,11 +850,27 @@
         "documentation": {}
     },
     {
-        "label": "DefaultRouter",
-        "importPath": "rest_framework.routers",
-        "description": "rest_framework.routers",
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
         "isExtraImport": true,
-        "detail": "rest_framework.routers",
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
@@ -818,11 +922,11 @@
         "documentation": {}
     },
     {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
+        "label": "DefaultRouter",
+        "importPath": "rest_framework.routers",
+        "description": "rest_framework.routers",
         "isExtraImport": true,
-        "detail": "django.conf",
+        "detail": "rest_framework.routers",
         "documentation": {}
     },
     {
@@ -922,6 +1026,254 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
@@ -1002,22 +1354,6 @@
         "documentation": {}
     },
     {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -1027,182 +1363,6 @@
     },
     {
         "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
@@ -1758,6 +1918,14 @@
         "documentation": {}
     },
     {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "*",
         "importPath": "dateutil.relativedelta",
         "description": "dateutil.relativedelta",
@@ -1830,6 +1998,30 @@
         "documentation": {}
     },
     {
+        "label": "GenericAPIView",
+        "importPath": "rest_framework.generics",
+        "description": "rest_framework.generics",
+        "isExtraImport": true,
+        "detail": "rest_framework.generics",
+        "documentation": {}
+    },
+    {
+        "label": "GenericAPIView",
+        "importPath": "rest_framework.generics",
+        "description": "rest_framework.generics",
+        "isExtraImport": true,
+        "detail": "rest_framework.generics",
+        "documentation": {}
+    },
+    {
+        "label": "GenericAPIView",
+        "importPath": "rest_framework.generics",
+        "description": "rest_framework.generics",
+        "isExtraImport": true,
+        "detail": "rest_framework.generics",
+        "documentation": {}
+    },
+    {
         "label": "ArchTrabajadoresSerializer",
         "importPath": "core.trabajadores.api.serializers.archivo_serializers",
         "description": "core.trabajadores.api.serializers.archivo_serializers",
@@ -1838,11 +2030,92 @@
         "documentation": {}
     },
     {
+        "label": "DatosPersonalesSerializer",
+        "importPath": "core.trabajadores.api.serializers.datosPersonales_serializers",
+        "description": "core.trabajadores.api.serializers.datosPersonales_serializers",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.api.serializers.datosPersonales_serializers",
+        "documentation": {}
+    },
+    {
         "label": "TrabajadorViewSet",
         "importPath": "core.trabajadores.api.views.trabajadores_views",
         "description": "core.trabajadores.api.views.trabajadores_views",
         "isExtraImport": true,
         "detail": "core.trabajadores.api.views.trabajadores_views",
+        "documentation": {}
+    },
+    {
+        "label": "DatosTrabajadoresViewSet",
+        "importPath": "core.trabajadores.api.views.datosPersonales_views",
+        "description": "core.trabajadores.api.views.datosPersonales_views",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.api.views.datosPersonales_views",
+        "documentation": {}
+    },
+    {
+        "label": "django.core.mail",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.core.mail",
+        "description": "django.core.mail",
+        "detail": "django.core.mail",
+        "documentation": {}
+    },
+    {
+        "label": "send_mail",
+        "importPath": "django.core.mail",
+        "description": "django.core.mail",
+        "isExtraImport": true,
+        "detail": "django.core.mail",
+        "documentation": {}
+    },
+    {
+        "label": "send_mass_mail",
+        "importPath": "django.core.mail",
+        "description": "django.core.mail",
+        "isExtraImport": true,
+        "detail": "django.core.mail",
+        "documentation": {}
+    },
+    {
+        "label": "send_mail",
+        "importPath": "django.core.mail",
+        "description": "django.core.mail",
+        "isExtraImport": true,
+        "detail": "django.core.mail",
+        "documentation": {}
+    },
+    {
+        "label": "send_mass_mail",
+        "importPath": "django.core.mail",
+        "description": "django.core.mail",
+        "isExtraImport": true,
+        "detail": "django.core.mail",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.config",
+        "description": "app.config",
+        "isExtraImport": true,
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "app.config",
+        "description": "app.config",
+        "isExtraImport": true,
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
         "documentation": {}
     },
     {
@@ -1887,6 +2160,14 @@
         "documentation": {}
     },
     {
+        "label": "action",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
+        "isExtraImport": true,
+        "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
         "label": "UsuarioSerializer",
         "importPath": "core.usuarios.api.serializers.usuarios_serializers",
         "description": "core.usuarios.api.serializers.usuarios_serializers",
@@ -1904,6 +2185,22 @@
     },
     {
         "label": "CustomUserSerializer",
+        "importPath": "core.usuarios.api.serializers.usuarios_serializers",
+        "description": "core.usuarios.api.serializers.usuarios_serializers",
+        "isExtraImport": true,
+        "detail": "core.usuarios.api.serializers.usuarios_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UsuarioListSerializer",
+        "importPath": "core.usuarios.api.serializers.usuarios_serializers",
+        "description": "core.usuarios.api.serializers.usuarios_serializers",
+        "isExtraImport": true,
+        "detail": "core.usuarios.api.serializers.usuarios_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordSerializer",
         "importPath": "core.usuarios.api.serializers.usuarios_serializers",
         "description": "core.usuarios.api.serializers.usuarios_serializers",
         "isExtraImport": true,
@@ -1999,14 +2296,6 @@
         "documentation": {}
     },
     {
-        "label": "GenericAPIView",
-        "importPath": "rest_framework.generics",
-        "description": "rest_framework.generics",
-        "isExtraImport": true,
-        "detail": "rest_framework.generics",
-        "documentation": {}
-    },
-    {
         "label": "RefreshToken",
         "importPath": "rest_framework_simplejwt.tokens",
         "description": "rest_framework_simplejwt.tokens",
@@ -2045,30 +2334,6 @@
         "importPath": "logging",
         "description": "logging",
         "detail": "logging",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "app.config",
-        "description": "app.config",
-        "isExtraImport": true,
-        "detail": "app.config",
-        "documentation": {}
-    },
-    {
-        "label": "send_mail",
-        "importPath": "django.core.mail",
-        "description": "django.core.mail",
-        "isExtraImport": true,
-        "detail": "django.core.mail",
-        "documentation": {}
-    },
-    {
-        "label": "send_mass_mail",
-        "importPath": "django.core.mail",
-        "description": "django.core.mail",
-        "isExtraImport": true,
-        "detail": "django.core.mail",
         "documentation": {}
     },
     {
@@ -2416,7 +2681,7 @@
         "kind": 5,
         "importPath": "app.app.config.urls",
         "description": "app.app.config.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('loging/', Login.as_view(), name='login'),   \n    path('logout/', Logout.as_view(), name='logout'), \n    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),\n    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),\n    #rutas api\n    path('usuarios/', include('core.usuarios.api.routers')),\n    path('trabajadores/', include('core.trabajadores.api.routers')),\n    path('permisos/', include('core.permisos.api.routers')),",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('loging/', Login.as_view(), name='login'),   \n    path('logout/', Logout.as_view(), name='logout'), \n    path('test/', PermisoAA.as_view(), name = 'test'),\n    path('formulario/', DatosFormulario.as_view(), name = 'datos_formulario'),\n    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),\n    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),\n    #rutas api\n    path('usuarios/', include('core.usuarios.api.routers')),",
         "detail": "app.app.config.urls",
         "documentation": {}
     },
@@ -2884,7 +3149,7 @@
         "kind": 6,
         "importPath": "app.core.distributivo.api.serializers.serializers",
         "description": "app.core.distributivo.api.serializers.serializers",
-        "peekOfCode": "class DenominacionPuestoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Denominacion_Puesto\n        exclude = ('state',)\nclass EstructuraProgramaticaSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Estructura_Programatica\n        exclude = ('state',)",
+        "peekOfCode": "class DenominacionPuestoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Denominacion_Puesto\n        exclude = ('state',)\nclass EstructuraProgramaticaSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Estructura_Programatica\n        exclude = ('state',)\nclass ProcesoSerializer(serializers.ModelSerializer):\n    class Meta :",
         "detail": "app.core.distributivo.api.serializers.serializers",
         "documentation": {}
     },
@@ -2893,7 +3158,16 @@
         "kind": 6,
         "importPath": "app.core.distributivo.api.serializers.serializers",
         "description": "app.core.distributivo.api.serializers.serializers",
-        "peekOfCode": "class EstructuraProgramaticaSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Estructura_Programatica\n        exclude = ('state',)",
+        "peekOfCode": "class EstructuraProgramaticaSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Estructura_Programatica\n        exclude = ('state',)\nclass ProcesoSerializer(serializers.ModelSerializer):\n    class Meta :\n        model = Proceso\n        exclude = ('state',)",
+        "detail": "app.core.distributivo.api.serializers.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ProcesoSerializer",
+        "kind": 6,
+        "importPath": "app.core.distributivo.api.serializers.serializers",
+        "description": "app.core.distributivo.api.serializers.serializers",
+        "peekOfCode": "class ProcesoSerializer(serializers.ModelSerializer):\n    class Meta :\n        model = Proceso\n        exclude = ('state',)",
         "detail": "app.core.distributivo.api.serializers.serializers",
         "documentation": {}
     },
@@ -2931,6 +3205,15 @@
         "description": "app.core.distributivo.api.views.nivelOcupacional_view",
         "peekOfCode": "class NivelOcupacionalViewSet(viewsets.ModelViewSet):\n    serializer_class = NivelOcupacionalSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state = True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state = True).first()\n    def create(self, request):\n        nivel_serializer = self.serializer_class(data=request.data)\n        if nivel_serializer.is_valid():\n            nivel_serializer.save()",
         "detail": "app.core.distributivo.api.views.nivelOcupacional_view",
+        "documentation": {}
+    },
+    {
+        "label": "ProcesoViewSet",
+        "kind": 6,
+        "importPath": "app.core.distributivo.api.views.proceso_view",
+        "description": "app.core.distributivo.api.views.proceso_view",
+        "peekOfCode": "class ProcesoViewSet(viewsets.ModelViewSet):\n    serializer_class = ProcesoSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state = True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state = True).first()\n    def create(self, request):\n        proceso_serializer = self.serializer_class(data = request.data)\n        if proceso_serializer.is_valid():\n            proceso_serializer.save()",
+        "detail": "app.core.distributivo.api.views.proceso_view",
         "documentation": {}
     },
     {
@@ -3003,6 +3286,15 @@
         "description": "app.core.distributivo.migrations.0004_estructura_programatica_and_more",
         "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('distributivo', '0003_partida_presupuestaria_and_more'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Estructura_Programatica',\n            fields=[\n                ('id', models.AutoField(primary_key=True, serialize=False)),",
         "detail": "app.core.distributivo.migrations.0004_estructura_programatica_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.core.distributivo.migrations.0005_proceso_alter_denominacion_puesto_options_and_more",
+        "description": "app.core.distributivo.migrations.0005_proceso_alter_denominacion_puesto_options_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('distributivo', '0004_estructura_programatica_and_more'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Proceso',\n            fields=[\n                ('id', models.AutoField(primary_key=True, serialize=False)),",
+        "detail": "app.core.distributivo.migrations.0005_proceso_alter_denominacion_puesto_options_and_more",
         "documentation": {}
     },
     {
@@ -3083,6 +3375,15 @@
         "importPath": "app.core.distributivo.models",
         "description": "app.core.distributivo.models",
         "peekOfCode": "class Estructura_Programatica(BaseModel):\n    estructura_programatica = models.CharField(\n        max_length=255, blank=True, null=True, verbose_name='Estructura programatica')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value",
+        "detail": "app.core.distributivo.models",
+        "documentation": {}
+    },
+    {
+        "label": "Proceso",
+        "kind": 6,
+        "importPath": "app.core.distributivo.models",
+        "description": "app.core.distributivo.models",
+        "peekOfCode": "class Proceso(BaseModel):\n    proceso =  models.CharField(max_length=255, blank=True, null=True, verbose_name= 'Proceso')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    def __str__(self):",
         "detail": "app.core.distributivo.models",
         "documentation": {}
     },
@@ -3222,6 +3523,15 @@
         "documentation": {}
     },
     {
+        "label": "PermisoAA",
+        "kind": 6,
+        "importPath": "app.core.permisos.views",
+        "description": "app.core.permisos.views",
+        "peekOfCode": "class PermisoAA(GenericAPIView):\n    def get(self, request, *args, **kwargs):\n        print('acceso')",
+        "detail": "app.core.permisos.views",
+        "documentation": {}
+    },
+    {
         "label": "ArchTrabajadoresSerializer",
         "kind": 6,
         "importPath": "app.core.trabajadores.api.serializers.archivo_serializers",
@@ -3231,11 +3541,20 @@
         "documentation": {}
     },
     {
+        "label": "DatosPersonalesSerializer",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.api.serializers.datosPersonales_serializers",
+        "description": "app.core.trabajadores.api.serializers.datosPersonales_serializers",
+        "peekOfCode": "class DatosPersonalesSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = DatosPersonalesTrabajadores\n        exclude =  ('state',)",
+        "detail": "app.core.trabajadores.api.serializers.datosPersonales_serializers",
+        "documentation": {}
+    },
+    {
         "label": "TrabajadorSerializer",
         "kind": 6,
         "importPath": "app.core.trabajadores.api.serializers.trabajadores_serializers",
         "description": "app.core.trabajadores.api.serializers.trabajadores_serializers",
-        "peekOfCode": "class TrabajadorSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Trabajador\n        exclude = ('state',)\n    def to_representation(self, instance):\n        return {\n            'id': instance.id,\n            'numero_identificacion': instance.numero_identificacion,\n            'nombres': instance.nombres,\n            'celular': instance.celular,",
+        "peekOfCode": "class TrabajadorSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Trabajador\n        exclude = ('state',)\n    def to_representation(self, instance):\n        return {\n            'id': instance.id,\n            'tipo_identificacion': instance.tipo_identificacion,\n            'numero_identificacion': instance.numero_identificacion,\n            'nombres': instance.nombres,",
         "detail": "app.core.trabajadores.api.serializers.trabajadores_serializers",
         "documentation": {}
     },
@@ -3246,6 +3565,24 @@
         "description": "app.core.trabajadores.api.views.archivo_views",
         "peekOfCode": "class ArchTrabajadoresViewSet(viewsets.ModelViewSet):\n    serializer_class = ArchTrabajadoresSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.all().order_by('id')\n        return self.get_queryset().Meta.model.objects.filter(id=pk).first()\n    def create(self, request):\n        serializer = self.serializer_class(data= request.data)\n        if serializer.is_valid():\n            serializer.save()",
         "detail": "app.core.trabajadores.api.views.archivo_views",
+        "documentation": {}
+    },
+    {
+        "label": "DatosFormulario",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.api.views.datosFormulario_views",
+        "description": "app.core.trabajadores.api.views.datosFormulario_views",
+        "peekOfCode": "class DatosFormulario(TokenObtainPairView):\n    serializer_class = DatosPersonalesSerializer\n    def post(self, request, *args, **kwargs):\n        nombres = request.data.get('nombres', '')\n        if nombres:\n            datos_serializer = self.serializer_class(data = request.data)\n            if datos_serializer.is_valid():\n                print(datos_serializer)\n                datos_serializer.save()\n            return Response({'mensaje': nombres})",
+        "detail": "app.core.trabajadores.api.views.datosFormulario_views",
+        "documentation": {}
+    },
+    {
+        "label": "DatosTrabajadoresViewSet",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.api.views.datosPersonales_views",
+        "description": "app.core.trabajadores.api.views.datosPersonales_views",
+        "peekOfCode": "class DatosTrabajadoresViewSet(viewsets.ModelViewSet):\n    serializer_class =  DatosPersonalesSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state = True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state = True).first()\n    def create(self, request):\n        datosTrabajador_serializer = self.serializer_class(data=request.data)\n        if datosTrabajador_serializer.is_valid():\n            datosTrabajador_serializer.save()",
+        "detail": "app.core.trabajadores.api.views.datosPersonales_views",
         "documentation": {}
     },
     {
@@ -3262,7 +3599,7 @@
         "kind": 5,
         "importPath": "app.core.trabajadores.api.routers",
         "description": "app.core.trabajadores.api.routers",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'trabajador', TrabajadorViewSet, basename='trabajador'),\nrouter.register(r'archivo', ArchTrabajadoresViewSet, basename='archivo trabajadores'),\nurlpatterns = router.urls",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'trabajador', TrabajadorViewSet, basename='trabajador'),\nrouter.register(r'archivo', ArchTrabajadoresViewSet, basename='archivo trabajadores'),\nrouter.register(r'datos_trabajador', DatosTrabajadoresViewSet, basename= 'Datos personales del trabajador')\nurlpatterns = router.urls",
         "detail": "app.core.trabajadores.api.routers",
         "documentation": {}
     },
@@ -3330,11 +3667,20 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.migrations.0007_datospersonalestrabajadores_alter_trabajador_options_and_more",
+        "description": "app.core.trabajadores.migrations.0007_datospersonalestrabajadores_alter_trabajador_options_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('trabajadores', '0006_historicaltrabajador_direccion_domicilio_and_more'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='DatosPersonalesTrabajadores',\n            fields=[\n                ('id', models.AutoField(primary_key=True, serialize=False)),",
+        "detail": "app.core.trabajadores.migrations.0007_datospersonalestrabajadores_alter_trabajador_options_and_more",
+        "documentation": {}
+    },
+    {
         "label": "Trabajador_Admin",
         "kind": 6,
         "importPath": "app.core.trabajadores.admin",
         "description": "app.core.trabajadores.admin",
-        "peekOfCode": "class Trabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'nombres')\n@admin.register(ArchivoTrabajadores)\nclass ArchivoTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'doc')",
+        "peekOfCode": "class Trabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'nombres')\n@admin.register(ArchivoTrabajadores)\nclass ArchivoTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'doc')\n#send_form()",
         "detail": "app.core.trabajadores.admin",
         "documentation": {}
     },
@@ -3343,7 +3689,7 @@
         "kind": 6,
         "importPath": "app.core.trabajadores.admin",
         "description": "app.core.trabajadores.admin",
-        "peekOfCode": "class ArchivoTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'doc')",
+        "peekOfCode": "class ArchivoTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'doc')\n#send_form()",
         "detail": "app.core.trabajadores.admin",
         "documentation": {}
     },
@@ -3366,12 +3712,39 @@
         "documentation": {}
     },
     {
+        "label": "DatosPersonalesTrabajadores",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.models",
+        "description": "app.core.trabajadores.models",
+        "peekOfCode": "class DatosPersonalesTrabajadores(BaseModel):\n    numHijos = models.IntegerField('Numero de hijos', blank= True, null=True)\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
+        "detail": "app.core.trabajadores.models",
+        "documentation": {}
+    },
+    {
         "label": "ArchivoTrabajadores",
         "kind": 6,
         "importPath": "app.core.trabajadores.models",
         "description": "app.core.trabajadores.models",
         "peekOfCode": "class ArchivoTrabajadores(BaseModel):\n    doc= models.FileField(upload_to='./static/archivoTrabajadores')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
         "detail": "app.core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "generar_enlace",
+        "kind": 2,
+        "importPath": "app.core.trabajadores.tests",
+        "description": "app.core.trabajadores.tests",
+        "peekOfCode": "def generar_enlace(request):\n    enlace = \"http://localhost:5173/enlace_formulario\"\n    print(request)\n    return HttpResponse(enlace)\ndef send_form():\n    correo_desde = 'jeffersonlara98@gmail.com'\n    correo_hasta = ['jefferson.lara@upec.edu.ec']\n    try:\n        subject = 'Envio de formulario'\n        #recipient_list = correo_hasta",
+        "detail": "app.core.trabajadores.tests",
+        "documentation": {}
+    },
+    {
+        "label": "send_form",
+        "kind": 2,
+        "importPath": "app.core.trabajadores.tests",
+        "description": "app.core.trabajadores.tests",
+        "peekOfCode": "def send_form():\n    correo_desde = 'jeffersonlara98@gmail.com'\n    correo_hasta = ['jefferson.lara@upec.edu.ec']\n    try:\n        subject = 'Envio de formulario'\n        #recipient_list = correo_hasta\n        #email_from = settings.EMAIL_HOST_USER\n        mensaje_form = \"http://localhost:5173/enlace_formulario\"\n        send_mail(\n            subject,",
+        "detail": "app.core.trabajadores.tests",
         "documentation": {}
     },
     {
@@ -3384,20 +3757,11 @@
         "documentation": {}
     },
     {
-        "label": "CustomTokenObtainPairSerializer",
+        "label": "UserTokenSerializer",
         "kind": 6,
         "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
         "description": "app.core.usuarios.api.serializers.usuarios_serializers",
-        "peekOfCode": "class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):\n    pass\nclass CustomUserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        fields = ('id','username', 'correo', 'nombre', 'apellido_paterno', 'is_staff')\nclass UsuarioSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('is_superuser', 'last_login', 'groups', 'user_permissions')",
-        "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
-        "documentation": {}
-    },
-    {
-        "label": "CustomUserSerializer",
-        "kind": 6,
-        "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
-        "description": "app.core.usuarios.api.serializers.usuarios_serializers",
-        "peekOfCode": "class CustomUserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        fields = ('id','username', 'correo', 'nombre', 'apellido_paterno', 'is_staff')\nclass UsuarioSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('is_superuser', 'last_login', 'groups', 'user_permissions')\nclass UsuarioUpdateSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "peekOfCode": "class UserTokenSerializer(serializers.ModelSerializer):\n    class Meta:\n        model =  Usuario\n        fields = ('id', 'nombre', 'apellido_paterno', 'correo')\n#serializador para listar y crear usuarios\nclass UsuarioSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('is_superuser', 'last_login', 'groups', 'user_permissions')\n    #funcion para encriptar contraseñas del usuario a crear",
         "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
         "documentation": {}
     },
@@ -3406,7 +3770,61 @@
         "kind": 6,
         "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
         "description": "app.core.usuarios.api.serializers.usuarios_serializers",
-        "peekOfCode": "class UsuarioSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('is_superuser', 'last_login', 'groups', 'user_permissions')\nclass UsuarioUpdateSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password', 'is_staff')",
+        "peekOfCode": "class UsuarioSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('is_superuser', 'last_login', 'groups', 'user_permissions')\n    #funcion para encriptar contraseñas del usuario a crear\n    def create(self, validated_data):\n        usuario = Usuario(**validated_data)\n        usuario.set_password(validated_data['password'])\n        usuario.save()\n        return usuario",
+        "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordSerializer",
+        "kind": 6,
+        "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "description": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "peekOfCode": "class PasswordSerializer(serializers.Serializer):\n    password = serializers.CharField(max_length=128, min_length=6, write_only=True)\n    password2 = serializers.CharField(max_length=128, min_length=6, write_only=True)\n    def validate(self, data):\n        if data['password'] != data['password2']:\n            raise serializers.ValidationError({'password':'Debe ingresar ambas contraseñas iguales'})\n        return data\n#serializador que permite actualizar un usuario pero no su contraseña\nclass UsuarioUpdateSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UsuarioUpdateSerializer",
+        "kind": 6,
+        "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "description": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "peekOfCode": "class UsuarioUpdateSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password')\nclass UsuarioListSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password', 'is_active', 'last_login', 'is_superuser', 'groups', 'user_permissions' )\nclass UsuarioLast_logingSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UsuarioListSerializer",
+        "kind": 6,
+        "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "description": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "peekOfCode": "class UsuarioListSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password', 'is_active', 'last_login', 'is_superuser', 'groups', 'user_permissions' )\nclass UsuarioLast_logingSerializer(serializers.ModelSerializer):\n    class Meta:\n        model =  Usuario\n        fields = ('id','last_login', 'apellido_paterno', 'nombre')\n    def to_representation(self, instance):\n        last_login =  instance.last_login,",
+        "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UsuarioLast_logingSerializer",
+        "kind": 6,
+        "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "description": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "peekOfCode": "class UsuarioLast_logingSerializer(serializers.ModelSerializer):\n    class Meta:\n        model =  Usuario\n        fields = ('id','last_login', 'apellido_paterno', 'nombre')\n    def to_representation(self, instance):\n        last_login =  instance.last_login,\n        if last_login[0] != None:\n            hora = last_login[0] - timedelta(hours=5)\n        else:\n            hora = last_login[0]",
+        "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "CustomTokenObtainPairSerializer",
+        "kind": 6,
+        "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "description": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "peekOfCode": "class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):\n    pass\nclass CustomUserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        fields = ('id','username', 'correo', 'nombre', 'apellido_paterno', 'is_staff')\nclass UsuarioUpdateSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password', 'is_staff')",
+        "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "CustomUserSerializer",
+        "kind": 6,
+        "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "description": "app.core.usuarios.api.serializers.usuarios_serializers",
+        "peekOfCode": "class CustomUserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        fields = ('id','username', 'correo', 'nombre', 'apellido_paterno', 'is_staff')\nclass UsuarioUpdateSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password', 'is_staff')",
         "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
         "documentation": {}
     },
@@ -3424,7 +3842,7 @@
         "kind": 6,
         "importPath": "app.core.usuarios.api.views.usuarios_views",
         "description": "app.core.usuarios.api.views.usuarios_views",
-        "peekOfCode": "class UsuarioViewSet(viewsets.ModelViewSet):\n    serializer_class = UsuarioSerializer\n    queryset = UsuarioSerializer.Meta.model.objects.all()\n    def list(self, request, *args, **kwargs):\n        usuarios = Usuario.objects.all().filter(is_active = True)\n        usuario_serializer = CustomUserSerializer(usuarios, many=True)\n        return Response(usuario_serializer.data, status=status.HTTP_200_OK)\n    def create(self, request, format=None):\n        usuario_serializer = UsuarioSerializer(data=request.data)\n        if usuario_serializer.is_valid():",
+        "peekOfCode": "class UsuarioViewSet(viewsets.ModelViewSet):\n    serializer_class = UsuarioSerializer\n    queryset = UsuarioSerializer.Meta.model.objects.all()\n    def list(self, request, *args, **kwargs):\n        usuarios = Usuario.objects.all().filter(is_active = True)\n        usuario_serializer = UsuarioListSerializer(usuarios, many=True)\n        return Response(usuario_serializer.data, status=status.HTTP_200_OK)\n    # ##cambio contraseña desde RRHH\n    # @action(detail=True, methods=['post'])\n    # def set_password(self, request , pk=None):",
         "detail": "app.core.usuarios.api.views.usuarios_views",
         "documentation": {}
     },

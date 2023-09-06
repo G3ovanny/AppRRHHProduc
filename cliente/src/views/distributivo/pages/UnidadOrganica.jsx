@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Divider, Grid, IconButton, List, ListItem, ListItemText, Paper, Stack, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
+import { Alert, Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Divider, Grid, IconButton, List, ListItem, ListItemText, Paper, Stack, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
 import { DeleteOutline, Edit } from '@mui/icons-material';
 import { useForm } from '../../../hooks';
 import { useUnidadOrganicaStore } from '../../../hooks/distributivo';
@@ -12,7 +12,7 @@ const formData = {
 
 export const UnidadOrganica = () => {
 
-  const { listUnidad, startDeletingUnidad, setActiveUnidad, startSavingUnidad, startLoadingUnidad, activeUnidad, inicialUnidad = [] } = useUnidadOrganicaStore();
+  const { listUnidad, startDeletingUnidad, setActiveUnidad, startSavingUnidad, startLoadingUnidad, activeUnidad, inicialUnidad = [], mensajeUnidad } = useUnidadOrganicaStore();
 
   const [resultadoBusqueda, setResultadoBusqueda] = useState('')
 
@@ -84,123 +84,136 @@ export const UnidadOrganica = () => {
   }, [activeUnidad])
 
   return (
-    <Grid container rowSpacing={1} columnSpacing={{ xs: 3, sm: 3, md: 3 }}>
-      <Grid item xs={12} sm={12} md={6}>
-        <Card >
-          <Grid item xs={12} sx={{ mt: 1 }}>
-            <CardContent >
-              <Grid container spacing={2}>
-                <Grid item xs={12} md={6} sx={{ mt: 1 }}>
-                  <Typography>
-                    Unidad Orgánica
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} md={6} sx={{ mb: 3 }} >
-                  <FiltroGeneral onBuscar={handelBuscar} />
-                </Grid>
-              </Grid>
-              <Divider />
-              <Grid item xs={12} sx={{ mt: 1 }}>
-                <List
-                  sx={{
-                    width: '100%',
-                    //maxWidth: 360,
-                    bgcolor: 'background.paper',
-                    position: 'relative',
-                    overflow: 'auto',
-                    maxHeight: 400,
-                    '& ul': { padding: 0 },
-                  }}
-                //dense={dense}
-                >
-                  {
-                    lista.map((unidad) => {
-                      return (
-                        <ListItem key={unidad.unidad_organica}>
-                          <ListItemText
-                            primary={unidad.unidad_organica}
-                          //secondary={secondary ? 'Secondary text' : null}
-                          />
-                          <Tooltip title="Eliminar" color="error">
-                            <IconButton
-                              onClick={e => handleDelete(e, unidad)}
-                            >
-                              <DeleteOutline />
-                            </IconButton>
-                          </Tooltip>
-                          <Tooltip title="Editar" color='secondary'>
-                            <IconButton
-                              onClick={e => handleEdit(e, unidad)}
-                            >
-                              <Edit />
-                            </IconButton>
-                          </Tooltip>
-                        </ListItem>
-                      )
-                    })
-                  }
-                </List>
-              </Grid>
-            </CardContent>
-          </Grid>
-        </Card>
-      </Grid>
-      <Grid item xs={12} sm={12} md={6}>
-        <Card>
-          <form onSubmit={onSubmit}>
+    <Box>
+      <Toolbar>
+        <Grid
+          className='animate__animated animate__backInRight'
+          item
+          sx={{ flex: ' 1 1 100%' }}
+          display={!!mensajeUnidad ? '' : 'none'}
+        >
+          <Alert severity='success' >{mensajeUnidad}</Alert>
+        </Grid>
+      </Toolbar>
+
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 3, sm: 3, md: 3 }}>
+        <Grid item xs={12} sm={12} md={6}>
+          <Card >
             <Grid item xs={12} sx={{ mt: 1 }}>
-              <CardContent>
-                <Grid item xs={12} sx={{ mt: 1 }}>
-                  <TextField sx={{ minWidth: 180 }} size="small"
-                    id='cod_unidad'
-                    autoComplete='false'
-                    label='Código de la unidad organica'
-                    type='text'
-                    placeholder='Ingrese el código de la unidad orgánica'
-                    fullWidth
-                    name='cod_unidad'
-                    value={cod_unidad || ''}
-                    onChange={onInputChange}
-                  />
-
+              <CardContent >
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={6} sx={{ mt: 1 }}>
+                    <Typography>
+                      Unidad Orgánica
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} md={6} sx={{ mb: 3 }} >
+                    <FiltroGeneral onBuscar={handelBuscar} />
+                  </Grid>
                 </Grid>
+                <Divider />
                 <Grid item xs={12} sx={{ mt: 1 }}>
-                  <TextField sx={{ minWidth: 180 }} size="small"
-                    id='unidad_organica'
-                    autoComplete='false'
-                    label='Unidad orgánica'
-                    type='text'
-                    placeholder='Ingrese la unidad organica'
-                    fullWidth
-                    name='unidad_organica'
-                    value={unidad_organica || ''}
-                    onChange={onInputChange}
-                  />
-
+                  <List
+                    sx={{
+                      width: '100%',
+                      //maxWidth: 360,
+                      bgcolor: 'background.paper',
+                      position: 'relative',
+                      overflow: 'auto',
+                      maxHeight: 400,
+                      '& ul': { padding: 0 },
+                    }}
+                  //dense={dense}
+                  >
+                    {
+                      lista.map((unidad) => {
+                        return (
+                          <ListItem key={unidad.unidad_organica}>
+                            <ListItemText
+                              primary={unidad.unidad_organica}
+                            //secondary={secondary ? 'Secondary text' : null}
+                            />
+                            <Tooltip title="Eliminar" color="error">
+                              <IconButton
+                                onClick={e => handleDelete(e, unidad)}
+                              >
+                                <DeleteOutline />
+                              </IconButton>
+                            </Tooltip>
+                            <Tooltip title="Editar" color='secondary'>
+                              <IconButton
+                                onClick={e => handleEdit(e, unidad)}
+                              >
+                                <Edit />
+                              </IconButton>
+                            </Tooltip>
+                          </ListItem>
+                        )
+                      })
+                    }
+                  </List>
                 </Grid>
               </CardContent>
-              <CardActions>
-                <Button
-                  size="small"
-                  variant="contained"
-                  disabled={!isFormValid}
-                  onClick={onSubmit}
-                >
-                  Guardar
-                </Button>
-                <Button
-                  size="small"
-                  variant="contained"
-                  onClick={handleCancelar}
-                >
-                  Cancelar
-                </Button>
-              </CardActions>
             </Grid>
-          </form>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
+          <Card>
+            <form onSubmit={onSubmit}>
+              <Grid item xs={12} sx={{ mt: 1 }}>
+                <CardContent>
+                  <Grid item xs={12} sx={{ mt: 1 }}>
+                    <TextField sx={{ minWidth: 180 }} size="small"
+                      id='cod_unidad'
+                      autoComplete='false'
+                      label='Código de la unidad organica'
+                      type='text'
+                      placeholder='Ingrese el código de la unidad orgánica'
+                      fullWidth
+                      name='cod_unidad'
+                      value={cod_unidad || ''}
+                      onChange={onInputChange}
+                    />
 
-        </Card>
-      </Grid>
-    </Grid >
+                  </Grid>
+                  <Grid item xs={12} sx={{ mt: 1 }}>
+                    <TextField sx={{ minWidth: 180 }} size="small"
+                      id='unidad_organica'
+                      autoComplete='false'
+                      label='Unidad orgánica'
+                      type='text'
+                      placeholder='Ingrese la unidad organica'
+                      fullWidth
+                      name='unidad_organica'
+                      value={unidad_organica || ''}
+                      onChange={onInputChange}
+                    />
+
+                  </Grid>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    disabled={!isFormValid}
+                    onClick={onSubmit}
+                  >
+                    Guardar
+                  </Button>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    onClick={handleCancelar}
+                  >
+                    Cancelar
+                  </Button>
+                </CardActions>
+              </Grid>
+            </form>
+
+          </Card>
+        </Grid>
+      </Grid >
+    </Box>
   )
 }
