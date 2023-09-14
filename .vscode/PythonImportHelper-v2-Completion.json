@@ -114,11 +114,139 @@
         "documentation": {}
     },
     {
-        "label": "admin",
-        "importPath": "django.contrib",
-        "description": "django.contrib",
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
         "isExtraImport": true,
-        "detail": "django.contrib",
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -175,6 +303,22 @@
         "description": "django.contrib",
         "isExtraImport": true,
         "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
         "documentation": {}
     },
     {
@@ -194,6 +338,14 @@
         "documentation": {}
     },
     {
+        "label": "re_path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "path",
         "importPath": "django.urls",
         "description": "django.urls",
@@ -207,6 +359,22 @@
         "description": "django.urls",
         "isExtraImport": true,
         "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "serve",
+        "importPath": "django.views.static",
+        "description": "django.views.static",
+        "isExtraImport": true,
+        "detail": "django.views.static",
+        "documentation": {}
+    },
+    {
+        "label": "TemplateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
         "documentation": {}
     },
     {
@@ -271,6 +439,62 @@
         "description": "core.permisos.views",
         "isExtraImport": true,
         "detail": "core.permisos.views",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
         "documentation": {}
     },
     {
@@ -927,126 +1151,6 @@
         "description": "rest_framework.routers",
         "isExtraImport": true,
         "detail": "rest_framework.routers",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -1894,35 +1998,28 @@
         "documentation": {}
     },
     {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
+        "label": "json",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "django.shortcuts",
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
         "documentation": {}
     },
     {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
+        "label": "template",
+        "importPath": "django",
+        "description": "django",
         "isExtraImport": true,
-        "detail": "django.shortcuts",
+        "detail": "django",
         "documentation": {}
     },
     {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
+        "label": "mark_safe",
+        "importPath": "django.utils.safestring",
+        "description": "django.utils.safestring",
         "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
+        "detail": "django.utils.safestring",
         "documentation": {}
     },
     {
@@ -2108,14 +2205,6 @@
         "description": "app.config",
         "isExtraImport": true,
         "detail": "app.config",
-        "documentation": {}
-    },
-    {
-        "label": "HttpResponse",
-        "importPath": "django.http",
-        "description": "django.http",
-        "isExtraImport": true,
-        "detail": "django.http",
         "documentation": {}
     },
     {
@@ -2411,7 +2500,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2420,7 +2509,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2429,7 +2518,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2438,7 +2527,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    # aplicaciones terceras",
+        "peekOfCode": "ALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    # aplicaciones terceras",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2465,7 +2554,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'corsheaders.middleware.CorsMiddleware',\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]",
+        "peekOfCode": "MIDDLEWARE = [\n    'corsheaders.middleware.CorsMiddleware',\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n    'whitenoise.middleware.WhiteNoiseMiddleware',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2474,7 +2563,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "ROOT_URLCONF = 'app.config.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "peekOfCode": "ROOT_URLCONF = 'app.config.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [ os.path.join(BASE_DIR, 'cliente/src/dist')\n            ],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2483,7 +2572,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [ os.path.join(BASE_DIR, 'cliente/src/dist')\n            ],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2582,7 +2671,25 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "SIMPLE_JWT = {\n    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),\n    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),\n    'ROTATE_REFRESH_TOKENS': True,\n    'BLACKLIST_AFTER_ROTATION': True\n}\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = '/static/'\n# Default primary key field type",
+        "peekOfCode": "SIMPLE_JWT = {\n    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),\n    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),\n    'ROTATE_REFRESH_TOKENS': True,\n    'BLACKLIST_AFTER_ROTATION': True\n}\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\n##################\n# Needed for 'debug' to be available inside templates.",
+        "detail": "app.app.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INTERNAL_IPS",
+        "kind": 5,
+        "importPath": "app.app.config.settings",
+        "description": "app.app.config.settings",
+        "peekOfCode": "INTERNAL_IPS = ['127.0.0.1']\n# Vite App Dir: point it to the folder your vite app is in.\nVITE_APP_DIR = BASE_DIR / \"cliente/src\"\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\n# You may change these, but it's important that the dist folder is includedself.\n# If it's not, collectstatic won't copy your bundle to production.\nSTATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",",
+        "detail": "app.app.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "VITE_APP_DIR",
+        "kind": 5,
+        "importPath": "app.app.config.settings",
+        "description": "app.app.config.settings",
+        "peekOfCode": "VITE_APP_DIR = BASE_DIR / \"cliente/src\"\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\n# You may change these, but it's important that the dist folder is includedself.\n# If it's not, collectstatic won't copy your bundle to production.\nSTATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2591,7 +2698,25 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "STATIC_URL = '/static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# PERMITE ACCESO A DIFERENTES APLICACIONES\n# CORS_ALLOWED_ORIGINS = [\n#    \"http://localhost:5173\",\n#    \"http://127.0.0.1:5173\"\n# ]",
+        "peekOfCode": "STATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\n###################\n# STATIC_URL = '/static/'\n# STATICFILES_DIRS = [ \n#     os.path.join(BASE_DIR, 'cliente/src/dist'),\n# ]",
+        "detail": "app.app.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_DIRS",
+        "kind": 5,
+        "importPath": "app.app.config.settings",
+        "description": "app.app.config.settings",
+        "peekOfCode": "STATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\n###################\n# STATIC_URL = '/static/'\n# STATICFILES_DIRS = [ \n#     os.path.join(BASE_DIR, 'cliente/src/dist'),\n# ]\n# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')",
+        "detail": "app.app.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "app.app.config.settings",
+        "description": "app.app.config.settings",
+        "peekOfCode": "STATIC_ROOT = BASE_DIR / \"staticfiles\"\n###################\n# STATIC_URL = '/static/'\n# STATICFILES_DIRS = [ \n#     os.path.join(BASE_DIR, 'cliente/src/dist'),\n# ]\n# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2600,7 +2725,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# PERMITE ACCESO A DIFERENTES APLICACIONES\n# CORS_ALLOWED_ORIGINS = [\n#    \"http://localhost:5173\",\n#    \"http://127.0.0.1:5173\"\n# ]\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://localhost:5173\",",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2609,7 +2734,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "CORS_ORIGIN_ALLOW_ALL = True\n# PERMITE ACCESO A DIFERENTES APLICACIONES\n# CORS_ALLOWED_ORIGINS = [\n#    \"http://localhost:5173\",\n#    \"http://127.0.0.1:5173\"\n# ]\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\"",
+        "peekOfCode": "CORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'\nEMAIL_PORT = 587",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2618,7 +2743,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "CORS_ORIGIN_WHITELIST = [\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\"\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jeffersonlara98@gmail.com'\nEMAIL_HOST_PASSWORD = 'wthenawzwfgkmqnu'",
+        "peekOfCode": "CORS_ORIGIN_WHITELIST = [\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jeffersonlara98@gmail.com'\nEMAIL_HOST_PASSWORD = 'wthenawzwfgkmqnu'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2681,8 +2806,17 @@
         "kind": 5,
         "importPath": "app.app.config.urls",
         "description": "app.app.config.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('loging/', Login.as_view(), name='login'),   \n    path('logout/', Logout.as_view(), name='logout'), \n    path('test/', PermisoAA.as_view(), name = 'test'),\n    path('formulario/', DatosFormulario.as_view(), name = 'datos_formulario'),\n    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),\n    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),\n    #rutas api\n    path('usuarios/', include('core.usuarios.api.routers')),",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    #re_path(r\"^static/(?P<path>.*)$\", serve, {'document_root': settings.STATIC_ROOT}),\n    #re_path(r\"^.*$\",TemplateView.as_view(template_name = 'base.html')),\n    #path('', TemplateView.as_view(template_name = 'index.html')),\n    #path(\"\", views.index, name = 'index'),\n    path(\"\", TemplateView.as_view(template_name = 'base.html')),\n    #re_path(r\"^.*$\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formulario\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"dashboard\", TemplateView.as_view(template_name = 'base.html')),",
         "detail": "app.app.config.urls",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "app.app.config.views",
+        "description": "app.app.config.views",
+        "peekOfCode": "def index(request):\n    react_html = render(request, 'index.html')\n    return HttpResponse(react_html)",
+        "detail": "app.app.config.views",
         "documentation": {}
     },
     {
@@ -3079,6 +3213,24 @@
         "description": "app.core.asistencias.models",
         "peekOfCode": "class Asistencia(BaseModel):\n    id_trabajador = models.ForeignKey(Trabajador, blank=True, null=True, on_delete=models.SET_NULL)\n    fecha_registro = models.DateTimeField('Fecha de registro asistencia', blank=True, null=True)\n    estado = models.CharField('Estado asistencia', max_length=255, blank=True, null=True)\n    edificio = models.CharField('Edificio', max_length=255, blank=True, null=True)\n    hora = models.DateTimeField('Hora registro asistencia', blank=True, null=True)\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by",
         "detail": "app.core.asistencias.models",
+        "documentation": {}
+    },
+    {
+        "label": "render_vite_bundle",
+        "kind": 2,
+        "importPath": "app.core.base.templatetags.render_vite_bundle",
+        "description": "app.core.base.templatetags.render_vite_bundle",
+        "peekOfCode": "def render_vite_bundle():\n    \"\"\"\n    Template tag to render a vite bundle.\n    Supposed to only be used in production.\n    For development, see other files.\n    \"\"\"\n    try:\n        fd = open(f\"{settings.VITE_APP_DIR}/dist/manifest.json\", \"r\")\n        manifest = json.load(fd)\n    except:",
+        "detail": "app.core.base.templatetags.render_vite_bundle",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 5,
+        "importPath": "app.core.base.templatetags.render_vite_bundle",
+        "description": "app.core.base.templatetags.render_vite_bundle",
+        "peekOfCode": "register = template.Library()\n@register.simple_tag\ndef render_vite_bundle():\n    \"\"\"\n    Template tag to render a vite bundle.\n    Supposed to only be used in production.\n    For development, see other files.\n    \"\"\"\n    try:\n        fd = open(f\"{settings.VITE_APP_DIR}/dist/manifest.json\", \"r\")",
+        "detail": "app.core.base.templatetags.render_vite_bundle",
         "documentation": {}
     },
     {

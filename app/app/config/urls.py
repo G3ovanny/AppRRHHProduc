@@ -1,18 +1,41 @@
+from django.conf import settings
 from django.contrib import admin
-from django.urls import path, include
+from django.conf.urls.static import static
+from django.urls import path, include, re_path
+from django.views.static import serve
+from django.views.generic import TemplateView
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-
 from core.usuarios.views import Login, Logout
 from core.trabajadores.api.views.datosFormulario_views import DatosFormulario
 from core.permisos.views import PermisoAA
-
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #re_path(r"^static/(?P<path>.*)$", serve, {'document_root': settings.STATIC_ROOT}),
+    #re_path(r"^.*$",TemplateView.as_view(template_name = 'base.html')),
+    #path('', TemplateView.as_view(template_name = 'index.html')),
+    #path("", views.index, name = 'index'),
+
+    path("", TemplateView.as_view(template_name = 'base.html')),
+    #re_path(r"^.*$", TemplateView.as_view(template_name = 'base.html')),
+    path("enlace_formulario", TemplateView.as_view(template_name = 'base.html')),
+    path("dashboard", TemplateView.as_view(template_name = 'base.html')),
+    path("distributivo", TemplateView.as_view(template_name = 'base.html')),
+    path("servidores", TemplateView.as_view(template_name = 'base.html')),
+    path("datos_servidores", TemplateView.as_view(template_name = 'base.html')),
+    path("permisos", TemplateView.as_view(template_name = 'base.html')),
+    path("motivo", TemplateView.as_view(template_name = 'base.html')),
+    path("acciones-personal", TemplateView.as_view(template_name = 'base.html')),
+    path("cronograma", TemplateView.as_view(template_name = 'base.html')),
+    path("asistencia", TemplateView.as_view(template_name = 'base.html')),
+    path("usuarios", TemplateView.as_view(template_name = 'base.html')),
+
+
     path('loging/', Login.as_view(), name='login'),   
     path('logout/', Logout.as_view(), name='logout'), 
     path('test/', PermisoAA.as_view(), name = 'test'),
@@ -27,4 +50,4 @@ urlpatterns = [
     path('acciones/', include('core.accionesPersonal.api.routers')),
     path('vacaciones/', include('core.vacaciones.api.routers')),
     path('asistencias/', include('core.asistencias.api.routers')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

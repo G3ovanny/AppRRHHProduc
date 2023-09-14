@@ -1,0 +1,19 @@
+{
+  "index.html": {
+    "assets": [
+      "assets/logoUpec-76fdb83c.png",
+      "assets/logoMdt-467e4bed.png"
+    ],
+    "file": "assets/index-e7342ca9.js",
+    "isEntry": true,
+    "src": "index.html"
+  },
+  "views/accionesPersonal/components/documentoPDF/logoMdt.png": {
+    "file": "assets/logoMdt-467e4bed.png",
+    "src": "views/accionesPersonal/components/documentoPDF/logoMdt.png"
+  },
+  "views/accionesPersonal/components/documentoPDF/logoUpec.png": {
+    "file": "assets/logoUpec-76fdb83c.png",
+    "src": "views/accionesPersonal/components/documentoPDF/logoUpec.png"
+  }
+}
