@@ -36,6 +36,9 @@ class Permiso(BaseModel):
     fecha_hora_llegada = models.DateTimeField(verbose_name='Fecha/Hora de LLegada', null=True, blank=True)
     detalle = models.CharField('Detalle',max_length=255, blank=True, null=True)
     min_acumulados = models.IntegerField('Minutos del permiso',blank=True, null=True, unique=False)
+    horas_almuerzo =  models.CharField('Horas de almuerzo',max_length=255, blank=True, null=True)
+    otra_hora = models.TimeField(verbose_name='Otra hora de almuerzo', null=True, blank=True)
+    certificado_medico = models.BooleanField('Certificado médico', default = False)
     historical = HistoricalRecords()
 
     @property
@@ -50,7 +53,7 @@ class Permiso(BaseModel):
         verbose_name= 'permiso'
         verbose_name_plural = 'permisos'
         db_table = 'Permisos'
-        ordering = ['id']
+        ordering = ['-id']
 
     def __str__(self):
         return f'{self.id_trabajador} {self.id_motivo}'

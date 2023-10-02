@@ -16,13 +16,8 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #re_path(r"^static/(?P<path>.*)$", serve, {'document_root': settings.STATIC_ROOT}),
-    #re_path(r"^.*$",TemplateView.as_view(template_name = 'base.html')),
-    #path('', TemplateView.as_view(template_name = 'index.html')),
-    #path("", views.index, name = 'index'),
-
     path("", TemplateView.as_view(template_name = 'base.html')),
-    #re_path(r"^.*$", TemplateView.as_view(template_name = 'base.html')),
+    
     path("enlace_formulario", TemplateView.as_view(template_name = 'base.html')),
     path("dashboard", TemplateView.as_view(template_name = 'base.html')),
     path("distributivo", TemplateView.as_view(template_name = 'base.html')),

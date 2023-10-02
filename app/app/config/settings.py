@@ -171,27 +171,28 @@ SIMPLE_JWT = {
 ##################
 # Needed for 'debug' to be available inside templates.
 # https://docs.djangoproject.com/en/3.2/ref/templates/api/#django-template-context-processors-debug
-INTERNAL_IPS = ['127.0.0.1']
+# INTERNAL_IPS = ['127.0.0.1']
 
-# Vite App Dir: point it to the folder your vite app is in.
+# # Vite App Dir: point it to the folder your vite app is in.
 VITE_APP_DIR = BASE_DIR / "cliente/src"
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
+# # Static files (CSS, JavaScript, Images)
+# # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# You may change these, but it's important that the dist folder is includedself.
-# If it's not, collectstatic won't copy your bundle to production.
+# # You may change these, but it's important that the dist folder is includedself.
+# # If it's not, collectstatic won't copy your bundle to production.
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     VITE_APP_DIR / "dist",
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
 ###################
 # STATIC_URL = '/static/'
 
 # STATICFILES_DIRS = [ 
-#     os.path.join(BASE_DIR, 'cliente/src/dist'),
+#      os.path.join(BASE_DIR, 'cliente/src/dist'),
 # ]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

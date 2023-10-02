@@ -2,7 +2,7 @@ import { Checkbox, TableBody, TableCell, TableRow } from '@mui/material'
 import React from 'react'
 import { useAsistenciaStore } from '../../../../hooks'
 import dayjs from 'dayjs';
-
+import utc from 'dayjs/plugin/utc'
 export const TableCells = ({ list }) => {
   const { listAsistencia, activeAsistencia, setActiveAsistencia } = useAsistenciaStore();
 
@@ -43,6 +43,8 @@ export const TableCells = ({ list }) => {
       {
         lista.map((asistencia) => {
           const isItemSelected = isSelected(asistencia)
+          dayjs.extend(utc);
+          const registro = dayjs.utc(asistencia.hora).format("YYYY-MM-DD HH:mm:ss");
           return (
             <TableRow
               component='div'
@@ -66,7 +68,9 @@ export const TableCells = ({ list }) => {
               <TableCell component='div'> {asistencia.numero_identificacion}</TableCell>
               <TableCell component='div'> {asistencia.nombres}</TableCell>
               <TableCell component='div'> {asistencia.regimen_laboral}</TableCell>
-              <TableCell component='div'> {dayjs(asistencia.hora).format("D/M/YYYY HH:mm:ss")}</TableCell>
+              {/* <TableCell component='div'> {asistencia.hora}</TableCell> */}
+              <TableCell component='div'> {registro}</TableCell>
+              {/* <TableCell component='div'> {dayjs(asistencia.hora).format("D/M/YYYY HH:mm:ss")}</TableCell> */}
               <TableCell component='div'> {asistencia.estado}</TableCell>
               <TableCell component='div'> {asistencia.edificio}</TableCell>
             </TableRow>

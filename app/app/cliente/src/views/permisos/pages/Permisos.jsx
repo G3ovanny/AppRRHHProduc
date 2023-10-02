@@ -10,7 +10,7 @@ export const Permisos = () => {
     const { mensajePermiso, setActivePermiso } = usePermisoStore();
     
     const handleAddPermiso = () => {
-        setActivePermiso('')
+        setActivePermiso([])
         openModal('Nuevo Permiso')
     }
     return (

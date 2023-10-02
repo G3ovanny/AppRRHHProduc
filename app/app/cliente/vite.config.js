@@ -13,12 +13,10 @@ export default defineConfig({
     //     },
     //   },
     // },
-
   },
-  base: process.env.mode === "production" ? "/static/" : "/",
-  root: "src",
+  base: process.env.mode === "production" ? "/staticfiles" : "/", 
+  root: "./src",
   plugins: [
     react(),
   ],
-
 });

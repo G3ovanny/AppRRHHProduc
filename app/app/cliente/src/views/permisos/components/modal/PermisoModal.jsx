@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { BaseModal } from '../../../../ui'
-import { Alert, Autocomplete, Box, Button, Divider, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField, Toolbar, Typography } from '@mui/material'
-import { DatePicker, DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers'
+import { Alert, Autocomplete, Box, Button, Checkbox, Divider, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, InputLabel, MenuItem, Radio, RadioGroup, Select, Stack, Switch, TextField, Toolbar, Typography } from '@mui/material'
+import { DateTimePicker, LocalizationProvider, TimeField } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import dayjs from 'dayjs';
 import { useForm, useModalStore, useMotivoPermisoStore, usePermisoStore, useTrabStore } from '../../../../hooks'
-import { CancelScheduleSend, Send } from '@mui/icons-material'
+
 
 const style = {
   position: 'absolute',
@@ -16,7 +16,6 @@ const style = {
   height: '72%',
   overflow: 'auto',
   bgcolor: 'background.paper',
-  //border: '2px solid #000',
   boxShadow: 24,
   pt: 2,
   px: 4,
@@ -28,6 +27,9 @@ const formData = {
   id_motivo: '',
   fecha_hora_salida: '',
   fecha_hora_llegada: '',
+  horas_almuerzo: '',
+  otra_hora: '',
+  certificado_medico: '',
   detalle: '',
 }
 
@@ -38,7 +40,9 @@ export const PermisoModal = ({ titleModal }) => {
   const { listMotivo, startLoadingMotivo } = useMotivoPermisoStore();
   const [inputValue, setInputValue] = React.useState('');
   const [errorMessage, setErrorMessage] = useState('')
-
+  const [tipoEnf, setTipoEnf] = useState(false)
+  const [horarioAlm, setHorarioAlm] = useState(true)
+  
   const formValidations = {
     id_trabajador: [
       (value) => {
@@ -52,21 +56,6 @@ export const PermisoModal = ({ titleModal }) => {
       (value) => !!value,
       'El campo es obligatorio'
     ],
-    fecha_hora_salida: [
-      (value) => !!value && value.length > 0 !== '',
-      'El campo es obligatorio'
-    ],
-    fecha_hora_llegada: [
-      (value) => {
-        if (!!value && value !== '') {
-          if (!!fecha_hora_salida.length > 0) {
-            console.log('Fecha existe', fecha_hora_salida)
-          }
-          return value > fecha_hora_salida || setErrorMessage('La hora de llegada debe ser mayor que la hora de salida.');
-        }
-        return 'El campo es obligatorio';
-      }
-    ]
   }
 
   let trabajador = [];
@@ -75,6 +64,9 @@ export const PermisoModal = ({ titleModal }) => {
     id_motivo,
     fecha_hora_salida,
     fecha_hora_llegada,
+    horas_almuerzo,
+    otra_hora,
+    certificado_medico,
     detalle,
     id_trabajadorValid,
     id_motivoValid,
@@ -91,6 +83,7 @@ export const PermisoModal = ({ titleModal }) => {
     event.preventDefault();
     if (isFormValid) {
       startSavingPermiso(formState)
+      //console.log(formState)
       closeModal()
       onResetForm()
     } else {
@@ -102,13 +95,7 @@ export const PermisoModal = ({ titleModal }) => {
     closeModal()
     onResetForm()
   }
-  useEffect(() => {
-    startLoadingTrab()
-    startLoadingMotivo()
-    if (activePermiso !== null) {
-      setFormState({ ...activePermiso[0] });
-    }
-  }, [activePermiso])
+
 
   setTimeout(() => {
     setErrorMessage('');
@@ -117,11 +104,42 @@ export const PermisoModal = ({ titleModal }) => {
   if (id_trabajador) {
     let lista_trabajadores = trabajadores.filter(trab => trab.id === id_trabajador)
     trabajador = lista_trabajadores[0]
-    //component = {}
+
   } else {
     const mensaje = "Ingrese la cédula del servidor"
-    //component = {}
+
   }
+
+  useEffect(() => {
+    startLoadingTrab()
+    startLoadingMotivo()
+    if (activePermiso !== null) {
+      setFormState({ ...activePermiso[0] });
+    }
+  }, [activePermiso])
+
+  useEffect(() => {
+    if (horas_almuerzo == 'otro') {
+      setHorarioAlm(false)
+    } else {
+      setHorarioAlm(true)
+    }
+
+  }, [horas_almuerzo])
+
+  const motEnfermedad = listMotivo.filter(tipo => tipo.motivo == 'Enfermedad');
+  useEffect(() => {
+    if (id_motivo) {
+      const motEnfId = motEnfermedad[0].id
+      if (id_motivo == motEnfId) {
+        setTipoEnf(true)
+      } else {
+        setTipoEnf(false)
+      }
+    }
+  })
+
+
   return (
     <BaseModal
       title={titleModal}
@@ -142,7 +160,6 @@ export const PermisoModal = ({ titleModal }) => {
               <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
                 <Autocomplete
                   error={id_trabajadorValid !== null}
-                  helperText={id_trabajadorValid}
                   size='small'
                   inputValue={inputValue || ''}
                   onInputChange={(event, newInputValue) => { setInputValue(newInputValue); }}
@@ -186,14 +203,11 @@ export const PermisoModal = ({ titleModal }) => {
               <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DateTimePicker
-                    error={fecha_hora_salidaValid !== null}
-                    helperText={fecha_hora_salidaValid}
                     id='fecha_hora_salida'
                     label="Fecha y hora de salida"
                     slotProps={{ textField: { size: 'small' } }}
                     sx={{ minWidth: 150 }} size="small"
                     views={['year', 'day', 'hours', 'minutes']}
-                    //format="D/M/YYYY - HH:mm"
                     onChange={date => onInputChange({ target: { value: dayjs(date).format('YYYY-MM-DDTHH:mm'), name: 'fecha_hora_salida' } })}
                     value={dayjs(fecha_hora_salida)}
                   />
@@ -202,9 +216,6 @@ export const PermisoModal = ({ titleModal }) => {
               <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DateTimePicker
-                    //format="D/M/YYYY - HH:mm"
-                    error={fecha_hora_llegadaValid !== null}
-                    helperText={fecha_hora_llegadaValid}
                     label="Fecha y hora de llegada"
                     slotProps={{ textField: { size: 'small' } }}
                     id='fecha_hora_llegada'
@@ -216,13 +227,12 @@ export const PermisoModal = ({ titleModal }) => {
               </Grid>
               <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
                 <FormControl
-                  sx={{ minWidth: 185 }}
+                  sx={{ minWidth: 215 ,  maxWidth: 215 }}
                   size="small"
                 >
                   <InputLabel id="demo-simple-select-label">Motivo del permiso</InputLabel>
                   <Select
                     error={id_motivoValid !== null}
-                    helperText={id_motivoValid}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Nivel ocupacional"
@@ -236,13 +246,59 @@ export const PermisoModal = ({ titleModal }) => {
                   </Select>
                 </FormControl>
               </Grid>
+              <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
+                <FormGroup>
+                  <FormControlLabel
+                    disabled={!tipoEnf}
+                    control={
+                      <Checkbox
+                        checked={certificado_medico || false}
+                        onChange={e => onInputChange({ target: { value: e.target.checked, name: 'certificado_medico' } })}
+                       
+                      />
+                    }
+                    label="Certificado médico" />
+                </FormGroup>
+              </Grid>
+
+              <Typography>Horas de almuerzo diarias</Typography>
+              <Grid item container columnSpacing={{ xs: 2, sm: 2, md: 2 }}>
+                <Grid item xs={12} sm={12} md={6} sx={{ mt: 2 }}>
+                  <FormControl>
+                    <RadioGroup
+                      row
+                      aria-labelledby="demo-row-radio-buttons-group-label"
+                      name="horas_almuerzo"
+                      value={horas_almuerzo || 'no_restar'}
+                      onChange={e => onInputChange({ target: { value: e.target.value, name: 'horas_almuerzo' } })}
+                    >
+                      <FormControlLabel value={'no_restar'} control={<Radio />} label="Sin horas de almuerzo" />
+                      <FormControlLabel value={'restar_dos'} control={<Radio />} label="2 horas de almuezo dirias" />
+                      <FormControlLabel value={'otro'} control={<Radio />} label="Otro valor" />
+                    </RadioGroup>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={12} md={4} sx={{ mt: 2 }}>
+                  <TextField
+                    disabled={horarioAlm}
+                    sx={{ minWidth: 180 }}
+                    size="small"
+                    type="time"
+                    id="outlined-read-only-input"
+                    label="Horas de almuerzo diarias"
+                    value={otra_hora || '00:00'}
+                    name='otra_hora'
+                    onChange={onInputChange}
+                    format="HH:mm"
+                  />
+                </Grid>
+              </Grid>
+
               <Grid item container columnSpacing={{ xs: 2, sm: 2, md: 2 }}>
                 <Grid item xs={12} sm={12} md={12}>
                   <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
                     <Typography>Detalle del permiso</Typography>
                     <TextField
-                      //error={detalleValid !== null}
-                      //helperText={detalleValid}
                       id='Detalle'
                       type='text'
                       autoComplete='false'
@@ -260,7 +316,6 @@ export const PermisoModal = ({ titleModal }) => {
                   </Grid>
                 </Grid>
               </Grid>
-              {/* <Toolbar/> */}
             </Grid>
           </Grid>
           <Divider />
@@ -271,15 +326,12 @@ export const PermisoModal = ({ titleModal }) => {
             <Button
               variant="outlined"
               onClick={handleCancel}
-            //startIcon={<CancelScheduleSend />}
-            //onClick={handleCancelarEnvio}
             >
               Cancelar
             </Button>
 
             <Button
               variant="contained"
-              //endIcon={<Send />}
               onClick={onSubmit}
               disabled={!isFormValid}
             >

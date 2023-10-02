@@ -4,7 +4,6 @@ import { clearErrorMessage, onChecking, onLoging, onLogout } from "../../store";
 
 
 export const useAuthStore = () => {
-
     const { status, user, errorMessage } = useSelector(state => state.auth)
     const dispatch = useDispatch();
 

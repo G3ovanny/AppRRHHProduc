@@ -20,6 +20,8 @@ class PermisoSerializer(serializers.ModelSerializer):
             'detalle': instance.detalle,
             'fecha_hora_salida': instance.fecha_hora_salida,
             'fecha_hora_llegada': instance.fecha_hora_llegada,
-            # 'fecha_hora_estimada': instance.fecha_hora_estimada,
+            'horas_almuerzo': instance.horas_almuerzo,
+            'otra_hora': instance.otra_hora,
+            'certificado_medico': instance.certificado_medico, 
             'min_acumulados': instance.min_acumulados,
         }

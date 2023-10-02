@@ -17,7 +17,6 @@ export const AccionesPersonal = () => {
         startSavingArchivoAcc(file)
     }
     const handleChange = (event) => {
-        console.log(age)
         setAge(event.target.value);
     };
     const handleAddAccion = () => {

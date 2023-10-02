@@ -1,7 +1,9 @@
 import React from 'react'
 import { useModalStore, usePermisoStore } from '../../../../hooks'
 import { IconButton, Tooltip } from '@mui/material';
-import { DeleteOutline, Edit, LocalPrintshopOutlined } from '@mui/icons-material';
+import { DeleteOutline, Edit, Download } from '@mui/icons-material';
+import { DocExcel } from '../documentoExcel';
+
 
 export const TableButtons = () => {
   const { activePermiso, startDeletingPermiso } = usePermisoStore();
@@ -14,31 +16,51 @@ export const TableButtons = () => {
     event.preventDefault();
     openModal('Editando datos')
   }
-
   const handleDelete = () => {
     startDeletingPermiso()
   }
+
+  const handlePrint = () => {
+    DocExcel(activePermiso)
+  }
+
   return (
     <>
       {
         numActivos !== 1 ? (
-          <Tooltip
-            title="Eliminar"
-            color="error"
-          >
-            <IconButton
-              component='div'
-              disabled={!numActivos}
-              onClick={handleDelete}
+          <>
+            <Tooltip title="Exportar a excel" color='secondary'>
+              <IconButton
+                component='div'
+                disabled={!numActivos}
+                onClick={handlePrint}
+              >
+                <Download />
+              </IconButton>
+            </Tooltip>
+
+            <Tooltip
+              title="Eliminar"
+              color="error"
             >
-              <DeleteOutline />
-            </IconButton>
-          </Tooltip>
+              <IconButton
+                component='div'
+                disabled={!numActivos}
+                onClick={handleDelete}
+              >
+                <DeleteOutline />
+              </IconButton>
+            </Tooltip>
+          </>
         ) : (
           <>
-            <Tooltip title="Imprimir" color='secondary'>
-              <IconButton>
-                <LocalPrintshopOutlined />
+            <Tooltip title="Exportar a excel" color='secondary'>
+              <IconButton
+                component='div'
+                disabled={!numActivos}
+                onClick={handlePrint}
+              >
+                <Download />
               </IconButton>
             </Tooltip>
             <Tooltip title="ELiminar" color="error">

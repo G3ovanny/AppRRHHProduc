@@ -149,8 +149,8 @@ def analisis_trabajadores():
                 'estado_servidor',
                 'dias_vacaciones',
             ]]
-            print(nuevoDocumento)
-            ##nuevoDocumento.to_sql('Trabajador', engine, if_exists='append', index=False)
+            #print(nuevoDocumento)
+            nuevoDocumento.to_sql('Trabajador', engine, if_exists='append', index=False)
             raise Exception({'message': 'El documento se ha guardado correctamente'})
         else:
             raise Exception({'message': 'El documento no se ha guardado correctamente'})

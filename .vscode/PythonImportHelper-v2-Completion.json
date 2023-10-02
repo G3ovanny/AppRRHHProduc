@@ -250,6 +250,22 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -1306,78 +1322,6 @@
         "documentation": {}
     },
     {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
         "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
@@ -1515,6 +1459,54 @@
     },
     {
         "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
@@ -1723,6 +1715,14 @@
     },
     {
         "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
@@ -1973,20 +1973,60 @@
         "documentation": {}
     },
     {
-        "label": "ZK",
-        "importPath": "zk",
-        "description": "zk",
+        "label": "EVENT_JOB_EXECUTED",
+        "importPath": "apscheduler.events",
+        "description": "apscheduler.events",
         "isExtraImport": true,
-        "detail": "zk",
+        "detail": "apscheduler.events",
         "documentation": {}
     },
     {
-        "label": "concurrent.futures",
+        "label": "EVENT_JOB_ERROR",
+        "importPath": "apscheduler.events",
+        "description": "apscheduler.events",
+        "isExtraImport": true,
+        "detail": "apscheduler.events",
+        "documentation": {}
+    },
+    {
+        "label": "EVENT_JOB_EXECUTED",
+        "importPath": "apscheduler.events",
+        "description": "apscheduler.events",
+        "isExtraImport": true,
+        "detail": "apscheduler.events",
+        "documentation": {}
+    },
+    {
+        "label": "EVENT_JOB_ERROR",
+        "importPath": "apscheduler.events",
+        "description": "apscheduler.events",
+        "isExtraImport": true,
+        "detail": "apscheduler.events",
+        "documentation": {}
+    },
+    {
+        "label": "BackgroundScheduler",
+        "importPath": "apscheduler.schedulers.background",
+        "description": "apscheduler.schedulers.background",
+        "isExtraImport": true,
+        "detail": "apscheduler.schedulers.background",
+        "documentation": {}
+    },
+    {
+        "label": "BackgroundScheduler",
+        "importPath": "apscheduler.schedulers.background",
+        "description": "apscheduler.schedulers.background",
+        "isExtraImport": true,
+        "detail": "apscheduler.schedulers.background",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "concurrent.futures",
-        "description": "concurrent.futures",
-        "detail": "concurrent.futures",
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
         "documentation": {}
     },
     {
@@ -1995,6 +2035,14 @@
         "description": "django.db.models",
         "isExtraImport": true,
         "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "ZK",
+        "importPath": "zk",
+        "description": "zk",
+        "isExtraImport": true,
+        "detail": "zk",
         "documentation": {}
     },
     {
@@ -2393,39 +2441,6 @@
         "documentation": {}
     },
     {
-        "label": "EVENT_JOB_EXECUTED",
-        "importPath": "apscheduler.events",
-        "description": "apscheduler.events",
-        "isExtraImport": true,
-        "detail": "apscheduler.events",
-        "documentation": {}
-    },
-    {
-        "label": "EVENT_JOB_ERROR",
-        "importPath": "apscheduler.events",
-        "description": "apscheduler.events",
-        "isExtraImport": true,
-        "detail": "apscheduler.events",
-        "documentation": {}
-    },
-    {
-        "label": "BackgroundScheduler",
-        "importPath": "apscheduler.schedulers.background",
-        "description": "apscheduler.schedulers.background",
-        "isExtraImport": true,
-        "detail": "apscheduler.schedulers.background",
-        "documentation": {}
-    },
-    {
-        "label": "logging",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "logging",
-        "description": "logging",
-        "detail": "logging",
-        "documentation": {}
-    },
-    {
         "label": "annotations",
         "importPath": "__future__",
         "description": "__future__",
@@ -2482,7 +2497,7 @@
         "kind": 5,
         "importPath": "app.app.config.db",
         "description": "app.app.config.db",
-        "peekOfCode": "#SQLITE = {\n#    'default': {\n#        'ENGINE': 'django.db.backends.sqlite3',\n#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),\n#    }\n#}\nPOSTGRESQL = {\n        'default': {\n            'ENGINE': 'django.db.backends.postgresql_psycopg2',\n            'NAME': 'TalentoHumano_db',",
+        "peekOfCode": "#SQLITE = {\n#    'default': {\n#        'ENGINE': 'django.db.backends.sqlite3',\n#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),\n#    }\n#}\nPOSTGRESQL = {\n        'default': {\n            'ENGINE': 'django.db.backends.postgresql_psycopg2',\n            'NAME': 'talentohumano_db',",
         "detail": "app.app.config.db",
         "documentation": {}
     },
@@ -2491,7 +2506,7 @@
         "kind": 5,
         "importPath": "app.app.config.db",
         "description": "app.app.config.db",
-        "peekOfCode": "POSTGRESQL = {\n        'default': {\n            'ENGINE': 'django.db.backends.postgresql_psycopg2',\n            'NAME': 'TalentoHumano_db',\n            'USER': 'postgres',\n            'PASSWORD': 'admin', \n            'HOST': 'localhost',\n            'PORT': '5432',\n        }\n}",
+        "peekOfCode": "POSTGRESQL = {\n        'default': {\n            'ENGINE': 'django.db.backends.postgresql_psycopg2',\n            'NAME': 'talentohumano_db',\n            'USER': 'talentohumano',\n            'PASSWORD': 'talentohumano', \n            'HOST': '10.100.100.146',\n            'PORT': '5432',\n        }\n}",
         "detail": "app.app.config.db",
         "documentation": {}
     },
@@ -2676,20 +2691,11 @@
         "documentation": {}
     },
     {
-        "label": "INTERNAL_IPS",
-        "kind": 5,
-        "importPath": "app.app.config.settings",
-        "description": "app.app.config.settings",
-        "peekOfCode": "INTERNAL_IPS = ['127.0.0.1']\n# Vite App Dir: point it to the folder your vite app is in.\nVITE_APP_DIR = BASE_DIR / \"cliente/src\"\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\n# You may change these, but it's important that the dist folder is includedself.\n# If it's not, collectstatic won't copy your bundle to production.\nSTATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",",
-        "detail": "app.app.config.settings",
-        "documentation": {}
-    },
-    {
         "label": "VITE_APP_DIR",
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "VITE_APP_DIR = BASE_DIR / \"cliente/src\"\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/3.1/howto/static-files/\n# You may change these, but it's important that the dist folder is includedself.\n# If it's not, collectstatic won't copy your bundle to production.\nSTATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"",
+        "peekOfCode": "VITE_APP_DIR = BASE_DIR / \"cliente/src\"\n# # Static files (CSS, JavaScript, Images)\n# # https://docs.djangoproject.com/en/3.1/howto/static-files/\n# # You may change these, but it's important that the dist folder is includedself.\n# # If it's not, collectstatic won't copy your bundle to production.\nSTATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2698,7 +2704,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "STATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\n###################\n# STATIC_URL = '/static/'\n# STATICFILES_DIRS = [ \n#     os.path.join(BASE_DIR, 'cliente/src/dist'),\n# ]",
+        "peekOfCode": "STATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\n###################\n# STATIC_URL = '/static/'\n# STATICFILES_DIRS = [ \n#      os.path.join(BASE_DIR, 'cliente/src/dist'),\n# ]",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2707,7 +2713,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "STATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\n###################\n# STATIC_URL = '/static/'\n# STATICFILES_DIRS = [ \n#     os.path.join(BASE_DIR, 'cliente/src/dist'),\n# ]\n# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')",
+        "peekOfCode": "STATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\n###################\n# STATIC_URL = '/static/'\n# STATICFILES_DIRS = [ \n#      os.path.join(BASE_DIR, 'cliente/src/dist'),\n# ]\n# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2716,7 +2722,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "STATIC_ROOT = BASE_DIR / \"staticfiles\"\n###################\n# STATIC_URL = '/static/'\n# STATICFILES_DIRS = [ \n#     os.path.join(BASE_DIR, 'cliente/src/dist'),\n# ]\n# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_ROOT = BASE_DIR / \"staticfiles\"\n###################\n# STATIC_URL = '/static/'\n# STATICFILES_DIRS = [ \n#      os.path.join(BASE_DIR, 'cliente/src/dist'),\n# ]\n# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2806,7 +2812,7 @@
         "kind": 5,
         "importPath": "app.app.config.urls",
         "description": "app.app.config.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    #re_path(r\"^static/(?P<path>.*)$\", serve, {'document_root': settings.STATIC_ROOT}),\n    #re_path(r\"^.*$\",TemplateView.as_view(template_name = 'base.html')),\n    #path('', TemplateView.as_view(template_name = 'index.html')),\n    #path(\"\", views.index, name = 'index'),\n    path(\"\", TemplateView.as_view(template_name = 'base.html')),\n    #re_path(r\"^.*$\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formulario\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"dashboard\", TemplateView.as_view(template_name = 'base.html')),",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formulario\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"dashboard\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"distributivo\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"servidores\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"datos_servidores\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"permisos\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"motivo\", TemplateView.as_view(template_name = 'base.html')),",
         "detail": "app.app.config.urls",
         "documentation": {}
     },
@@ -2973,6 +2979,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.core.accionesPersonal.migrations.0011_alter_accionpersonal_options",
+        "description": "app.core.accionesPersonal.migrations.0011_alter_accionpersonal_options",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('accionesPersonal', '0010_archivoacciones_historicalarchivoacciones'),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='accionpersonal',\n            options={'ordering': ['-contador'], 'verbose_name': 'Acción de personal', 'verbose_name_plural': 'Acciones de personal'},\n        ),\n    ]",
+        "detail": "app.core.accionesPersonal.migrations.0011_alter_accionpersonal_options",
+        "documentation": {}
+    },
+    {
         "label": "AccionPersonal_Admin",
         "kind": 6,
         "importPath": "app.core.accionesPersonal.admin",
@@ -3081,119 +3096,209 @@
         "documentation": {}
     },
     {
-        "label": "cargar_datos",
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.core.asistencias.migrations.0004_alter_asistencia_options",
+        "description": "app.core.asistencias.migrations.0004_alter_asistencia_options",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('asistencias', '0003_alter_asistencia_fecha_registro_and_more'),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='asistencia',\n            options={'ordering': ['-id'], 'verbose_name': 'Asistencia', 'verbose_name_plural': 'Asistencias'},\n        ),\n    ]",
+        "detail": "app.core.asistencias.migrations.0004_alter_asistencia_options",
+        "documentation": {}
+    },
+    {
+        "label": "job_function",
         "kind": 2,
-        "importPath": "app.core.asistencias.admin",
-        "description": "app.core.asistencias.admin",
-        "peekOfCode": "def cargar_datos(documento):\n    engine = create_engine('postgresql+psycopg2://postgres:admin@localhost:5432/TalentoHumano_db')\n    nuevoDocumento = documento[[\n        'id_trabajador_id',\n        'fecha_registro',\n        'estado',\n        'edificio',\n        'hora',\n        'state',\n    ]]",
-        "detail": "app.core.asistencias.admin",
+        "importPath": "app.core.asistencias.registro_biometrico.activar_job",
+        "description": "app.core.asistencias.registro_biometrico.activar_job",
+        "peekOfCode": "def job_function(job_id):\n    get_connection_admin()\n    get_connection_aulas1()\n    get_connection_aulas2()\n    get_connection_aulas3()\n    get_connection_aulas4()\n    print('job %s is runed at %s' %\n          (job_id, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))\ndef job_exception_listener(event):\n    if event.exception:",
+        "detail": "app.core.asistencias.registro_biometrico.activar_job",
+        "documentation": {}
+    },
+    {
+        "label": "job_exception_listener",
+        "kind": 2,
+        "importPath": "app.core.asistencias.registro_biometrico.activar_job",
+        "description": "app.core.asistencias.registro_biometrico.activar_job",
+        "peekOfCode": "def job_exception_listener(event):\n    if event.exception:\n        # manejo de excepciones\n        print(\"La tarea programada(conexión a los biometricos) no se activo :(\")\n    else:\n        print(\"La tarea programada(conexión a los biometricos) se activo correctamente :)\")\n# Inicio sesion\nlogging.basicConfig()\nlogging.getLogger('apscheduler').setLevel(logging.DEBUG)\nscheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")",
+        "detail": "app.core.asistencias.registro_biometrico.activar_job",
+        "documentation": {}
+    },
+    {
+        "label": "scheduler",
+        "kind": 5,
+        "importPath": "app.core.asistencias.registro_biometrico.activar_job",
+        "description": "app.core.asistencias.registro_biometrico.activar_job",
+        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada minuto se lo utiliza para realizar test---------------------------------#\n#scheduler.add_job(job_function, trigger='interval', args=[1], id='1', name='a test job', max_instances=10, jobstore='default', executor='default', minutes=1)\n# ---------------------------------Este job se activa cada dia a las 23:30 en la noche activando la conexión a los biometricos---------------------------------#\nscheduler.add_job(job_function, trigger='cron', day_of_week='mon-sun', hour=23, minute=30, args=[1], id='1', name='a test job', max_instances=10,jobstore='default', executor='default')\nscheduler.add_listener(job_exception_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)\nscheduler.start()",
+        "detail": "app.core.asistencias.registro_biometrico.activar_job",
         "documentation": {}
     },
     {
         "label": "get_regimen_usuario",
         "kind": 2,
-        "importPath": "app.core.asistencias.admin",
-        "description": "app.core.asistencias.admin",
+        "importPath": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "description": "app.core.asistencias.registro_biometrico.analisis_edificios",
         "peekOfCode": "def get_regimen_usuario(nombre_usuario):\n    # # print(nombre_usuario)\n    # # IBARRA ROSERO EDISON MARCELO\n    #nombre_usuario = 'IBARRA R EDISON'\n    partes = nombre_usuario.split(' ')\n    # # realizo una consulta por cada palabra del string que me envia la columna de nombre_usuario ya que del biometrico no se obtiene mas datos de los usuarios\n    consulta = Q()\n    for parte in partes:\n        consulta &= (Q(nombres__icontains=parte) & Q(nombres__icontains=parte) & Q(nombres__icontains=parte))\n    # # obtengo los datos del servidor",
-        "detail": "app.core.asistencias.admin",
+        "detail": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "documentation": {}
+    },
+    {
+        "label": "analisis_atrasos",
+        "kind": 2,
+        "importPath": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "description": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "peekOfCode": "def analisis_atrasos(df):\n    df.loc[df['fecha_registro'] !=\n                  \"\", 'hora'] = df['fecha_registro']\n    # convierto  a formatos de fecha y hora\n    df['hora'] = pd.to_datetime(df['hora'])\n    df['fecha_registro'] = pd.to_datetime(df['fecha_registro'])\n    # asigno columna como index para porder trabajar con fechas\n    #df.set_index('fecha_registro', inplace=True)\n    df[['regimen', 'id_trabajador_id']] = df['nombre_usuario'].apply(lambda x: pd.Series(get_regimen_usuario(x)))\n    grupos = df.groupby('regimen')",
+        "detail": "app.core.asistencias.registro_biometrico.analisis_edificios",
         "documentation": {}
     },
     {
         "label": "analisis_admin",
         "kind": 2,
-        "importPath": "app.core.asistencias.admin",
-        "description": "app.core.asistencias.admin",
-        "peekOfCode": "def analisis_admin(merged_df):\n    administrativos = {\n        'Dia': '01:00:00',\n        'Entrada1': '08:00:59',\n        'Entrada1_Atraso': '08:15:00',\n        'Salida1': '13:00:00',\n        'Entrada2': '15:00:59',\n        'Entrada2_Atraso': '15:15:00',\n        'Salida2': '18:00:00',\n        'Noche': '23:59:59',",
-        "detail": "app.core.asistencias.admin",
+        "importPath": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "description": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "peekOfCode": "def analisis_admin(merged_df):\n    df = merged_df\n    # genero una columnas para almacenar el estado de asistencia\n    df['edificio'] = 'ADMINISTRATIVO'\n    df['estado'] = ''\n    df['hora'] = ''\n    df['state'] = 'True'\n    analisis_atrasos(df)\ndef analisis_aulas1(merged_df):\n    df = merged_df",
+        "detail": "app.core.asistencias.registro_biometrico.analisis_edificios",
         "documentation": {}
     },
     {
         "label": "analisis_aulas1",
         "kind": 2,
-        "importPath": "app.core.asistencias.admin",
-        "description": "app.core.asistencias.admin",
-        "peekOfCode": "def analisis_aulas1(merged_df):\n    documento = merged_df\n    # genero una columnas para almacenar el estado de asistencia\n    documento['edificio'] = 'AULAS1'\n    documento['estado'] = ''\n    documento['hora'] = ''\n    documento['state'] = 'True'\n    #documento['regimen'] =''\n    #documento['id_trabajador_id'] = ''\n    documento.loc[documento['fecha_registro'] !=",
-        "detail": "app.core.asistencias.admin",
+        "importPath": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "description": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "peekOfCode": "def analisis_aulas1(merged_df):\n    df = merged_df\n    # genero una columnas para almacenar el estado de asistencia\n    df['edificio'] = 'AULAS1'\n    df['estado'] = ''\n    df['hora'] = ''\n    df['state'] = 'True'\n    analisis_atrasos(df)\ndef analisis_aulas2(merged_df):\n    df = merged_df",
+        "detail": "app.core.asistencias.registro_biometrico.analisis_edificios",
         "documentation": {}
     },
     {
         "label": "analisis_aulas2",
         "kind": 2,
-        "importPath": "app.core.asistencias.admin",
-        "description": "app.core.asistencias.admin",
-        "peekOfCode": "def analisis_aulas2(merged_df):\n    documento = merged_df\n    # genero una columnas para almacenar el estado de asistencia\n    documento['edificio'] = 'AULAS2'\n    documento['estado'] = ''\n    documento['hora'] = ''\n    documento['state'] = 'True'\n    #documento['regimen'] =''\n    #documento['id_trabajador_id'] = ''\n    documento.loc[documento['fecha_registro'] !=",
-        "detail": "app.core.asistencias.admin",
+        "importPath": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "description": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "peekOfCode": "def analisis_aulas2(merged_df):\n    df = merged_df\n    # genero una columnas para almacenar el estado de asistencia\n    df['edificio'] = 'AULAS2'\n    df['estado'] = ''\n    df['hora'] = ''\n    df['state'] = 'True'\n    analisis_atrasos(df)\ndef analisis_aulas3(merged_df):\n    df = merged_df",
+        "detail": "app.core.asistencias.registro_biometrico.analisis_edificios",
         "documentation": {}
     },
     {
         "label": "analisis_aulas3",
         "kind": 2,
-        "importPath": "app.core.asistencias.admin",
-        "description": "app.core.asistencias.admin",
-        "peekOfCode": "def analisis_aulas3(merged_df):\n    documento = merged_df\n    # genero una columnas para almacenar el estado de asistencia\n    documento['edificio'] = 'AULAS3'\n    documento['estado'] = ''\n    documento['hora'] = ''\n    documento['state'] = 'True'\n    #documento['regimen'] =''\n    #documento['id_trabajador_id'] = ''\n    documento.loc[documento['fecha_registro'] !=",
-        "detail": "app.core.asistencias.admin",
+        "importPath": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "description": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "peekOfCode": "def analisis_aulas3(merged_df):\n    df = merged_df\n    # genero una columnas para almacenar el estado de asistencia\n    df['edificio'] = 'AULAS3'\n    df['estado'] = ''\n    df['hora'] = ''\n    df['state'] = 'True'\n    analisis_atrasos(df)\ndef analisis_aulas4(merged_df):\n    df = merged_df",
+        "detail": "app.core.asistencias.registro_biometrico.analisis_edificios",
         "documentation": {}
     },
     {
         "label": "analisis_aulas4",
         "kind": 2,
-        "importPath": "app.core.asistencias.admin",
-        "description": "app.core.asistencias.admin",
-        "peekOfCode": "def analisis_aulas4(merged_df):\n    documento = merged_df\n    # genero una columnas para almacenar el estado de asistencia\n    documento['edificio'] = 'AULAS4'\n    documento['estado'] = ''\n    documento['hora'] = ''\n    documento['state'] = 'True'\n    #documento['regimen'] =''\n    #documento['id_trabajador_id'] = ''\n    documento.loc[documento['fecha_registro'] !=",
-        "detail": "app.core.asistencias.admin",
+        "importPath": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "description": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "peekOfCode": "def analisis_aulas4(merged_df):\n    df = merged_df\n    # genero una columnas para almacenar el estado de asistencia\n    df['edificio'] = 'AULAS4'\n    df['estado'] = ''\n    df['hora'] = ''\n    df['state'] = 'True'\n    analisis_atrasos(df)",
+        "detail": "app.core.asistencias.registro_biometrico.analisis_edificios",
         "documentation": {}
     },
     {
-        "label": "get_attendance_biometrico",
-        "kind": 2,
-        "importPath": "app.core.asistencias.admin",
-        "description": "app.core.asistencias.admin",
-        "peekOfCode": "def get_attendance_biometrico(nombre_biometrico, conn_status, zk):\n    try:\n        if conn_status:\n            print('Conectando al biometrico del: ', nombre_biometrico)\n            # obtengo la fecha actual\n            today = datetime.now().date()\n            fecha_dia_anterior = today - timedelta(days=1)\n            # obtendo los registros de asistencia\n            attendance_data = zk.get_attendance()\n            # obtengo los datos de los usuarios del biometrico",
-        "detail": "app.core.asistencias.admin",
+        "label": "administrativos",
+        "kind": 5,
+        "importPath": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "description": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "peekOfCode": "administrativos = {\n        'Dia': '01:00:00',\n        'Entrada1': '08:01:00',\n        'Entrada1_Atraso': '08:15:00',\n        'Salida1': '13:00:00',\n        'Entrada2': '15:01:00',\n        'Entrada2_Atraso': '15:15:00',\n        'Salida2': '18:00:00',\n        'Noche': '23:59:59',\n}",
+        "detail": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "documentation": {}
+    },
+    {
+        "label": "trabajadores",
+        "kind": 5,
+        "importPath": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "description": "app.core.asistencias.registro_biometrico.analisis_edificios",
+        "peekOfCode": "trabajadores = {\n        'Dia': '01:00:00',\n        'Entrada1': '07:01:00',\n        'Entrada1_Atraso': '07:15:00',\n        'Salida1': '12:00:00',\n        'Entrada2': '15:00:59',\n        'Entrada2_Atraso': '15:15:00',\n        'Salida2': '18:00:00',\n        'Noche': '23:59:59',\n}",
+        "detail": "app.core.asistencias.registro_biometrico.analisis_edificios",
         "documentation": {}
     },
     {
         "label": "get_connection_admin",
         "kind": 2,
-        "importPath": "app.core.asistencias.admin",
-        "description": "app.core.asistencias.admin",
+        "importPath": "app.core.asistencias.registro_biometrico.conexion_biometrico",
+        "description": "app.core.asistencias.registro_biometrico.conexion_biometrico",
         "peekOfCode": "def get_connection_admin():\n    # conexión biometrico administrativo#\n    nombre_biometrico = \"EDIFICIO_ADMINISTRATIVO\"\n    ip_address = \"10.100.100.230\"\n    port = 4370\n    # timeout = 5\n    zk = ZK(ip_address, port)\n    # timeout\n    conn_status = zk.connect()\n    get_attendance_biometrico(nombre_biometrico, conn_status, zk)",
-        "detail": "app.core.asistencias.admin",
+        "detail": "app.core.asistencias.registro_biometrico.conexion_biometrico",
         "documentation": {}
     },
     {
         "label": "get_connection_aulas1",
         "kind": 2,
-        "importPath": "app.core.asistencias.admin",
-        "description": "app.core.asistencias.admin",
+        "importPath": "app.core.asistencias.registro_biometrico.conexion_biometrico",
+        "description": "app.core.asistencias.registro_biometrico.conexion_biometrico",
         "peekOfCode": "def get_connection_aulas1():\n    # Conexión al biometrico del edificio aulas 1\n    nombre_biometrico = \"EDIFICIO_AULAS1\"\n    ip_address = \"172.20.4.151\"\n    port = 4370\n    # timeout = 5\n    zk = ZK(ip_address, port)\n    # timeout\n    conn_status = zk.connect()\n    get_attendance_biometrico(nombre_biometrico, zk, conn_status)",
-        "detail": "app.core.asistencias.admin",
+        "detail": "app.core.asistencias.registro_biometrico.conexion_biometrico",
         "documentation": {}
     },
     {
         "label": "get_connection_aulas2",
         "kind": 2,
-        "importPath": "app.core.asistencias.admin",
-        "description": "app.core.asistencias.admin",
+        "importPath": "app.core.asistencias.registro_biometrico.conexion_biometrico",
+        "description": "app.core.asistencias.registro_biometrico.conexion_biometrico",
         "peekOfCode": "def get_connection_aulas2():\n    nombre_biometrico = \"EDIFICIO_AULAS2\"\n    ip_address = \"172.20.4.152\"\n    port = 4370\n    # timeout = 5\n    zk = ZK(ip_address, port)\n    # timeout\n    conn_status = zk.connect()\n    get_attendance_biometrico(nombre_biometrico, zk, conn_status)\ndef get_connection_aulas3():",
-        "detail": "app.core.asistencias.admin",
+        "detail": "app.core.asistencias.registro_biometrico.conexion_biometrico",
         "documentation": {}
     },
     {
         "label": "get_connection_aulas3",
         "kind": 2,
-        "importPath": "app.core.asistencias.admin",
-        "description": "app.core.asistencias.admin",
+        "importPath": "app.core.asistencias.registro_biometrico.conexion_biometrico",
+        "description": "app.core.asistencias.registro_biometrico.conexion_biometrico",
         "peekOfCode": "def get_connection_aulas3():\n    nombre_biometrico = \"EDIFICIO_AULAS3\"\n    ip_address = \"172.20.4.153\"\n    port = 4370\n    # timeout = 5\n    zk = ZK(ip_address, port)\n    # timeout\n    conn_status = zk.connect()\n    get_attendance_biometrico(nombre_biometrico, zk, conn_status)\ndef get_connection_aulas4():",
-        "detail": "app.core.asistencias.admin",
+        "detail": "app.core.asistencias.registro_biometrico.conexion_biometrico",
         "documentation": {}
     },
     {
         "label": "get_connection_aulas4",
         "kind": 2,
+        "importPath": "app.core.asistencias.registro_biometrico.conexion_biometrico",
+        "description": "app.core.asistencias.registro_biometrico.conexion_biometrico",
+        "peekOfCode": "def get_connection_aulas4():\n    nombre_biometrico = \"EDIFICIO_AULAS4\"\n    ip_address = \"172.20.4.154\"\n    port = 4370\n    # timeout = 5\n    zk = ZK(ip_address, port)\n    # timeout\n    conn_status = zk.connect()\n    get_attendance_biometrico(nombre_biometrico, zk, conn_status)",
+        "detail": "app.core.asistencias.registro_biometrico.conexion_biometrico",
+        "documentation": {}
+    },
+    {
+        "label": "cargar_datos",
+        "kind": 2,
+        "importPath": "app.core.asistencias.registro_biometrico.guardar_datos",
+        "description": "app.core.asistencias.registro_biometrico.guardar_datos",
+        "peekOfCode": "def cargar_datos(documento):\n    engine = create_engine(db_url)    \n    nuevoDocumento = documento[[\n        'id_trabajador_id',\n        'fecha_registro',\n        'estado',\n        'edificio',\n        'hora',\n        'state',\n    ]]",
+        "detail": "app.core.asistencias.registro_biometrico.guardar_datos",
+        "documentation": {}
+    },
+    {
+        "label": "db_config",
+        "kind": 5,
+        "importPath": "app.core.asistencias.registro_biometrico.guardar_datos",
+        "description": "app.core.asistencias.registro_biometrico.guardar_datos",
+        "peekOfCode": "db_config = settings.DATABASES['default']\ndb_url = f\"postgresql+psycopg2://{db_config['USER']}:{db_config['PASSWORD']}@{db_config['HOST']}:{db_config['PORT']}/{db_config['NAME']}\"\ndef cargar_datos(documento):\n    engine = create_engine(db_url)    \n    nuevoDocumento = documento[[\n        'id_trabajador_id',\n        'fecha_registro',\n        'estado',\n        'edificio',\n        'hora',",
+        "detail": "app.core.asistencias.registro_biometrico.guardar_datos",
+        "documentation": {}
+    },
+    {
+        "label": "db_url",
+        "kind": 5,
+        "importPath": "app.core.asistencias.registro_biometrico.guardar_datos",
+        "description": "app.core.asistencias.registro_biometrico.guardar_datos",
+        "peekOfCode": "db_url = f\"postgresql+psycopg2://{db_config['USER']}:{db_config['PASSWORD']}@{db_config['HOST']}:{db_config['PORT']}/{db_config['NAME']}\"\ndef cargar_datos(documento):\n    engine = create_engine(db_url)    \n    nuevoDocumento = documento[[\n        'id_trabajador_id',\n        'fecha_registro',\n        'estado',\n        'edificio',\n        'hora',\n        'state',",
+        "detail": "app.core.asistencias.registro_biometrico.guardar_datos",
+        "documentation": {}
+    },
+    {
+        "label": "get_attendance_biometrico",
+        "kind": 2,
+        "importPath": "app.core.asistencias.registro_biometrico.obtener_asistencias",
+        "description": "app.core.asistencias.registro_biometrico.obtener_asistencias",
+        "peekOfCode": "def get_attendance_biometrico(nombre_biometrico ,conn_status, zk):\n    print('nombre_biometrico', nombre_biometrico)\n    try:\n        if conn_status:\n            print('Conectando al biometrico del: ', nombre_biometrico)\n            # obtengo la fecha actual\n            today = datetime.now().date()\n            fecha_dia_anterior = today - timedelta(days=1)\n            # obtendo los registros de asistencia\n            attendance_data = zk.get_attendance()",
+        "detail": "app.core.asistencias.registro_biometrico.obtener_asistencias",
+        "documentation": {}
+    },
+    {
+        "label": "Asistencia_Admin",
+        "kind": 6,
         "importPath": "app.core.asistencias.admin",
         "description": "app.core.asistencias.admin",
-        "peekOfCode": "def get_connection_aulas4():\n    nombre_biometrico = \"EDIFICIO_AULAS4\"\n    ip_address = \"172.20.4.154\"\n    port = 4370\n    # timeout = 5\n    zk = ZK(ip_address, port)\n    # timeout\n    conn_status = zk.connect()\n    get_attendance_biometrico(nombre_biometrico, zk, conn_status)\n# with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:",
+        "peekOfCode": "class Asistencia_Admin(admin.ModelAdmin):\n    list_display=('id', 'id_trabajador', 'fecha_registro')",
         "detail": "app.core.asistencias.admin",
         "documentation": {}
     },
@@ -3202,7 +3307,7 @@
         "kind": 6,
         "importPath": "app.core.asistencias.apps",
         "description": "app.core.asistencias.apps",
-        "peekOfCode": "class AsistenciasConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.asistencias'",
+        "peekOfCode": "class AsistenciasConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.asistencias'\n    ## funcion que permite activar tareas programadas que se genera desde la carpeta registro_biometrico/activar_job.py\n    def ready(self):\n       print(\"Iniciando la tarea de registro de asistencia biometrico...\")\n       from .registro_biometrico import activar_job\n       #activar_job.start()",
         "detail": "app.core.asistencias.apps",
         "documentation": {}
     },
@@ -3598,35 +3703,8 @@
         "kind": 6,
         "importPath": "app.core.permisos.migrations.0001_initial",
         "description": "app.core.permisos.migrations.0001_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='HistoricalMotivoPermiso',\n            fields=[\n                ('id', models.IntegerField(blank=True, db_index=True)),\n                ('state', models.BooleanField(default=True, verbose_name='Estado')),",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('trabajadores', '0007_datospersonalestrabajadores_alter_trabajador_options_and_more'),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='MotivoPermiso',\n            fields=[",
         "detail": "app.core.permisos.migrations.0001_initial",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "app.core.permisos.migrations.0002_initial",
-        "description": "app.core.permisos.migrations.0002_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('permisos', '0001_initial'),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='historicalpermiso',\n            name='history_user',",
-        "detail": "app.core.permisos.migrations.0002_initial",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "app.core.permisos.migrations.0003_historicalpermiso_id_trabajador_and_more",
-        "description": "app.core.permisos.migrations.0003_historicalpermiso_id_trabajador_and_more",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('trabajadores', '0003_historicaltrabajador_dias_vacaciones_and_more'),\n        ('permisos', '0002_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='historicalpermiso',\n            name='id_trabajador',\n            field=models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='trabajadores.trabajador', verbose_name='Trabajador'),",
-        "detail": "app.core.permisos.migrations.0003_historicalpermiso_id_trabajador_and_more",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "app.core.permisos.migrations.0004_remove_historicalpermiso_fecha_hora_estimada_and_more",
-        "description": "app.core.permisos.migrations.0004_remove_historicalpermiso_fecha_hora_estimada_and_more",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('permisos', '0003_historicalpermiso_id_trabajador_and_more'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='historicalpermiso',\n            name='fecha_hora_estimada',\n        ),\n        migrations.RemoveField(",
-        "detail": "app.core.permisos.migrations.0004_remove_historicalpermiso_fecha_hora_estimada_and_more",
         "documentation": {}
     },
     {
@@ -3670,7 +3748,7 @@
         "kind": 6,
         "importPath": "app.core.permisos.models",
         "description": "app.core.permisos.models",
-        "peekOfCode": "class Permiso(BaseModel):\n    id_trabajador = models.ForeignKey(Trabajador, on_delete=models.CASCADE, null=True, blank=True, unique=False, verbose_name='Trabajador')\n    id_motivo = models.ForeignKey(MotivoPermiso, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Motivo')\n    fecha_hora_salida = models.DateTimeField(verbose_name='Fecha/Hora de Salida', null=True, blank=True)\n    #fecha_hora_estimada = models.DateTimeField(verbose_name='Fecha/Hora de Estimada', null=True, blank=True)\n    fecha_hora_llegada = models.DateTimeField(verbose_name='Fecha/Hora de LLegada', null=True, blank=True)\n    detalle = models.CharField('Detalle',max_length=255, blank=True, null=True)\n    min_acumulados = models.IntegerField('Minutos del permiso',blank=True, null=True, unique=False)\n    historical = HistoricalRecords()\n    @property",
+        "peekOfCode": "class Permiso(BaseModel):\n    id_trabajador = models.ForeignKey(Trabajador, on_delete=models.CASCADE, null=True, blank=True, unique=False, verbose_name='Trabajador')\n    id_motivo = models.ForeignKey(MotivoPermiso, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Motivo')\n    fecha_hora_salida = models.DateTimeField(verbose_name='Fecha/Hora de Salida', null=True, blank=True)\n    #fecha_hora_estimada = models.DateTimeField(verbose_name='Fecha/Hora de Estimada', null=True, blank=True)\n    fecha_hora_llegada = models.DateTimeField(verbose_name='Fecha/Hora de LLegada', null=True, blank=True)\n    detalle = models.CharField('Detalle',max_length=255, blank=True, null=True)\n    min_acumulados = models.IntegerField('Minutos del permiso',blank=True, null=True, unique=False)\n    horas_almuerzo =  models.CharField('Horas de almuerzo',max_length=255, blank=True, null=True)\n    otra_hora = models.TimeField(verbose_name='Otra hora de almuerzo', null=True, blank=True)",
         "detail": "app.core.permisos.models",
         "documentation": {}
     },
@@ -4156,7 +4234,7 @@
         "kind": 5,
         "importPath": "app.core.vacaciones.enviar_email.enviar_email",
         "description": "app.core.vacaciones.enviar_email.enviar_email",
-        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada minuto se lo utiliza para realizar test---------------------------------#\n#scheduler.add_job(job_function, trigger='interval', args=[1], id='1', name='a test job', max_instances=10, jobstore='default', executor='default', minutes=1)\n# ---------------------------------Este job se activa cada mes a las 8 de la mañana notificando al trabajador que sale de vacaciones---------------------------------#\n# scheduler.add_job(job_function, trigger='cron', day_of_week='mon-sun', hour=8, minute=00, args=[1], id='1', name='a test job', max_instances=10,jobstore='default', executor='default')\nscheduler.add_listener(job_exception_listener,\n                       EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)\nscheduler.start()",
+        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada minuto se lo utiliza para realizar test---------------------------------#\n#scheduler.add_job(job_function, trigger='interval', args=[1], id='1', name='a test job', max_instances=10, jobstore='default', executor='default', minutes=1)\n# ---------------------------------Este job se activa cada dia a las 8 de la mañana notificando al trabajador que sale de vacaciones---------------------------------#\n# scheduler.add_job(job_function, trigger='cron', day_of_week='mon-sun', hour=8, minute=00, args=[1], id='1', name='a test job', max_instances=10,jobstore='default', executor='default')\nscheduler.add_listener(job_exception_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)\nscheduler.start()",
         "detail": "app.core.vacaciones.enviar_email.enviar_email",
         "documentation": {}
     },
@@ -4194,6 +4272,15 @@
         "description": "app.core.vacaciones.migrations.0004_alter_cronogramavacaciones_fecha_solicitud_and_more",
         "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('vacaciones', '0003_cronogramavacaciones_fecha_solicitud_and_more'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='cronogramavacaciones',\n            name='fecha_solicitud',\n            field=models.DateField(auto_now=True, null=True, verbose_name='Fecha solicitud'),\n        ),",
         "detail": "app.core.vacaciones.migrations.0004_alter_cronogramavacaciones_fecha_solicitud_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.core.vacaciones.migrations.0005_alter_cronogramavacaciones_options",
+        "description": "app.core.vacaciones.migrations.0005_alter_cronogramavacaciones_options",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('vacaciones', '0004_alter_cronogramavacaciones_fecha_solicitud_and_more'),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='cronogramavacaciones',\n            options={'ordering': ['-id'], 'verbose_name': 'cronograma vacaciones', 'verbose_name_plural': 'cronogramas vacaciones'},\n        ),\n    ]",
+        "detail": "app.core.vacaciones.migrations.0005_alter_cronogramavacaciones_options",
         "documentation": {}
     },
     {

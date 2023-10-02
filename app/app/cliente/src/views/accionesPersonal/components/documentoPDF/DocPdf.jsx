@@ -2,15 +2,18 @@ import React, { forwardRef } from 'react'
 
 import ReactPDF, { Document, Page, StyleSheet, View, Text, PDFViewer } from '@react-pdf/renderer'
 import { useAccionPersonalStore } from '../../../../hooks';
-import logoUpec from './logoUpec.png'
-import logoMdt from './logoMdt.png'
 import { tipos_accion, tipos_doc } from '../../tipos-accion';
 import { Box, Typography } from '@mui/material';
+
+
+import logoUpec from '../../../../assets/images/logos/logoUpec.png';
+import logoMdt from '../../../../assets/images/logos/logoMdt.png';
 
 const tiposDoc = tipos_doc.tipos
 // me permite dividir en 4 columnas el arreglo de tipo de accion
 const tipos = tipos_accion.tipos
 let columnas = [];
+
 const longitud = 6
 for (let i = 0; i < tipos.length; i += longitud) {
     let colum = tipos.slice(i, i + longitud);
@@ -163,7 +166,7 @@ const styles = StyleSheet.create({
     }
 });
 
-///
+//
 
 export const DocPdf = React.forwardRef((props, ref) => {
     const { activeAccion } = useAccionPersonalStore();
@@ -189,22 +192,21 @@ export const DocPdf = React.forwardRef((props, ref) => {
         }
         return (
             document.push(
-
-
                 <Box key={index}>
                     <Box size="A4" style={styles.page}>
                         <Box style={styles.margen} >
                             <Box style={styles.header}>
                                 <img
-                                    src={logoUpec}
-                                    alt=""
-                                //sx={{ width: "10px", height: "10px" }}
+                                    src="https://upload.wikimedia.org/wikipedia/commons/8/84/UPEC_LOGO.svg"
+                                    width="70" height="70"
                                 />
+                                
                                 <img
-                                    src={logoMdt}
-                                    alt=""
-                                //sx={{ width: "10px", height: "10px" }}
+                                    src="https://seeklogo.com/images/M/ministerio-del-trabajo-ecuador-logo-F140F8BD3A-seeklogo.com.png"
+                                    width="150" height="75"
                                 />
+                                {/* <img src={logoUpec} /> */}
+                                {/* <img src={logoMdt} /> */}
                                 <Box style={styles.cuadro}>
                                     <Box style={styles.rect_pequeño_dos}>
                                         <Typography style={styles.titulos}>

@@ -627,8 +627,6 @@ export const TrabajadorModal = ({ titleModal }) => {
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                {/* partida_individual,
-                                rmu_puesto, */}
                                 <Grid item xs={12} sm={12} md={6} sx={{ mt: 2 }}>
                                     <TextField
                                         error={partida_individualValid !== null}
@@ -640,7 +638,7 @@ export const TrabajadorModal = ({ titleModal }) => {
                                         type='text'
                                         placeholder='Ingrese la partida individual del servidor'
                                         fullWidth
-                                        name='partida_individuales'
+                                        name='partida_individual'
                                         value={partida_individual || ''}
                                         onChange={onInputChange}
                                     />
