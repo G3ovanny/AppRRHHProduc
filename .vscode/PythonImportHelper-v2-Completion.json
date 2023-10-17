@@ -3003,7 +3003,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"https://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3012,7 +3012,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "CORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'\nEMAIL_PORT = 587",
+        "peekOfCode": "CORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"https://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3021,7 +3021,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "CORS_ORIGIN_WHITELIST = [\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jeffersonlara98@gmail.com'\nEMAIL_HOST_PASSWORD = 'wthenawzwfgkmqnu'",
+        "peekOfCode": "CORS_ORIGIN_WHITELIST = [\n    \"https://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jeffersonlara98@gmail.com'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },

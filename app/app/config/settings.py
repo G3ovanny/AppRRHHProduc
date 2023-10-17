@@ -207,6 +207,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 # CORRIGE EL ERROR DE CORS
 CORS_ORIGIN_WHITELIST = [
+    "https://10.100.100.146:85",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
 ]
