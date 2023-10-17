@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux"
 import { rhApi } from "../../api"
-import { onAddNewUnidad, onDeleteUnidad, onLoadUnidad, onSetActiveUnidad, onUpdateUnidad, clearMessageUnidad } from "../../store/distributivo";
+import { onAddNewUnidad, onDeleteUnidad, onLoadUnidad, onSetActiveUnidad, onUpdateUnidad, onErrorUnidad, clearMessageUnidad } from "../../store/distributivo";
 
 
 export const useUnidadOrganicaStore = () => {
     const dispatch = useDispatch();
 
-    const { listUnidad, activeUnidad, mensajeUnidad } = useSelector(state => state.unidadOrganica)
+    const { listUnidad, activeUnidad, mensajeUnidad, isLoadingUnidad, mensajeError } = useSelector(state => state.unidadOrganica)
 
     const startLoadingUnidad = async () => {
         try {
@@ -18,16 +18,24 @@ export const useUnidadOrganicaStore = () => {
     }
 
     const startSavingUnidad = async (unidad) => {
-        if (unidad.id) {
-            await rhApi.put(`/distributivo/unidad/${unidad.id}/`, unidad)
-            dispatch(onUpdateUnidad({ ...unidad }))
-        } else {
-            await rhApi.post('/distributivo/unidad/', unidad);
-            dispatch(onAddNewUnidad({ ...unidad }))
+        try {
+            if (unidad.id) {
+                await rhApi.put(`/distributivo/unidad/${unidad.id}/`, unidad)
+                dispatch(onUpdateUnidad({ ...unidad }))
+            } else {
+                await rhApi.post('/distributivo/unidad/', unidad);
+                dispatch(onAddNewUnidad({ ...unidad }))
+            }
+            setTimeout(() => {
+                dispatch(clearMessageUnidad());
+            }, 3000);
+        } catch (error) {
+            console.log(error)
+            dispatch(onErrorUnidad(error.response.data.mensaje));
+            setTimeout(() => {
+                dispatch(clearMessageUnidad());
+            }, 3000);
         }
-        setTimeout(() => {
-            dispatch(clearMessageUnidad());
-        }, 3000);
     }
 
     const startDeletingUnidad = async (unidad) => {
@@ -56,6 +64,8 @@ export const useUnidadOrganicaStore = () => {
         listUnidad,
         activeUnidad,
         mensajeUnidad,
+        mensajeError,
+        isLoadingUnidad,
         //*Metodos
         startSavingUnidad,
         startLoadingUnidad,

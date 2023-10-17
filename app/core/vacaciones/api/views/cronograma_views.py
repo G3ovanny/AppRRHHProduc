@@ -87,6 +87,8 @@ class CronogramaVacacionesViewSet(viewsets.ModelViewSet):
             suma_dias = ((suma)/60)/8
             Trabajador.objects.filter(id=id_trabajador).update(
                 dias_vacaciones=suma_dias)
-            cronograma.delete()
+            #cronograma.delete()
+            cronograma.state = False
+            cronograma.save()
             return Response({'mensaje': 'Los datos se han eliminado correctamente'}, status=status.HTTP_200_OK)
         return Response({'error': 'No existe datos con esas caracteristicas'}, status=status.HTTP_400_BAD_REQUEST)

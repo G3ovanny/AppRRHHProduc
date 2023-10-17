@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
     },
-    rect_pequeño: {
+    rect_peque: {
         display: "flex",
         width: "100%",
         paddingBottom: "10px",
@@ -83,9 +83,11 @@ const styles = StyleSheet.create({
         borderBottom: "3px solid #000000",
         flexDirection: "column",
         alignItems: "center",
+        paddingLeft: "10px",
+        paddingRight: "10px",
         //maxHeight: "100px",
     },
-    rect_pequeño_uno: {
+    rect_peque_uno: {
         display: "flex",
         paddingBottom: "10px",
         paddingTop: "10px",
@@ -94,6 +96,8 @@ const styles = StyleSheet.create({
         width: "100%",
         flexDirection: "column",
         alignItems: "center",
+        paddingLeft: "10px",
+        paddingRight: "10px",
         //maxHeight: "200px",
     },
     explicacion: {
@@ -175,7 +179,7 @@ export const VacacionesDocPdf = React.forwardRef((props, ref) => {
                             </Box>
                             <Box style={styles.cuadro}>
                                 <Box style={styles.rect_uno}>
-                                    <Box style={styles.rect_pequeño}>
+                                    <Box style={styles.rect_peque}>
                                         <Typography style={styles.subtitulos}>
                                             APELLIDOS Y NOMBRES
                                         </Typography>
@@ -183,7 +187,7 @@ export const VacacionesDocPdf = React.forwardRef((props, ref) => {
                                             {data.nombres}
                                         </Typography>
                                     </Box>
-                                    <Box style={styles.rect_pequeño_uno}>
+                                    <Box style={styles.rect_peque_uno}>
                                         <Typography style={styles.subtitulos}>
                                             N° DE CÉDULA
                                         </Typography>
@@ -193,7 +197,7 @@ export const VacacionesDocPdf = React.forwardRef((props, ref) => {
                                     </Box>
                                 </Box>
                                 <Box style={styles.rect_uno}>
-                                    <Box style={styles.rect_pequeño} >
+                                    <Box style={styles.rect_peque} >
                                         {columnas[0].map((reg, index) => {
                                             let check = false
                                             if (reg.id === regimen_trab) {
@@ -210,7 +214,7 @@ export const VacacionesDocPdf = React.forwardRef((props, ref) => {
                                         })
                                         }
                                     </Box>
-                                    <Box style={styles.rect_pequeño} >
+                                    <Box style={styles.rect_peque} >
                                         {columnas[1].map((reg, index) => {
                                             let check = false
                                             if (reg.id === regimen_trab) {
@@ -229,7 +233,7 @@ export const VacacionesDocPdf = React.forwardRef((props, ref) => {
                                     </Box>
                                 </Box>
                                 <Box style={styles.rect_uno}>
-                                    <Box style={styles.rect_pequeño}>
+                                    <Box style={styles.rect_peque}>
                                         <Typography style={styles.subtitulos}>
                                             UNIDAD ORGÁNICA
                                         </Typography>
@@ -237,7 +241,7 @@ export const VacacionesDocPdf = React.forwardRef((props, ref) => {
                                             {data.unidad_organica}
                                         </Typography>
                                     </Box>
-                                    <Box style={styles.rect_pequeño_uno}>
+                                    <Box style={styles.rect_peque_uno}>
                                         <Typography style={styles.subtitulos}>
                                             PUESTO QUE OCUPA
                                         </Typography>
@@ -246,7 +250,7 @@ export const VacacionesDocPdf = React.forwardRef((props, ref) => {
                                         </Typography>
                                     </Box>
                                 </Box>
-                                <Box style={styles.rect_pequeño}>
+                                <Box style={styles.rect_peque}>
                                     <Typography style={styles.subtitulos}>
                                         EXPLICACIÓN:
                                     </Typography>

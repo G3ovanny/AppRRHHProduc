@@ -29,8 +29,10 @@ class EstructuraViewSet(viewsets.ModelViewSet):
             return Response(estructura_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
-        estructura = self.get_queryset().filter(id=pk).filter()
+        estructura = self.get_queryset().filter(id=pk).first()
         if estructura:
-            estructura.delete()
+            #estructura.delete()
+            estructura.state = False
+            estructura.save()
             return Response({'mensaje': 'Estructura programática eliminada correctamente'}, status=status.HTTP_200_OK)
         return Response({'mensaje': 'No existe la estructura programática con esos datos'}, status=status.HTTP_400_BAD_REQUEST)

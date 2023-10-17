@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { rhApi } from '../../api'
-import { onAddNewTrab, onDeleteTrab, onLoadTrab, onSetActiveTrab, onUpdateTrab } from '../../store/trabajadores/trabajadorSlice'
-import { convertfechasTrab } from '../../helpers'
+import { onAddNewTrab, onDeleteTrab, onLoadTrab, onSetActiveTrab, onUpdateTrab, onSendEmailDates, onClearMessage } from '../../store/trabajadores/trabajadorSlice'
+
 
 export const useTrabStore = () => {
 
     const dispatch = useDispatch()
 
-    const { activeTrab, inicialTrab, trabajadores } = useSelector(state => state.trabajador)
+    const { activeTrab, inicialTrab, trabajadores, isLoadingTrab, mensaje, mensajesError } = useSelector(state => state.trabajador)
 
     const setActiveTrab = (trabajador) => {
         dispatch(onSetActiveTrab(trabajador))
@@ -21,6 +21,9 @@ export const useTrabStore = () => {
             await rhApi.post('/trabajadores/trabajador/', trabajador);
             dispatch(onAddNewTrab({ ...trabajador }))
         }
+        setTimeout(() => {
+            dispatch(onClearMessage());
+        }, 3000);
     }
 
     const startSavingListTrab = async (trabajadores = []) => {
@@ -59,21 +62,41 @@ export const useTrabStore = () => {
             console.log('Error al eliminar al trabajador')
         }
         setTimeout(() => {
-            dispatch(cleaMessage());
+            dispatch(onClearMessage());
         }, 3000);
     }
 
+    const startSendEmailTrab = async () => {
+        try {
+            for (let i = 0; i < activeTrab.length; i++) {
+                const id = activeTrab[i].id;
+                if (id) {
+                    await rhApi.post('/link/', {id})
+                }
+            }
+            dispatch(onSendEmailDates());
+        } catch (error) {
+            const mensajeError = error.response.data.mensaje
+            dispatch(onSendEmailDates(mensajeError));
+        }
+        setTimeout(() => {
+            dispatch(onClearMessage());
+        }, 3000);
+    }
     return {
         //*Propiedades
         inicialTrab,
         trabajadores,
         activeTrab,
+        isLoadingTrab,
+        mensaje,
+        mensajesError,
         //*Metodos
         setActiveTrab,
         startSavingTrab,
         startLoadingTrab,
         startDeletingTrab,
-
         startSavingListTrab,
+        startSendEmailTrab,
     }
 }

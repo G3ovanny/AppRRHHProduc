@@ -58,20 +58,16 @@ export const LoginPage = () => {
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <Button
-                                //</AuthLayout>disabled={isAuthenticating}
                                 type='submit'
                                 variant='contained'
                                 fullWidth
                                 onClick={onSubmit}
-                            //</AuthLayout>onClick={onSubmit}
                             >
                                 Login
                             </Button>
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <Button
-                                //</AuthLayout>disabled={isAuthenticating}
-                                //</AuthLayout>onClick={onGoogleSubmit}
                                 variant='contained'
                                 fullWidth>
                                 <Google />

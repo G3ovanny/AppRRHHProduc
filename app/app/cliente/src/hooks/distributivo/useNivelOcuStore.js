@@ -5,7 +5,7 @@ import { onAddNewNivel, onDeleteNivel, onLoadNivel, onSetActiveNivel, onUpdateNi
 
 export const useNivelOcuStore = () => {
     const dispatch = useDispatch()
-    const { listNivel, activeNivel, mensajeNivel } = useSelector(state => state.nivelOcupacional)
+    const { listNivel, activeNivel, mensajeNivel, isLoadingNivel } = useSelector(state => state.nivelOcupacional)
 
     const startLoadingNivel = async () => {
         try {
@@ -55,6 +55,7 @@ export const useNivelOcuStore = () => {
         listNivel,
         activeNivel,
         mensajeNivel,
+        isLoadingNivel,
         //*Metodos
         startSavingNivel,
         startLoadingNivel,

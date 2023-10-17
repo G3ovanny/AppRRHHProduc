@@ -1,4 +1,5 @@
 from dateutil.relativedelta import *
+import django.db
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 from ..serializers.permiso_serializers import PermisoSerializer
@@ -13,8 +14,8 @@ class PermisoViewSet(viewsets.ModelViewSet):
  
     def get_queryset(self, pk=None):
         if pk is None:
-            return self.get_serializer().Meta.model.objects.filter(state=True)
-        return self.get_queryset().Meta.model.objects.filter(id=pk, state=True).first()
+            return self.get_serializer().Meta.model.objects.filter(state=True, id_trabajador__state=True)
+        return self.get_queryset().Meta.model.objects.filter(id=pk, state=True, id_trabajador__state=True).first()
     
     def create(self, request):
         permiso_serializer = self.serializer_class(data= request.data)
@@ -130,7 +131,9 @@ class PermisoViewSet(viewsets.ModelViewSet):
                 suma_dias = ((suma) / 60) / 8
                 Trabajador.objects.filter(nombres=id_trabajador).update(dias_vacaciones=suma_dias)
 
-            permiso.delete()
+            #permiso.delete()
+            permiso.state = False
+            permiso.save()
             return Response({'mensaje':'Permiso eliminado correctamente'}, status=status.HTTP_200_OK)
         return Response({'error':'No existe el permiso con esos datos'}, status=status.HTTP_400_BAD_REQUEST)
 

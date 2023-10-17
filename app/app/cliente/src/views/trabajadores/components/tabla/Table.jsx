@@ -6,7 +6,7 @@ import { useTrabStore } from '../../../../hooks'
 
 export const Table = () => {
 
-    const { trabajadores, startLoadingTrab, setActiveTrab, activeTrab } = useTrabStore()
+    const { trabajadores, startLoadingTrab, setActiveTrab, activeTrab, isLoadingTrab } = useTrabStore()
 
     const [resultadoBusqueda, setResultadoBusqueda] = useState('');
 
@@ -38,7 +38,9 @@ export const Table = () => {
     useEffect(() => {
         setResultadoBusqueda()
     }, [])
-
+    const page = 0
+    const pageSize = 10
+    const rowsPerPage = 0
     return (
         <div
             style={{ height: 500, width: '100%' }}
@@ -48,17 +50,18 @@ export const Table = () => {
                 objetos={trabajadores}
                 objactive={activeTrab}
                 setObjecActive={setActiveTrab}
+                isLoadingObjects={isLoadingTrab}
                 startLoadingObjects={startLoadingTrab()}
-                tableCells={<TableCells list={resultadoBusqueda} />}
+                tableCells={<TableCells list={resultadoBusqueda} page={page} rowsPerPage={rowsPerPage} />}
                 indexCells={indexCells}
                 tableButtons={<TableButtons />}
                 filters={<TableFilters onBuscar={handleBuscar} />}
                 initialState={{
                     pagination: {
-                        paginationModel: { page: 0, pageSize: 9 },
+                        paginationModel: { page, pageSize },
                     },
                 }}
-                pageSizeOptions={[9, 10]}
+                pageSizeOptions={[10, 25, 100]}
             />
         </div>
     )

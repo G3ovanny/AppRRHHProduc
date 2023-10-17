@@ -4,7 +4,7 @@ import { usePermisoStore } from '../../../../hooks'
 import dayjs from 'dayjs';
 import { TableFilters } from './TableFilters';
 
-export const TableCells = ({ list }) => {
+export const TableCells = ({ list, page, rowsPerPage }) => {
     const { listPermiso, activePermiso, setActivePermiso } = usePermisoStore()
 
 
@@ -38,14 +38,14 @@ export const TableCells = ({ list }) => {
         lista = list
     }
 
+
     return (
         <>
             <TableBody
                 component="div"
             >
-
-                {
-                    lista.map((permiso) => {
+                {lista.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((permiso) => {
                         const isItemSelected = isSelected(permiso);
                         const salida = dayjs(permiso.fecha_hora_salida).format("D/M/YYYY - HH:mm");
                         const llegada = dayjs(permiso.fecha_hora_llegada).format("D/M/YYYY - HH:mm");

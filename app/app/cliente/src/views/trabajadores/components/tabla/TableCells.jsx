@@ -2,7 +2,7 @@ import React from 'react'
 import { Checkbox, TableBody, TableCell, TableRow } from '@mui/material'
 import { useTrabStore } from '../../../../hooks'
 
-export const TableCells = ({ list }) => {
+export const TableCells = ({ list, page, rowsPerPage }) => {
 
     const { trabajadores, activeTrab, setActiveTrab } = useTrabStore();
 
@@ -42,42 +42,43 @@ export const TableCells = ({ list }) => {
         <TableBody
             component="div"
         >
-            {lista.map((trabajador) => {
-                const isItemSelected = isSelected(trabajador);
-                return (
-                    <TableRow
-                        component="div"
-                        hover
-                        onClick={event => onSelected(event, trabajador)}
-                        role='checkbox'
-                        tabIndex={-1}
-                        key={trabajador.id}
-                        selected={isItemSelected}
-                    >
-                        <TableCell
-                            padding='checkbox'
+            {lista.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((trabajador) => {
+                    const isItemSelected = isSelected(trabajador);
+                    return (
+                        <TableRow
                             component="div"
+                            hover
+                            onClick={event => onSelected(event, trabajador)}
+                            role='checkbox'
+                            tabIndex={-1}
+                            key={trabajador.id}
+                            selected={isItemSelected}
                         >
-                            <Checkbox
-                                color='primary'
-                                checked={isItemSelected}
-                            />
-                        </TableCell>
-                        <TableCell
-                            component='div'
-                            scope='patient'
-                            padding='none'
-                        >
-                            {trabajador.numero_identificacion}
-                        </TableCell>
-                        <TableCell component='div' >{trabajador.nombres}</TableCell>
-                        {/*<TableCell component='div' >{trabajador.celular}</TableCell>*/}
-                        <TableCell component='div' >{trabajador.unidad_organica}</TableCell>
-                        <TableCell component='div' >{trabajador.denominacion_puesto}</TableCell>
-                        <TableCell component='div' >{trabajador.dias_vacaciones}</TableCell>
-                    </TableRow>
-                )
-            })}
+                            <TableCell
+                                padding='checkbox'
+                                component="div"
+                            >
+                                <Checkbox
+                                    color='primary'
+                                    checked={isItemSelected}
+                                />
+                            </TableCell>
+                            <TableCell
+                                component='div'
+                                scope='patient'
+                                padding='none'
+                            >
+                                {trabajador.numero_identificacion}
+                            </TableCell>
+                            <TableCell component='div' >{trabajador.nombres}</TableCell>
+                            {/*<TableCell component='div' >{trabajador.celular}</TableCell>*/}
+                            <TableCell component='div' >{trabajador.unidad_organica}</TableCell>
+                            <TableCell component='div' >{trabajador.denominacion_puesto}</TableCell>
+                            <TableCell component='div' >{trabajador.dias_vacaciones}</TableCell>
+                        </TableRow>
+                    )
+                })}
         </TableBody>
     )
 }

@@ -75,5 +75,11 @@ class UsuarioViewSet(viewsets.ModelViewSet):
 
     def destroy(self, request, pk=None):
         usuario = Usuario.objects.filter(id=pk).first()
-        usuario.delete()
-        return Response({'mensaje': 'El usuario ha sido eliminado correctamente'}, status=status.HTTP_200_OK)
+        if usuario:
+            #usuario.delete()
+            usuario.is_active = False
+            usuario.is_staff=False
+            usuario.state = False
+            usuario.save()
+            return Response({'mensaje': 'Usuario eliminado correctamente'}, status= status.HTTP_200_OK)
+        return Response({'mensaje': 'No existe el usuario con esos datos'}, status=status.HTTP_400_BAD_REQUEST)

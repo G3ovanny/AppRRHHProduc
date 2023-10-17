@@ -5,7 +5,7 @@ import { rhApi } from '../../api';
 
 export const useCronogramaVacacionesStore = () => {
     const dispatch = useDispatch();
-    const { listCronograma, activeCronograma, mensajeCronograma } = useSelector(state => state.cronograma)
+    const { listCronograma, activeCronograma, mensajeCronograma, isLoadingCronograma } = useSelector(state => state.cronograma)
 
     const startLoadingCronograma = async () => {
         try {
@@ -65,6 +65,7 @@ export const useCronogramaVacacionesStore = () => {
         listCronograma,
         activeCronograma,
         mensajeCronograma,
+        isLoadingCronograma,
         //*Metodos
         startSavingCronograma,
         startLoadingCronograma,

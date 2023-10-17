@@ -11,7 +11,9 @@ from rest_framework_simplejwt.views import (
 )
 from core.usuarios.views import Login, Logout
 from core.trabajadores.api.views.datosFormulario_views import DatosFormulario
+
 from core.permisos.views import PermisoAA
+from core.trabajadores.envioCorreo.envio_correo_datos import EnvioDatos
 from . import views
 
 urlpatterns = [
@@ -37,6 +39,7 @@ urlpatterns = [
     path('formulario/', DatosFormulario.as_view(), name = 'datos_formulario'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('link/', EnvioDatos.as_view(), name='link_datos_trabajadores'),
     #rutas api
     path('usuarios/', include('core.usuarios.api.routers')),
     path('trabajadores/', include('core.trabajadores.api.routers')),

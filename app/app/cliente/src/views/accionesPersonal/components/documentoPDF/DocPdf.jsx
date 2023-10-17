@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         display: "flex",
         width: "100%",
-        minHeight: "120px",
+        minHeight: "100px",
         justifyContent: "center"
     },
     text: {
@@ -181,10 +181,19 @@ export const DocPdf = React.forwardRef((props, ref) => {
         const anio = new Date().getFullYear();
         const codApPa = data.apellido_paterno.substring(0, 2)
         const codNom = data.nombres.substring(0, 2)
+        const contador = data.contador
+        const otroTipo = data.otro_tipo
         const tipoAccion = tipos.filter((tipos) => tipos.nombre === tipo)
         const codigoAccion = tipoAccion[0].cod
-        const contador = data.contador
-        const cod_accion = `${codigoAccion}-${codApPa}-${codNom}-${anio}-${contador}`
+        //const datos = tableCells.props.list || objetos;
+        let cod_accion = ''
+        if (otroTipo) {
+            const otTipo = otroTipo.substring(0, 2).toUpperCase()
+            cod_accion = `${otTipo}-${codApPa}-${codNom}-${anio}-${contador}`
+        } else {
+            cod_accion = `${codigoAccion}-${codApPa}-${codNom}-${anio}-${contador}`
+
+        }
 
         let lugarTrabajo = ''
         if (data.puesto_propuesta) {
@@ -192,18 +201,26 @@ export const DocPdf = React.forwardRef((props, ref) => {
         }
         return (
             document.push(
-                <Box key={index}>
-                    <Box size="A4" style={styles.page}>
-                        <Box style={styles.margen} >
+                <Box
+                    key={index}
+                >
+                    <Box
+                        size="A4"
+                        style={styles.page}
+                    >
+                        <Box
+                            style={styles.margen}
+                        >
                             <Box style={styles.header}>
                                 <img
                                     src="https://upload.wikimedia.org/wikipedia/commons/8/84/UPEC_LOGO.svg"
                                     width="70" height="70"
                                 />
-                                
+
                                 <img
                                     src="https://seeklogo.com/images/M/ministerio-del-trabajo-ecuador-logo-F140F8BD3A-seeklogo.com.png"
-                                    width="150" height="75"
+                                    width="200" height="75"
+
                                 />
                                 {/* <img src={logoUpec} /> */}
                                 {/* <img src={logoMdt} /> */}
@@ -374,15 +391,17 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                             return (
                                                 <Typography style={styles.text_check} key={index}>
                                                     {col.nombre}
-                                                    <input type="checkbox" defaultChecked={check} />
+                                                    {col.nombre === 'OTRO' ?
+                                                        <Typography style={styles.text_check} >
+                                                            {data.otro_tipo}
+                                                        </Typography>
+                                                        :
+                                                        <input type="checkbox" defaultChecked={check} />
+                                                    }
                                                 </Typography>
                                             )
                                         }
-
                                     })}
-                                    <Typography style={styles.text_check} >
-                                        ______
-                                    </Typography>
                                 </Box>
                             </Box>
                             <Box style={styles.rect_cuatro}>
@@ -397,7 +416,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                             PROCESO:
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            SUBPROCESO:
+                                            SUBPROCESO: {data.subproceso_actual}
                                         </Typography>
                                         <Typography style={styles.text} >
                                             PUESTO: {data.puesto_actual}
@@ -539,6 +558,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                 </Box>
                             </Box>
                         </Box>
+                        <Typography fontSize={8} align='center'>Fecha de creación de formato: 2014-05-27    /    Versión: 01    /    Página 1 de 2.</Typography>
                     </Box >
                     <Box size="A4" style={styles.page}>
                         <Box style={styles.margen}>
@@ -657,6 +677,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                 </Box>
                             </Box>
                         </Box>
+                        <Typography fontSize={8} align='center'>Fecha de creación de formato: 2014-05-27    /    Versión: 01    /    Página 2 de 2.</Typography>
                     </Box>
                 </Box>
             )

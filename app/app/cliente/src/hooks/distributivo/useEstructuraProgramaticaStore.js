@@ -6,8 +6,8 @@ import { rhApi } from '../../api';
 export const useEstructuraProgramaticaStore = () => {
     const dispatch = useDispatch();
 
-    const { listEstructura, activeEstructura, mensajeEstructura } = useSelector(state => state.estructura)
-
+    const { listEstructura, activeEstructura, mensajeEstructura, isLoadingEstructura } = useSelector(state => state.estructura)
+    
     const startLoadingEstructura = async () => {
         try {
             const { data } = await rhApi.get('/distributivo/estructura/');
@@ -56,6 +56,7 @@ export const useEstructuraProgramaticaStore = () => {
         listEstructura,
         activeEstructura,
         mensajeEstructura,
+        isLoadingEstructura,
         //*Metodos
         startSavingEstructura,
         startLoadingEstructura,

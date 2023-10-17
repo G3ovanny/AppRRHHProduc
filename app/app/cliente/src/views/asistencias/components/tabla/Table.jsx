@@ -4,12 +4,11 @@ import { useAsistenciaStore } from '../../../../hooks'
 import { TableCells } from './TableCells';
 import { TableButtons } from './TableButtons';
 import { indexCells } from './tableindex';
-import { Box } from '@mui/material';
 import { TableFilters } from './TableFilters';
 import dayjs from 'dayjs';
 
 export const Table = ({ title }) => {
-  const { listAsistencia, startLoadingAsistencia, setActiveAsistencia, activeAsistencia } = useAsistenciaStore();
+  const { listAsistencia, startLoadingAsistencia, setActiveAsistencia, activeAsistencia, isLoadingAsistencia } = useAsistenciaStore();
 
   const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
   const handleBuscar = (valorBuscar, columna, fechaDesde, fechaHasta) => {
@@ -47,28 +46,32 @@ export const Table = ({ title }) => {
     setResultadoBusqueda(resultadosFiltrados);
   }
 
-
-
   useEffect(() => {
     setResultadoBusqueda()
   }, [])
+
+  const page = 0
+  const pageSize = 100
+  const rowsPerPage = 0
+
   return (
     <BasicTable
       title={title}
       objetos={listAsistencia}
       objactive={activeAsistencia}
       setObjecActive={setActiveAsistencia}
+      isLoadingObjects={isLoadingAsistencia}
       startLoadingObjects={startLoadingAsistencia()}
-      tableCells={<TableCells list={resultadoBusqueda} />}
+      tableCells={<TableCells list={resultadoBusqueda} page={page} rowsPerPage={rowsPerPage} />}
       indexCells={indexCells}
       tableButtons={<TableButtons />}
       filters={<TableFilters onBuscar={handleBuscar} />}
       initialState={{
         pagination: {
-          paginationModel: { page: 0, pageSize: 9 },
+          paginationModel: { page, pageSize },
         },
       }}
-      pageSizeOptions={[9, 10]}
+      pageSizeOptions={[100, 500, 1000]}
     />
   )
 }

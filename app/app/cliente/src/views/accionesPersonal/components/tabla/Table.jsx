@@ -8,7 +8,7 @@ import { TableFilters } from './TableFilters';
 import dayjs from 'dayjs';
 
 export const Table = () => {
-  const { listAccion, startLoadingAccion, setActiveAccion, activeAccion } = useAccionPersonalStore();
+  const { listAccion, startLoadingAccion, setActiveAccion, activeAccion, isLoadingAccion } = useAccionPersonalStore();
 
   const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
 
@@ -51,6 +51,10 @@ export const Table = () => {
   }, [])
 
   const title = 'Lista acciones de personal'
+
+  const page = 0
+  const pageSize = 10
+  const rowsPerPage= 0
   return (
     <div
       style={{ height: 500, width: '100%' }}
@@ -61,18 +65,20 @@ export const Table = () => {
         objetos={listAccion}
         objactive={activeAccion}
         setObjecActive={setActiveAccion}
+        isLoadingObjects={isLoadingAccion}
         startLoadingObjects={startLoadingAccion()}
-        tableCells={<TableCells list={resultadoBusqueda} />}
+        tableCells={<TableCells list={resultadoBusqueda} page={page} rowsPerPage={rowsPerPage} />}
         indexCells={indexCells}
         tableButtons={<TableButtons />}
         filters={<TableFilters onBuscar={handleBuscar} />}
         initialState={{
           pagination: {
-            paginationModel: { page: 0, pageSize: 9 },
+            paginationModel: { page, pageSize },
           },
         }}
-        pageSizeOptions={[9, 10]}
+        pageSizeOptions={[10, 50, 100]}
       />
     </div>
   )
 }
+ 

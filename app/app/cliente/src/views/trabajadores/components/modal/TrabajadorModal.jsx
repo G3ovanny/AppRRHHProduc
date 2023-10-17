@@ -87,7 +87,7 @@ const formData = {
     estado_servidor: '',
     fecha_inicio: new Date(),
     fecha_fin: new Date(),
-    fecha_ingreso: '',
+    cod_biometrico: '',
 }
 
 export const TrabajadorModal = ({ titleModal }) => {
@@ -183,7 +183,7 @@ export const TrabajadorModal = ({ titleModal }) => {
         fecha_nacimiento,
         fecha_inicio,
         fecha_fin,
-        fecha_ingreso,
+        cod_biometrico,
         id_regimen_laboral,
         id_nivel_ocupacional,
         id_modalidad_laboral,
@@ -442,19 +442,17 @@ export const TrabajadorModal = ({ titleModal }) => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} sx={{ mt: 1 }}>
-                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                        <DatePicker
-                                            slotProps={{
-                                                textField: {
-                                                    InputProps: { size: 'small', format: 'YYYY-MM-DD' },
-                                                }
-                                            }}
-                                            label='Fecha de ingreso'
-                                            value={dayjs(fecha_ingreso)}
-                                            onChange={date => onInputChange({ target: { value: dayjs(date).format('YYYY-MM-DD'), name: 'fecha_ingreso' } })}
-                                            sx={{ minWidth: 150 }}
-                                        />
-                                    </LocalizationProvider>
+                                    <TextField sx={{ minWidth: 180 }} size="small"
+                                        id='cod_biometrico'
+                                        autoComplete='false'
+                                        label='Código biometrico'
+                                        type='number'
+                                        placeholder='Ingrese el codigo biometrico del servidor'
+                                        fullWidth
+                                        name='cod_biometrico'
+                                        value={cod_biometrico || ''}
+                                        onChange={onInputChange}
+                                    />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6} sx={{ mt: 2 }}>
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>

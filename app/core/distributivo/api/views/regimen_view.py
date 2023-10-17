@@ -27,8 +27,10 @@ class RegimenViewSet(viewsets.ModelViewSet):
             return Response(regimen_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
-        regimen = self.get_queryset().filter(id=pk).filter()
+        regimen = self.get_queryset().filter(id=pk).first()
         if regimen:
-            regimen.delete()
+            #regimen.delete()
+            regimen.state = False
+            regimen.save()
             return Response({'mensaje': 'Regimen eliminado correctamente'}, status= status.HTTP_200_OK)
         return Response({'mensaje': 'No existe el regimen con esos datos'}, status=status.HTTP_400_BAD_REQUEST)

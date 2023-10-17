@@ -3,7 +3,7 @@ import React from 'react'
 import { useAsistenciaStore } from '../../../../hooks'
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc'
-export const TableCells = ({ list }) => {
+export const TableCells = ({ list, page, rowsPerPage }) => {
   const { listAsistencia, activeAsistencia, setActiveAsistencia } = useAsistenciaStore();
 
   const onSelected = (event, asistencia) => {
@@ -40,8 +40,8 @@ export const TableCells = ({ list }) => {
     <TableBody
       component='div'
     >
-      {
-        lista.map((asistencia) => {
+      {lista.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+        .map((asistencia) => {
           const isItemSelected = isSelected(asistencia)
           dayjs.extend(utc);
           const registro = dayjs.utc(asistencia.hora).format("YYYY-MM-DD HH:mm:ss");

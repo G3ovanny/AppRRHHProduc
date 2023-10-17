@@ -43,6 +43,7 @@ class AccionPersonal(BaseModel):
 
     explicacion = models.CharField(
         'Explicacion', max_length=600, blank=True, null=True)
+    otro_tipo = models.CharField('Otro tipo de acción', max_length=155, blank=True, null=True)
     TIPOS_ACCION = (
         ('INGRESO', 'INGRESO'),
         ('NOMBRAMIENTO', 'NOMBRAMIENTO'),

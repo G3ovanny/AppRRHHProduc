@@ -2,17 +2,19 @@ import { configureStore } from '@reduxjs/toolkit'
 import { authSlice } from './auth/authSlice'
 import { menuSlice, modalSlice } from './ui'
 import { archivoSlice, datosPersonalesSlice, trabajadorSlice } from './trabajadores'
-import { regimenSlice, nivelOcupacionalSlice, modalidadLaboralSlice, unidadOrganicaSlice, denominacionPuestoSlice, estructuraProgramaticaSlice } from './distributivo'
+import { regimenSlice, nivelOcupacionalSlice, modalidadLaboralSlice, unidadOrganicaSlice, denominacionPuestoSlice, estructuraProgramaticaSlice, procesoSlice } from './distributivo'
 import { motivoPermisoSlice } from './permisos/motivoPermisoSlice'
 import { permisoSlice } from './permisos'
 import { accionPersonalSlice, archivoAccionesSlice } from './accionPersonal'
 import { cronogramaVacacionesSlice } from './vacaciones'
 import { asistenciasSlice } from './asistencias'
 import { usuariosSlice } from './usuarios'
+import { cedulaSlice } from './auth/cedulaSlice'
 
 export const store = configureStore({
     reducer: {
         auth: authSlice.reducer,
+        cedula: cedulaSlice.reducer,
         menu: menuSlice.reducer,
         modal: modalSlice.reducer,
         trabajador: trabajadorSlice.reducer,
@@ -23,8 +25,9 @@ export const store = configureStore({
         modalidadLaboral: modalidadLaboralSlice.reducer,
         unidadOrganica: unidadOrganicaSlice.reducer,
         denominacionPuesto: denominacionPuestoSlice.reducer,
-        motivoPermiso: motivoPermisoSlice.reducer,
         estructura: estructuraProgramaticaSlice.reducer,
+        proceso: procesoSlice.reducer,
+        motivoPermiso: motivoPermisoSlice.reducer,
         permiso: permisoSlice.reducer,
         accionPersonal: accionPersonalSlice.reducer,
         archivoAcc: archivoAccionesSlice.reducer,

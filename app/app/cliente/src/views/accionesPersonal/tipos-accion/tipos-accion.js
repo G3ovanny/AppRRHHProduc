@@ -5,119 +5,119 @@ export const tipos_accion = {
         {
             id: 'ingreso',
             nombre: 'INGRESO',
-            cod: 'In'
+            cod: 'IN'
         },
         {
             id: 'nombramiento',
             nombre: 'NOMBRAMIENTO',
-            cod: 'No'
+            cod: 'NO'
         },
         {
             id: 'ascenso',
             nombre: 'ASCENSO',
-            cod: 'As'
+            cod: 'AS'
         },
         {
             id: 'subrogacion',
             nombre: 'SUBROGACION',
-            cod: 'Su'
+            cod: 'SU'
         },
         {
             id: 'encargo',
             nombre: 'ENCARGO',
-            cod: 'En'
+            cod: 'EN'
         },
         {
             id: 'vacaciones',
             nombre: 'VACACIONES',
-            cod: 'Va'
+            cod: 'VA'
         },
         {
             id: 'traslado',
             nombre: 'TRASLADO',
-            cod: 'Tl'
+            cod: 'TR'
         },
         {
             id: 'traspaso',
             nombre: 'TRASPASO',
-            cod: 'Tp'
+            cod: 'TP'
         },
         {
             id: 'cambio_administrativo',
             nombre: 'CAMBIO ADMINISTRATIVO',
-            cod: 'Ca'
+            cod: 'CA'
         },
         {
             id: 'intercambio',
             nombre: 'INTERCAMBIO',
-            cod: 'It'
+            cod: 'IT'
         },
         {
             id: 'comision_servicios',
             nombre: 'COMISION DE SERVICIOS',
-            cod: 'Cs'
+            cod: 'CS'
         },
         {
             id: 'licencia',
             nombre: 'LICENCIA',
-            cod: 'Li'
+            cod: 'LI'
         },
         {
             id: 'revalorizacion',
             nombre: 'REVALORIZACION',
-            cod: 'Re'
+            cod: 'RE'
         },
         {
             id: 'reclasificacion',
             nombre: 'RECLASIFICACION',
-            cod: 'Rc'
+            cod: 'RC'
         },
         {
             id: 'ubicacion',
             nombre: 'UBICACION',
-            cod: 'Ub'
+            cod: 'UB'
         },
         {
             id: 'reintegro',
             nombre: 'REINTEGRO',
-            cod: 'Ri'
+            cod: 'RI'
         },
         {
             id: 'restitucion',
             nombre: 'RESTITUCION',
-            cod: 'Rs'
+            cod: 'RS'
 
         },
         {
             id: 'renuncia',
             nombre: 'RENUNCIA',
-            cod: 'Rn',
+            cod: 'RN',
         },
         {
             id: 'supresion',
             nombre: 'SUPRESION',
-            cod: 'Su'
+            cod: 'SU'
 
         },
         {
             id: 'destitucion',
             nombre: 'DESTITUCION',
-            cod: 'De'
+            cod: 'DE'
         },
         {
             id: 'remocion',
             nombre: 'REMOCION',
-            cod: 'Rm'
+            cod: 'RM'
         },
         {
             id: 'jubilacion',
             nombre: 'JUBILACION',
-            cod: 'Ju'
+            cod: 'JU'
         },
         {
             id: 'otro',
             nombre: 'OTRO',
-            cod: 'Ot'
+            cod: 'OT'
         },
     ]
 }

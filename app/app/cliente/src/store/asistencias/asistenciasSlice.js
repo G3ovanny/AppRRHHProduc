@@ -47,12 +47,20 @@ export const asistenciasSlice = createSlice({
         },
         onLoadAsistencia: (state, { payload }) => {
             state.isLoadingAsistencia = false;
+            const existingIds = new Set(state.listAsistencia.map(asistencia => asistencia.id));
+
             payload.forEach(asistencia => {
-                const exist = state.listAsistencia.some(dbasistencia => dbasistencia.id === asistencia.id);
-                if (!exist) {
-                    state.listAsistencia.push(asistencia)
+                if (!existingIds.has(asistencia.id)) {
+                    state.listAsistencia.push(asistencia);
+                    existingIds.add(asistencia.id);
                 }
             });
+            // payload.forEach(asistencia => {
+            //     const exist = state.listAsistencia.some(dbasistencia => dbasistencia.id === asistencia.id);
+            //     if (!exist) {
+            //         state.listAsistencia.push(asistencia)
+            //     }
+            // });
         },
         clearMessageAsistencia: (state) => {
             state.mensajeAsistencia = null;

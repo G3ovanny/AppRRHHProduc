@@ -29,5 +29,19 @@ class DatosTrabajadoresViewSet(viewsets.ModelViewSet):
         datosTrabajador = self.get_queryset().filter(id=pk).filter()
         if datosTrabajador:
             datosTrabajador.delete()
+            datosTrabajador.state = False
+            datosTrabajador.save()
             return Response({'mensaje': 'Los datos se han eliminado correctamente'}, status= status.HTTP_200_OK)
         return Response({'mensaje': 'No existe información con esos datos'}, status=status.HTTP_400_BAD_REQUEST)
+    
+
+
+        # def post(self, request, *args, **kwargs):
+        # nombres = request.data.get('nombres', '')
+        # if nombres:
+        #     datos_serializer = self.serializer_class(data = request.data)
+        #     if datos_serializer.is_valid():
+        #         print(datos_serializer)
+        #         datos_serializer.save()
+        #     return Response({'mensaje': nombres})
+        # return Response({'mensaje': 'acceso al formulario'})

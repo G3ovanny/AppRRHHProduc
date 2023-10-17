@@ -27,8 +27,10 @@ class ModalidadLaboralViewSet(viewsets.ModelViewSet):
             return Response(modalidad_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
-        modalidad= self.get_queryset().filter(id=pk).filter()
+        modalidad= self.get_queryset().filter(id=pk).first()
         if modalidad:
-            modalidad.delete()
+            #modalidad.delete()
+            modalidad.state = False
+            modalidad.save()
             return Response({'mensaje': 'Modadlidad laboral eliminado correctamente'}, status= status.HTTP_200_OK)
         return Response({'mensaje': 'No existe la modadlidad laboral con esos datos'}, status=status.HTTP_400_BAD_REQUEST)

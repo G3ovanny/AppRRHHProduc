@@ -50,6 +50,7 @@ const formData = {
     fecha_accion: '',
     fecha_rigue: '',
     tipo_accion: '',
+    otro_tipo:'',
     doc_base: '',
     num_doc: '',
     fecha_doc: '',
@@ -105,6 +106,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         fecha_accion,
         fecha_rigue,
         tipo_accion,
+        otro_tipo,
         doc_base,
         num_doc,
         fecha_doc,
@@ -144,6 +146,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         component = {
             cedula: trabajador.numero_identificacion,
             nombres: trabajador.nombres,
+            unidad: trabajador.unidad_organica,
             puesto: trabajador.denominacion_puesto,
             rmu: trabajador.rmu_puesto,
             estructura: trabajador.estructura_programatica,
@@ -294,7 +297,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                 >
                                     <InputLabel id="demo-simple-select-label">Tipo acción de personal </InputLabel>
                                     <Select
-                                        error ={tipo_accionValid !== null}
+                                        error={tipo_accionValid !== null}
                                         labelId="demo-simple-select-label"
                                         id="demo-simple-select"
                                         label="Tipo acción de personal"
@@ -310,6 +313,21 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                             </Grid>
                             <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
                                 <TextField sx={{ minWidth: 180 }} size="small"
+                                    id='otro_tipo'
+                                    autoComplete='false'
+                                    label='Ingrese OTRO tipo de acción de personal'
+                                    type='text'
+                                    placeholder='Ingrese OTRO tipo de acción de personal'
+                                    fullWidth
+                                    name='otro_tipo'
+                                    disabled={tipo_accion != 'OTRO'}
+                                    value={otro_tipo || ''}
+                                    onChange={onInputChange}
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
+                                <TextField sx={{ minWidth: 180 }}
+                                    size="small"
                                     id='contador'
                                     autoComplete='false'
                                     label='Número acción de personal'
@@ -348,7 +366,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                         type='text'
                                         //readOnly
                                         fullWidth
-                                        value={component.puesto || ''}
+                                        value={component.unidad || ''}
                                         onChange={onInputChange}
                                     />
                                 </Grid>

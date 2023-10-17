@@ -27,8 +27,10 @@ class MotivoPermisoViewSet(viewsets.ModelViewSet):
         return Response(motivo_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def destroy(self, request, pk = None):
-        motivo_serializer= self.get_queryset().filter(id=pk)
-        if motivo_serializer:
-            motivo_serializer.delete()
+        motivo= self.get_queryset().filter(id=pk)
+        if motivo:
+            #motivo.delete()
+            motivo.state = False
+            motivo.save()
             return Response({'mensaje':'El motivo del permiso eliminado correctamente'}, status=status.HTTP_200_OK)
         return Response({'error':'No exite el motivo de permiso con esos datos'}, status=status.HTTP_400_BAD_REQUEST)

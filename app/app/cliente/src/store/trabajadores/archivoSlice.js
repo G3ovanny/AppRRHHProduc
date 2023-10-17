@@ -8,7 +8,7 @@ export const archivoSlice = createSlice({
     activeArchivo: [],
     archivos: [],
     inicialArchivo: [],
-    mensaje: null
+    mensajeArchivo: null
   },
   reducers: {
     onSetActiveArchivo: (state, { payload }) => {
@@ -20,7 +20,7 @@ export const archivoSlice = createSlice({
     },
     onAddNewArchivo: (state, { payload }) => {
       state.archivos.push(payload);
-      state.mensaje = 'Los datos se han guardado correctamente';
+      state.mensajeArchivo = payload;
       state.activeArchivo = [];
       state.inicialArchivo = []
     },
@@ -31,7 +31,7 @@ export const archivoSlice = createSlice({
         }
         return archivo
       })
-      state.mensaje = 'Los datos se actualizaron correctamente'
+      state.mensajeArchivo = 'Los datos se actualizaron correctamente'
     },
     onLoadArchivo: (state, { payload }) => {
       state.isLoadingArchivo = true;
@@ -42,10 +42,10 @@ export const archivoSlice = createSlice({
         }
       });
     },
-    clearMessage: (state) => {
-      state.mensaje = null
+    onClearMessage: (state) => {
+      state.mensajeArchivo = null
     },
   }
 })
 
-export const { onSetActiveArchivo, onAddNewArchivo, onUpdateArchivo, onLoadArchivo, clearMessage } = archivoSlice.actions
+export const { onSetActiveArchivo, onAddNewArchivo, onUpdateArchivo, onLoadArchivo, onClearMessage } = archivoSlice.actions

@@ -46,10 +46,14 @@ export const Table = () => {
         setResultadoBusqueda(resultadosFiltrados);
     }
 
+    const title = 'Lista cronograma'
     useEffect(() => {
         setResultadoBusqueda()
     }, [])
-    const title = 'Lista cronograma'
+
+    const page = 0
+    const pageSize = 10
+    const rowsPerPage = 0
     return (
         <div
             style={{ height: 500, width: '100%' }}
@@ -60,16 +64,16 @@ export const Table = () => {
                 objactive={activeCronograma}
                 setObjecActive={setActiveCronograma}
                 startLoadingObjects={startLoadingCronograma()}
-                tableCells={<TableCells list={resultadoBusqueda} />}
+                tableCells={<TableCells list={resultadoBusqueda} page={page} rowsPerPage={rowsPerPage} />}
                 indexCells={indexCells}
                 tableButtons={<TableButtons />}
                 filters={<TableFilters onBuscar={handleBuscar} />}
                 initialState={{
                     pagination: {
-                        paginationModel: { page: 0, pageSize: 9 },
+                        paginationModel: { page, pageSize },
                     },
                 }}
-                pageSizeOptions={[9, 10]}
+                pageSizeOptions={[10, 25, 100]}
             />
 
         </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useUsuarioStore } from '../../../../hooks'
 import { Checkbox, Switch, TableBody, TableCell, TableRow } from '@mui/material';
 
-export const TableCells = ({ list }) => {
+export const TableCells = ({ list, page, rowsPerPage }) => {
   const { listUsuario, activeUsuario, setActiveUsuario } = useUsuarioStore();
 
 
@@ -39,8 +39,8 @@ export const TableCells = ({ list }) => {
     <TableBody
       component="div"
     >
-      {
-        lista.map((usuario) => {
+      {lista.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+        .map((usuario) => {
           const isItemSelected = isSelected(usuario);
           const estado = usuario.is_staff
           return (

@@ -7,7 +7,8 @@ export const trabajadorSlice = createSlice({
         activeTrab: [],
         trabajadores: [],
         inicialTrab: [],
-        mensaje: null
+        mensaje: null,
+        mensajesError: null
     },
     reducers: {
         onSetActiveTrab: (state, { payload }) => {
@@ -53,10 +54,15 @@ export const trabajadorSlice = createSlice({
                 }
             });
         },
-        clearMessage: (state) => {
+        onSendEmailDates: (state, { payload }) => {
+            console.log(state.mensajesError = payload)
+        },
+        onClearMessage: (state) => {
             state.mensaje = null;
+            state.mensajesError = null;
         }
+
     }
 })
 
-export const { onSetActiveTrab, onAddNewTrab, onUpdateTrab, onDeleteTrab, onLoadTrab, clearMessage } = trabajadorSlice.actions
+export const { onSetActiveTrab, onAddNewTrab, onUpdateTrab, onDeleteTrab, onLoadTrab, onSendEmailDates, onClearMessage } = trabajadorSlice.actions

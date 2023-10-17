@@ -4,8 +4,8 @@ import { rhApi } from '../../api';
 
 export const useUsuarioStore = () => {
     const dispatch = useDispatch();
-    const { listUsuario, activeUsuario, mensajeUsuario } = useSelector(state => state.usuarios)
-
+    const { listUsuario, activeUsuario, mensajeUsuario, isLoadingUsuario } = useSelector(state => state.usuarios)
+    
     const startLoadingUsuario = async () => {
         try {
             const { data } = await rhApi.get('/usuarios/usuario/');
@@ -64,6 +64,7 @@ export const useUsuarioStore = () => {
         listUsuario,
         activeUsuario,
         mensajeUsuario,
+        isLoadingUsuario,
         //*Metodos
         startSavingUsuario,
         startLoadingUsuario,

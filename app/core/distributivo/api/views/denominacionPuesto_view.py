@@ -14,7 +14,8 @@ class DenominacionPuestoViewSet(viewsets.ModelViewSet):
     def create(self, request):
         denominacion_serializer = self.serializer_class(data=request.data)
         if denominacion_serializer.is_valid():
-            denominacion_serializer.save()
+            print(denominacion_serializer)
+            #denominacion_serializer.save()
             return Response({'mensaje':'Denominacion del puesto creado correctamente'}, status=status.HTTP_200_OK)
         return Response(denominacion_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -27,8 +28,10 @@ class DenominacionPuestoViewSet(viewsets.ModelViewSet):
             return Response(denominacion_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
-        denominacion = self.get_queryset().filter(id=pk).filter()
+        denominacion = self.get_queryset().filter(id=pk).first()
         if denominacion:
-            denominacion.delete()
+            #denominacion.delete()
+            denominacion.state = False
+            denominacion.save()
             return Response({'mensaje': 'Denominacion del puesto eliminado correctamente'}, status= status.HTTP_200_OK)
         return Response({'mensaje': 'No existe la denominacion del puesto con esos datos'}, status=status.HTTP_400_BAD_REQUEST)

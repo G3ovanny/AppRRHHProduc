@@ -4,7 +4,7 @@ import { rhApi } from "../../api"
 
 export const useRegimenStore = () => {
     const dispatch = useDispatch()
-    const { listReg, activeReg, mensaje } = useSelector(state => state.regimen)
+    const { listReg, activeReg, mensaje, isLoadingReg } = useSelector(state => state.regimen)
 
     const startLoadingReg = async () => {
         try {
@@ -56,6 +56,7 @@ export const useRegimenStore = () => {
         listReg,
         activeReg,
         mensaje,
+        isLoadingReg,
         //*Metodos
         startSavingReg,
         startLoadingReg,

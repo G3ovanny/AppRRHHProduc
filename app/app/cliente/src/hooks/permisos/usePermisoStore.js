@@ -5,7 +5,7 @@ import { rhApi } from '../../api';
 
 export const usePermisoStore = () => {
   const dispatch = useDispatch();
-  const { listPermiso, activePermiso, mensajePermiso } = useSelector(state => state.permiso)
+  const { listPermiso, activePermiso, mensajePermiso, isLoadingPermiso } = useSelector(state => state.permiso)
 
   const startLoadingPermiso = async () => {
     try {
@@ -59,6 +59,7 @@ export const usePermisoStore = () => {
     listPermiso,
     activePermiso,
     mensajePermiso,
+    isLoadingPermiso,
     //*Metodos
     startSavingPermiso,
     startLoadingPermiso,

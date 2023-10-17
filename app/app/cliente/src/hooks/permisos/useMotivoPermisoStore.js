@@ -5,7 +5,7 @@ import { rhApi } from '../../api';
 
 export const useMotivoPermisoStore = () => {
   const dispatch = useDispatch();
-  const { listMotivo, activeMotivo, clearMessageMotivo } = useSelector(state => state.motivoPermiso)
+  const { listMotivo, activeMotivo, clearMessageMotivo, isLoadingMotivo} = useSelector(state => state.motivoPermiso)
 
 
   const startLoadingMotivo = async () => {
@@ -51,6 +51,7 @@ export const useMotivoPermisoStore = () => {
     //*Propiedades
     listMotivo,
     activeMotivo,
+    isLoadingMotivo,
     //*Metodos
     startSavingMotivo,
     startLoadingMotivo,

@@ -10,6 +10,7 @@ import { Parametros } from '../views/distributivo'
 import { Navbar } from '../layout'
 import { Box, Toolbar } from '@mui/material'
 import { Asistencias } from '../views/asistencias'
+import { EnlaceDatosTrab } from '../auth/pages/EnlaceDatosTrab'
 
 
 export const AppRouter = () => {
@@ -34,7 +35,8 @@ export const AppRouter = () => {
                         <Routes>
                             <Route path='/' element={<LoginPage />} />
                             <Route path='/*' element={<Navigate to="/" />} />
-                            <Route path='/enlace_formulario' element={<FormTrabmasDatos />} />
+                            <Route path='/enlace_formulario' element={<EnlaceDatosTrab />} />
+                            {/* <Route path='/enlace_formulario' element={<FormTrabmasDatos />} /> */}
                         </Routes>
                     )
                     : (

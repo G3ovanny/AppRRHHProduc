@@ -1,5 +1,4 @@
 import React from 'react'
-import { TabPanel } from '../components'
 import { Table } from '../components'
 import { Alert, Box, Divider, Grid, Toolbar, Typography } from '@mui/material'
 export const Asistencias = () => {

@@ -39,12 +39,15 @@ class AccionPersonalViewSet(viewsets.ModelViewSet):
     def destroy(self, request, pk= None):
         accion = self.get_queryset().filter(id=pk).first()
         if accion:
-            acciones = AccionPersonal.objects.all().filter(id__gt=pk).filter(estado_accion='VIGENTE')
+            acciones = AccionPersonal.objects.all().filter(id__gt=pk).filter(state= True).filter(estado_accion='VIGENTE')
             for acc in acciones:
                 id_accion = acc.id
                 contador = acc.contador -1
                 AccionPersonal.objects.all().filter(id=id_accion, state= True).update(contador=contador)
                 #print(contador)
-            accion.delete()
+            #accion.delete()
+            accion.estado_accion = 'ANULADO'
+            accion.state = False
+            accion.save()
             return Response({'mensaje': 'Acción de personal eliminado correctamente'}, status=status.HTTP_200_OK)
         return Response({'mensaje': 'No existe acción de personal con esos datos'})

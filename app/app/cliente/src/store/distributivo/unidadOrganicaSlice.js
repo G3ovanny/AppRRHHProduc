@@ -7,7 +7,8 @@ export const unidadOrganicaSlice = createSlice({
         activeUnidad: [],
         listUnidad: [],
         inicialUnidad: [],
-        mensajeUnidad: null
+        mensajeUnidad: null,
+        mensajeError: null
     },
     reducers: {
         onSetActiveUnidad: (state, { payload }) => {
@@ -49,10 +50,15 @@ export const unidadOrganicaSlice = createSlice({
                 }
             });
         },
+        onErrorUnidad: (state, { payload }) => {
+            state.mensajeError = payload;
+        },
         clearMessageUnidad: (state) => {
             state.mensajeUnidad = null;
+            state.mensajeError = null
         }
+
     }
 })
 
-export const { onSetActiveUnidad, onAddNewUnidad, onUpdateUnidad, onDeleteUnidad, onLoadUnidad, clearMessageUnidad } = unidadOrganicaSlice.actions
+export const { onSetActiveUnidad, onAddNewUnidad, onUpdateUnidad, onDeleteUnidad, onLoadUnidad,onErrorUnidad, clearMessageUnidad } = unidadOrganicaSlice.actions

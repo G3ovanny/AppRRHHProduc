@@ -1,17 +1,14 @@
 import { useRef, useState } from 'react'
 import { BadgeOutlined, PersonAdd, TableViewOutlined, TagTwoTone, UploadFile, UploadOutlined } from '@mui/icons-material'
 import { Alert, Box, Divider, Grid, IconButton, Input, Toolbar, Tooltip, Typography } from '@mui/material'
-import { Table, Cards, TrabajadorModal, TableFilter } from '../components'
+import { Table, Cards, TrabajadorModal, MensajeArchivo } from '../components'
 import { useArchivoStore, useModalStore, useTrabStore } from '../../../hooks'
 
-
-
-
 export const Trabajadores = () => {
-  const {  setActiveTrab } = useTrabStore();
-  const { startSavingArchivo, mensaje } = useArchivoStore();
+  const { setActiveTrab, mensaje, mensajesError } = useTrabStore();
+  const { startSavingArchivo, mensajeArchivo } = useArchivoStore();
   const { openModal, nameModal } = useModalStore()
-  const [ vista, setVista ] = useState('list')
+  const [vista, setVista] = useState('list')
 
   const onFileInputChange = async ({ target }) => {
     if (target.files === 0) return;
@@ -26,6 +23,13 @@ export const Trabajadores = () => {
   const handleView = (e, vista) => {
     console.log(vista)
     setVista(vista)
+  }
+
+  let alerta = null
+  if (mensaje) {
+    alerta = <Alert severity='success'>{mensaje}</Alert>;
+  } else if (mensajesError) {
+    alerta = <Alert severity='error'>{mensajesError}</Alert>;
   }
 
   return (
@@ -89,9 +93,9 @@ export const Trabajadores = () => {
           className='animate__animated animate__backInRight'
           item
           sx={{ flex: ' 1 1 100%' }}
-          display={!!mensaje ? '' : 'none'}
+          display={!!mensaje || !!mensajesError ? '' : 'none'}
         >
-          <Alert severity='success' >{mensaje}</Alert>
+          {alerta}
         </Grid>
       </Toolbar>
       {
@@ -99,7 +103,11 @@ export const Trabajadores = () => {
           ? <Table /> //<TableFilter /> //
           : <Cards />
       }
-      {/*<Modal />*/}
+      {/*<Modales />*/}
+      {mensajeArchivo
+        ? <MensajeArchivo />
+        : <> </>
+      }
       <TrabajadorModal titleModal={nameModal} />
     </Box>
   )

@@ -6,7 +6,7 @@ import { onAddNewModalidad, onDeleteModalidad, onLoadModalidad, onSetActiveModal
 export const useModalidadLaboralStore = () => {
     const dispatch = useDispatch();
 
-    const { listModalidad, activeModalidad, mensajeModalidad  } = useSelector(state => state.modalidadLaboral)
+    const { listModalidad, activeModalidad, mensajeModalidad, isLoadingModalidad } = useSelector(state => state.modalidadLaboral)
 
     const startLoadingModalidad = async () => {
         try {
@@ -56,6 +56,7 @@ export const useModalidadLaboralStore = () => {
         listModalidad,
         activeModalidad,
         mensajeModalidad,
+        isLoadingModalidad,
         //*Metodos
         startSavingModalidad,
         startLoadingModalidad,

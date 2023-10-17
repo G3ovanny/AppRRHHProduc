@@ -7,7 +7,7 @@ import { onAddNewAccion, onDeleteAccion, onLoadAccion, onSetActiveAccion, onUpda
 export const useAccionPersonalStore = () => {
     const dispatch = useDispatch();
 
-    const { listAccion, activeAccion, mensajeAccion } = useSelector(state => state.accionPersonal)
+    const { listAccion, activeAccion, mensajeAccion, isLoadingAccion} = useSelector(state => state.accionPersonal)
 
     const startLoadingAccion = async () => {
         try {
@@ -55,6 +55,7 @@ export const useAccionPersonalStore = () => {
         listAccion,
         activeAccion,
         mensajeAccion,
+        isLoadingAccion,
         //*Metodos
         startSavingAccion,
         startLoadingAccion,

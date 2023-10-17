@@ -6,8 +6,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your tests here.
-
-
 def generar_enlace(request):
     enlace = "http://localhost:5173/enlace_formulario"
     print(request)

@@ -7,8 +7,8 @@ export const useDatosTrabStore = () => {
 
     const dispatch = useDispatch()
 
-    const { activeDatos, inicialDatos, datosTrab } = useSelector(state => state.datosTrabajadores)
-
+    const { activeDatos, inicialDatos, datosTrab, isLoadingDatos } = useSelector(state => state.datosTrabajadores)
+    console.log(isLoadingDatos)
     const setActiveDatosTrab = (datosTrab) => {
         dispatch(onSetActiveDatos(datosTrab))
     }
@@ -68,6 +68,7 @@ export const useDatosTrabStore = () => {
         inicialDatos,
         datosTrab,
         activeDatos,
+        isLoadingDatos,
         //*Metodos
         setActiveDatosTrab,
         startSavingDatosTrab,

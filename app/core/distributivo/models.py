@@ -126,7 +126,29 @@ class Grado(BaseModel):
         ordering = ['grado']
 
 
+class Proceso(BaseModel):
+    proceso =  models.CharField(max_length=255, blank=True, null=True, verbose_name= 'Proceso')
+    historical = HistoricalRecords()
+
+    @property
+    def _history_user(self):
+        return self.changed_by
+
+    @_history_user.setter
+    def _history_user(self, value):
+        self.changed_by = value
+    
+    def __str__(self):
+        return self.proceso
+
+    class Meta:
+        verbose_name = 'proceso'
+        verbose_name_plural = 'procesos'
+        db_table = 'Proceso'
+        ordering = ['proceso']
+
 class Denominacion_Puesto(BaseModel):
+    id_proceso = models.ForeignKey(Proceso, on_delete=models.CASCADE, null=True, blank=True, unique=False, verbose_name='Proceso')
     cod_denominacion_puesto = models.CharField(
         max_length=255, blank=True, null=True, verbose_name='Código denominación puesto')
     denominacion_puesto = models.CharField(
@@ -152,8 +174,7 @@ class Denominacion_Puesto(BaseModel):
 
 
 class Unidad_Organica(BaseModel):
-    cod_unidad = models.CharField(
-        max_length=255, blank=True, null=True, verbose_name='Código unidad orgánica')
+    cod_unidad = models.CharField(max_length=255, blank=True, null=True, verbose_name='Código unidad orgánica')
     unidad_organica = models.CharField(
         max_length=255, blank=True, null=True, verbose_name='Nombre unidad orgánica')
     historical = HistoricalRecords()
@@ -198,24 +219,3 @@ class Estructura_Programatica(BaseModel):
         db_table = 'Estructura_Programatica'
         ordering = ['id']
 
-
-class Proceso(BaseModel):
-    proceso =  models.CharField(max_length=255, blank=True, null=True, verbose_name= 'Proceso')
-    historical = HistoricalRecords()
-
-    @property
-    def _history_user(self):
-        return self.changed_by
-
-    @_history_user.setter
-    def _history_user(self, value):
-        self.changed_by = value
-    
-    def __str__(self):
-        return self.proceso
-
-    class Meta:
-        verbose_name = 'proceso'
-        verbose_name_plural = 'procesos'
-        db_table = 'Proceso'
-        ordering = ['proceso']

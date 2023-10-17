@@ -27,8 +27,10 @@ class NivelOcupacionalViewSet(viewsets.ModelViewSet):
             return Response(nivel_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
-        nivel= self.get_queryset().filter(id=pk).filter()
+        nivel= self.get_queryset().filter(id=pk).first()
         if nivel:
-            nivel.delete()
+            #nivel.delete()
+            nivel.state = False
+            nivel.save()
             return Response({'mensaje': 'Nivel ocupacional eliminado correctamente'}, status= status.HTTP_200_OK)
         return Response({'mensaje': 'No existe el Nivel ocupacional con esos datos'}, status=status.HTTP_400_BAD_REQUEST)

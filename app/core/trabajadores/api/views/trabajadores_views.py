@@ -27,8 +27,11 @@ class TrabajadorViewSet(viewsets.ModelViewSet):
             return Response(trabajador_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
-        trabajador = self.get_queryset().filter(id=pk).filter()
+        trabajador = self.get_queryset().filter(id=pk).first()
         if trabajador:
-            trabajador.delete()
-            return Response({'mensaje': 'Trabajador eliminado correctamente'}, status= status.HTTP_200_OK)
+            #trabajador.delete()
+            trabajador.desactivar()
+            #trabajador.state = False
+            #trabajador.save()
+            return Response({'mensaje': 'Trabajador eliminado correctamente'}, status= status.HTTP_204_NO_CONTENT)
         return Response({'mensaje': 'No existe el trabajador con esos datos'}, status=status.HTTP_400_BAD_REQUEST)

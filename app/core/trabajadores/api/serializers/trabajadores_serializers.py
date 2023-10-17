@@ -2,10 +2,16 @@ from core.trabajadores.models import Trabajador
 from rest_framework import serializers
 
 
+class CedulaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Trabajador
+        fields = ('numero_identificacion',)
+
 class TrabajadorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trabajador
-        exclude = ('state',)
+        fields = '__all__'
+        #exclude = ('state',)
 
     def to_representation(self, instance):
         return {
@@ -22,11 +28,10 @@ class TrabajadorSerializer(serializers.ModelSerializer):
             'estado_maternidad': instance.estado_maternidad,
             'genero': instance.genero,
             'estado_servidor': instance.estado_servidor,
-
             
             'fecha_inicio': instance.fecha_inicio,            
             'fecha_fin': instance.fecha_fin,            
-            'fecha_ingreso': instance.fecha_ingreso,
+            'cod_biometrico': instance.cod_biometrico,
             'rmu_puesto': instance.rmu_puesto,
             'partida_individual': instance.partida_individual,
             'correo_institucional': instance.correo_institucional,
@@ -39,7 +44,7 @@ class TrabajadorSerializer(serializers.ModelSerializer):
             'modalidad_laboral': instance.id_modalidad_laboral.modalidad_laboral,
             'id_estructura_programatica': instance.id_estructura_programatica.id,
             'estructura_programatica': instance.id_estructura_programatica.estructura_programatica,
-
+            
             'id_unidad_organica': instance.id_unidad_organica.id,
             'unidad_organica': instance.id_unidad_organica.unidad_organica,
             'id_denominacion_puesto': instance.id_denominacion_puesto.id,

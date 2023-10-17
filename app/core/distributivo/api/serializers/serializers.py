@@ -6,39 +6,40 @@ from ...models import *
 class RegimenLaboralSerializer(serializers.ModelSerializer):
     class Meta:
         model = Regimen_Laboral
-        exclude = ('state',)
+        fields = '__all__'
 
 
 class NivelOcupacionalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Nivel_Ocupacional
-        exclude = ('state',)
+        fields = '__all__'
 
 
 class ModalidadLaboralSerializer(serializers.ModelSerializer):
     class Meta:
         model = Modalidad_Laboral
-        exclude = ('state',)
+        fields = '__all__'
 
 
 class UnidadOrganicaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Unidad_Organica
-        exclude = ('state',)
+        fields = '__all__'
+        #fields = '__all__'
 
 
 class DenominacionPuestoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Denominacion_Puesto
-        exclude = ('state',)
+        fields = '__all__'
 
 
 class EstructuraProgramaticaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Estructura_Programatica
-        exclude = ('state',)
+        fields = '__all__'
 
 class ProcesoSerializer(serializers.ModelSerializer):
     class Meta :
         model = Proceso
-        exclude = ('state',)
+        fields = '__all__'

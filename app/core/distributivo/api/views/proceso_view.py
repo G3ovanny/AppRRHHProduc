@@ -26,8 +26,10 @@ class ProcesoViewSet(viewsets.ModelViewSet):
             return Response(proceso_serializer.error, status=status.HTTP_400_BAD_REQUEST)
     
     def destroy(self, request, pk = None):
-        proceso = self.get_queryset().filter(id = pk).filter()
+        proceso = self.get_queryset().filter(id = pk).first()
         if proceso:
-            proceso.delete()
+            #proceso.delete()
+            proceso.state = False
+            proceso.save()
             return Response({'mensaje': 'Procoeso eliminador correctamente'}, status=status.HTTP_200_OK)
         return Response({'mensaje': 'No existe el proceso con esos datos'}, status=status.HTTP_400_BAD_REQUEST)

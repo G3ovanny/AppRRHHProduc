@@ -6,7 +6,7 @@ from rest_framework import serializers
 class PermisoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Permiso
-        exclude = ('state',)
+        fields = '__all__'
 
     def to_representation(self, instance):
 

@@ -4,7 +4,7 @@ import React from 'react'
 export const estructuraProgramaticaSlice = createSlice({
     name: 'estructura',
     initialState: {
-        isLoadinEstructura: true,
+        isLoadingEstructura: true,
         activeEstructura: [],
         listEstructura: [],
         inicialEstructura: [],
@@ -43,7 +43,7 @@ export const estructuraProgramaticaSlice = createSlice({
 
         },
         onLoadEstructura: (state, { payload }) => {
-            state.isLoadinEstructura = false;
+            state.isLoadingEstructura = false;
             payload.forEach(estructuraProgramatica => {
                 const exist = state.listEstructura.some(dbestructuraProgramatica => dbestructuraProgramatica.id === estructuraProgramatica.id);
                 if (!exist) {

@@ -27,9 +27,10 @@ class Trabajador(BaseModel):
     fecha_inicio = models.DateField(blank=True, null=True)
     fecha_fin = models.DateField(blank=True, null=True)
     fecha_nacimiento = models.DateField(blank=True, null=True)
-    fecha_ingreso = models.DateField(blank=True, null=True)
+    #fecha_ingreso = models.DateField(blank=True, null=True)
     direccion_domicilio = models.CharField('Direccioón domicilio', max_length=255, blank=True, null=True)
     dias_vacaciones = models.DecimalField('Dias de vacaciones acumulados', max_digits=5, decimal_places=2, blank=True, null=True)
+    cod_biometrico = models.CharField('Codigo Biometrico', max_length=100, blank=True, null= True)
 
     TIPO_IDENTIFICACION=(
         ('CÉDULA', 'CÉDULA'),
@@ -79,6 +80,11 @@ class Trabajador(BaseModel):
 
     def __str__(self):
         return f'{self.nombres}'
+    
+
+    def desactivar(self):
+        self.state = False
+        self.save()
 
 class DatosPersonalesTrabajadores(BaseModel):
     numHijos = models.IntegerField('Numero de hijos', blank= True, null=True)

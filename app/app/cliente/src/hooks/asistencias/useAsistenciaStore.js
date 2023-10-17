@@ -7,8 +7,8 @@ import { onAddNewAsistencia, onDeleteAsistencia, onLoadAsistencia, onSetActiveAs
 export const useAsistenciaStore = () => {
     const dispatch = useDispatch();
 
-    const { listAsistencia, activeAsistencia, clearMessageAsistencia } = useSelector(state => state.asistencia)
-
+    const { listAsistencia, activeAsistencia, clearMessageAsistencia, isLoadingAsistencia } = useSelector(state => state.asistencia)
+    
     const startLoadingAsistencia = async () => {
         try {
             const { data } = await rhApi.get('/asistencias/asistencia/');
@@ -51,6 +51,7 @@ export const useAsistenciaStore = () => {
         //*Propiedades
         listAsistencia,
         activeAsistencia,
+        isLoadingAsistencia,
         //*Metodos
         startSavingAsistencia,
         startLoadingAsistencia,

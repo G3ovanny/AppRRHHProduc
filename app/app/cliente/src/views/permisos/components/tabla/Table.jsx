@@ -10,7 +10,7 @@ import dayjs from 'dayjs'
 
 export const Table = () => {
 
-    const { listPermiso, startLoadingPermiso, setActivePermiso, activePermiso } = usePermisoStore();
+    const { listPermiso, startLoadingPermiso, setActivePermiso, activePermiso, isLoadingPermiso } = usePermisoStore();
 
     const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
 
@@ -29,7 +29,7 @@ export const Table = () => {
 
         }).filter((permiso) => {
 
-          //Filtro por columna, le dato ingresado y fechas
+            //Filtro por columna, le dato ingresado y fechas
             if (!fechaDesde && !fechaHasta) {
                 return permiso; // Si no se especifican fechas, se considera dentro del rango
             }
@@ -38,7 +38,7 @@ export const Table = () => {
             } else if (fechaDesde) {
                 return dayjs(permiso.fecha_hora_salida).isAfter(fechaDesde)
             } else if (fechaHasta) {
-               
+
                 return dayjs(permiso.fecha_hora_salida).isBefore(fechaHasta);
             }
 
@@ -51,8 +51,9 @@ export const Table = () => {
     useEffect(() => {
         setResultadoBusqueda()
     }, [])
-
-
+    const page = 0
+    const pageSize = 10
+    const rowsPerPage= 0
     return (
         <div
             style={{ height: 500, width: '100%' }}
@@ -62,17 +63,18 @@ export const Table = () => {
                 objetos={listPermiso}
                 objactive={activePermiso}
                 setObjecActive={setActivePermiso}
+                isLoadingObjects={isLoadingPermiso}
                 startLoadingObjects={startLoadingPermiso()}
-                tableCells={<TableCells list={resultadoBusqueda} />}
+                tableCells={<TableCells list={resultadoBusqueda} page={page} rowsPerPage={rowsPerPage}/>}
                 indexCells={indexCells}
                 tableButtons={<TableButtons />}
                 filters={<TableFilters onBuscar={handleBuscar} />}
                 initialState={{
                     pagination: {
-                        paginationModel: { page: 0, pageSize: 9 },
+                        paginationModel: { page, pageSize },
                     },
                 }}
-                pageSizeOptions={[9, 10]}
+                pageSizeOptions={[10, 25, 100]}
             />
 
         </div>

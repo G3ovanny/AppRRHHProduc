@@ -5,7 +5,7 @@ import { useUsuarioStore } from '../../../../hooks'
 
 
 export const Table = () => {
-  const { listUsuario, startLoadingUsuario, setActiveUsuario, activeUsuario } = useUsuarioStore()
+  const { listUsuario, startLoadingUsuario, setActiveUsuario, activeUsuario, isLoadingUsuario } = useUsuarioStore()
 
   const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
 
@@ -37,7 +37,9 @@ export const Table = () => {
 
   const title = 'Lista de usuarios'
 
-
+  const page = 0
+  const pageSize = 5
+  const rowsPerPage= 0
   return (
     <div
       style={{ height: 500, width: '100%' }}
@@ -46,17 +48,18 @@ export const Table = () => {
         objetos={listUsuario}
         objactive={activeUsuario}
         setObjecActive={setActiveUsuario}
+        isLoadingObjects={isLoadingUsuario}
         startLoadingObjects={startLoadingUsuario()}
-        tableCells={<TableCells list={resultadoBusqueda} />}
+        tableCells={<TableCells list={resultadoBusqueda} page={page} rowsPerPage={rowsPerPage}/>}
         indexCells={indexCells}
         tableButtons={<TableButtons />}
         filters={<TableFilters onBuscar={handleBuscar} />}
         initialState={{
           pagination: {
-            paginationModel: { page: 0, pageSize: 9 },
+            paginationModel: { page, pageSize },
           },
         }}
-        pageSizeOptions={[9, 10]}
+        pageSizeOptions={[5, 10, 20]}
       />
     </div>
   )

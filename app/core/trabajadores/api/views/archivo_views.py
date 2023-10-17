@@ -19,8 +19,13 @@ class ArchTrabajadoresViewSet(viewsets.ModelViewSet):
         serializer = self.serializer_class(data= request.data)
         if serializer.is_valid():
             serializer.save()
-            analisis_trabajadores()
-            return Response({'mensaje':'Los datos se han creado correctamente'}, status=status.HTTP_201_CREATED)
+            error_messages = analisis_trabajadores()  # Get the error messages
+            if error_messages:
+            # If there are error messages, return them as a response
+                return Response({'mensaje': error_messages}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+            # If no errors, return a success response
+                return Response({'mensaje': 'Los datos se han creado correctamente'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def update(self, request, pk=None):
@@ -34,6 +39,8 @@ class ArchTrabajadoresViewSet(viewsets.ModelViewSet):
     def destroy(self, request, pk=None):
         archivo = self.get_queryset().filter(id=pk).first()
         if archivo:
-            archivo.delete()
+            #archivo.delete()
+            archivo.state = False
+            archivo.save()
             return Response({'mensaje':'Los datos se han eliminado correctamente'}, status=status.HTTP_200_OK)
         return Response({'error':'No existe datos con esas caracteristicas'}, status=status.HTTP_400_BAD_REQUEST)

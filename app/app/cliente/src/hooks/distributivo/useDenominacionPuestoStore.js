@@ -5,7 +5,7 @@ import { onAddNewDenominacion, onDeleteDenominacion, onLoadDenominacion, onSetAc
 export const useDenominacionPuestoStore = () => {
     const dispatch = useDispatch();
 
-    const { listDenominacion, activeDenominacion, mensajeDenominacion } = useSelector(state => state.denominacionPuesto)
+    const { listDenominacion, activeDenominacion, mensajeDenominacion, isLoadingDenominacion } = useSelector(state => state.denominacionPuesto)
 
     const startLoadingDenominacion = async () => {
         try {
@@ -55,6 +55,7 @@ export const useDenominacionPuestoStore = () => {
         listDenominacion,
         activeDenominacion,
         mensajeDenominacion,
+        isLoadingDenominacion,
         //*Metodos
         startSavingDenominacion,
         startLoadingDenominacion,

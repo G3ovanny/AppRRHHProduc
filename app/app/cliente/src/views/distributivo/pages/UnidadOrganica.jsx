@@ -12,8 +12,7 @@ const formData = {
 
 export const UnidadOrganica = () => {
 
-  const { listUnidad, startDeletingUnidad, setActiveUnidad, startSavingUnidad, startLoadingUnidad, activeUnidad, inicialUnidad = [], mensajeUnidad } = useUnidadOrganicaStore();
-
+  const { listUnidad, startDeletingUnidad, setActiveUnidad, startSavingUnidad, startLoadingUnidad, activeUnidad, inicialUnidad = [], mensajeUnidad, mensajeError } = useUnidadOrganicaStore();
   const [resultadoBusqueda, setResultadoBusqueda] = useState('')
 
   const handelBuscar = (valorBuscar) => {
@@ -66,12 +65,18 @@ export const UnidadOrganica = () => {
       onResetForm()
     }
   }
-
   const handleCancelar = () => {
     setActiveUnidad(inicialUnidad)
     onResetForm()
   }
-
+  let mensaje = null
+  if (mensajeUnidad) {
+    mensaje = <Alert severity='success'>{mensajeUnidad}</Alert>;
+  } else if (mensajeError) {
+    mensaje = <Alert severity='error'>{mensajeError}</Alert>;
+  } else {
+    mensaje  // No se muestra ningún mensaje si no hay ni éxito ni error
+  }
   useEffect(() => {
     setResultadoBusqueda()
   }, [])
@@ -90,9 +95,9 @@ export const UnidadOrganica = () => {
           className='animate__animated animate__backInRight'
           item
           sx={{ flex: ' 1 1 100%' }}
-          display={!!mensajeUnidad ? '' : 'none'}
+          display={!!mensajeUnidad || !!mensajeError ? '' : 'none'}
         >
-          <Alert severity='success' >{mensajeUnidad}</Alert>
+          {mensaje}
         </Grid>
       </Toolbar>
 
