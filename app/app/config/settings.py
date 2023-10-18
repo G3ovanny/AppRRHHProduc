@@ -215,8 +215,8 @@ CORS_ORIGIN_WHITELIST = [
 
 # EMAIL
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.office365.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'jeffersonlara98@gmail.com'
-EMAIL_HOST_PASSWORD = 'wthenawzwfgkmqnu'
+EMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'
+EMAIL_HOST_PASSWORD = 'Geovanny1993'
 EMAIL_USE_TLS = True

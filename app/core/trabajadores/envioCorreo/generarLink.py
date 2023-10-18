@@ -16,7 +16,7 @@ def generar_enlace(request):
 def send_link(trabajador):
     servidor= trabajador[0]
     correoInstitucional = servidor.correo_institucional
-    correo_desde = 'jeffersonlara98@gmail.com'
+    correo_desde = 'jefferson.lara@upec.edu.ec'
     #correoInstitucional = ['jefferson.lara@upec.edu.ec']
     mensajesError=[]
     try:
@@ -30,7 +30,7 @@ def send_link(trabajador):
                 subject,
                 mensaje_form,
                 correo_desde,
-                correoInstitucional,
+                [correoInstitucional],
                 fail_silently=False)
         else:
             mensajesError.append('El servidor no cuenta con un correo institucional')

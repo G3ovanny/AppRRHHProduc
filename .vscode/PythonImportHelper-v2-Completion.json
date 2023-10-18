@@ -2206,6 +2206,30 @@
         "documentation": {}
     },
     {
+        "label": "EVENT_JOB_EXECUTED",
+        "importPath": "apscheduler.events",
+        "description": "apscheduler.events",
+        "isExtraImport": true,
+        "detail": "apscheduler.events",
+        "documentation": {}
+    },
+    {
+        "label": "EVENT_JOB_ERROR",
+        "importPath": "apscheduler.events",
+        "description": "apscheduler.events",
+        "isExtraImport": true,
+        "detail": "apscheduler.events",
+        "documentation": {}
+    },
+    {
+        "label": "BackgroundScheduler",
+        "importPath": "apscheduler.schedulers.background",
+        "description": "apscheduler.schedulers.background",
+        "isExtraImport": true,
+        "detail": "apscheduler.schedulers.background",
+        "documentation": {}
+    },
+    {
         "label": "BackgroundScheduler",
         "importPath": "apscheduler.schedulers.background",
         "description": "apscheduler.schedulers.background",
@@ -2320,6 +2344,14 @@
         "documentation": {}
     },
     {
+        "label": "Trabajador",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
         "label": "ArchivoTrabajadores",
         "importPath": "core.trabajadores.models",
         "description": "core.trabajadores.models",
@@ -2365,6 +2397,14 @@
         "description": "core.trabajadores.models",
         "isExtraImport": true,
         "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "asignar_dias",
+        "importPath": "core.permisos.asignar_vacaciones_mes.asignar_dias",
+        "description": "core.permisos.asignar_vacaciones_mes.asignar_dias",
+        "isExtraImport": true,
+        "detail": "core.permisos.asignar_vacaciones_mes.asignar_dias",
         "documentation": {}
     },
     {
@@ -3012,7 +3052,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "CORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'",
+        "peekOfCode": "CORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.office365.com'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3021,7 +3061,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "CORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jeffersonlara98@gmail.com'",
+        "peekOfCode": "CORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.office365.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3030,7 +3070,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jeffersonlara98@gmail.com'\nEMAIL_HOST_PASSWORD = 'wthenawzwfgkmqnu'\nEMAIL_USE_TLS = True",
+        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.office365.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'\nEMAIL_HOST_PASSWORD = 'Geovanny1993'\nEMAIL_USE_TLS = True",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3039,7 +3079,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "EMAIL_HOST = 'smtp.gmail.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jeffersonlara98@gmail.com'\nEMAIL_HOST_PASSWORD = 'wthenawzwfgkmqnu'\nEMAIL_USE_TLS = True",
+        "peekOfCode": "EMAIL_HOST = 'smtp.office365.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'\nEMAIL_HOST_PASSWORD = 'Geovanny1993'\nEMAIL_USE_TLS = True",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3048,7 +3088,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "EMAIL_PORT = 587\nEMAIL_HOST_USER = 'jeffersonlara98@gmail.com'\nEMAIL_HOST_PASSWORD = 'wthenawzwfgkmqnu'\nEMAIL_USE_TLS = True",
+        "peekOfCode": "EMAIL_PORT = 587\nEMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'\nEMAIL_HOST_PASSWORD = 'Geovanny1993'\nEMAIL_USE_TLS = True",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3057,7 +3097,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "EMAIL_HOST_USER = 'jeffersonlara98@gmail.com'\nEMAIL_HOST_PASSWORD = 'wthenawzwfgkmqnu'\nEMAIL_USE_TLS = True",
+        "peekOfCode": "EMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'\nEMAIL_HOST_PASSWORD = 'Geovanny1993'\nEMAIL_USE_TLS = True",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3066,7 +3106,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "EMAIL_HOST_PASSWORD = 'wthenawzwfgkmqnu'\nEMAIL_USE_TLS = True",
+        "peekOfCode": "EMAIL_HOST_PASSWORD = 'Geovanny1993'\nEMAIL_USE_TLS = True",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3588,7 +3628,7 @@
         "kind": 6,
         "importPath": "app.core.asistencias.apps",
         "description": "app.core.asistencias.apps",
-        "peekOfCode": "class AsistenciasConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.asistencias'\n    ## funcion que permite activar tareas programadas que se genera desde la carpeta registro_biometrico/activar_job.py\n    def ready(self):\n       print(\"Iniciando la tarea de registro de asistencia biometrico...\")\n       from .registro_biometrico import activar_job\n       #activar_job.start()",
+        "peekOfCode": "class AsistenciasConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.asistencias'\n    ## funcion que permite activar tareas programadas que se genera desde la carpeta registro_biometrico/activar_job.py\n    # def ready(self):\n    #    print(\"Iniciando la tarea de registro de asistencia biometrico...\")\n       #from .registro_biometrico import activar_job",
         "detail": "app.core.asistencias.apps",
         "documentation": {}
     },
@@ -4079,6 +4119,42 @@
         "documentation": {}
     },
     {
+        "label": "job_function",
+        "kind": 2,
+        "importPath": "app.core.permisos.asignar_vacaciones_mes.activar_job",
+        "description": "app.core.permisos.asignar_vacaciones_mes.activar_job",
+        "peekOfCode": "def job_function(job_id):\n    asignar_dias()\n    print('job %s is runed at %s' %\n          (job_id, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))\ndef job_exception_listener(event):\n    if event.exception:\n        # manejo de excepciones\n        print(\"La tarea programada(conexión a los biometricos) no se activo :(\")\n    else:\n        print(\"La tarea programada(conexión a los biometricos) se activo correctamente :)\")",
+        "detail": "app.core.permisos.asignar_vacaciones_mes.activar_job",
+        "documentation": {}
+    },
+    {
+        "label": "job_exception_listener",
+        "kind": 2,
+        "importPath": "app.core.permisos.asignar_vacaciones_mes.activar_job",
+        "description": "app.core.permisos.asignar_vacaciones_mes.activar_job",
+        "peekOfCode": "def job_exception_listener(event):\n    if event.exception:\n        # manejo de excepciones\n        print(\"La tarea programada(conexión a los biometricos) no se activo :(\")\n    else:\n        print(\"La tarea programada(conexión a los biometricos) se activo correctamente :)\")\n# Inicio sesion\nlogging.basicConfig()\nlogging.getLogger('apscheduler').setLevel(logging.DEBUG)\nscheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")",
+        "detail": "app.core.permisos.asignar_vacaciones_mes.activar_job",
+        "documentation": {}
+    },
+    {
+        "label": "scheduler",
+        "kind": 5,
+        "importPath": "app.core.permisos.asignar_vacaciones_mes.activar_job",
+        "description": "app.core.permisos.asignar_vacaciones_mes.activar_job",
+        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada minuto se lo utiliza para realizar test---------------------------------#\n# scheduler.add_job(\n#     job_function,\n#     trigger='interval', \n#     args=[1],\n#     id='3', \n#     name='Asignar dias vacaciones mensual', \n#     max_instances=1, \n#     jobstore='default', ",
+        "detail": "app.core.permisos.asignar_vacaciones_mes.activar_job",
+        "documentation": {}
+    },
+    {
+        "label": "asignar_dias",
+        "kind": 2,
+        "importPath": "app.core.permisos.asignar_vacaciones_mes.asignar_dias",
+        "description": "app.core.permisos.asignar_vacaciones_mes.asignar_dias",
+        "peekOfCode": "def asignar_dias():\n    dias_asignar = 2.5\n    servidor_asignar = Trabajador.objects.all().filter(numero_identificacion=\"0401727623\")\n    dias_servidor = servidor_asignar.values_list(\"dias_vacaciones\", flat=True).get()\n    suma = float(dias_servidor) + dias_asignar\n    servidor_asignar.update(dias_vacaciones = suma)\n    print('se asigno los dias de vacaciones')\n    #Trabajador.objects.filter(nombres=id_trabajador).update(dias_vacaciones=suma_dias)",
+        "detail": "app.core.permisos.asignar_vacaciones_mes.asignar_dias",
+        "documentation": {}
+    },
+    {
         "label": "Migration",
         "kind": 6,
         "importPath": "app.core.permisos.migrations.0001_initial",
@@ -4110,7 +4186,7 @@
         "kind": 6,
         "importPath": "app.core.permisos.apps",
         "description": "app.core.permisos.apps",
-        "peekOfCode": "class PermisosConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.permisos'",
+        "peekOfCode": "class PermisosConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.permisos'\n    def ready(self):\n        print(\"************************Inicializado tarea de asignacion de dias de vacaciones a cada trabajador****************\")\n        from .asignar_vacaciones_mes import activar_job",
         "detail": "app.core.permisos.apps",
         "documentation": {}
     },
@@ -4254,7 +4330,7 @@
         "kind": 2,
         "importPath": "app.core.trabajadores.envioCorreo.generarLink",
         "description": "app.core.trabajadores.envioCorreo.generarLink",
-        "peekOfCode": "def generar_enlace(request):\n    enlace = \"http://localhost:8000/enlace_formulario\"\n    print(request)\n    return HttpResponse(enlace)\ndef send_link(trabajador):\n    servidor= trabajador[0]\n    correoInstitucional = servidor.correo_institucional\n    correo_desde = 'jeffersonlara98@gmail.com'\n    #correoInstitucional = ['jefferson.lara@upec.edu.ec']\n    mensajesError=[]",
+        "peekOfCode": "def generar_enlace(request):\n    enlace = \"http://localhost:8000/enlace_formulario\"\n    print(request)\n    return HttpResponse(enlace)\ndef send_link(trabajador):\n    servidor= trabajador[0]\n    correoInstitucional = servidor.correo_institucional\n    correo_desde = 'jefferson.lara@upec.edu.ec'\n    #correoInstitucional = ['jefferson.lara@upec.edu.ec']\n    mensajesError=[]",
         "detail": "app.core.trabajadores.envioCorreo.generarLink",
         "documentation": {}
     },
@@ -4263,7 +4339,7 @@
         "kind": 2,
         "importPath": "app.core.trabajadores.envioCorreo.generarLink",
         "description": "app.core.trabajadores.envioCorreo.generarLink",
-        "peekOfCode": "def send_link(trabajador):\n    servidor= trabajador[0]\n    correoInstitucional = servidor.correo_institucional\n    correo_desde = 'jeffersonlara98@gmail.com'\n    #correoInstitucional = ['jefferson.lara@upec.edu.ec']\n    mensajesError=[]\n    try:\n        if correoInstitucional:\n            subject = 'Envio de formulario'\n            #recipient_list = correoInstitucional",
+        "peekOfCode": "def send_link(trabajador):\n    servidor= trabajador[0]\n    correoInstitucional = servidor.correo_institucional\n    correo_desde = 'jefferson.lara@upec.edu.ec'\n    #correoInstitucional = ['jefferson.lara@upec.edu.ec']\n    mensajesError=[]\n    try:\n        if correoInstitucional:\n            subject = 'Envio de formulario'\n            #recipient_list = correoInstitucional",
         "detail": "app.core.trabajadores.envioCorreo.generarLink",
         "documentation": {}
     },

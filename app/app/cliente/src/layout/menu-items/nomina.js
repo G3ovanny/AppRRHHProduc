@@ -1,8 +1,9 @@
-import { Person, ManageAccounts } from "@mui/icons-material"
+import { Person, ManageAccounts,FolderShared } from "@mui/icons-material"
 
 const icons = {
     Person,
     ManageAccounts,
+    FolderShared,
 }
 
 
@@ -30,7 +31,7 @@ export const nomina = {
             title: 'Más datos',
             type: 'item',
             url: '/datos_servidores',
-            icon: icons.Person,
+            icon: icons.FolderShared,
         }
     ]
 }
