@@ -44,7 +44,7 @@ scheduler.add_job(
     #day_of_week='mon-sun',
     day=18,
     hour=10,
-    minute=30,
+    minute=55,
     
     args=[1],
     id='3',
