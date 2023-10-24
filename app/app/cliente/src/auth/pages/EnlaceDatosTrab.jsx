@@ -1,5 +1,6 @@
 import React from 'react'
 import { AuthLayout } from '../layout/AuthLayout'
+import { Link } from 'react-router-dom';
 import { useCedulaStore, useForm } from '../../hooks'
 import { Alert, Button, Grid, TextField } from '@mui/material'
 
@@ -9,12 +10,12 @@ const enlaceFormFields = {
 }
 
 export const EnlaceDatosTrab = () => {
-    const {startLinkeding, errorMessageCed} = useCedulaStore();
+    const { startLinkeding, errorMessageCed } = useCedulaStore();
     const { cedula, onInputChange } = useForm(enlaceFormFields)
     //const errorMessageCed = 'desde alerta'
     const onSubmit = (event) => {
         event.preventDefault();
-        startLinkeding({cedula})
+        startLinkeding(cedula)
     }
     return (
         <AuthLayout title={'Ingrese su número de cédula'}>
@@ -32,7 +33,6 @@ export const EnlaceDatosTrab = () => {
 
                         />
                     </Grid>
-
                     <Grid container spacing={2} sx={{ mb: 2, mt: 1 }} >
                         <Grid
                             item
@@ -42,15 +42,22 @@ export const EnlaceDatosTrab = () => {
                         >
                             <Alert severity='error' >{errorMessageCed}</Alert>
                         </Grid>
-                        <Grid item xs={12} sm={12}>
+                        <Grid item xs={12} sm={6}>
                             <Button
                                 type='submit'
-                                variant='contained'
+                                variant='outlined'
                                 fullWidth
                                 onClick={onSubmit}
                             >
                                 Enviar
                             </Button>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <Link to="/">
+                                <Button variant="contained" fullWidth>
+                                    Ir a Iniciar Sesión
+                                </Button>
+                            </Link>
                         </Grid>
 
                     </Grid>

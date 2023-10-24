@@ -8,11 +8,7 @@
     "src": "assets/images/logos/logoUpec.png"
   },
   "index.html": {
-    "assets": [
-      "assets/logoUpec-76fdb83c.png",
-      "assets/logoMdt-467e4bed.png"
-    ],
-    "file": "assets/index-1a0816e6.js",
+    "file": "assets/index-fff824eb.js",
     "isEntry": true,
     "src": "index.html"
   }

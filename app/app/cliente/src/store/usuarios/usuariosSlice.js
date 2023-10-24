@@ -8,6 +8,7 @@ export const usuariosSlice = createSlice({
         listUsuario: [],
         inicialUsuario: [],
         mensajeUsuario: null,
+        mensajeErrorUsuario : null,
     },
     reducers: {
         onSetActiveUsuario: (state, { payload }) => {

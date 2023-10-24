@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearMessageUsuario, onAddNewUsuario, onDeleteUsuario, onLoadUsuario, onSetActiveUsuario, onUpdateUsuario } from "../../store";
+import { clearMessageUsuario, onAddNewUsuario, onChangeMessageUsuario, onDeleteUsuario, onLoadUsuario, onSetActiveUsuario, onUpdateUsuario } from "../../store";
 import { rhApi } from '../../api';
 
 export const useUsuarioStore = () => {
     const dispatch = useDispatch();
-    const { listUsuario, activeUsuario, mensajeUsuario, isLoadingUsuario } = useSelector(state => state.usuarios)
+    const { listUsuario, activeUsuario, mensajeUsuario,mensajeErrorUsuario, isLoadingUsuario } = useSelector(state => state.usuarios)
     
     const startLoadingUsuario = async () => {
         try {
@@ -39,7 +39,7 @@ export const useUsuarioStore = () => {
             dispatch(onDeleteUsuario());
         } catch (error) {
             console.log(error)
-            console.log('Error al eliminar el usuario')
+
         }
 
         setTimeout(() => {

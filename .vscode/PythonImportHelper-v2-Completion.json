@@ -930,6 +930,14 @@
         "documentation": {}
     },
     {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "viewsets",
         "importPath": "rest_framework",
         "description": "rest_framework",
@@ -939,6 +947,30 @@
     },
     {
         "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "permissions",
         "importPath": "rest_framework",
         "description": "rest_framework",
         "isExtraImport": true,
@@ -963,6 +995,14 @@
     },
     {
         "label": "exceptions",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "permissions",
         "importPath": "rest_framework",
         "description": "rest_framework",
         "isExtraImport": true,
@@ -999,6 +1039,14 @@
         "description": "rest_framework",
         "isExtraImport": true,
         "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
@@ -2263,6 +2311,14 @@
         "documentation": {}
     },
     {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
         "label": "ZK",
         "importPath": "zk",
         "description": "zk",
@@ -2312,11 +2368,19 @@
         "documentation": {}
     },
     {
-        "label": "*",
-        "importPath": "dateutil.relativedelta",
-        "description": "dateutil.relativedelta",
+        "label": "Modalidad_Laboral",
+        "importPath": "core.distributivo.models",
+        "description": "core.distributivo.models",
         "isExtraImport": true,
-        "detail": "dateutil.relativedelta",
+        "detail": "core.distributivo.models",
+        "documentation": {}
+    },
+    {
+        "label": "Regimen_Laboral",
+        "importPath": "core.distributivo.models",
+        "description": "core.distributivo.models",
+        "isExtraImport": true,
+        "detail": "core.distributivo.models",
         "documentation": {}
     },
     {
@@ -2328,11 +2392,11 @@
         "documentation": {}
     },
     {
-        "label": "Trabajador",
-        "importPath": "core.trabajadores.models",
-        "description": "core.trabajadores.models",
+        "label": "*",
+        "importPath": "dateutil.relativedelta",
+        "description": "dateutil.relativedelta",
         "isExtraImport": true,
-        "detail": "core.trabajadores.models",
+        "detail": "dateutil.relativedelta",
         "documentation": {}
     },
     {
@@ -2400,11 +2464,11 @@
         "documentation": {}
     },
     {
-        "label": "asignar_dias",
-        "importPath": "core.permisos.asignar_vacaciones_mes.asignar_dias",
-        "description": "core.permisos.asignar_vacaciones_mes.asignar_dias",
+        "label": "Trabajador",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
         "isExtraImport": true,
-        "detail": "core.permisos.asignar_vacaciones_mes.asignar_dias",
+        "detail": "core.trabajadores.models",
         "documentation": {}
     },
     {
@@ -2585,6 +2649,70 @@
         "documentation": {}
     },
     {
+        "label": "Group",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Group",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Group",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "Group",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "BaseUserManager",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "AbstractBaseUser",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "PermissionsMixin",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
         "label": "Usuario",
         "importPath": "core.usuarios.models",
         "description": "core.usuarios.models",
@@ -2606,6 +2734,14 @@
         "description": "rest_framework_simplejwt.serializers",
         "isExtraImport": true,
         "detail": "rest_framework_simplejwt.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserGroupSerializer",
+        "importPath": "core.usuarios.api.serializers.grupos_serializers",
+        "description": "core.usuarios.api.serializers.grupos_serializers",
+        "isExtraImport": true,
+        "detail": "core.usuarios.api.serializers.grupos_serializers",
         "documentation": {}
     },
     {
@@ -2657,11 +2793,27 @@
         "documentation": {}
     },
     {
+        "label": "IsInGroupPermission",
+        "importPath": "core.usuarios.permissions",
+        "description": "core.usuarios.permissions",
+        "isExtraImport": true,
+        "detail": "core.usuarios.permissions",
+        "documentation": {}
+    },
+    {
         "label": "UsuarioViewSet",
         "importPath": "core.usuarios.api.views.usuarios_views",
         "description": "core.usuarios.api.views.usuarios_views",
         "isExtraImport": true,
         "detail": "core.usuarios.api.views.usuarios_views",
+        "documentation": {}
+    },
+    {
+        "label": "GruposViewSet",
+        "importPath": "core.usuarios.api.views.grupos_views",
+        "description": "core.usuarios.api.views.grupos_views",
+        "isExtraImport": true,
+        "detail": "core.usuarios.api.views.grupos_views",
         "documentation": {}
     },
     {
@@ -2713,30 +2865,6 @@
         "documentation": {}
     },
     {
-        "label": "BaseUserManager",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "AbstractBaseUser",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "PermissionsMixin",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
         "label": "authenticate",
         "importPath": "django.contrib.auth",
         "description": "django.contrib.auth",
@@ -2750,6 +2878,14 @@
         "description": "rest_framework_simplejwt.tokens",
         "isExtraImport": true,
         "detail": "rest_framework_simplejwt.tokens",
+        "documentation": {}
+    },
+    {
+        "label": "asignar_dias",
+        "importPath": "core.vacaciones.asignar_vacaciones_mes.asignar_dias",
+        "description": "core.vacaciones.asignar_vacaciones_mes.asignar_dias",
+        "isExtraImport": true,
+        "detail": "core.vacaciones.asignar_vacaciones_mes.asignar_dias",
         "documentation": {}
     },
     {
@@ -3124,7 +3260,7 @@
         "kind": 5,
         "importPath": "app.app.config.urls",
         "description": "app.app.config.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formulario\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"dashboard\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"distributivo\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"servidores\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"datos_servidores\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"permisos\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"motivo\", TemplateView.as_view(template_name = 'base.html')),",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formulario\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formularios\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"dashboard\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"distributivo\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"servidores\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"datos_servidores\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"permisos\", TemplateView.as_view(template_name = 'base.html')),",
         "detail": "app.app.config.urls",
         "documentation": {}
     },
@@ -3169,7 +3305,7 @@
         "kind": 6,
         "importPath": "app.core.accionesPersonal.api.views.AccionPersonal_views",
         "description": "app.core.accionesPersonal.api.views.AccionPersonal_views",
-        "peekOfCode": "class AccionPersonalViewSet(viewsets.ModelViewSet):\n    serializer_class = AccionPersonalSerializer\n    def get_queryset(self, pk= None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state = True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state= True).first()\n    def create(self, request):\n        accion_serializer = self.serializer_class(data = request.data)\n        accion_anterior = AccionPersonal.objects.all()\n        if accion_serializer.is_valid():",
+        "peekOfCode": "class AccionPersonalViewSet(viewsets.ModelViewSet):\n    serializer_class = AccionPersonalSerializer\n    def get_queryset(self, pk= None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state = True, id_trabajador__state=True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state= True, id_trabajador__state=True).first()\n    def create(self, request):\n        accion_serializer = self.serializer_class(data = request.data)\n        accion_anterior = AccionPersonal.objects.all()\n        if accion_serializer.is_valid():",
         "detail": "app.core.accionesPersonal.api.views.AccionPersonal_views",
         "documentation": {}
     },
@@ -3367,7 +3503,7 @@
         "kind": 6,
         "importPath": "app.core.asistencias.api.views.asistencia_view",
         "description": "app.core.asistencias.api.views.asistencia_view",
-        "peekOfCode": "class AsistenciaViewSet(viewsets.ModelViewSet):\n    serializer_class = AsistenciaSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state = True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state = True).first()\n    def create(self, request):\n        asistencia_serializer = self.serializer_class(data=request.data)\n        if asistencia_serializer.is_valid():\n            asistencia_serializer.save()",
+        "peekOfCode": "class AsistenciaViewSet(viewsets.ModelViewSet):\n    serializer_class = AsistenciaSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state = True, id_trabajador__state=True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state = True, id_trabajador__state=True).first()\n    def create(self, request):\n        asistencia_serializer = self.serializer_class(data=request.data)\n        if asistencia_serializer.is_valid():\n            asistencia_serializer.save()",
         "detail": "app.core.asistencias.api.views.asistencia_view",
         "documentation": {}
     },
@@ -3448,7 +3584,7 @@
         "kind": 5,
         "importPath": "app.core.asistencias.registro_biometrico.activar_job",
         "description": "app.core.asistencias.registro_biometrico.activar_job",
-        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada minuto se lo utiliza para realizar test---------------------------------#\n#scheduler.add_job(job_function, trigger='interval', args=[1], id='1', name='a test job', max_instances=10, jobstore='default', executor='default', minutes=1)\n# ---------------------------------Este job se activa cada dia a las 23:30 en la noche activando la conexión a los biometricos---------------------------------#\nscheduler.add_job(\n    job_function,\n    trigger='cron',\n    day_of_week='mon-sun',\n    hour=23,\n    minute=30,",
+        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada dia a las 23:30 en la noche activando la conexión a los biometricos---------------------------------#\nscheduler.add_job(\n    job_function,\n    trigger='cron',\n    day_of_week='mon-sun',\n    #day = 24,\n    hour=11,\n    minute=30,\n    args=[1],",
         "detail": "app.core.asistencias.registro_biometrico.activar_job",
         "documentation": {}
     },
@@ -3457,7 +3593,7 @@
         "kind": 2,
         "importPath": "app.core.asistencias.registro_biometrico.analisis_edificios",
         "description": "app.core.asistencias.registro_biometrico.analisis_edificios",
-        "peekOfCode": "def get_regimen_usuario(nombre_usuario):\n    # # print(nombre_usuario)\n    # # IBARRA ROSERO EDISON MARCELO\n    #nombre_usuario = 'IBARRA R EDISON'\n    partes = nombre_usuario.split(' ')\n    # # realizo una consulta por cada palabra del string que me envia la columna de nombre_usuario ya que del biometrico no se obtiene mas datos de los usuarios\n    consulta = Q()\n    for parte in partes:\n        consulta &= (Q(nombres__icontains=parte) & Q(nombres__icontains=parte) & Q(nombres__icontains=parte))\n    # # obtengo los datos del servidor",
+        "peekOfCode": "def get_regimen_usuario(nombre_usuario, id_usuario):\n    # # print(nombre_usuario)\n    # # IBARRA ROSERO EDISON MARCELO\n    #nombre_usuario = 'IBARRA R EDISON'\n    partes = nombre_usuario.split(' ')\n    # # realizo una consulta por cada palabra del string que me envia la columna de nombre_usuario ya que del biometrico no se obtiene mas datos de los usuarios\n    consulta = Q()\n    for parte in partes:\n        consulta &= (Q(nombres__icontains=parte) & Q(nombres__icontains=parte) & Q(nombres__icontains=parte))\n    # # obtengo los datos del servidor",
         "detail": "app.core.asistencias.registro_biometrico.analisis_edificios",
         "documentation": {}
     },
@@ -3466,7 +3602,7 @@
         "kind": 2,
         "importPath": "app.core.asistencias.registro_biometrico.analisis_edificios",
         "description": "app.core.asistencias.registro_biometrico.analisis_edificios",
-        "peekOfCode": "def analisis_atrasos(df):\n    df.loc[df['fecha_registro'] !=\n                  \"\", 'hora'] = df['fecha_registro']\n    # convierto  a formatos de fecha y hora\n    df['hora'] = pd.to_datetime(df['hora'])\n    df['fecha_registro'] = pd.to_datetime(df['fecha_registro'])\n    # asigno columna como index para porder trabajar con fechas\n    #df.set_index('fecha_registro', inplace=True)\n    df[['regimen', 'id_trabajador_id']] = df['nombre_usuario'].apply(lambda x: pd.Series(get_regimen_usuario(x)))\n    grupos = df.groupby('regimen')",
+        "peekOfCode": "def analisis_atrasos(df):\n    df.loc[df['fecha_registro'] !=\n                  \"\", 'hora'] = df['fecha_registro']\n    # convierto  a formatos de fecha y hora\n    df['hora'] = pd.to_datetime(df['hora'])\n    df['fecha_registro'] = pd.to_datetime(df['fecha_registro'])\n    # asigno columna como index para porder trabajar con fechas\n    #df.set_index('fecha_registro', inplace=True)\n    #df[['regimen', 'id_trabajador_id']] = df['nombre_usuario'].apply(lambda x: pd.Series(get_regimen_usuario(x)))\n    df[['regimen', 'id_trabajador_id']] = df.apply(lambda row: pd.Series(get_regimen_usuario(row['nombre_usuario'], row['id_usuario'])), axis=1)",
         "detail": "app.core.asistencias.registro_biometrico.analisis_edificios",
         "documentation": {}
     },
@@ -3538,7 +3674,7 @@
         "kind": 2,
         "importPath": "app.core.asistencias.registro_biometrico.conexion_biometrico",
         "description": "app.core.asistencias.registro_biometrico.conexion_biometrico",
-        "peekOfCode": "def get_connection_admin():\n    # conexión biometrico administrativo#\n    nombre_biometrico = \"EDIFICIO_ADMINISTRATIVO\"\n    ip_address = \"10.100.100.230\"\n    port = 4370\n    # timeout = 5\n    zk = ZK(ip_address, port)\n    # timeout\n    conn_status = zk.connect()\n    get_attendance_biometrico(nombre_biometrico, conn_status, zk)",
+        "peekOfCode": "def get_connection_admin():\n    # conexión biometrico administrativo#\n    nombre_biometrico = \"EDIFICIO_ADMINISTRATIVO\"\n    ip_address = \"172.20.4.150\"\n    port = 4370\n    # timeout = 5\n    zk = ZK(ip_address, port)\n    # timeout\n    conn_status = zk.connect()\n    get_attendance_biometrico(nombre_biometrico, conn_status, zk)",
         "detail": "app.core.asistencias.registro_biometrico.conexion_biometrico",
         "documentation": {}
     },
@@ -3628,7 +3764,7 @@
         "kind": 6,
         "importPath": "app.core.asistencias.apps",
         "description": "app.core.asistencias.apps",
-        "peekOfCode": "class AsistenciasConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.asistencias'\n    ## funcion que permite activar tareas programadas que se genera desde la carpeta registro_biometrico/activar_job.py\n    # def ready(self):\n    #    print(\"Iniciando la tarea de registro de asistencia biometrico...\")\n       #from .registro_biometrico import activar_job",
+        "peekOfCode": "class AsistenciasConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.asistencias'\n    # funcion que permite activar tareas programadas que se genera desde la carpeta registro_biometrico/activar_job.py\n    def ready(self):\n       print(\"Iniciando la tarea de registro de asistencia biometrico...\")\n       from .registro_biometrico import activar_job",
         "detail": "app.core.asistencias.apps",
         "documentation": {}
     },
@@ -3718,7 +3854,7 @@
         "kind": 6,
         "importPath": "app.core.distributivo.api.serializers.serializers",
         "description": "app.core.distributivo.api.serializers.serializers",
-        "peekOfCode": "class UnidadOrganicaSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Unidad_Organica\n        fields = '__all__'\n        #fields = '__all__'\nclass DenominacionPuestoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Denominacion_Puesto\n        fields = '__all__'\nclass EstructuraProgramaticaSerializer(serializers.ModelSerializer):",
+        "peekOfCode": "class UnidadOrganicaSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Unidad_Organica\n        fields = '__all__'\n        #fields = '__all__'\nclass DenominacionPuestoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Denominacion_Puesto\n        fields = '__all__'\n    def to_representation(self, instance):",
         "detail": "app.core.distributivo.api.serializers.serializers",
         "documentation": {}
     },
@@ -3727,7 +3863,7 @@
         "kind": 6,
         "importPath": "app.core.distributivo.api.serializers.serializers",
         "description": "app.core.distributivo.api.serializers.serializers",
-        "peekOfCode": "class DenominacionPuestoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Denominacion_Puesto\n        fields = '__all__'\nclass EstructuraProgramaticaSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Estructura_Programatica\n        fields = '__all__'\nclass ProcesoSerializer(serializers.ModelSerializer):\n    class Meta :",
+        "peekOfCode": "class DenominacionPuestoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Denominacion_Puesto\n        fields = '__all__'\n    def to_representation(self, instance):\n        id_proceso = instance.id_proceso\n        if id_proceso:\n            id_proces = id_proceso.id\n            proceso = id_proceso.proceso,\n        else:",
         "detail": "app.core.distributivo.api.serializers.serializers",
         "documentation": {}
     },
@@ -4119,42 +4255,6 @@
         "documentation": {}
     },
     {
-        "label": "job_function",
-        "kind": 2,
-        "importPath": "app.core.permisos.asignar_vacaciones_mes.activar_job",
-        "description": "app.core.permisos.asignar_vacaciones_mes.activar_job",
-        "peekOfCode": "def job_function(job_id):\n    asignar_dias()\n    print('job %s is runed at %s' %\n          (job_id, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))\ndef job_exception_listener(event):\n    if event.exception:\n        # manejo de excepciones\n        print(\"La tarea programada(conexión a los biometricos) no se activo :(\")\n    else:\n        print(\"La tarea programada(conexión a los biometricos) se activo correctamente :)\")",
-        "detail": "app.core.permisos.asignar_vacaciones_mes.activar_job",
-        "documentation": {}
-    },
-    {
-        "label": "job_exception_listener",
-        "kind": 2,
-        "importPath": "app.core.permisos.asignar_vacaciones_mes.activar_job",
-        "description": "app.core.permisos.asignar_vacaciones_mes.activar_job",
-        "peekOfCode": "def job_exception_listener(event):\n    if event.exception:\n        # manejo de excepciones\n        print(\"La tarea programada(conexión a los biometricos) no se activo :(\")\n    else:\n        print(\"La tarea programada(conexión a los biometricos) se activo correctamente :)\")\n# Inicio sesion\nlogging.basicConfig()\nlogging.getLogger('apscheduler').setLevel(logging.DEBUG)\nscheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")",
-        "detail": "app.core.permisos.asignar_vacaciones_mes.activar_job",
-        "documentation": {}
-    },
-    {
-        "label": "scheduler",
-        "kind": 5,
-        "importPath": "app.core.permisos.asignar_vacaciones_mes.activar_job",
-        "description": "app.core.permisos.asignar_vacaciones_mes.activar_job",
-        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada minuto se lo utiliza para realizar test---------------------------------#\n# scheduler.add_job(\n#     job_function,\n#     trigger='interval', \n#     args=[1],\n#     id='3', \n#     name='Asignar dias vacaciones mensual', \n#     max_instances=1, \n#     jobstore='default', ",
-        "detail": "app.core.permisos.asignar_vacaciones_mes.activar_job",
-        "documentation": {}
-    },
-    {
-        "label": "asignar_dias",
-        "kind": 2,
-        "importPath": "app.core.permisos.asignar_vacaciones_mes.asignar_dias",
-        "description": "app.core.permisos.asignar_vacaciones_mes.asignar_dias",
-        "peekOfCode": "def asignar_dias():\n    dias_asignar = 2.5\n    servidor_asignar = Trabajador.objects.all().filter(numero_identificacion=\"0401727623\")\n    dias_servidor = servidor_asignar.values_list(\"dias_vacaciones\", flat=True).get()\n    suma = float(dias_servidor) + dias_asignar\n    servidor_asignar.update(dias_vacaciones = suma)\n    print('se asigno los dias de vacaciones')\n    #Trabajador.objects.filter(nombres=id_trabajador).update(dias_vacaciones=suma_dias)",
-        "detail": "app.core.permisos.asignar_vacaciones_mes.asignar_dias",
-        "documentation": {}
-    },
-    {
         "label": "Migration",
         "kind": 6,
         "importPath": "app.core.permisos.migrations.0001_initial",
@@ -4186,7 +4286,7 @@
         "kind": 6,
         "importPath": "app.core.permisos.apps",
         "description": "app.core.permisos.apps",
-        "peekOfCode": "class PermisosConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.permisos'\n    def ready(self):\n        print(\"************************Inicializado tarea de asignacion de dias de vacaciones a cada trabajador****************\")\n        from .asignar_vacaciones_mes import activar_job",
+        "peekOfCode": "class PermisosConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.permisos'",
         "detail": "app.core.permisos.apps",
         "documentation": {}
     },
@@ -4249,7 +4349,7 @@
         "kind": 6,
         "importPath": "app.core.trabajadores.api.serializers.trabajadores_serializers",
         "description": "app.core.trabajadores.api.serializers.trabajadores_serializers",
-        "peekOfCode": "class TrabajadorSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Trabajador\n        fields = '__all__'\n        #exclude = ('state',)\n    def to_representation(self, instance):\n        return {\n            'id': instance.id,\n            'tipo_identificacion': instance.tipo_identificacion,\n            'numero_identificacion': instance.numero_identificacion,",
+        "peekOfCode": "class TrabajadorSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Trabajador\n        fields = '__all__'\n        #exclude = ('state',)\n    def to_representation(self, instance):\n        id_proceso = instance.id_denominacion_puesto.id_proceso\n        if id_proceso:\n            id_proces = id_proceso.id\n            proceso = id_proceso.proceso,",
         "detail": "app.core.trabajadores.api.serializers.trabajadores_serializers",
         "documentation": {}
     },
@@ -4470,20 +4570,20 @@
         "documentation": {}
     },
     {
-        "label": "DatosPersonalesTrabajadores",
-        "kind": 6,
-        "importPath": "app.core.trabajadores.models",
-        "description": "app.core.trabajadores.models",
-        "peekOfCode": "class DatosPersonalesTrabajadores(BaseModel):\n    numHijos = models.IntegerField('Numero de hijos', blank= True, null=True)\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
-        "detail": "app.core.trabajadores.models",
-        "documentation": {}
-    },
-    {
         "label": "ArchivoTrabajadores",
         "kind": 6,
         "importPath": "app.core.trabajadores.models",
         "description": "app.core.trabajadores.models",
         "peekOfCode": "class ArchivoTrabajadores(BaseModel):\n    doc= models.FileField(upload_to='./static/archivoTrabajadores')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
+        "detail": "app.core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "DatosPersonalesTrabajadores",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.models",
+        "description": "app.core.trabajadores.models",
+        "peekOfCode": "class DatosPersonalesTrabajadores(BaseModel):\n    numHijos = models.IntegerField('Numero de hijos', blank= True, null=True)\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
         "detail": "app.core.trabajadores.models",
         "documentation": {}
     },
@@ -4533,6 +4633,15 @@
         "documentation": {}
     },
     {
+        "label": "UserGroupSerializer",
+        "kind": 6,
+        "importPath": "app.core.usuarios.api.serializers.grupos_serializers",
+        "description": "app.core.usuarios.api.serializers.grupos_serializers",
+        "peekOfCode": "class UserGroupSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Group\n        fields = ('id', 'name')",
+        "detail": "app.core.usuarios.api.serializers.grupos_serializers",
+        "documentation": {}
+    },
+    {
         "label": "UserTokenSerializer",
         "kind": 6,
         "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
@@ -4564,7 +4673,7 @@
         "kind": 6,
         "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
         "description": "app.core.usuarios.api.serializers.usuarios_serializers",
-        "peekOfCode": "class UsuarioUpdateSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password')\nclass UsuarioListSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password', 'is_active', 'last_login', 'is_superuser', 'groups', 'user_permissions' )\nclass UsuarioLast_logingSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "peekOfCode": "class UsuarioUpdateSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password')\nclass UsuarioListSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password', )\n                   #'is_active', 'last_login', 'is_superuser', 'groups', 'user_permissions'\n    # def to_representation(self, instance):",
         "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
         "documentation": {}
     },
@@ -4573,7 +4682,7 @@
         "kind": 6,
         "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
         "description": "app.core.usuarios.api.serializers.usuarios_serializers",
-        "peekOfCode": "class UsuarioListSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password', 'is_active', 'last_login', 'is_superuser', 'groups', 'user_permissions' )\nclass UsuarioLast_logingSerializer(serializers.ModelSerializer):\n    class Meta:\n        model =  Usuario\n        fields = ('id','last_login', 'apellido_paterno', 'nombre')\n    def to_representation(self, instance):\n        last_login =  instance.last_login,",
+        "peekOfCode": "class UsuarioListSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Usuario\n        exclude = ('password', )\n                   #'is_active', 'last_login', 'is_superuser', 'groups', 'user_permissions'\n    # def to_representation(self, instance):\n    #     print(instance.groups)\n    # #     {\n    # #     \"id\": 1,\n    # #     \"last_login\": \"2023-10-23T12:31:59.508966-05:00\",",
         "detail": "app.core.usuarios.api.serializers.usuarios_serializers",
         "documentation": {}
     },
@@ -4614,11 +4723,20 @@
         "documentation": {}
     },
     {
+        "label": "GruposViewSet",
+        "kind": 6,
+        "importPath": "app.core.usuarios.api.views.grupos_views",
+        "description": "app.core.usuarios.api.views.grupos_views",
+        "peekOfCode": "class GruposViewSet(viewsets.ModelViewSet):\n    serializer_class = UserGroupSerializer\n    queryset = Group.objects.all()\n    def list(self, request, *args, **kwargs):\n        grupos = Group.objects.all()\n        grupo_serializer = UserGroupSerializer(grupos, many = True)\n        return Response(grupo_serializer.data, status=status.HTTP_200_OK)",
+        "detail": "app.core.usuarios.api.views.grupos_views",
+        "documentation": {}
+    },
+    {
         "label": "UsuarioViewSet",
         "kind": 6,
         "importPath": "app.core.usuarios.api.views.usuarios_views",
         "description": "app.core.usuarios.api.views.usuarios_views",
-        "peekOfCode": "class UsuarioViewSet(viewsets.ModelViewSet):\n    serializer_class = UsuarioSerializer\n    queryset = UsuarioSerializer.Meta.model.objects.all()\n    def list(self, request, *args, **kwargs):\n        usuarios = Usuario.objects.all().filter(is_active = True)\n        usuario_serializer = UsuarioListSerializer(usuarios, many=True)\n        return Response(usuario_serializer.data, status=status.HTTP_200_OK)\n    # ##cambio contraseña desde RRHH\n    # @action(detail=True, methods=['post'])\n    # def set_password(self, request , pk=None):",
+        "peekOfCode": "class UsuarioViewSet(viewsets.ModelViewSet):\n    serializer_class = UsuarioSerializer\n    queryset = Usuario.objects.all().filter(is_active=True)\n    # queryset = UsuarioSerializer.Meta.model.objects.all()\n    def list(self, request, *args, **kwargs):\n        # group_name = \"ADMINISTRADOR\"\n        # # Verifica si el usuario pertenece al grupo antes de permitir el acceso\n        # if not request.user.groups.filter(name=group_name).exists():\n        #     return Response({\"detail\": \"No tienes permiso para acceder a esta vista.\"}, status=status.HTTP_403_FORBIDDEN)\n        print(request.user, request.user.groups.name)",
         "detail": "app.core.usuarios.api.views.usuarios_views",
         "documentation": {}
     },
@@ -4627,7 +4745,7 @@
         "kind": 5,
         "importPath": "app.core.usuarios.api.routers",
         "description": "app.core.usuarios.api.routers",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'usuario', UsuarioViewSet, basename='usuario')\nurlpatterns = router.urls",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'usuario', UsuarioViewSet, basename='usuario')\nrouter.register(r'grupos', GruposViewSet, basename='grupos')\nurlpatterns = router.urls",
         "detail": "app.core.usuarios.api.routers",
         "documentation": {}
     },
@@ -4704,6 +4822,15 @@
         "documentation": {}
     },
     {
+        "label": "IsInGroupPermission",
+        "kind": 6,
+        "importPath": "app.core.usuarios.permissions",
+        "description": "app.core.usuarios.permissions",
+        "peekOfCode": "class IsInGroupPermission(permissions.BasePermission):\n    def __init__(self, group_name):\n        self.group_name = group_name\n    def has_permission(self, request, view):\n        user = request.user\n        return user.groups.filter(name=self.group_name).exists()",
+        "detail": "app.core.usuarios.permissions",
+        "documentation": {}
+    },
+    {
         "label": "Login",
         "kind": 6,
         "importPath": "app.core.usuarios.views",
@@ -4735,7 +4862,7 @@
         "kind": 6,
         "importPath": "app.core.vacaciones.api.views.cronograma_views",
         "description": "app.core.vacaciones.api.views.cronograma_views",
-        "peekOfCode": "class CronogramaVacacionesViewSet(viewsets.ModelViewSet):\n    serializer_class = CronogramaVacacionesSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state=True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state=True).first()\n    def create(self, request):\n        cronograma_serializer = self.serializer_class(data=request.data)\n        if cronograma_serializer.is_valid():\n            trabajador = cronograma_serializer.validated_data.get(",
+        "peekOfCode": "class CronogramaVacacionesViewSet(viewsets.ModelViewSet):\n    serializer_class = CronogramaVacacionesSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state=True, id_trabajador__state=True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state=True, id_trabajador__state=True).first()\n    def create(self, request):\n        cronograma_serializer = self.serializer_class(data=request.data)\n        if cronograma_serializer.is_valid():\n            trabajador = cronograma_serializer.validated_data.get(",
         "detail": "app.core.vacaciones.api.views.cronograma_views",
         "documentation": {}
     },
@@ -4755,6 +4882,42 @@
         "description": "app.core.vacaciones.api.routers",
         "peekOfCode": "urlpatterns = router.urls",
         "detail": "app.core.vacaciones.api.routers",
+        "documentation": {}
+    },
+    {
+        "label": "job_function",
+        "kind": 2,
+        "importPath": "app.core.vacaciones.asignar_vacaciones_mes.activar_job",
+        "description": "app.core.vacaciones.asignar_vacaciones_mes.activar_job",
+        "peekOfCode": "def job_function(job_id):\n    asignar_dias()\n    print('job %s is runed at %s' %\n          (job_id, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))\ndef job_exception_listener(event):\n    if event.exception:\n        # manejo de excepciones\n        print(\"La tarea programada(conexión a los biometricos) no se activo :(\")\n    else:\n        print(\"La tarea programada(conexión a los biometricos) se activo correctamente :)\")",
+        "detail": "app.core.vacaciones.asignar_vacaciones_mes.activar_job",
+        "documentation": {}
+    },
+    {
+        "label": "job_exception_listener",
+        "kind": 2,
+        "importPath": "app.core.vacaciones.asignar_vacaciones_mes.activar_job",
+        "description": "app.core.vacaciones.asignar_vacaciones_mes.activar_job",
+        "peekOfCode": "def job_exception_listener(event):\n    if event.exception:\n        # manejo de excepciones\n        print(\"La tarea programada(conexión a los biometricos) no se activo :(\")\n    else:\n        print(\"La tarea programada(conexión a los biometricos) se activo correctamente :)\")\n# Inicio sesion\nlogging.basicConfig()\nlogging.getLogger('apscheduler').setLevel(logging.DEBUG)\nscheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")",
+        "detail": "app.core.vacaciones.asignar_vacaciones_mes.activar_job",
+        "documentation": {}
+    },
+    {
+        "label": "scheduler",
+        "kind": 5,
+        "importPath": "app.core.vacaciones.asignar_vacaciones_mes.activar_job",
+        "description": "app.core.vacaciones.asignar_vacaciones_mes.activar_job",
+        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada dia a las 23:30 en la noche activando la conexión a los biometricos---------------------------------#\nscheduler.add_job(\n    job_function,\n    trigger='cron',\n    #day_of_week='mon-sun',\n    day=1,\n    hour=7,\n    minute=0,\n    args=[1],",
+        "detail": "app.core.vacaciones.asignar_vacaciones_mes.activar_job",
+        "documentation": {}
+    },
+    {
+        "label": "asignar_dias",
+        "kind": 2,
+        "importPath": "app.core.vacaciones.asignar_vacaciones_mes.asignar_dias",
+        "description": "app.core.vacaciones.asignar_vacaciones_mes.asignar_dias",
+        "peekOfCode": "def asignar_dias():\n    fecha_actual = datetime.date.today()\n    dias_asignar = 2.5\n    servidor_asignar = Trabajador.objects.all().filter(state = True)\n    id_ocasionales = Modalidad_Laboral.objects.all().filter(Q(modalidad_laboral__icontains=\"ocasionales\") | Q(modalidad_laboral__iexact=\"CONTRATOS OCASIONALES\")).values_list('id', flat=True).get()\n    id_regimen = Regimen_Laboral.objects.all().filter(Q(regimen_laboral__icontains= \"codigo\") | Q(regimen_laboral__iexact=\"CODIGO DE TRABAJO\")).values_list('id', flat=True).get()\n    for servidor in servidor_asignar:\n        dias_servidor = servidor.dias_vacaciones\n        if servidor.id_modalidad_laboral.id == id_ocasionales:\n            diferencia_fechas = fecha_actual - servidor.fecha_inicio",
+        "detail": "app.core.vacaciones.asignar_vacaciones_mes.asignar_dias",
         "documentation": {}
     },
     {
@@ -4780,7 +4943,7 @@
         "kind": 5,
         "importPath": "app.core.vacaciones.enviar_email.enviar_email",
         "description": "app.core.vacaciones.enviar_email.enviar_email",
-        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada minuto se lo utiliza para realizar test---------------------------------#\n#scheduler.add_job(job_function, trigger='interval', args=[1], id='1', name='a test job', max_instances=10, jobstore='default', executor='default', minutes=1)\n# ---------------------------------Este job se activa cada dia a las 8 de la mañana notificando al trabajador que sale de vacaciones---------------------------------#\n# scheduler.add_job(job_function, trigger='cron', day_of_week='mon-sun', hour=8, minute=00, args=[1], id='1', name='a test job', max_instances=10,jobstore='default', executor='default')\nscheduler.add_listener(job_exception_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)\nscheduler.start()",
+        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada dia a las 8 de la mañana notificando al trabajador que sale de vacaciones---------------------------------#\n# scheduler.add_job(\n# job_function, \n# trigger='cron', \n# day_of_week='mon-sun', \n# hour=8, \n# minute=0, \n# args=[1], \n# id='2', ",
         "detail": "app.core.vacaciones.enviar_email.enviar_email",
         "documentation": {}
     },
@@ -4843,7 +5006,7 @@
         "kind": 6,
         "importPath": "app.core.vacaciones.apps",
         "description": "app.core.vacaciones.apps",
-        "peekOfCode": "class VacacionesConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.vacaciones'\n    #def ready(self):\n    #    print(\"Iniciando la tarea de notificación de vacaciones...\")\n    #    from .enviar_email import enviar_email\n        #enviar_email.start()",
+        "peekOfCode": "class VacacionesConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.vacaciones'\n    def ready(self):\n        print(\"Iniciando la tarea de asignación de dias de vacaciones...\")\n        from .asignar_vacaciones_mes import activar_job   \n    #     print(\"Iniciando la tarea de notificación de vacaciones...\")\n    #     from .enviar_email import enviar_email",
         "detail": "app.core.vacaciones.apps",
         "documentation": {}
     },

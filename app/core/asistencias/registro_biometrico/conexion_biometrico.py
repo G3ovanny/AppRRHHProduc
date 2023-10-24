@@ -5,7 +5,7 @@ from zk import ZK
 def get_connection_admin():
     # conexión biometrico administrativo#
     nombre_biometrico = "EDIFICIO_ADMINISTRATIVO"
-    ip_address = "10.100.100.230"
+    ip_address = "172.20.4.150"
     port = 4370
     # timeout = 5
     zk = ZK(ip_address, port)

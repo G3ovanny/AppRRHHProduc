@@ -3,29 +3,29 @@ import { createSlice } from '@reduxjs/toolkit'
 export const cedulaSlice = createSlice({
     name: 'cedula',
     initialState: {
-        estadoCed: 'checking',
+        estadoCed: 'checkingCedula',
         trabCed: {},
         errorMessageCed: undefined,
     },
     reducers: {
-        onChecking: (state) => {
-            state.estadoCed = 'cheking';
+        onCheckingCed: (state) => {
+            state.estadoCed = 'checkingCedula';
             state.trabCed = {};
             state.errorMessageCed = undefined;
         },
-        onlinkeding: (state, {payload}) => {
+        onlinkedingCed: (state, { payload }) => {
             state.estadoCed = 'linked';
             state.trabCed = payload;
             state.errorMessageCed = undefined;
         },
-        onUnlinkeding: () =>{
+        onUnlinkedingCed: (state, { payload }) => {
             state.estadoCed = 'not-linked';
             state.trabCed = {};
-            state.errorMessageCed = undefined;
+            state.errorMessageCed = payload;
         },
-        clearErrorMessage:()=>{
-            state.errorMessageCed=undefined;
+        clearErrorMessageCed: (state) => {
+            state.errorMessageCed = undefined;
         }
     }
 })
-export const {onChecking, onlinkeding, onUnlinkeding, clearErrorMessage}=cedulaSlice.actions
+export const { onCheckingCed, onlinkedingCed, onUnlinkedingCed, clearErrorMessageCed } = cedulaSlice.actions

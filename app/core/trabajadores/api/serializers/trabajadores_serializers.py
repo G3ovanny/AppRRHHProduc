@@ -14,6 +14,15 @@ class TrabajadorSerializer(serializers.ModelSerializer):
         #exclude = ('state',)
 
     def to_representation(self, instance):
+        id_proceso = instance.id_denominacion_puesto.id_proceso
+
+        if id_proceso:
+            id_proces = id_proceso.id
+            proceso = id_proceso.proceso,
+        else:
+            id_proces = 'null'
+            proceso = 'null'
+
         return {
             'id': instance.id,
             'tipo_identificacion': instance.tipo_identificacion,
@@ -49,5 +58,7 @@ class TrabajadorSerializer(serializers.ModelSerializer):
             'unidad_organica': instance.id_unidad_organica.unidad_organica,
             'id_denominacion_puesto': instance.id_denominacion_puesto.id,
             'denominacion_puesto': instance.id_denominacion_puesto.denominacion_puesto,
+            "id_proceso": id_proces,
+            "proceso":  proceso,
             'dias_vacaciones': instance.dias_vacaciones,
         }

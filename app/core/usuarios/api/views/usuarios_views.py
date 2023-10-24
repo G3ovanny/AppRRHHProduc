@@ -1,18 +1,28 @@
 from datetime import date
 from rest_framework import viewsets, status
+from rest_framework import permissions
 from rest_framework.decorators import action
-
 from rest_framework.response import Response
 
+from django.contrib.auth.models import User, Group
 from core.usuarios.api.serializers.usuarios_serializers import UsuarioSerializer, UsuarioUpdateSerializer, CustomUserSerializer, UsuarioListSerializer, PasswordSerializer
 from core.usuarios.models import Usuario
+from core.usuarios.permissions import IsInGroupPermission
 
 
 class UsuarioViewSet(viewsets.ModelViewSet):
     serializer_class = UsuarioSerializer
-    queryset = UsuarioSerializer.Meta.model.objects.all()
+    queryset = Usuario.objects.all().filter(is_active=True)
+    # queryset = UsuarioSerializer.Meta.model.objects.all()
 
     def list(self, request, *args, **kwargs):
+        # group_name = "ADMINISTRADOR"
+        
+        # # Verifica si el usuario pertenece al grupo antes de permitir el acceso
+        # if not request.user.groups.filter(name=group_name).exists():
+        #     return Response({"detail": "No tienes permiso para acceder a esta vista."}, status=status.HTTP_403_FORBIDDEN)
+
+        print(request.user, request.user.groups.name)
         usuarios = Usuario.objects.all().filter(is_active = True)
         usuario_serializer = UsuarioListSerializer(usuarios, many=True)
         return Response(usuario_serializer.data, status=status.HTTP_200_OK)
@@ -57,6 +67,12 @@ class UsuarioViewSet(viewsets.ModelViewSet):
 
 
     def create(self, request, format=None):
+        group_name = "ADMINISTRADOR"
+        
+        # Verifica si el usuario pertenece al grupo antes de permitir el acceso
+        if not request.user.groups.filter(name=group_name).exists():
+            return Response({"detail": "No tienes permiso para crear usuarios"}, status=status.HTTP_403_FORBIDDEN)
+        
         usuario_serializer = UsuarioSerializer(data=request.data)
         if usuario_serializer.is_valid():
             usuario_serializer.save()
@@ -65,6 +81,11 @@ class UsuarioViewSet(viewsets.ModelViewSet):
         return Response(usuario_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def update(self, request, format=None, pk=None):
+        group_name = "ADMINISTRADOR"
+        # Verifica si el usuario pertenece al grupo antes de permitir el acceso
+        if not request.user.groups.filter(name=group_name).exists():
+            return Response({"detail": "No tienes permiso para editar usuarios"}, status=status.HTTP_403_FORBIDDEN)
+        
         usuario = Usuario.objects.filter(id=pk).first()
         usuario_serializer = UsuarioUpdateSerializer(usuario, data=request.data)
         if usuario_serializer.is_valid():
@@ -74,6 +95,12 @@ class UsuarioViewSet(viewsets.ModelViewSet):
         #return Response({'mensaje': 'Los datos del usuario no se han actualizado'}, status=status.HTTP_304_NOT_MODIFIED)
 
     def destroy(self, request, pk=None):
+        group_name = "ADMINISTRADOR"
+        
+        # Verifica si el usuario pertenece al grupo antes de permitir el acceso
+        if not request.user.groups.filter(name=group_name).exists():
+            return Response({"detail": "No tienes permiso para eliminar usuarios"}, status=status.HTTP_403_FORBIDDEN)
+        
         usuario = Usuario.objects.filter(id=pk).first()
         if usuario:
             #usuario.delete()

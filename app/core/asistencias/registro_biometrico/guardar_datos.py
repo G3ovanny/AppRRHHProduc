@@ -17,4 +17,3 @@ def cargar_datos(documento):
     ]]
 
     nuevoDocumento.to_sql('Asistencia', engine, if_exists='append', index=False)
-    #print(nuevoDocumento)

@@ -413,7 +413,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                     </Box>
                                     <Box style={styles.rect_tres}>
                                         <Typography style={styles.text} >
-                                            PROCESO:
+                                            PROCESO: {data.proceso_actual}
                                         </Typography>
                                         <Typography style={styles.text} >
                                             SUBPROCESO: {data.subproceso_actual}

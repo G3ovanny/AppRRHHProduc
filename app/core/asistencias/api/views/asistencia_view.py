@@ -7,8 +7,8 @@ class AsistenciaViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self, pk=None):
         if pk is None:
-            return self.get_serializer().Meta.model.objects.filter(state = True)
-        return self.get_serializer().Meta.model.objects.filter(id=pk, state = True).first()
+            return self.get_serializer().Meta.model.objects.filter(state = True, id_trabajador__state=True)
+        return self.get_serializer().Meta.model.objects.filter(id=pk, state = True, id_trabajador__state=True).first()
     
     def create(self, request):
         asistencia_serializer = self.serializer_class(data=request.data)
@@ -26,7 +26,7 @@ class AsistenciaViewSet(viewsets.ModelViewSet):
             return Response(asistencia_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
-        asistencia = self.get_queryset().filter(id=pk).filter()
+        asistencia = self.get_queryset().filter(id=pk).first()
         if asistencia:
             #asistencia.delete()
             asistencia.state = False
