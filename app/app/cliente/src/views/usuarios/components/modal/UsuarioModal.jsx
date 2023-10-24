@@ -1,8 +1,9 @@
-import { Box, Button, Divider, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Stack, TextField, Toolbar, Typography } from "@mui/material"
+import { Box, Button, Divider, FormControl, FormControlLabel, FormLabel, Grid, InputLabel, MenuItem, Radio, RadioGroup, Select, Stack, TextField, Toolbar, Typography } from "@mui/material"
 import { useForm, useModalStore, useUsuarioStore } from "../../../../hooks"
 import { BaseModal } from "../../../../ui"
 import { FormPassword } from "./FormPassword"
 import { useEffect, useState } from "react"
+import { useGrupoStore } from "../../../../hooks/grupos"
 
 
 const style = {
@@ -27,10 +28,12 @@ const formData = {
   apellido_paterno: '',
   correo: '',
   is_staff: true,
+  groups: [],
 }
 export const UsuarioModal = ({ titleModal }) => {
   const { closeModal } = useModalStore();
   const { activeUsuario, startSavingUsuario } = useUsuarioStore();
+  const { listGrupo, startLoadingGrupo } = useGrupoStore()
   const [validationsPass, setValidationsPass] = useState(false)
   const formValidations = {
     username: [
@@ -60,6 +63,7 @@ export const UsuarioModal = ({ titleModal }) => {
     apellido_paterno,
     correo,
     is_staff,
+    groups,
     onInputChange,
     isFormValid,
     formState,
@@ -106,6 +110,7 @@ export const UsuarioModal = ({ titleModal }) => {
   }
 
   useEffect(() => {
+    startLoadingGrupo()
     if (activeUsuario !== null) {
       setFormState({ ...activeUsuario[0] })
     }
@@ -184,6 +189,27 @@ export const UsuarioModal = ({ titleModal }) => {
                     <FormControlLabel value={true} control={<Radio />} label="Activo" sx={{ color: 'error' }} />
                     <FormControlLabel value={false} control={<Radio />} label="Inactivo" />
                   </RadioGroup>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} sm={12} md={6} sx={{ mt: 2 }}>
+              <FormControl
+                  sx={{ minWidth: 215 ,  maxWidth: 215 }}
+                  size="small"
+                >
+                  <InputLabel id="demo-simple-select-label">Grupo</InputLabel>
+                  <Select
+                    //error={id_motivoValid !== null}
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Nivel ocupacional"
+                    value={groups || ''}
+                    onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'groups' } })}
+                  >
+                    {listGrupo.map(option => (
+                      <MenuItem key={option.id} value={option.id}>{option.name}</MenuItem>
+                    ))
+                    }
+                  </Select>
                 </FormControl>
               </Grid>
             </Grid>

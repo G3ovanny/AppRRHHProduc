@@ -10,6 +10,7 @@ import { cronogramaVacacionesSlice } from './vacaciones'
 import { asistenciasSlice } from './asistencias'
 import { usuariosSlice } from './usuarios'
 import { cedulaSlice } from './auth/cedulaSlice'
+import { grupoSlice } from './grupos'
 
 export const store = configureStore({
     reducer: {
@@ -34,6 +35,7 @@ export const store = configureStore({
         cronograma: cronogramaVacacionesSlice.reducer,
         asistencia: asistenciasSlice.reducer,
         usuarios: usuariosSlice.reducer,
+        grupos: grupoSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false

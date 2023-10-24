@@ -4,12 +4,12 @@ import pandas as pd
 from .guardar_datos import *
 
 #merged_df
-def get_regimen_usuario(nombre_usuario):
+def get_regimen_usuario(nombre_usuario, id_usuario):
     # # print(nombre_usuario)
     # # IBARRA ROSERO EDISON MARCELO
     #nombre_usuario = 'IBARRA R EDISON'
-    partes = nombre_usuario.split(' ')
 
+    partes = nombre_usuario.split(' ')
     # # realizo una consulta por cada palabra del string que me envia la columna de nombre_usuario ya que del biometrico no se obtiene mas datos de los usuarios
     consulta = Q()
     for parte in partes:
@@ -17,17 +17,26 @@ def get_regimen_usuario(nombre_usuario):
     # # obtengo los datos del servidor
     data_trabajador = Trabajador.objects.filter(consulta)
     
-    #TODO # ANALISAR LOS USUARIOS DUPLICADOS
+    cod_biometrico = Trabajador.objects.filter(cod_biometrico=id_usuario)
 
+    #TODO # ANALISAR LOS USUARIOS DUPLICADOS
+    #SE SE REALIZA LA CONSULTA DEL REGIMEN DE CADA UNO DE LOS USUARIOS DEL BIOMETRICO POR EL NOMBRE
+    #SI EN LA BASE DE DATOS NO ESTA EL CODIGO DEL BIOMETRICO LO BUSCA POR NOMBRE CASO CONTRARIO LO DEJA EN BLANCO
     try:
-        if data_trabajador.exists():
+        if cod_biometrico.exists():
+            trabajador = cod_biometrico.first()  # Obtengo el primer registro
+            id_trabajador_id = trabajador.id
+            id_regimen = trabajador.id_regimen_laboral
+            regimen = str(id_regimen)
+
+        elif data_trabajador.exists():
             trabajador = data_trabajador.first()  # Obtengo el primer registro
             id_trabajador_id = trabajador.id
             id_regimen = trabajador.id_regimen_laboral
             regimen = str(id_regimen)
         else:
-            id_trabajador_id = ''
-            regimen = ''
+            id_trabajador_id = 'NULL'
+            regimen = 'NULL'
 
         return regimen, id_trabajador_id
     except Trabajador.DoesNotExist:
@@ -70,11 +79,12 @@ def analisis_atrasos(df):
     # asigno columna como index para porder trabajar con fechas
     #df.set_index('fecha_registro', inplace=True)
 
-    df[['regimen', 'id_trabajador_id']] = df['nombre_usuario'].apply(lambda x: pd.Series(get_regimen_usuario(x)))
-    
+    #df[['regimen', 'id_trabajador_id']] = df['nombre_usuario'].apply(lambda x: pd.Series(get_regimen_usuario(x)))
+    df[['regimen', 'id_trabajador_id']] = df.apply(lambda row: pd.Series(get_regimen_usuario(row['nombre_usuario'], row['id_usuario'])), axis=1)
+
 
     grupos = df.groupby('regimen')
-
+    #print(grupos)
     for nombre_grupo, documento in grupos:
         #print(type(nombre_grupo))
         #print(f"Grupo: {nombre_grupo}")
@@ -122,8 +132,8 @@ def analisis_atrasos(df):
             doc_administrativos = pd.concat([documento_madrugada, documento_atrasos_dia, documento_permisos_dia, documento_almuerzo,
                                   documento_atrasos_tarde, documento_permisos_tarde, documento_noche], ignore_index=True)
             cargar_datos(doc_administrativos)
-            #nombre_archivo = (f"Administrativos.xlsx")
-            #doc_administrativos.to_excel(nombre_archivo, index=False)
+            # nombre_archivo = (f"Administrativos.xlsx")
+            # doc_administrativos.to_excel(nombre_archivo, index=False)
         elif 'CODIGO' in nombre_grupo:
             ################################# HORARIOS ADMINISTRATIvOS #################################
             ################################# 2.CODIGO DEL TRABAJO  #########################
@@ -168,18 +178,24 @@ def analisis_atrasos(df):
             doc_trabajadores = pd.concat([documento_madrugada, documento_atrasos_dia, documento_permisos_dia, documento_almuerzo, documento_atrasos_tarde, documento_permisos_tarde, documento_noche], ignore_index=True)
             
             cargar_datos(doc_trabajadores)
-            #nombre_archivo = (f"Trabajadores.xlsx")
-            #doc_trabajadores.to_excel(nombre_archivo, index=False)
+            # nombre_archivo = (f"Trabajadores.xlsx")
+            # doc_trabajadores.to_excel(nombre_archivo, index=False)
 
         elif 'OTROS' in nombre_grupo:
             cargar_datos(documento)
-            #nombre_archivo = (f"Otros.xlsx")
-            #documento.to_excel(nombre_archivo, index=False)
+            # nombre_archivo = (f"Otros.xlsx")
+            # documento.to_excel(nombre_archivo, index=False)
+        else:
+            #si no existen datos de regimen los guarda como nulos o vacios
+            cargar_datos(documento)
+            # nombre_archivo = (f"SinDatos.xlsx")
+            # documento.to_excel(nombre_archivo, index=False)
 
-    # ejemplo en archivo en formato ecxel
-    #doc_final = pd.concat([doc_administrativos, doc_trabajadores, documento], ignore_index=True)
-    #nombre_archivo = (f"Administrativo.xlsx")
-    #doc_final.to_excel(nombre_archivo, index=False)
+
+    #ejemplo en archivo en formato ecxel
+    # doc_final = pd.concat([doc_administrativos, doc_trabajadores, documento], ignore_index=True)
+    # nombre_archivo = (f"Administrativo.xlsx")
+    # doc_final.to_excel(nombre_archivo, index=False)
 
 def analisis_admin(merged_df):
     df = merged_df

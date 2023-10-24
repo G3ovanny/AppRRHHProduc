@@ -19,7 +19,8 @@ class DatosFormulario(TokenObtainPairView):
                 trabajador_serializer = self.serializer_class(data=request.data)
                 if trabajador_serializer.is_valid():
                     return Response({
-                        'mensaje': 'Trabajador encontrado'
+                        'numero_identificacion': trabajador_serializer.validated_data.get('numero_identificacion'),
+                        'message': 'Trabajador encontrado',
                     }, status=status.HTTP_200_OK)
             return Response({'error': 'Número de identificación no encontrado'}, status=status.HTTP_400_BAD_REQUEST)
         return Response({'error': 'Ingrese su número de cédula'}, status=status.HTTP_400_BAD_REQUEST)

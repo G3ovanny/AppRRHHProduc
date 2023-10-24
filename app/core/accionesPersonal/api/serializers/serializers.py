@@ -14,6 +14,15 @@ class AccionPersonalSerializer(serializers.ModelSerializer):
             nomb = ' '.join(palabras[-2:])
             ap2 = ''.join(palabras[-3])
             ap1 = ''.join(palabras[-4])
+        
+        id_proceso = instance.id_trabajador.id_denominacion_puesto.id_proceso
+
+        if id_proceso:
+            proceso = id_proceso.proceso,
+        else:
+            proceso = ['null']
+        
+        print(proceso)
         return {
             'id': instance.id,
             'id_trabajador': instance.id_trabajador.id,
@@ -32,7 +41,7 @@ class AccionPersonalSerializer(serializers.ModelSerializer):
             'num_doc': instance.num_doc,
             'fecha_doc': instance.fecha_doc,
 
-            'proceso_actual': instance.proceso_actual,
+            'proceso_actual': proceso[0],
             'subproceso_actual': instance.id_trabajador.id_unidad_organica.unidad_organica,
             'puesto_actual': instance.id_trabajador.id_denominacion_puesto.denominacion_puesto,
             'rmu_actual': instance.id_trabajador.rmu_puesto,

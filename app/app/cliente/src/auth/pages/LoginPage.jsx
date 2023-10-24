@@ -1,5 +1,5 @@
 import React from 'react'
-import { Google } from '@mui/icons-material'
+import { Link } from 'react-router-dom';
 import { Alert, Button, Grid, TextField, Typography } from '@mui/material'
 import { AuthLayout } from '../layout/AuthLayout'
 import { useAuthStore, useForm } from '../../hooks'
@@ -56,24 +56,25 @@ export const LoginPage = () => {
                         >
                             <Alert severity='error' >{errorMessage}</Alert>
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12} sm={12}>
                             <Button
                                 type='submit'
                                 variant='contained'
                                 fullWidth
                                 onClick={onSubmit}
                             >
-                                Login
+                                Iniciar sesión
                             </Button>
                         </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <Button
-                                variant='contained'
-                                fullWidth>
-                                <Google />
-                                <Typography sx={{ ml: 1 }}>Google</Typography>
-                            </Button>
-                        </Grid>
+                        {/* <Grid item xs={12} sm={12} alignItems={'center'}>
+                            <Link
+                                to="/"
+                                component="button"
+                                variant="body2"
+                            >
+                                ¿Olvidaste tu contraseña?
+                            </Link>
+                        </Grid> */}
                     </Grid>
                 </Grid>
             </form>

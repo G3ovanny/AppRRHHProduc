@@ -1,8 +1,11 @@
 from datetime import datetime, timedelta
 from core.usuarios.models import Usuario
+from django.contrib.auth.models import Group
 from rest_framework import serializers
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+
+
 
 #serializador para generar token
 class UserTokenSerializer(serializers.ModelSerializer):
@@ -50,7 +53,35 @@ class UsuarioUpdateSerializer(serializers.ModelSerializer):
 class UsuarioListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        exclude = ('password', 'is_active', 'last_login', 'is_superuser', 'groups', 'user_permissions' )
+        exclude = ('password', )
+                   #'is_active', 'last_login', 'is_superuser', 'groups', 'user_permissions'
+
+    # def to_representation(self, instance):
+    #     print(instance.groups)
+    # #     {
+    # #     "id": 1,
+    # #     "last_login": "2023-10-23T12:31:59.508966-05:00",
+    # #     "is_superuser": true,
+    # #     "username": "Geovanny",
+    # #     "correo": "jeffersonlara98@gmail.com",
+    # #     "nombre": "Geovanny",
+    # #     "apellido_paterno": "Lara",
+    # #     "is_active": true,
+    # #     "is_staff": true,
+    # #     "groups": [
+    # #         1
+    # #     ],
+    # #     "user_permissions": []
+    # # },
+    #     return {
+    #         'id': instance.id,
+    #         'username': instance.username,
+    #         'correo': instance.correo,
+    #         'nombre': instance.nombre,
+    #         'apellido_paterno': instance.apellido_paterno,
+    #         # 'is_active': instance.is_active,
+    #         # #'group': instance.groups,
+    #     }
 
 class UsuarioLast_logingSerializer(serializers.ModelSerializer):
     class Meta:

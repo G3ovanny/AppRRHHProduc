@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { useAccionPersonalStore, useForm, useModalStore, useTrabStore } from '../../../../hooks'
+import React, { useEffect, useState } from 'react'
+import { useAccionPersonalStore, useDenominacionPuestoStore, useForm, useModalStore, useTrabStore } from '../../../../hooks'
 import { BaseModal } from '../../../../ui'
 import { Autocomplete, Box, Button, Divider, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField, Toolbar, Typography } from '@mui/material'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
@@ -50,7 +50,7 @@ const formData = {
     fecha_accion: '',
     fecha_rigue: '',
     tipo_accion: '',
-    otro_tipo:'',
+    otro_tipo: '',
     doc_base: '',
     num_doc: '',
     fecha_doc: '',
@@ -60,8 +60,11 @@ const formData = {
 export const AccionesPersonalModal = ({ titleModal }) => {
     const { closeModal } = useModalStore();
     const { activeAccion, startSavingAccion } = useAccionPersonalStore();
+    const { listDenominacion, startLoadingDenominacion } = useDenominacionPuestoStore()
     const { trabajadores, startLoadingTrab } = useTrabStore();
     const [inputValue, setInputValue] = React.useState('');
+
+
 
     let component = null;
 
@@ -89,7 +92,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
     }
 
 
-    const {
+    let {
         id_trabajadorValid,
         fecha_accionValid,
         fecha_rigueValid,
@@ -119,6 +122,12 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         setFormState
     } = useForm(formData, formValidations);
 
+    //let proceso = 'null'
+    if (puesto_propuesta) {
+        const denominacion = listDenominacion.find(denomin => denomin.id === puesto_propuesta);
+        proceso_propuesta = denominacion.proceso[0]
+    } 
+
     const onSubmit = async (event) => {
         event.preventDefault();
         if (isFormValid) {
@@ -133,12 +142,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         closeModal()
         onResetForm()
     }
-    useEffect(() => {
-        startLoadingTrab()
-        if (activeAccion !== null) {
-            setFormState({ ...activeAccion[0] });
-        }
-    }, [activeAccion])
+
 
     if (id_trabajador) {
         let lista_trabajadores = trabajadores.filter(trab => trab.id === id_trabajador)
@@ -148,6 +152,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
             nombres: trabajador.nombres,
             unidad: trabajador.unidad_organica,
             puesto: trabajador.denominacion_puesto,
+            proceso: trabajador.proceso,
             rmu: trabajador.rmu_puesto,
             estructura: trabajador.estructura_programatica,
             partida: trabajador.partida_individual,
@@ -157,12 +162,21 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         component = {
             cedula: '',
             nombres: mensaje,
+            unidad: mensaje,
             puesto: mensaje,
+            proceso: mensaje,
             rmu: mensaje,
             estructura: mensaje,
             partida: mensaje,
         }
     }
+    useEffect(() => {
+        startLoadingTrab()
+        startLoadingDenominacion()
+        if (activeAccion !== null) {
+            setFormState({ ...activeAccion[0] });
+        }
+    }, [activeAccion])
     return (
         <BaseModal
             title={titleModal}
@@ -347,32 +361,6 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                 <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
                                     <TextField sx={{ minWidth: 180 }} size="small"
                                         id="outlined-read-only-input"
-                                        label="Proceso actual"
-                                        autoComplete='false'
-                                        //defaultValue={component.puesto}
-                                        type='text'
-                                        //readOnly
-                                        fullWidth
-                                        value={component.puesto || ''}
-                                        onChange={onInputChange}
-                                    />
-                                </Grid>
-                                <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
-                                    <TextField sx={{ minWidth: 180 }} size="small"
-                                        id="outlined-read-only-input"
-                                        label="Subproceso actual"
-                                        autoComplete='false'
-                                        //defaultValue={component.puesto}
-                                        type='text'
-                                        //readOnly
-                                        fullWidth
-                                        value={component.unidad || ''}
-                                        onChange={onInputChange}
-                                    />
-                                </Grid>
-                                <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
-                                    <TextField sx={{ minWidth: 180 }} size="small"
-                                        id="outlined-read-only-input"
                                         label="Puesto actual"
                                         defaultValue={component.puesto}
                                         readOnly
@@ -381,6 +369,29 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                         onChange={onInputChange}
                                     />
                                 </Grid>
+                                <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
+                                    <TextField sx={{ minWidth: 180 }} size="small"
+                                        id="outlined-read-only-input"
+                                        label="Proceso actual"
+                                        autoComplete='false'
+                                        type='text'
+                                        fullWidth
+                                        value={component.proceso || ''}
+                                        onChange={onInputChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
+                                    <TextField sx={{ minWidth: 180 }} size="small"
+                                        id="outlined-read-only-input"
+                                        label="Subproceso actual"
+                                        autoComplete='false'
+                                        type='text'
+                                        fullWidth
+                                        value={component.unidad || ''}
+                                        onChange={onInputChange}
+                                    />
+                                </Grid>
+
                                 <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
                                     <TextField sx={{ minWidth: 180 }} size="small"
                                         id="outlined-read-only-input"
@@ -420,16 +431,44 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                 <Typography>Situación propuesta</Typography>
                                 <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
                                     <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
+                                        <FormControl sx={{ minWidth: 300 }} size="small">
+                                            <InputLabel id="demo-select-small-label">Puesto propuesto</InputLabel>
+                                            <Select
+                                                labelId="demo-select-small-label"
+                                                id="demo-select-small"
+                                                label="Puesto propuesto"
+                                                fullWidth
+                                                value={puesto_propuesta || ''}
+                                                onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'puesto_propuesta' } })}
+                                            >
+                                                {listDenominacion.map(option => (
+                                                    <MenuItem key={option.id} value={option.id}> {option.denominacion_puesto}</MenuItem>
+                                                ))}
+                                            </Select>
+                                        </FormControl>
+
+                                    </Grid>
+                                    <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
+                                        {/* <TextField sx={{ minWidth: 180 }} size="small"
+                                        id="outlined-read-only-input"
+                                        label="Puesto actual"
+                                        defaultValue={component.puesto}
+                                        readOnly
+                                        fullWidth
+                                        value={component.puesto || ''}
+                                        onChange={onInputChange}
+                                    /> */}
                                         <TextField sx={{ minWidth: 180 }} size="small"
                                             id='proceso_propuesta'
                                             autoComplete='false'
                                             label='Proceso propuesto'
-                                            type='text'
+                                            readOnly
                                             placeholder='Ingrese el proceso propuesto al servidor'
                                             fullWidth
                                             name='proceso_propuesta'
                                             value={proceso_propuesta || ''}
                                             onChange={onInputChange}
+
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
@@ -445,19 +484,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                             onChange={onInputChange}
                                         />
                                     </Grid>
-                                    <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
-                                        <TextField sx={{ minWidth: 180 }} size="small"
-                                            id='puesto_propuesta'
-                                            autoComplete='false'
-                                            label='Puesto propuesto'
-                                            type='text'
-                                            placeholder='Ingrese el puesto propuesto al servidor'
-                                            fullWidth
-                                            name='puesto_propuesta'
-                                            value={puesto_propuesta || ''}
-                                            onChange={onInputChange}
-                                        />
-                                    </Grid>
+
                                     <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
                                         <TextField sx={{ minWidth: 180 }} size="small"
                                             id='rmu_propuesta'

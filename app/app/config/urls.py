@@ -21,6 +21,7 @@ urlpatterns = [
     path("", TemplateView.as_view(template_name = 'base.html')),
     
     path("enlace_formulario", TemplateView.as_view(template_name = 'base.html')),
+    path("enlace_formularios", TemplateView.as_view(template_name = 'base.html')),
     path("dashboard", TemplateView.as_view(template_name = 'base.html')),
     path("distributivo", TemplateView.as_view(template_name = 'base.html')),
     path("servidores", TemplateView.as_view(template_name = 'base.html')),

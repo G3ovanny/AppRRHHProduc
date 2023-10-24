@@ -7,8 +7,8 @@ class AccionPersonalViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self, pk= None):
         if pk is None:
-            return self.get_serializer().Meta.model.objects.filter(state = True)
-        return self.get_serializer().Meta.model.objects.filter(id=pk, state= True).first()
+            return self.get_serializer().Meta.model.objects.filter(state = True, id_trabajador__state=True)
+        return self.get_serializer().Meta.model.objects.filter(id=pk, state= True, id_trabajador__state=True).first()
     
     def create(self, request):
         accion_serializer = self.serializer_class(data = request.data)

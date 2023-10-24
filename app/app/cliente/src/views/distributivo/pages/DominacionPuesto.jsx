@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react'
-import { Alert, Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Divider, Grid, IconButton, List, ListItem, ListItemText, Paper, Stack, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
+import { Alert, Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Divider, FormControl, Grid, IconButton, InputLabel, List, ListItem, ListItemText, MenuItem, Paper, Select, Stack, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
 import { DeleteOutline, Edit, Search } from '@mui/icons-material';
 import { useForm } from '../../../hooks';
-import { useDenominacionPuestoStore } from '../../../hooks/distributivo';
+import { useDenominacionPuestoStore, useProcesoStore } from '../../../hooks/';
 import { FiltroGeneral } from '../components/filtros/FiltroGeneral';
 
 const formData = {
   cod_denominacion_puesto: '',
-  denominacion_puesto: ''
+  denominacion_puesto: '',
+  id_proceso: ''
 }
 
 export const DominacionPuesto = () => {
   const { listDenominacion, startDeletingDenominacion, setActiveDenominacion, startSavingDenominacion, startLoadingDenominacion, activeDenominacion, inicialDenominacion = [], mensajeDenominacion } = useDenominacionPuestoStore();
-
   const [resultadoBusqueda, setResultadoBusqueda] = useState('')
 
+  const { listProceso, startLoadingProceso } = useProcesoStore()
   const handelBuscar = (valorBuscar) => {
     const resultadoFiltrado = listDenominacion.filter((denominacion) => {
       return denominacion.denominacion_puesto.toLowerCase().includes(valorBuscar.toLowerCase()) || denominacion.cod_denominacion_puesto.toLowerCase().includes(valorBuscar.toLowerCase())
@@ -45,6 +46,7 @@ export const DominacionPuesto = () => {
   const {
     cod_denominacion_puesto,
     denominacion_puesto,
+    id_proceso,
     onInputChange,
     isFormValid,
     formState,
@@ -77,6 +79,7 @@ export const DominacionPuesto = () => {
 
   useEffect(() => {
     startLoadingDenominacion()
+    startLoadingProceso()
     if (activeDenominacion !== null) {
       setFormState(activeDenominacion)
     }
@@ -188,6 +191,22 @@ export const DominacionPuesto = () => {
                       onChange={onInputChange}
                     />
 
+                  </Grid>
+                  <Grid item xs={12} sx={{ mt: 1 }}>
+                    <FormControl sx={{ minWidth: 120 }} size="small">
+                      <InputLabel id="demo-select-small-label">Procesos</InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        label="Procesos"
+                        value={id_proceso || ''}
+                        onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'id_proceso' } })}
+                      >
+                        {listProceso.map(option => (
+                          <MenuItem key={option.id} value={option.id}> {option.proceso}</MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
                   </Grid>
                 </CardContent>
                 <CardActions>

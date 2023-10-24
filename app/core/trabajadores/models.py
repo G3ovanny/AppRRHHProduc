@@ -86,6 +86,25 @@ class Trabajador(BaseModel):
         self.state = False
         self.save()
 
+class ArchivoTrabajadores(BaseModel):
+    doc= models.FileField(upload_to='./static/archivoTrabajadores')
+    historical = HistoricalRecords()
+
+    @property
+    def _history_user(self):
+        return self.changed_by
+
+    @_history_user.setter
+    def _history_user(self, value):
+        self.changed_by = value
+
+    class Meta:
+        verbose_name = "Archivo Trabajadores"
+        verbose_name_plural = "Archivos Trabajadores"
+        db_table = 'Archivo_trabajadores'
+        ordering = ['id']
+
+################################################################ datos personales de los servidores
 class DatosPersonalesTrabajadores(BaseModel):
     numHijos = models.IntegerField('Numero de hijos', blank= True, null=True)
     historical = HistoricalRecords()
@@ -104,20 +123,4 @@ class DatosPersonalesTrabajadores(BaseModel):
         db_table = 'Datos_personales_trabajador'
         ordering = ['id']
 
-class ArchivoTrabajadores(BaseModel):
-    doc= models.FileField(upload_to='./static/archivoTrabajadores')
-    historical = HistoricalRecords()
 
-    @property
-    def _history_user(self):
-        return self.changed_by
-
-    @_history_user.setter
-    def _history_user(self, value):
-        self.changed_by = value
-
-    class Meta:
-        verbose_name = "Archivo Trabajadores"
-        verbose_name_plural = "Archivos Trabajadores"
-        db_table = 'Archivo_trabajadores'
-        ordering = ['id']

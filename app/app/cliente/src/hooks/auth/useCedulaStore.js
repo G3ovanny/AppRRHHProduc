@@ -1,23 +1,37 @@
 import { useDispatch, useSelector } from "react-redux"
-import { onChecking, onUnlinkeding } from "../../store/auth/cedulaSlice";
 import { rhApi } from "../../api";
+import { clearErrorMessageCed, onCheckingCed, onUnlinkedingCed, onlinkedingCed } from "../../store/auth/cedulaSlice";
 
 export const useCedulaStore = () => {
   const { estadoCed, trabCed, errorMessageCed } = useSelector(state => state.cedula)
   const dispatch = useDispatch();
 
-  const startLinkeding = async ({ numero_identificacion }) => {
-    dispatch(onChecking)
-    console.log(numero_identificacion)
+  const startLinkeding = async (numero_identificacion) => {
+    dispatch(onCheckingCed)
     try {
-      const {data} = await rhApi.post('/formulario/', {numero_identificacion});
-      console.log(data)
+      const { data } = await rhApi.post('/formulario/', { numero_identificacion });
+      localStorage.setItem('numero_identificacion', data.numero_identificacion);
+      dispatch(onlinkedingCed({numero_identificacion: data.numero_identificacion}))
     } catch (error) {
-
+      dispatch(onUnlinkedingCed('Número de cedula no encontrado'));
+      setTimeout(() => {
+        dispatch(clearErrorMessageCed());
+      }, 3000);
     }
   }
+
+  const checkCedula = async () => {
+    const cedula = localStorage.getItem('numero_identificacion');
+    if (!cedula){
+      dispatch(onUnlinkedingCed());
+    } else {
+      dispatch(onlinkedingCed())
+    }
+  }
+
   const onunlinkeding = () => {
-    dispatch(onUnlinkeding)
+    localStorage.clear();
+    dispatch(onUnlinkedingCed())
   }
   return {
     //*Propiedades
@@ -26,5 +40,7 @@ export const useCedulaStore = () => {
     errorMessageCed,
     //*Metodos
     startLinkeding,
+    onunlinkeding,
+    checkCedula,
   }
 }

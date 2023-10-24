@@ -29,16 +29,13 @@ logging.getLogger('apscheduler').setLevel(logging.DEBUG)
 
 scheduler = BackgroundScheduler(timezone="America/Guayaquil")
 
-# ---------------------------------Este job se activa cada minuto se lo utiliza para realizar test---------------------------------#
-#scheduler.add_job(job_function, trigger='interval', args=[1], id='1', name='a test job', max_instances=10, jobstore='default', executor='default', minutes=1)
-
-
 # ---------------------------------Este job se activa cada dia a las 23:30 en la noche activando la conexión a los biometricos---------------------------------#
 scheduler.add_job(
     job_function,
     trigger='cron',
     day_of_week='mon-sun',
-    hour=23,
+    #day = 24,
+    hour=11,
     minute=30,
     args=[1],
     id='1',

@@ -33,6 +33,23 @@ class DenominacionPuestoSerializer(serializers.ModelSerializer):
         model = Denominacion_Puesto
         fields = '__all__'
 
+    def to_representation(self, instance):
+        id_proceso = instance.id_proceso
+        
+        if id_proceso:
+            id_proces = id_proceso.id
+            proceso = id_proceso.proceso,
+        else:
+            id_proces = 'null'
+            proceso = 'null'
+        return {
+            "id": instance.id,
+            "cod_denominacion_puesto":instance.cod_denominacion_puesto,
+            "denominacion_puesto":instance.denominacion_puesto,
+            "id_proceso": id_proces,
+            "proceso":  proceso,
+        }
+
 
 class EstructuraProgramaticaSerializer(serializers.ModelSerializer):
     class Meta:
