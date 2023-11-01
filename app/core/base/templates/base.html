@@ -34,7 +34,7 @@
   
   <script type="module" src=" http://localhost:5173/main.jsx"></script>
   {% else %}
-<script type="module" src=" http://localhost:5173/@vite/client"></script>
+{% comment %} <script type="module" src=" http://localhost:5173/@vite/client"></script>
   <!-- If you're using vite with React, this next script will be needed for HMR -->
   <script type="module">
     import RefreshRuntime from ' http://localhost:5173/@react-refresh'
@@ -45,9 +45,9 @@
       window.__vite_plugin_react_preamble_installed__ = true
     }
   </script>
-  <script type="module" src=" http://localhost:5173/main.jsx"></script>
+  <script type="module" src=" http://localhost:5173/main.jsx"></script> {% endcomment %}
 
-  {% comment %} {% rendker_vite_bundle %} {% endcomment %}
+  {% render_vite_bundle %}
   {% endif %}
 </body>
 
