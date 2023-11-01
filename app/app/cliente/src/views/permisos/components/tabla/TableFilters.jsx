@@ -38,7 +38,7 @@ export const TableFilters = (props) => {
             fechaHastaBuscar
         )
     }
-    const limpiarFIltros = () => {
+    const limpiarFiltros = () => {
         setValorBuscar('')
         setColumnaBuscar('cedulaTrab')
         setFechaRegistroBuscar(null)
@@ -57,32 +57,27 @@ export const TableFilters = (props) => {
     }, [valorBuscar, columnaBuscar, fechaRegistroBuscar, fechaDesdeBuscar, fechaHastaBuscar]);
 
     return (
-        <Grid item container columnSpacing={{ xs: 3, sm: 3, md: 3 }}>
-            <Grid item xs sx={{ mt: 2 }}>
-                <FormControl
-                    sx={{ minWidth: 180 }}
-                    size="small"
-                >
-                    <InputLabel id="demo-simple-select-label">Filtrar por:</InputLabel>
+        <Grid container spacing={2}>
+            <Grid item xs={12} sm={6} md={2}>
+                <FormControl fullWidth size="small">
+                    <InputLabel id="filter-label">Filtrar por:</InputLabel>
                     <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        label="FIltrar por :"
-                        value={columnaBuscar || ''}
+                        label="FIltrar por:"
+                        labelId="filter-label"
+                        value={columnaBuscar}
                         onChange={(e) => setColumnaBuscar(e.target.value)}
                     >
                         {filterOptions.map(option => (
                             <MenuItem key={option.id} value={option.id}>{option.label}</MenuItem>
-                        ))
-                        }
+                        ))}
                     </Select>
                 </FormControl>
             </Grid>
-            <Grid item xs sx={{ mt: 2 }} >
+
+            <Grid item xs={12} sm={6} md={2}>
                 <TextField
-                    id="outlined-start-adornment"
                     label="Buscar..."
-                    sx={{ minWidth: 300 }}
+                    fullWidth
                     size="small"
                     value={valorBuscar}
                     onChange={(e) => setValorBuscar(e.target.value)}
@@ -92,7 +87,7 @@ export const TableFilters = (props) => {
                 />
             </Grid>
 
-            <Grid item xs sx={{ mt: 2 }}>
+            <Grid item xs={12} sm={6} md={2}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
                         slotProps={{ textField: { size: 'small' } }}
@@ -100,11 +95,10 @@ export const TableFilters = (props) => {
                         value={fechaRegistroBuscar}
                         onChange={(newValue) => setFechaRegistroBuscar(dayjs(newValue))}
                     />
-
                 </LocalizationProvider>
             </Grid>
 
-            <Grid item xs sx={{ mt: 2 }}>
+            <Grid item xs={12} sm={6} md={2}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
                         slotProps={{ textField: { size: 'small' } }}
@@ -112,31 +106,28 @@ export const TableFilters = (props) => {
                         value={fechaDesdeBuscar}
                         onChange={(newValue) => setFechaDesdeBuscar(dayjs(newValue))}
                     />
-
                 </LocalizationProvider>
             </Grid>
-            <Grid item xs sx={{ mt: 2 }}>
+
+            <Grid item xs={12} sm={6} md={2}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
                         slotProps={{ textField: { size: 'small' } }}
-                        size="small"
                         label="Hasta"
                         value={fechaHastaBuscar}
                         onChange={(newValue) => setFechaHastaBuscar(dayjs(newValue))}
                     />
                 </LocalizationProvider>
             </Grid>
-            <Grid item xs sx={{ mt: 2 }}>
-                <Button
-                    variant="contained"
-                    onClick={filtrar}
-                > Buscar </Button>
+            <Grid item xs={3} sm={6} md={2}>
+                <Button variant="contained"  onClick={filtrar}>
+                    Buscar
+                </Button>
             </Grid>
-            <Grid item xs sx={{ mt: 2 }}>
-                <Button
-                    variant="contained"
-                    onClick={limpiarFIltros}
-                >Limpiar</Button>
+            <Grid item xs={3} sm={6} md={2}>
+                <Button variant="contained"  onClick={limpiarFiltros}>
+                    Limpiar
+                </Button>
             </Grid>
         </Grid>
 

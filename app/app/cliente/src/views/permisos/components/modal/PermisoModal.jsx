@@ -97,12 +97,11 @@ export const PermisoModal = ({ titleModal }) => {
   const onSubmit = async (event) => {
     event.preventDefault();
     if (isFormValid) {
-      //startSavingPermiso(formState)
-      console.log(formState)
+      startSavingPermiso(formState)
+      //console.log(formState)
       closeModal()
       onResetForm()
     } else {
-      console.log(formState)
       setErrorMessage('Error en el formulario')
     }
   }
