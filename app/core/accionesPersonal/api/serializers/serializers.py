@@ -15,14 +15,13 @@ class AccionPersonalSerializer(serializers.ModelSerializer):
             ap2 = ''.join(palabras[-3])
             ap1 = ''.join(palabras[-4])
         
-        id_proceso = instance.id_trabajador.id_denominacion_puesto.id_proceso
+        proceso_propuesta =  instance.proceso_propuesta,
+        subproceso_propuesta =  instance.subproceso_propuesta,
+        puesto_propuesta =  instance.puesto_propuesta,
+        rmu_propuesta =  instance.rmu_propuesta,
+        estructura_propuesta =  instance.estructura_propuesta,
+        partida_propuesta =  instance.partida_propuesta,
 
-        if id_proceso:
-            proceso = id_proceso.proceso,
-        else:
-            proceso = ['null']
-        
-        print(proceso)
         return {
             'id': instance.id,
             'id_trabajador': instance.id_trabajador.id,
@@ -41,12 +40,13 @@ class AccionPersonalSerializer(serializers.ModelSerializer):
             'num_doc': instance.num_doc,
             'fecha_doc': instance.fecha_doc,
 
-            'proceso_actual': proceso[0],
-            'subproceso_actual': instance.id_trabajador.id_unidad_organica.unidad_organica,
-            'puesto_actual': instance.id_trabajador.id_denominacion_puesto.denominacion_puesto,
-            'rmu_actual': instance.id_trabajador.rmu_puesto,
-            'estructura_actual': instance.id_trabajador.id_estructura_programatica.estructura_programatica,
-            'partida_actual': instance.id_trabajador.partida_individual,
+
+            'proceso_actual': instance.proceso_actual,
+            'subproceso_actual': instance.subproceso_actual,
+            'puesto_actual': instance.puesto_actual,
+            'rmu_actual': instance.rmu_actual,
+            'estructura_actual': instance.estructura_actual,
+            'partida_actual': instance.partida_actual,
 
             'proceso_propuesta': instance.proceso_propuesta,
             'subproceso_propuesta': instance.subproceso_propuesta,

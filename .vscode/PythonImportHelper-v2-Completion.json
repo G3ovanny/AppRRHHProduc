@@ -1250,6 +1250,142 @@
         "documentation": {}
     },
     {
+        "label": "Trabajador",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "Trabajador",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "Trabajador",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "ArchivoTrabajadores",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "Trabajador",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "Trabajador",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "Trabajador",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "Trabajador",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "Trabajador",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "Unidad_Organica",
+        "importPath": "core.distributivo.models",
+        "description": "core.distributivo.models",
+        "isExtraImport": true,
+        "detail": "core.distributivo.models",
+        "documentation": {}
+    },
+    {
+        "label": "Denominacion_Puesto",
+        "importPath": "core.distributivo.models",
+        "description": "core.distributivo.models",
+        "isExtraImport": true,
+        "detail": "core.distributivo.models",
+        "documentation": {}
+    },
+    {
+        "label": "Estructura_Programatica",
+        "importPath": "core.distributivo.models",
+        "description": "core.distributivo.models",
+        "isExtraImport": true,
+        "detail": "core.distributivo.models",
+        "documentation": {}
+    },
+    {
+        "label": "Unidad_Organica",
+        "importPath": "core.distributivo.models",
+        "description": "core.distributivo.models",
+        "isExtraImport": true,
+        "detail": "core.distributivo.models",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "core.distributivo.models",
+        "description": "core.distributivo.models",
+        "isExtraImport": true,
+        "detail": "core.distributivo.models",
+        "documentation": {}
+    },
+    {
+        "label": "Modalidad_Laboral",
+        "importPath": "core.distributivo.models",
+        "description": "core.distributivo.models",
+        "isExtraImport": true,
+        "detail": "core.distributivo.models",
+        "documentation": {}
+    },
+    {
+        "label": "Regimen_Laboral",
+        "importPath": "core.distributivo.models",
+        "description": "core.distributivo.models",
+        "isExtraImport": true,
+        "detail": "core.distributivo.models",
+        "documentation": {}
+    },
+    {
         "label": "DefaultRouter",
         "importPath": "rest_framework.routers",
         "description": "rest_framework.routers",
@@ -2352,38 +2488,6 @@
         "documentation": {}
     },
     {
-        "label": "Unidad_Organica",
-        "importPath": "core.distributivo.models",
-        "description": "core.distributivo.models",
-        "isExtraImport": true,
-        "detail": "core.distributivo.models",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "core.distributivo.models",
-        "description": "core.distributivo.models",
-        "isExtraImport": true,
-        "detail": "core.distributivo.models",
-        "documentation": {}
-    },
-    {
-        "label": "Modalidad_Laboral",
-        "importPath": "core.distributivo.models",
-        "description": "core.distributivo.models",
-        "isExtraImport": true,
-        "detail": "core.distributivo.models",
-        "documentation": {}
-    },
-    {
-        "label": "Regimen_Laboral",
-        "importPath": "core.distributivo.models",
-        "description": "core.distributivo.models",
-        "isExtraImport": true,
-        "detail": "core.distributivo.models",
-        "documentation": {}
-    },
-    {
         "label": "*",
         "importPath": "dateutil.relativedelta",
         "description": "dateutil.relativedelta",
@@ -2397,78 +2501,6 @@
         "description": "dateutil.relativedelta",
         "isExtraImport": true,
         "detail": "dateutil.relativedelta",
-        "documentation": {}
-    },
-    {
-        "label": "Trabajador",
-        "importPath": "core.trabajadores.models",
-        "description": "core.trabajadores.models",
-        "isExtraImport": true,
-        "detail": "core.trabajadores.models",
-        "documentation": {}
-    },
-    {
-        "label": "Trabajador",
-        "importPath": "core.trabajadores.models",
-        "description": "core.trabajadores.models",
-        "isExtraImport": true,
-        "detail": "core.trabajadores.models",
-        "documentation": {}
-    },
-    {
-        "label": "ArchivoTrabajadores",
-        "importPath": "core.trabajadores.models",
-        "description": "core.trabajadores.models",
-        "isExtraImport": true,
-        "detail": "core.trabajadores.models",
-        "documentation": {}
-    },
-    {
-        "label": "Trabajador",
-        "importPath": "core.trabajadores.models",
-        "description": "core.trabajadores.models",
-        "isExtraImport": true,
-        "detail": "core.trabajadores.models",
-        "documentation": {}
-    },
-    {
-        "label": "Trabajador",
-        "importPath": "core.trabajadores.models",
-        "description": "core.trabajadores.models",
-        "isExtraImport": true,
-        "detail": "core.trabajadores.models",
-        "documentation": {}
-    },
-    {
-        "label": "Trabajador",
-        "importPath": "core.trabajadores.models",
-        "description": "core.trabajadores.models",
-        "isExtraImport": true,
-        "detail": "core.trabajadores.models",
-        "documentation": {}
-    },
-    {
-        "label": "Trabajador",
-        "importPath": "core.trabajadores.models",
-        "description": "core.trabajadores.models",
-        "isExtraImport": true,
-        "detail": "core.trabajadores.models",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "core.trabajadores.models",
-        "description": "core.trabajadores.models",
-        "isExtraImport": true,
-        "detail": "core.trabajadores.models",
-        "documentation": {}
-    },
-    {
-        "label": "Trabajador",
-        "importPath": "core.trabajadores.models",
-        "description": "core.trabajadores.models",
-        "isExtraImport": true,
-        "detail": "core.trabajadores.models",
         "documentation": {}
     },
     {
@@ -2963,7 +2995,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2972,7 +3004,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -2981,7 +3013,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "DEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3584,7 +3616,7 @@
         "kind": 5,
         "importPath": "app.core.asistencias.registro_biometrico.activar_job",
         "description": "app.core.asistencias.registro_biometrico.activar_job",
-        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada dia a las 23:30 en la noche activando la conexión a los biometricos---------------------------------#\nscheduler.add_job(\n    job_function,\n    trigger='cron',\n    day_of_week='mon-sun',\n    #day = 24,\n    hour=11,\n    minute=30,\n    args=[1],",
+        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada dia a las 23:30 en la noche activando la conexión a los biometricos---------------------------------#\nscheduler.add_job(\n    job_function,\n    trigger='cron',\n    day_of_week='mon-sun',\n    hour=23,\n    minute=30,\n    args=[1],\n    id='1',",
         "detail": "app.core.asistencias.registro_biometrico.activar_job",
         "documentation": {}
     },
@@ -3764,7 +3796,7 @@
         "kind": 6,
         "importPath": "app.core.asistencias.apps",
         "description": "app.core.asistencias.apps",
-        "peekOfCode": "class AsistenciasConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.asistencias'\n    # funcion que permite activar tareas programadas que se genera desde la carpeta registro_biometrico/activar_job.py\n    def ready(self):\n       print(\"Iniciando la tarea de registro de asistencia biometrico...\")\n       from .registro_biometrico import activar_job",
+        "peekOfCode": "class AsistenciasConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.asistencias'\n    #funcion que permite activar tareas programadas que se genera desde la carpeta registro_biometrico/activar_job.py\n    def ready(self):\n       print(\"Iniciando la tarea de registro de asistencia biometrico...\")\n       from .registro_biometrico import activar_job",
         "detail": "app.core.asistencias.apps",
         "documentation": {}
     },
@@ -4916,7 +4948,7 @@
         "kind": 2,
         "importPath": "app.core.vacaciones.asignar_vacaciones_mes.asignar_dias",
         "description": "app.core.vacaciones.asignar_vacaciones_mes.asignar_dias",
-        "peekOfCode": "def asignar_dias():\n    fecha_actual = datetime.date.today()\n    dias_asignar = 2.5\n    servidor_asignar = Trabajador.objects.all().filter(state = True)\n    id_ocasionales = Modalidad_Laboral.objects.all().filter(Q(modalidad_laboral__icontains=\"ocasionales\") | Q(modalidad_laboral__iexact=\"CONTRATOS OCASIONALES\")).values_list('id', flat=True).get()\n    id_regimen = Regimen_Laboral.objects.all().filter(Q(regimen_laboral__icontains= \"codigo\") | Q(regimen_laboral__iexact=\"CODIGO DE TRABAJO\")).values_list('id', flat=True).get()\n    for servidor in servidor_asignar:\n        dias_servidor = servidor.dias_vacaciones\n        if servidor.id_modalidad_laboral.id == id_ocasionales:\n            diferencia_fechas = fecha_actual - servidor.fecha_inicio",
+        "peekOfCode": "def asignar_dias():\n    fecha_actual = datetime.date.today()\n    dias_asignar = 2.5\n    servidor_asignar = Trabajador.objects.all().filter(state = True)\n    id_ocasionales = Modalidad_Laboral.objects.all().filter(Q(modalidad_laboral__icontains=\"ocasionales\") | Q(modalidad_laboral__iexact=\"CONTRATOS OCASIONALES\")).values_list('id', flat=True).get()\n    id_regimen = Regimen_Laboral.objects.all().filter(Q(regimen_laboral__icontains= \"codigo\") | Q(regimen_laboral__iexact=\"CODIGO DE TRABAJO\")).values_list('id', flat=True).get()\n    for servidor in servidor_asignar:\n        dias_servidor = servidor.dias_vacaciones\n        #contratos ocacionales se les asignara cada mes 15 dias de vacaciones si el servidor ingresa en menos de un mes se le asignara el equivalente\n        if servidor.id_modalidad_laboral.id == id_ocasionales:",
         "detail": "app.core.vacaciones.asignar_vacaciones_mes.asignar_dias",
         "documentation": {}
     },
@@ -5006,7 +5038,7 @@
         "kind": 6,
         "importPath": "app.core.vacaciones.apps",
         "description": "app.core.vacaciones.apps",
-        "peekOfCode": "class VacacionesConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.vacaciones'\n    def ready(self):\n        print(\"Iniciando la tarea de asignación de dias de vacaciones...\")\n        from .asignar_vacaciones_mes import activar_job   \n    #     print(\"Iniciando la tarea de notificación de vacaciones...\")\n    #     from .enviar_email import enviar_email",
+        "peekOfCode": "class VacacionesConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.vacaciones'\n    def ready(self):\n        print(\"Iniciando la tarea de asignación de dias de vacaciones...\")\n        from .asignar_vacaciones_mes import activar_job",
         "detail": "app.core.vacaciones.apps",
         "documentation": {}
     },

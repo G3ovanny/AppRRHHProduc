@@ -14,7 +14,11 @@ export const Table = () => {
 
     const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
 
-    const handleBuscar = (valorBuscar, columna, fechaDesde, fechaHasta) => {
+    const handleBuscar = (valorBuscar, columna, fechaRegistro, fechaDesde, fechaHasta, ) => {
+
+        console.log('fecha desde', fechaDesde);
+        console.log('fecha hasta', fechaHasta); //
+
         const resultadosFiltrados = listPermiso.filter((permiso) => {
             //return dayjs(permiso.fecha_hora_salida).isBetween(fechaDesde, fechaHasta)
             //se filtra por el tipo de columna y el datos ingresado
@@ -29,23 +33,27 @@ export const Table = () => {
 
         }).filter((permiso) => {
 
-            //Filtro por columna, le dato ingresado y fechas
-            if (!fechaDesde && !fechaHasta) {
+            // //Filtro por columna, le dato ingresado y fechas
+
+            if (!fechaDesde && !fechaHasta && !fechaRegistro) {
                 return permiso; // Si no se especifican fechas, se considera dentro del rango
             }
+
             if (fechaDesde && fechaHasta) {
-                return dayjs(permiso.fecha_hora_salida).isBetween(fechaDesde, fechaHasta)
-            } else if (fechaDesde) {
-                return dayjs(permiso.fecha_hora_salida).isAfter(fechaDesde)
+                return dayjs(permiso.fecha_hora_salida).isBetween(fechaDesde, fechaHasta )
+            }else if (fechaDesde) {
+                return dayjs(permiso.fecha_hora_salida).isAfter(fechaDesde, 'day')
             } else if (fechaHasta) {
-
-                return dayjs(permiso.fecha_hora_salida).isBefore(fechaHasta);
+                return dayjs(permiso.fecha_hora_salida).isBefore(fechaHasta, 'day');
             }
-
+            if (fechaRegistro) {
+                return dayjs(permiso.created_date).isSame(fechaRegistro, 'day')
+            }
             return permiso;
         });
         setResultadoBusqueda(resultadosFiltrados);
     }
+
     const title = 'Lista de permisos'
 
     useEffect(() => {
@@ -53,7 +61,7 @@ export const Table = () => {
     }, [])
     const page = 0
     const pageSize = 10
-    const rowsPerPage= 0
+    const rowsPerPage = 0
     return (
         <div
             style={{ height: 500, width: '100%' }}
@@ -65,7 +73,7 @@ export const Table = () => {
                 setObjecActive={setActivePermiso}
                 isLoadingObjects={isLoadingPermiso}
                 startLoadingObjects={startLoadingPermiso()}
-                tableCells={<TableCells list={resultadoBusqueda} page={page} rowsPerPage={rowsPerPage}/>}
+                tableCells={<TableCells list={resultadoBusqueda} page={page} rowsPerPage={rowsPerPage} />}
                 indexCells={indexCells}
                 tableButtons={<TableButtons />}
                 filters={<TableFilters onBuscar={handleBuscar} />}

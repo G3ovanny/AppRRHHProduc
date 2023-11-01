@@ -34,8 +34,7 @@ scheduler.add_job(
     job_function,
     trigger='cron',
     day_of_week='mon-sun',
-    #day = 24,
-    hour=11,
+    hour=23,
     minute=30,
     args=[1],
     id='1',
@@ -44,6 +43,5 @@ scheduler.add_job(
     jobstore='default',
     executor='default'
 )
-# scheduler.add_job(job_function, trigger='cron', day_of_week='mon-sun', hour=23, minute=30, args=[1], id='1', name='a test job', max_instances=10,jobstore='default', executor='default')
 scheduler.add_listener(job_exception_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
 scheduler.start()

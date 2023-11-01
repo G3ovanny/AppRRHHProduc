@@ -23,32 +23,44 @@ const filterOptions = [
 ]
 
 export const TableFilters = (props) => {
-
-    const [valorBuscar, setValorBuscar] = useState('')
-    const [columnaBuscar, setColumnaBuscar] = useState('cedulaTrab')
-    const [fechaDesdeBuscar, setFechaDesdeBuscar] = useState(null)
-    const [fechaHastaBuscar, setFechaHastaBuscar] = useState(null)
+    const [valorBuscar, setValorBuscar] = useState('');
+    const [columnaBuscar, setColumnaBuscar] = useState('cedulaTrab');
+    const [fechaRegistroBuscar, setFechaRegistroBuscar] = useState(null);
+    const [fechaDesdeBuscar, setFechaDesdeBuscar] = useState(null);
+    const [fechaHastaBuscar, setFechaHastaBuscar] = useState(null);
 
     const filtrar = () => {
-        props.onBuscar(valorBuscar, columnaBuscar, fechaDesdeBuscar, fechaHastaBuscar)
+        props.onBuscar(
+            valorBuscar,
+            columnaBuscar,
+            fechaRegistroBuscar,
+            fechaDesdeBuscar,
+            fechaHastaBuscar
+        )
     }
     const limpiarFIltros = () => {
         setValorBuscar('')
         setColumnaBuscar('cedulaTrab')
+        setFechaRegistroBuscar(null)
         setFechaDesdeBuscar(null)
         setFechaHastaBuscar(null)
         filtrar()
     }
-
     useEffect(() => {
-        props.onBuscar(valorBuscar, columnaBuscar, fechaDesdeBuscar, fechaHastaBuscar);
-    }, [valorBuscar, columnaBuscar, fechaDesdeBuscar, fechaHastaBuscar]);
+        props.onBuscar(
+            valorBuscar,
+            columnaBuscar,
+            fechaRegistroBuscar,
+            fechaDesdeBuscar,
+            fechaHastaBuscar
+        );
+    }, [valorBuscar, columnaBuscar, fechaRegistroBuscar, fechaDesdeBuscar, fechaHastaBuscar]);
 
     return (
-        <Grid container columnSpacing={{ xs: 1, sm: 1, md: 1 }} >
-            <Grid item xs={12} sm={12} md={2} sx={{ mt: 2 }}>
+        <Grid item container columnSpacing={{ xs: 3, sm: 3, md: 3 }}>
+            <Grid item xs sx={{ mt: 2 }}>
                 <FormControl
-                    sx={{ minWidth: 185 }}
+                    sx={{ minWidth: 180 }}
                     size="small"
                 >
                     <InputLabel id="demo-simple-select-label">Filtrar por:</InputLabel>
@@ -66,12 +78,12 @@ export const TableFilters = (props) => {
                     </Select>
                 </FormControl>
             </Grid>
-            <Grid item xs={12} sm={12} md={2} sx={{ mt: 2 }} >
+            <Grid item xs sx={{ mt: 2 }} >
                 <TextField
                     id="outlined-start-adornment"
                     label="Buscar..."
-                    size='small'
-                    sx={{ minWidth: 185 }}
+                    sx={{ minWidth: 300 }}
+                    size="small"
                     value={valorBuscar}
                     onChange={(e) => setValorBuscar(e.target.value)}
                     InputProps={{
@@ -80,7 +92,19 @@ export const TableFilters = (props) => {
                 />
             </Grid>
 
-            <Grid item xs={12} sm={12} md={2} sx={{ mt: 2 }}>
+            <Grid item xs sx={{ mt: 2 }}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker
+                        slotProps={{ textField: { size: 'small' } }}
+                        label="Fecha de registro"
+                        value={fechaRegistroBuscar}
+                        onChange={(newValue) => setFechaRegistroBuscar(dayjs(newValue))}
+                    />
+
+                </LocalizationProvider>
+            </Grid>
+
+            <Grid item xs sx={{ mt: 2 }}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
                         slotProps={{ textField: { size: 'small' } }}
@@ -91,7 +115,7 @@ export const TableFilters = (props) => {
 
                 </LocalizationProvider>
             </Grid>
-            <Grid item xs={12} sm={12} md={2} sx={{ mt: 2 }}>
+            <Grid item xs sx={{ mt: 2 }}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
                         slotProps={{ textField: { size: 'small' } }}
@@ -102,19 +126,19 @@ export const TableFilters = (props) => {
                     />
                 </LocalizationProvider>
             </Grid>
-            <Grid item xs={12} sm={12} md={1} sx={{ mt: 2 }}>
+            <Grid item xs sx={{ mt: 2 }}>
                 <Button
                     variant="contained"
                     onClick={filtrar}
                 > Buscar </Button>
-
             </Grid>
-            <Grid item xs={12} sm={12} md={1} sx={{ mt: 2 }}>
+            <Grid item xs sx={{ mt: 2 }}>
                 <Button
                     variant="contained"
                     onClick={limpiarFIltros}
                 >Limpiar</Button>
             </Grid>
         </Grid>
+
     )
 }

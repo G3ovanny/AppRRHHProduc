@@ -18,6 +18,7 @@ class PermisoSerializer(serializers.ModelSerializer):
             'id_motivo': instance.id_motivo.id,
             'motivo': instance.id_motivo.motivo,
             'detalle': instance.detalle,
+            'created_date': instance.created_date,
             'fecha_hora_salida': instance.fecha_hora_salida,
             'fecha_hora_llegada': instance.fecha_hora_llegada,
             'horas_almuerzo': instance.horas_almuerzo,

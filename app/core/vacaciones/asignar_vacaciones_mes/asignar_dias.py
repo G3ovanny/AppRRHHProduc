@@ -15,7 +15,7 @@ def asignar_dias():
     id_regimen = Regimen_Laboral.objects.all().filter(Q(regimen_laboral__icontains= "codigo") | Q(regimen_laboral__iexact="CODIGO DE TRABAJO")).values_list('id', flat=True).get()
     for servidor in servidor_asignar:
         dias_servidor = servidor.dias_vacaciones
-
+        #contratos ocacionales se les asignara cada mes 15 dias de vacaciones si el servidor ingresa en menos de un mes se le asignara el equivalente
         if servidor.id_modalidad_laboral.id == id_ocasionales:
             diferencia_fechas = fecha_actual - servidor.fecha_inicio
             dias = diferencia_fechas.days
@@ -29,7 +29,9 @@ def asignar_dias():
                 suma_redondeada = round(suma, 2)
                 id_servidor = servidor.id
                 Trabajador.objects.filter(id=id_servidor).update(dias_vacaciones=suma_redondeada)
+            
         elif servidor.id_regimen_laboral.id == id_regimen:
+            #a los servidores con regimen "CODIGO DE TRABAJAO" se les sumara cada año el 1 de enero se le sumara dependiendo los años de contrato en la institucion
             diferencia_fechas = fecha_actual - servidor.fecha_inicio
             dias = diferencia_fechas.days
             es_primero_de_enero = fecha_actual.month == 1 and fecha_actual.day == 1

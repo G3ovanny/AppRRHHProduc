@@ -47,8 +47,17 @@ export const TableCells = ({ list, page, rowsPerPage }) => {
                 {lista.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((permiso) => {
                         const isItemSelected = isSelected(permiso);
+                        const fecha_creacion = dayjs(permiso.created_date).format("D/M/YYYY - HH:mm");
                         const salida = dayjs(permiso.fecha_hora_salida).format("D/M/YYYY - HH:mm");
                         const llegada = dayjs(permiso.fecha_hora_llegada).format("D/M/YYYY - HH:mm");
+                        //const total_dias = (permiso.min_acumulados / 60) / 8
+                        const minutos = (permiso.min_acumulados)
+                        const dias = Math.floor(minutos / 480); // 1440 minutos en un día (24 horas * 60 minutos)
+                        const horas = Math.floor((minutos % 480) / 60); // El residuo de minutos después de restar los días, dividido por 60
+
+                        // Formatea las horas en formato hh:mm usando dayjs
+                        const horaFormateada = dayjs().set('hour', horas).set('minute', minutos % 60).format('HH:mm');
+
                         return (
                             <TableRow
                                 component="div"
@@ -77,9 +86,11 @@ export const TableCells = ({ list, page, rowsPerPage }) => {
                                 </TableCell>
                                 <TableCell component='div' >{permiso.nombres}</TableCell>
                                 <TableCell component='div' >{permiso.motivo}</TableCell>
+                                <TableCell component='div' >{fecha_creacion}</TableCell>
                                 <TableCell component='div' >{salida}</TableCell>
                                 <TableCell component='div' >{llegada}</TableCell>
-                                <TableCell component='div' >{permiso.min_acumulados}</TableCell>
+                                <TableCell component='div'> {dias} dias, {horaFormateada} horas</TableCell>
+                                <TableCell component='div' >{permiso.min_acumulados} minutos</TableCell>
                             </TableRow>
                         )
                     })

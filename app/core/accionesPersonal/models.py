@@ -29,17 +29,17 @@ class AccionPersonal(BaseModel):
         'partida_actual', max_length=255, blank=True, null=True)
 
     proceso_propuesta = models.CharField(
-        'proceso_actual', max_length=255, blank=True, null=True)
+        'proceso_propuesta', max_length=255, blank=True, null=True)
     subproceso_propuesta = models.CharField(
-        'subproceso_actual', max_length=255, blank=True, null=True)
+        'subproceso_propuesta', max_length=255, blank=True, null=True)
     puesto_propuesta = models.CharField(
-        'puesto_actual', max_length=255, blank=True, null=True)
+        'puesto_propuesta', max_length=255, blank=True, null=True)
     rmu_propuesta = models.CharField(
-        'rmu_actual', max_length=255, blank=True, null=True)
+        'rmu_propuesta', max_length=255, blank=True, null=True)
     estructura_propuesta = models.CharField(
         'estructura_propuesta', max_length=255, blank=True, null=True)
     partida_propuesta = models.CharField(
-        'partida_actual', max_length=255, blank=True, null=True)
+        'partida_propuesta', max_length=255, blank=True, null=True)
 
     explicacion = models.CharField(
         'Explicacion', max_length=600, blank=True, null=True)

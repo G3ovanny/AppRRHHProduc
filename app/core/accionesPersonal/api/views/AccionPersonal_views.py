@@ -1,5 +1,8 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+from core.trabajadores.models import Trabajador
+from core.distributivo.models import Unidad_Organica
+from core.distributivo.models import Denominacion_Puesto, Estructura_Programatica
 from ..serializers.serializers import AccionPersonalSerializer
 from ...models import AccionPersonal
 class AccionPersonalViewSet(viewsets.ModelViewSet):
@@ -15,6 +18,36 @@ class AccionPersonalViewSet(viewsets.ModelViewSet):
         accion_anterior = AccionPersonal.objects.all()
         if accion_serializer.is_valid():
             count = accion_serializer.validated_data.get('contador')
+            accion_trabajador = accion_serializer.validated_data.get('id_trabajador')
+            id_trabaAccion = accion_trabajador.id
+            #//// las siguientes condicionales me permite cambiar los datos al servidor de la accion de personal
+            if id_trabaAccion :
+                trabajador = Trabajador.objects.all().filter( state = True, id= id_trabaAccion, ).first()
+                if accion_serializer.validated_data.get('partida_propuesta'):
+                    partida_propuesta = accion_serializer.validated_data.get('partida_propuesta')
+                    trabajador.partida_individual = partida_propuesta
+
+                if accion_serializer.validated_data.get('subproceso_propuesta'):
+                    subproceso_propuesta = accion_serializer.validated_data.get('subproceso_propuesta')
+                    id_unidad = Unidad_Organica.objects.all().filter(id = subproceso_propuesta).first()
+                    trabajador.id_unidad_organica = id_unidad
+
+                if accion_serializer.validated_data.get('puesto_propuesta'):
+                    puesto_propuesta= accion_serializer.validated_data.get('puesto_propuesta')
+                    id_denominacion = Denominacion_Puesto.objects.all().filter(id=puesto_propuesta).first()
+                    trabajador.id_denominacion_puesto = id_denominacion
+
+                if accion_serializer.validated_data.get('rmu_propuesta'):
+                    rmu_propuesta = accion_serializer.validated_data.get('rmu_propuesta')
+                    trabajador.rmu_puesto = rmu_propuesta
+
+                if accion_serializer.validated_data.get('estructura_propuesta'):
+                    estructura_propuesta = accion_serializer.validated_data.get('estructura_propuesta')
+                    id_estructura = Estructura_Programatica.objects.all().filter(id=estructura_propuesta).first()
+                    trabajador.id_estructura_programatica = id_estructura
+
+                trabajador.save()
+
             if count:
                 accion_serializer.save()
             else:

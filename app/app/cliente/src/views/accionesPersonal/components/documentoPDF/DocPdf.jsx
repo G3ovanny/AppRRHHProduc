@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 
 import ReactPDF, { Document, Page, StyleSheet, View, Text, PDFViewer } from '@react-pdf/renderer'
-import { useAccionPersonalStore } from '../../../../hooks';
+import { useAccionPersonalStore, useDenominacionPuestoStore, useEstructuraProgramaticaStore, useUnidadOrganicaStore } from '../../../../hooks';
 import { tipos_accion, tipos_doc } from '../../tipos-accion';
 import { Box, Typography } from '@mui/material';
 
@@ -170,7 +170,9 @@ const styles = StyleSheet.create({
 
 export const DocPdf = React.forwardRef((props, ref) => {
     const { activeAccion } = useAccionPersonalStore();
-
+    const { listDenominacion, startLoadingDenominacion } = useDenominacionPuestoStore();
+    const { listUnidad, startLoadingUnidad } = useUnidadOrganicaStore();
+    const { listEstructura, startLoadingEstructura } = useEstructuraProgramaticaStore();
     let document = []
     activeAccion.map((data, index) => {
 
@@ -192,13 +194,37 @@ export const DocPdf = React.forwardRef((props, ref) => {
             cod_accion = `${otTipo}-${codApPa}-${codNom}-${anio}-${contador}`
         } else {
             cod_accion = `${codigoAccion}-${codApPa}-${codNom}-${anio}-${contador}`
-
         }
 
         let lugarTrabajo = ''
         if (data.puesto_propuesta) {
             lugarTrabajo = 'TULCÁN-UPEC'
         }
+
+        let unidad_propuesta = ''
+        if (data.subproceso_propuesta) {
+            startLoadingUnidad()
+            const id_unidad = data.subproceso_propuesta
+            const unidad = listUnidad.find(unidad => unidad.id == id_unidad)
+            unidad_propuesta = unidad.unidad_organica
+        }
+        // estructura_propuesta: "7"
+        let num_estructura = ''
+        if (data.estructura_propuesta) {
+            startLoadingEstructura()
+            const id_estructura = data.estructura_propuesta
+            const estructura = listEstructura.find(estructura => estructura.id == id_estructura)
+            num_estructura = estructura.estructura_programatica
+        }
+        // puesto_propuesta: "80"
+        let nombre_denominacion = ''
+        if (data.puesto_propuesta) {
+            startLoadingDenominacion()
+            const id_puesto = data.puesto_propuesta
+            const denominacion = listDenominacion.find(denomin => denomin.id == id_puesto);
+            nombre_denominacion = denominacion.denominacion_puesto
+        }
+
         return (
             document.push(
                 <Box
@@ -443,25 +469,25 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                     </Box>
                                     <Box style={styles.rect_tres}>
                                         <Typography style={styles.text} >
-                                            PROCESO:
+                                            PROCESO: {data.proceso_propuesta}
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            SUBPROCESO:
+                                            SUBPROCESO: {unidad_propuesta}
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            PUESTO: {data.puesto_propuesta}
+                                            PUESTO: {nombre_denominacion}
                                         </Typography>
                                         <Typography style={styles.text} >
                                             LUGAR DE TRABAJO: {lugarTrabajo}
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            REMUNERACIÓN MENSUAL:{data.rmu_propuesta}
+                                            REMUNERACIÓN MENSUAL: {data.rmu_propuesta}
                                         </Typography>
                                         <Typography style={styles.text} >
                                             PARTIDA PRESUPUESTARIA:
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            {data.estructura_propuesta} {data.partida_propuesta}
+                                            {num_estructura} - {data.partida_propuesta}
                                         </Typography>
                                     </Box>
 

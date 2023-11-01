@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { useAccionPersonalStore, useDenominacionPuestoStore, useForm, useModalStore, useTrabStore } from '../../../../hooks'
+import { useEffect, useState } from 'react'
+import { useAccionPersonalStore, useDenominacionPuestoStore, useEstructuraProgramaticaStore, useForm, useModalStore, useTrabStore, useUnidadOrganicaStore } from '../../../../hooks'
 import { BaseModal } from '../../../../ui'
 import { Autocomplete, Box, Button, Divider, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField, Toolbar, Typography } from '@mui/material'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { CancelScheduleSend, Send } from '@mui/icons-material'
 import dayjs from 'dayjs'
 import { tipos_accion, tipos_doc } from '../../tipos-accion'
 
@@ -58,16 +57,16 @@ const formData = {
     contador: '',
 }
 export const AccionesPersonalModal = ({ titleModal }) => {
-    const { closeModal } = useModalStore();
+    const { closeModal, nameModal } = useModalStore();
     const { activeAccion, startSavingAccion } = useAccionPersonalStore();
-    const { listDenominacion, startLoadingDenominacion } = useDenominacionPuestoStore()
+    const { listDenominacion, startLoadingDenominacion } = useDenominacionPuestoStore();
+    const { listUnidad, startLoadingUnidad } = useUnidadOrganicaStore();
+    const { listEstructura, startLoadingEstructura } = useEstructuraProgramaticaStore();
     const { trabajadores, startLoadingTrab } = useTrabStore();
-    const [inputValue, setInputValue] = React.useState('');
-
-
+    const [inputValue, setInputValue] = useState('');
+    //const [trabajador, setTrabajador] = useState([]);
 
     let component = null;
-
     const formValidations = {
         id_trabajador: [
             (value) => !!value,
@@ -100,12 +99,22 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         explicacionValid,
 
         id_trabajador,
+
+        proceso_actual,
+        subproceso_actual,
+        puesto_actual,
+        rmu_actual,
+        estructura_actual,
+        partida_actual,
+
         proceso_propuesta,
         subproceso_propuesta,
         puesto_propuesta,
         rmu_propuesta,
         estructura_propuesta,
         partida_propuesta,
+
+
         fecha_accion,
         fecha_rigue,
         tipo_accion,
@@ -122,16 +131,68 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         setFormState
     } = useForm(formData, formValidations);
 
+    // // se completa los campos del formulario al seleccionar el numero de cédula del servidor
+    let trabajador = []
+    const mensaje = "Ingrese la cédula del servidor";
+    const completarDatosServidor = (id_trabajador) => {
+        if (id_trabajador) {
+            let lista_trabajadores = trabajadores.filter(trab => trab.id === id_trabajador);
+            trabajador = lista_trabajadores[0]
+            //setTrabajador(lista_trabajadores[0]);
+            proceso_actual = trabajador.proceso[0];
+            subproceso_actual = trabajador.unidad_organica;
+            puesto_actual = trabajador.denominacion_puesto;
+            rmu_actual = trabajador.rmu_puesto;
+            estructura_actual = trabajador.estructura_programatica;
+            partida_actual = trabajador.partida_individual;
+
+            formState.proceso_actual = trabajador.proceso[0];
+            formState.subproceso_actual = trabajador.unidad_organica;
+            formState.puesto_actual = trabajador.denominacion_puesto;
+            formState.rmu_actual = trabajador.rmu_puesto;
+            formState.estructura_actual = trabajador.estructura_programatica;
+            formState.partida_actual = trabajador.partida_individual;
+        }
+    };
+
+    ////****Llama a la función para completar los datos del trabajador
+    if (nameModal === 'Nueva Acción') {
+        completarDatosServidor(id_trabajador); // Asegúrate de proporcionar un valor válido para id_trabajador
+    }
+
+
+    switch (nameModal) {
+        case 'Nueva Acción':
+            if (id_trabajador) {
+                let lista_trabajadores = trabajadores.filter(trab => trab.id === id_trabajador);
+                trabajador = lista_trabajadores[0]
+                completarDatosServidor(id_trabajador)
+            }
+            break;
+
+        case 'Editando datos':
+            if (activeAccion.length > 0) {
+                const id_trab = activeAccion[0].id_trabajador
+                let lista_trabajadores = trabajadores.filter(trab => trab.id === id_trab);
+                trabajador = lista_trabajadores[0]
+            }
+            break;
+    }
+
+    //console.log(id_trabajador);
     //let proceso = 'null'
     if (puesto_propuesta) {
-        const denominacion = listDenominacion.find(denomin => denomin.id === puesto_propuesta);
+        const denominacion = listDenominacion.find(denomin => denomin.id == puesto_propuesta);
         proceso_propuesta = denominacion.proceso[0]
-    } 
+        formState.proceso_propuesta = proceso_propuesta;
+    }
 
     const onSubmit = async (event) => {
         event.preventDefault();
         if (isFormValid) {
             startSavingAccion(formState)
+            //console.log(formData)
+            //console.log(formState);
             closeModal()
             onResetForm()
         } else {
@@ -142,41 +203,17 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         closeModal()
         onResetForm()
     }
-
-
-    if (id_trabajador) {
-        let lista_trabajadores = trabajadores.filter(trab => trab.id === id_trabajador)
-        let trabajador = lista_trabajadores[0]
-        component = {
-            cedula: trabajador.numero_identificacion,
-            nombres: trabajador.nombres,
-            unidad: trabajador.unidad_organica,
-            puesto: trabajador.denominacion_puesto,
-            proceso: trabajador.proceso,
-            rmu: trabajador.rmu_puesto,
-            estructura: trabajador.estructura_programatica,
-            partida: trabajador.partida_individual,
-        }
-    } else {
-        const mensaje = "Ingrese la cédula del servidor"
-        component = {
-            cedula: '',
-            nombres: mensaje,
-            unidad: mensaje,
-            puesto: mensaje,
-            proceso: mensaje,
-            rmu: mensaje,
-            estructura: mensaje,
-            partida: mensaje,
-        }
-    }
     useEffect(() => {
         startLoadingTrab()
         startLoadingDenominacion()
+        startLoadingUnidad()
+        startLoadingEstructura()
+
+        //completarDatosServidor(id_trabajador);
         if (activeAccion !== null) {
             setFormState({ ...activeAccion[0] });
         }
-    }, [activeAccion])
+    }, [activeAccion]);
     return (
         <BaseModal
             title={titleModal}
@@ -195,7 +232,11 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                     options={trabajadores}
                                     inputValue={inputValue || ''}
                                     onInputChange={(event, newInputValue) => { setInputValue(newInputValue); }}
-                                    onChange={(e, valor) => onInputChange({ target: { value: valor.id || '', name: 'id_trabajador' } })}
+                                    onChange={(event, selectedValue) => {
+                                        if (selectedValue) {
+                                            onInputChange({ target: { value: selectedValue.id || '', name: 'id_trabajador' } });
+                                        }
+                                    }}
                                     getOptionLabel={(options) => options.numero_identificacion}
                                     renderInput={(params) => <TextField {...params} label="Seleccione la cédula del servidor" />}
                                 />
@@ -206,10 +247,10 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                     size="small"
                                     id="outlined-read-only-input"
                                     label="Cédula"
-                                    defaultValue={component.cedula}
+                                    defaultValue={trabajador.numero_identificacion}
                                     readOnly
                                     fullWidth
-                                    value={component.cedula || ''}
+                                    value={trabajador.numero_identificacion || mensaje}
                                     onChange={onInputChange}
                                 />
                             </Grid>
@@ -217,10 +258,10 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                 <TextField sx={{ minWidth: 180 }} size="small"
                                     id="outlined-read-only-input"
                                     label="Nombres"
-                                    defaultValue={component.nombres}
+                                    defaultValue={trabajador.nombres}
                                     readOnly
                                     fullWidth
-                                    value={component.nombres || ''}
+                                    value={trabajador.nombres || mensaje}
                                     onChange={onInputChange}
                                 />
                             </Grid>
@@ -362,10 +403,10 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                     <TextField sx={{ minWidth: 180 }} size="small"
                                         id="outlined-read-only-input"
                                         label="Puesto actual"
-                                        defaultValue={component.puesto}
+                                        defaultValue={puesto_actual}
                                         readOnly
                                         fullWidth
-                                        value={component.puesto || ''}
+                                        value={puesto_actual || mensaje}
                                         onChange={onInputChange}
                                     />
                                 </Grid>
@@ -376,7 +417,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                         autoComplete='false'
                                         type='text'
                                         fullWidth
-                                        value={component.proceso || ''}
+                                        value={proceso_actual || mensaje}
                                         onChange={onInputChange}
                                     />
                                 </Grid>
@@ -385,9 +426,10 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                         id="outlined-read-only-input"
                                         label="Subproceso actual"
                                         autoComplete='false'
+                                        defaultValue={subproceso_actual}
                                         type='text'
                                         fullWidth
-                                        value={component.unidad || ''}
+                                        value={subproceso_actual || mensaje}
                                         onChange={onInputChange}
                                     />
                                 </Grid>
@@ -396,10 +438,10 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                     <TextField sx={{ minWidth: 180 }} size="small"
                                         id="outlined-read-only-input"
                                         label="Remuneración mensual actual"
-                                        defaultValue={component.rmu}
-                                        readOnly
+                                        defaultValue={rmu_actual}
+                                        autoComplete='true'
                                         fullWidth
-                                        value={component.rmu || ''}
+                                        value={rmu_actual || mensaje}
                                         onChange={onInputChange}
                                     />
                                 </Grid>
@@ -407,10 +449,10 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                     <TextField sx={{ minWidth: 180 }} size="small"
                                         id="outlined-read-only-input"
                                         label="Estructura programática actual"
-                                        defaultValue={component.estructura}
+                                        defaultValue={estructura_actual}
                                         readOnly
                                         fullWidth
-                                        value={component.estructura || ''}
+                                        value={estructura_actual || mensaje}
                                         onChange={onInputChange}
                                     />
                                 </Grid>
@@ -418,10 +460,10 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                     <TextField sx={{ minWidth: 180 }} size="small"
                                         id="outlined-read-only-input"
                                         label="Partida presupuestaria actual"
-                                        defaultValue={component.partida}
+                                        defaultValue={partida_actual}
                                         readOnly
                                         fullWidth
-                                        value={component.partida || ''}
+                                        value={partida_actual || mensaje}
                                         onChange={onInputChange}
                                     />
                                 </Grid>
@@ -431,7 +473,13 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                 <Typography>Situación propuesta</Typography>
                                 <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
                                     <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
-                                        <FormControl sx={{ minWidth: 300 }} size="small">
+                                        <FormControl
+                                            sx={{
+                                                minWidth: 300,
+                                                maxWidth: "100%", // Establece un ancho máximo del 100%
+                                            }}
+                                            size="small"
+                                        >
                                             <InputLabel id="demo-select-small-label">Puesto propuesto</InputLabel>
                                             <Select
                                                 labelId="demo-select-small-label"
@@ -446,18 +494,8 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                                 ))}
                                             </Select>
                                         </FormControl>
-
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
-                                        {/* <TextField sx={{ minWidth: 180 }} size="small"
-                                        id="outlined-read-only-input"
-                                        label="Puesto actual"
-                                        defaultValue={component.puesto}
-                                        readOnly
-                                        fullWidth
-                                        value={component.puesto || ''}
-                                        onChange={onInputChange}
-                                    /> */}
                                         <TextField sx={{ minWidth: 180 }} size="small"
                                             id='proceso_propuesta'
                                             autoComplete='false'
@@ -472,7 +510,28 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
-                                        <TextField sx={{ minWidth: 180 }} size="small"
+                                        <FormControl
+                                            sx={{
+                                                minWidth: 300,
+                                                maxWidth: "100%",
+                                            }}
+                                            size="small"
+                                        >
+                                            <InputLabel id="demo-select-small-label">Subproceso propuesto</InputLabel>
+                                            <Select
+                                                labelId="subproceso_propuesta"
+                                                id="subproceso_propuesta"
+                                                label="Subproceso propuesto"
+                                                fullWidth
+                                                value={subproceso_propuesta || ''}
+                                                onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'subproceso_propuesta' } })}
+                                            >
+                                                {listUnidad.map(option => (
+                                                    <MenuItem key={option.id} value={option.id}> {option.unidad_organica}</MenuItem>
+                                                ))}
+                                            </Select>
+                                        </FormControl>
+                                        {/* <TextField sx={{ minWidth: 180 }} size="small"
                                             id='subproceso_propuesta'
                                             autoComplete='false'
                                             label='Subproceso propuesto'
@@ -482,7 +541,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                             name='subproceso_propuesta'
                                             value={subproceso_propuesta || ''}
                                             onChange={onInputChange}
-                                        />
+                                        /> */}
                                     </Grid>
 
                                     <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
@@ -499,7 +558,27 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
-                                        <TextField sx={{ minWidth: 180 }} size="small"
+                                        <FormControl sx={{
+                                            minWidth: 300,
+                                            maxWidth: "100%",
+                                        }}
+                                            size="small"
+                                        >
+                                            <InputLabel id="estructura_propuesta">Estructura programática propuesta</InputLabel>
+                                            <Select
+                                                labelId="estructura_propuesta"
+                                                id="estructura_propuesta"
+                                                label="Estructura programática propuesta"
+                                                fullWidth
+                                                value={estructura_propuesta || ''}
+                                                onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'estructura_propuesta' } })}
+                                            >
+                                                {listEstructura.map(option => (
+                                                    <MenuItem key={option.id} value={option.id}> {option.estructura_programatica}</MenuItem>
+                                                ))}
+                                            </Select>
+                                        </FormControl>
+                                        {/* <TextField sx={{ minWidth: 180 }} size="small"
                                             id='estructura_propuesta'
                                             autoComplete='false'
                                             label='Estructura programática propuesta'
@@ -509,7 +588,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                             name='estructura_propuesta'
                                             value={estructura_propuesta || ''}
                                             onChange={onInputChange}
-                                        />
+                                        /> */}
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
                                         <TextField sx={{ minWidth: 180 }} size="small"
