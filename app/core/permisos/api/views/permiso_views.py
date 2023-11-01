@@ -26,7 +26,7 @@ class PermisoViewSet(viewsets.ModelViewSet):
             hora_llegada = permiso_serializer.validated_data.get('fecha_hora_llegada')
             h_almuerzo = permiso_serializer.validated_data.get('horas_almuerzo')
             otra_hora = permiso_serializer.validated_data.get('otra_hora')
-            motivo = MotivoPermiso.objects.filter(motivo='Con cargo a vacaciones').get()
+            motivo = MotivoPermiso.objects.filter(motivo='CON CARGO A VACACIONES').get()
             #tiempo= hora_llegada - hora_salida
             
             tiempo_almuerzo = 2 * 60
@@ -76,7 +76,7 @@ class PermisoViewSet(viewsets.ModelViewSet):
                 id_motivo = permiso_serializer.validated_data.get('id_motivo')
                 hora_llegada = permiso_serializer.validated_data.get('fecha_hora_llegada')
                 hora_salida = permiso_serializer.validated_data.get('fecha_hora_salida')
-                motivo = MotivoPermiso.objects.filter(motivo='Con cargo a vacaciones').get()
+                motivo = MotivoPermiso.objects.filter(motivo='CON CARGO A VACACIONES').get()
                 
                 h_almuerzo = permiso_serializer.validated_data.get('horas_almuerzo')
                 otra_hora = permiso_serializer.validated_data.get('otra_hora')
@@ -121,7 +121,7 @@ class PermisoViewSet(viewsets.ModelViewSet):
         motivo = permiso.id_motivo.motivo
         
         if permiso:
-            if motivo == 'Con cargo a vacaciones':
+            if motivo == 'CON CARGO A VACACIONES':
                 id_trabajador = permiso.id_trabajador
                 min_acumulados = permiso.min_acumulados
                 dias_vacaciones = Trabajador.objects.filter(nombres=id_trabajador).values_list('dias_vacaciones', flat=True)

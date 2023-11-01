@@ -14,10 +14,7 @@ export const Table = () => {
 
     const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
 
-    const handleBuscar = (valorBuscar, columna, fechaRegistro, fechaDesde, fechaHasta, ) => {
-
-        console.log('fecha desde', fechaDesde);
-        console.log('fecha hasta', fechaHasta); //
+    const handleBuscar = (valorBuscar, columna, fechaRegistro, fechaDesde, fechaHasta,) => {
 
         const resultadosFiltrados = listPermiso.filter((permiso) => {
             //return dayjs(permiso.fecha_hora_salida).isBetween(fechaDesde, fechaHasta)
@@ -40,8 +37,8 @@ export const Table = () => {
             }
 
             if (fechaDesde && fechaHasta) {
-                return dayjs(permiso.fecha_hora_salida).isBetween(fechaDesde, fechaHasta )
-            }else if (fechaDesde) {
+                return dayjs(permiso.fecha_hora_salida).isBetween(fechaDesde, fechaHasta)
+            } else if (fechaDesde) {
                 return dayjs(permiso.fecha_hora_salida).isAfter(fechaDesde, 'day')
             } else if (fechaHasta) {
                 return dayjs(permiso.fecha_hora_salida).isBefore(fechaHasta, 'day');

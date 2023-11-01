@@ -131,22 +131,28 @@ export const PermisoModal = ({ titleModal }) => {
       setErrorMessage('La fecha y hora de llegada debe ser mayor que la de salida')
     }
 
-    const diferenciaHoras = fechaLlegada.diff(fechaSalida, 'hour');
-    let horas = diferenciaHoras;
+    const diferenciaMinutos = fechaLlegada.diff(fechaSalida, "minutes");
 
-    console.log('otra hora',otra_hora)
-    if (almuerzo === 'restar_dos') {
-      horas -= 2;
-    } else if (almuerzo === 'otro') {
-      if (otra_hora) {        
+    let minutos = diferenciaMinutos;
+
+    if (almuerzo === "restar_dos") {
+      minutos -= 2 * 60; // Restar 2 horas (en minutos)
+    } else if (almuerzo === "otro") {
+      if (otra_hora) {
         const minutosRestar = minutosADecimal(otra_hora);
-        horas -= minutosRestar;
+        minutos -= Math.floor(minutosRestar * 60); // Restar los minutos
       }
     }
-    const horasFormateadas = dayjs().hour(Math.floor(horas)).minute((horas % 1) * 60).format('HH:mm');
-    console.log(horasFormateadas,)
-    const dias = Math.floor(horas / 24);
-    const hora = horas % 24;
+
+    const dias = Math.floor(minutos / (24 * 60)); // Días completos
+    minutos %= 24 * 60; // Minutos restantes después de restar los días
+    const horas = Math.floor(minutos / 60); // Horas completas
+    minutos %= 60; // Minutos restantes
+
+    const horasFormateadas = dayjs()
+      .hour(horas)
+      .minute(minutos)
+      .format("HH:mm");
 
     if (dias > 0) {
       return `${dias} días ${horasFormateadas} horas`;
@@ -179,7 +185,7 @@ export const PermisoModal = ({ titleModal }) => {
 
   }, [horas_almuerzo])
 
-  const motEnfermedad = listMotivo.filter(tipo => tipo.motivo == 'Enfermedad');
+  const motEnfermedad = listMotivo.filter(tipo => tipo.motivo == 'ENFERMEDAD');
   useEffect(() => {
     if (id_motivo) {
       const motEnfId = motEnfermedad[0].id
