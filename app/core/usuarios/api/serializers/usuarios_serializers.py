@@ -13,11 +13,19 @@ class UserTokenSerializer(serializers.ModelSerializer):
         model =  Usuario
         fields = ('id', 'nombre', 'apellido_paterno', 'correo')
 
+class GroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Group
+        fields = '__all__'
+
 #serializador para listar y crear usuarios
 class UsuarioSerializer(serializers.ModelSerializer):
+    groups = GroupSerializer(many=True, read_only=True)
+
     class Meta:
         model = Usuario
-        exclude = ('is_superuser', 'last_login', 'groups', 'user_permissions')
+        fields = ( 'username', 'nombre', 'apellido_paterno', 'correo', 'is_staff','tipoUsuario', 'password','is_superuser', 'groups', 'user_permissions',)
+        #exclude = ('is_superuser', 'last_login', 'groups', 'user_permissions')
 
     #funcion para encriptar contraseñas del usuario a crear
     def create(self, validated_data):

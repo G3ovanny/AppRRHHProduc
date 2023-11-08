@@ -1,5 +1,4 @@
 from django.db import models
-
 from django.contrib.auth.models import BaseUserManager,AbstractBaseUser, PermissionsMixin
 from simple_history.models import HistoricalRecords
 
@@ -34,7 +33,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     correo = models.EmailField('Correo electrónico', max_length=255, blank=True, null=True)
     nombre = models.CharField(max_length=255, null=True, blank= True, verbose_name= 'Nombre Usuario')
     apellido_paterno = models.CharField(max_length=255, blank=True, null=True, verbose_name="Apellido Paterno")
-
+    tipoUsuario = models.IntegerField('Tipo de usuario', blank=True, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     historical = HistoricalRecords()

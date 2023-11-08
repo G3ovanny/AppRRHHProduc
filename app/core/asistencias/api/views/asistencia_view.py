@@ -26,6 +26,8 @@ class AsistenciaViewSet(viewsets.ModelViewSet):
             return Response(asistencia_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
+        # asistencia = self.get_queryset().all()
+        # asistencia.delete()
         asistencia = self.get_queryset().filter(id=pk).first()
         if asistencia:
             #asistencia.delete()

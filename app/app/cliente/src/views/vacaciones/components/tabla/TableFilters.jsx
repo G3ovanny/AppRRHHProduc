@@ -39,10 +39,10 @@ export const TableFilters = (props) => {
   }, [valorBuscar, columnaBuscar, fechaDesdeBuscar, fechaHastaBuscar]);
 
   return (
-    <Grid container columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
-      <Grid item xs={12} sm={12} md={2} sx={{ mt: 2 }}>
+    <Grid container spacing={2}>
+      <Grid item xs={12} sm={6} md={2}>
         <FormControl
-          sx={{ minWidth: 185 }}
+          fullWidth
           size="small"
         >
           <InputLabel id="demo-simple-select-label">Filtrar por:</InputLabel>
@@ -60,12 +60,12 @@ export const TableFilters = (props) => {
           </Select>
         </FormControl>
       </Grid>
-      <Grid item xs={12} sm={12} md={2} sx={{ mt: 2 }} >
+      <Grid item xs={12} sm={6} md={2} >
         <TextField
           id="outlined-start-adornment"
           label="Buscar..."
           size='small'
-          sx={{ minWidth: 185 }}
+          fullWidth
           value={valorBuscar}
           onChange={(e) => setValorBuscar(e.target.value)}
           InputProps={{
@@ -73,7 +73,7 @@ export const TableFilters = (props) => {
           }}
         />
       </Grid>
-      <Grid item xs={12} sm={12} md={2} sx={{ mt: 2 }}>
+      <Grid item xs={12} sm={6} md={2}>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
             slotProps={{ textField: { size: 'small' } }}
@@ -84,7 +84,7 @@ export const TableFilters = (props) => {
 
         </LocalizationProvider>
       </Grid>
-      <Grid item xs={12} sm={12} md={2} sx={{ mt: 2 }}>
+      <Grid item xs={12} sm={6} md={2}>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
             slotProps={{ textField: { size: 'small' } }}
@@ -95,14 +95,14 @@ export const TableFilters = (props) => {
           />
         </LocalizationProvider>
       </Grid>
-      <Grid item xs={12} sm={12} md={1} sx={{ mt: 2 }}>
+      <Grid item xs={12} sm={6} md={2}>
         <Button
           variant="contained"
           onClick={filtrar}
         > Buscar </Button>
 
       </Grid>
-      <Grid item xs={12} sm={12} md={1} sx={{ mt: 2 }}>
+      <Grid item xs={12} sm={6} md={2}>
         <Button
           variant="contained"
           onClick={limpiarFIltros}

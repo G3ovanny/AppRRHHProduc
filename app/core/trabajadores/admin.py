@@ -15,4 +15,6 @@ class ArchivoTrabajador_Admin(admin.ModelAdmin):
     list_display=('id', 'doc')
 
 
-#send_form()
+@admin.register(DatosPersonalesTrabajadores)
+class DatosPersonalesTrabajador_Admin(admin.ModelAdmin):
+    list_display=('id',)

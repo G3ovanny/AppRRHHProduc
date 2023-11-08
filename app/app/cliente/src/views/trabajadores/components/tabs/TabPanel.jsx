@@ -1,23 +1,25 @@
 import React from 'react'
 import { BaseTab } from '../../../../ui'
 import { Box, Tab, Tabs } from '@mui/material'
-import { Capacitaciones, 
-    ContactoEmergencia, 
-    DireccionPermanente, 
-    DominioPaqueteInformatico, 
-    EstudiosActuales, 
-    ExperienciaLaboral, 
-    FormacionAcademica, 
-    HistorialIess, 
-    InformacionBancaria, 
-    InformacionConyuge, 
-    InformacionFamiliares, 
-    InformacionHijos, 
-    InformacionPersonal, 
-    MencionesHonorificas, 
-    OtrosIdiomas, 
-    OtrosTrabajosInstitucionales, 
-    Publicaciones } from '../fichaHojaVida';
+import {
+    Capacitaciones,
+    ContactoEmergencia,
+    DireccionPermanente,
+    DominioPaqueteInformatico,
+    EstudiosActuales,
+    ExperienciaLaboral,
+    FormacionAcademica,
+    HistorialIess,
+    InformacionBancaria,
+    InformacionConyuge,
+    InformacionFamiliares,
+    InformacionHijos,
+    InformacionPersonal,
+    MencionesHonorificas,
+    OtrosIdiomas,
+    OtrosTrabajosInstitucionales,
+    Publicaciones
+} from '../fichaHojaVida';
 
 function a11yProps(index) {
     return {
@@ -26,7 +28,8 @@ function a11yProps(index) {
     };
 }
 
-export const TabPanel = () => {
+export const TabPanel = ({ selectedTab }) => {
+    console.log(selectedTab)
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -40,11 +43,12 @@ export const TabPanel = () => {
                 sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs
                     component='div'
-                    value={value}
+                    value={selectedTab}
                     onChange={handleChange}
                     variant="scrollable"
                     scrollButtons="auto"
                     aria-label="basic tabs example">
+
                     <Tab component='div' label='iNFORMACIÓN PERSONAL' {...a11yProps(0)} />
                     <Tab component='div' label='INFORMACION BANCARIA' {...a11yProps(1)} />
                     <Tab component='div' label='DIRECCIÓN PERMANENTE' {...a11yProps(2)} />
@@ -63,8 +67,25 @@ export const TabPanel = () => {
                     <Tab component='div' label='DOMINIO DE PAQUETES INFORMÁTICOS' {...a11yProps(14)} />
                     <Tab component='div' label='EXPERIENCIA LABORAL' {...a11yProps(14)} />
                 </Tabs>
+                {selectedTab === 0 && <InformacionPersonal />}
+                {selectedTab === 1 && <InformacionBancaria />}
+                {selectedTab === 2 && <DireccionPermanente />}
+                {selectedTab === 3 && <InformacionConyuge />}
+                {selectedTab === 4 && <InformacionHijos />}
+                {selectedTab === 5 && <InformacionFamiliares />}
+                {selectedTab === 6 && <HistorialIess />}
+                {selectedTab === 7 && <ContactoEmergencia />}
+                {selectedTab === 8 && <FormacionAcademica />}
+                {selectedTab === 9 && <Capacitaciones />}
+                {selectedTab === 10 && <EstudiosActuales />}
+                {selectedTab === 11 && <OtrosTrabajosInstitucionales />}
+                {selectedTab === 12 && <Publicaciones />}
+                {selectedTab === 13 && <MencionesHonorificas />}
+                {selectedTab === 14 && <OtrosIdiomas />}
+                {selectedTab === 15 && <DominioPaqueteInformatico />}
+                {selectedTab === 16 && <ExperienciaLaboral />}
             </Box>
-            <Box component='div'>
+            {/* <Box component='div'>
                 <BaseTab component='div' value={value} index={0} > <InformacionPersonal /> </BaseTab>
                 <BaseTab component='div' value={value} index={1} > <InformacionBancaria /> </BaseTab>
                 <BaseTab component='div' value={value} index={2} > <DireccionPermanente /> </BaseTab>
@@ -82,7 +103,7 @@ export const TabPanel = () => {
                 <BaseTab component='div' value={value} index={14} > <OtrosIdiomas /> </BaseTab>
                 <BaseTab component='div' value={value} index={15} > <DominioPaqueteInformatico /> </BaseTab>
                 <BaseTab component='div' value={value} index={16} > <ExperienciaLaboral /> </BaseTab>
-            </Box>
+            </Box> */}
         </Box>
     )
 }

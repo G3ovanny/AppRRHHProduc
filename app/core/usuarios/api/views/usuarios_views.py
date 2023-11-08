@@ -21,8 +21,6 @@ class UsuarioViewSet(viewsets.ModelViewSet):
         # # Verifica si el usuario pertenece al grupo antes de permitir el acceso
         # if not request.user.groups.filter(name=group_name).exists():
         #     return Response({"detail": "No tienes permiso para acceder a esta vista."}, status=status.HTTP_403_FORBIDDEN)
-
-        print(request.user, request.user.groups.name)
         usuarios = Usuario.objects.all().filter(is_active = True)
         usuario_serializer = UsuarioListSerializer(usuarios, many=True)
         return Response(usuario_serializer.data, status=status.HTTP_200_OK)
@@ -75,7 +73,11 @@ class UsuarioViewSet(viewsets.ModelViewSet):
         
         usuario_serializer = UsuarioSerializer(data=request.data)
         if usuario_serializer.is_valid():
-            usuario_serializer.save()
+            usuario = usuario_serializer.save()
+            tipoUsuario = usuario_serializer.data.get('tipoUsuario')
+            group = Group.objects.get(id=tipoUsuario)
+            usuario.groups.add(group)
+            # group = Group.objects.get(id='ANALISTA')
             return Response({'mensaje': 'El usuario se ha creado correctamente'}, status=status.HTTP_201_CREATED)
 
         return Response(usuario_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -89,10 +91,12 @@ class UsuarioViewSet(viewsets.ModelViewSet):
         usuario = Usuario.objects.filter(id=pk).first()
         usuario_serializer = UsuarioUpdateSerializer(usuario, data=request.data)
         if usuario_serializer.is_valid():
+            group_id = request.data.get('groups')
+            groups = Group.objects.filter(id__in=group_id)
+            usuario.groups.set(groups)
             usuario_serializer.save()
             return Response({'mensaje': 'Los datos del usuario se han editado correctamente'}, status=status.HTTP_200_OK)
-
-        #return Response({'mensaje': 'Los datos del usuario no se han actualizado'}, status=status.HTTP_304_NOT_MODIFIED)
+        return Response({'mensaje': 'Los datos del usuario no se han actualizado'}, status=status.HTTP_304_NOT_MODIFIED)
 
     def destroy(self, request, pk=None):
         group_name = "ADMINISTRADOR"

@@ -28,7 +28,7 @@ const formData = {
   apellido_paterno: '',
   correo: '',
   is_staff: true,
-  groups: [],
+  tipoUsuario: [],
 }
 export const UsuarioModal = ({ titleModal }) => {
   const { closeModal } = useModalStore();
@@ -63,7 +63,7 @@ export const UsuarioModal = ({ titleModal }) => {
     apellido_paterno,
     correo,
     is_staff,
-    groups,
+    tipoUsuario,
     onInputChange,
     isFormValid,
     formState,
@@ -97,6 +97,7 @@ export const UsuarioModal = ({ titleModal }) => {
 
   const onSubmit = () => {
     if (addUsuario) {
+      //console.log(formState)
       startSavingUsuario(formState)
       closeModal()
       onResetForm()
@@ -201,9 +202,9 @@ export const UsuarioModal = ({ titleModal }) => {
                     //error={id_motivoValid !== null}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    label="Nivel ocupacional"
-                    value={groups || ''}
-                    onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'groups' } })}
+                    label="Grupo"
+                    value={tipoUsuario || ''}
+                    onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'tipoUsuario' } })}
                   >
                     {listGrupo.map(option => (
                       <MenuItem key={option.id} value={option.id}>{option.name}</MenuItem>

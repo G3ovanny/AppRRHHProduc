@@ -3,6 +3,7 @@ import { useCedulaStore, useForm, useFormularioStore } from '../../../hooks'
 import { onUnlinkedingCed } from '../../../store/auth/cedulaSlice'
 import { TabPanel } from '../components'
 import { StepPanel } from '../components/steps'
+import { useState } from 'react'
 
 const formData = {
     numero_identificacion: '',
@@ -11,9 +12,9 @@ const formData = {
 }
 
 export const FormTrabmasDatos = () => {
-
+    const [selectedTab, setSelectedTab] = useState(0);
     const { onunlinkeding } = useCedulaStore()
-    const handleCancelarEnvio = () => {
+    const handleCancelSend = () => {
         onunlinkeding()
     }
 
@@ -33,6 +34,17 @@ export const FormTrabmasDatos = () => {
         console.log(formState)
         //startSavingDatos(formState)
     }
+    const handleNextTab = () => {
+        if (selectedTab < 16) {
+            setSelectedTab(selectedTab + 1);
+        }
+    };
+
+    const handlePreviousTab = () => {
+        if (selectedTab > 0) {
+            setSelectedTab(selectedTab - 1);
+        }
+    };
     return (
         <Box>
             <CssBaseline />
@@ -43,7 +55,7 @@ export const FormTrabmasDatos = () => {
                 >
                     <Typography align='center'>DATOS PERSONALES PARA EL REGISTRO EN TALENTO HUMANO</Typography>
                     {/* <StepPanel /> */}
-                    <TabPanel />
+                    <TabPanel selectedTab = {selectedTab}/>
                     <Toolbar />
                     <Divider />
                     <Stack
@@ -53,7 +65,7 @@ export const FormTrabmasDatos = () => {
                         <Button
                             variant="outlined"
                             //startIcon={<CancelScheduleSend />}
-                            onClick={handleCancelarEnvio}
+                            onClick={handleCancelSend}
                         >
                             Cancelar
                         </Button>
@@ -64,7 +76,19 @@ export const FormTrabmasDatos = () => {
                             //endIcon={<Send />}
                             onClick={onSubmit}
                         >
-                            Enviar
+                            Guardar
+                        </Button>
+                        <Button
+                            variant="contained"
+                            onClick={handlePreviousTab} // Botón para retroceder a la pestaña anterior
+                        >
+                            Anterior
+                        </Button>
+                        <Button
+                            variant="contained"
+                            onClick={handleNextTab} // Botón para avanzar a la siguiente pestaña
+                        >
+                            Siguiente
                         </Button>
                     </Stack>
                 </Box>

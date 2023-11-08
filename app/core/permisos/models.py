@@ -34,7 +34,7 @@ class Permiso(BaseModel):
     fecha_hora_salida = models.DateTimeField(verbose_name='Fecha/Hora de Salida', null=True, blank=True)
     #fecha_hora_estimada = models.DateTimeField(verbose_name='Fecha/Hora de Estimada', null=True, blank=True)
     fecha_hora_llegada = models.DateTimeField(verbose_name='Fecha/Hora de LLegada', null=True, blank=True)
-    detalle = models.CharField('Detalle',max_length=255, blank=True, null=True)
+    detalle = models.CharField('Detalle',max_length=600, blank=True, null=True)
     min_acumulados = models.IntegerField('Minutos del permiso',blank=True, null=True, unique=False)
     horas_almuerzo =  models.CharField('Horas de almuerzo',max_length=255, blank=True, null=True)
     otra_hora = models.TimeField(verbose_name='Otra hora de almuerzo', null=True, blank=True)

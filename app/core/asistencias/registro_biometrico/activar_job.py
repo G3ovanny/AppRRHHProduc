@@ -5,12 +5,16 @@ import logging
 import datetime
 
 
-def job_function(job_id):
+def tarea_programada():
     get_connection_admin()
     get_connection_aulas1()
     get_connection_aulas2()
     get_connection_aulas3()
     get_connection_aulas4()
+
+def job_function(job_id):
+    
+    tarea_programada()
     print('job %s is runed at %s' %
           (job_id, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
 

@@ -35,8 +35,8 @@ def get_regimen_usuario(nombre_usuario, id_usuario):
             id_regimen = trabajador.id_regimen_laboral
             regimen = str(id_regimen)
         else:
-            id_trabajador_id = 'NULL'
-            regimen = 'NULL'
+            id_trabajador_id = None
+            regimen = None
 
         return regimen, id_trabajador_id
     except Trabajador.DoesNotExist:
@@ -181,21 +181,21 @@ def analisis_atrasos(df):
             # nombre_archivo = (f"Trabajadores.xlsx")
             # doc_trabajadores.to_excel(nombre_archivo, index=False)
 
-        elif 'OTROS' in nombre_grupo:
-            cargar_datos(documento)
-            # nombre_archivo = (f"Otros.xlsx")
-            # documento.to_excel(nombre_archivo, index=False)
+        # elif 'OTROS' in nombre_grupo:
+        #     cargar_datos(documento)
+        #     # nombre_archivo = (f"Otros.xlsx")
+        #     # documento.to_excel(nombre_archivo, index=False)
         else:
-            #si no existen datos de regimen los guarda como nulos o vacios
             cargar_datos(documento)
-            # nombre_archivo = (f"SinDatos.xlsx")
-            # documento.to_excel(nombre_archivo, index=False)
+        #     #si no existen datos de regimen los guarda como nulos o vacios
+        #     cargar_datos(documento)
+        #     # nombre_archivo = (f"SinDatos.xlsx")
+        #     # documento.to_excel(nombre_archivo, index=False)
 
-
-    #ejemplo en archivo en formato ecxel
-    # doc_final = pd.concat([doc_administrativos, doc_trabajadores, documento], ignore_index=True)
-    # nombre_archivo = (f"Administrativo.xlsx")
-    # doc_final.to_excel(nombre_archivo, index=False)
+    # #ejemplo en archivo en formato ecxel
+    # doc_final = pd.concat([doc_administrativos, doc_trabajadores, documen], ignore_index=True)
+    # # nombre_archivo = (f"Administrativo.xlsx")
+    # doc_final.to_excel('asd', index=False)
 
 def analisis_admin(merged_df):
     df = merged_df

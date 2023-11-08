@@ -10,7 +10,6 @@ export const Usuarios = () => {
     const { mensajeUsuario }=useUsuarioStore();
 
     const handeleAddTrabajador = () => {
-        console.log('creando usuarios')
         openModal('Nuevo Usuario')
     }
     return (

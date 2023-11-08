@@ -15,3 +15,4 @@ export * from './MencionesHonorificas';
 export * from './OtrosIdiomas';
 export * from './OtrosTrabajosInstitucionales';
 export * from './Publicaciones';
+export * from './selects';

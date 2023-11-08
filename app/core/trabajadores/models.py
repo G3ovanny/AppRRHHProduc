@@ -106,7 +106,130 @@ class ArchivoTrabajadores(BaseModel):
 
 ################################################################ datos personales de los servidores
 class DatosPersonalesTrabajadores(BaseModel):
-    numHijos = models.IntegerField('Numero de hijos', blank= True, null=True)
+    apellido_paterno = models.CharField('apellido_paterno', max_length=255, blank= True, null=True)
+    apellido_materno = models.CharField('apellido_materno', max_length=255, blank= True, null=True)
+    primer_nombre = models.CharField('primer_nombre', max_length=255, blank= True, null=True)
+    segundo_nombre = models.CharField('segundo_nombre', max_length=255, blank= True, null=True)
+    provincia = models.CharField('provincia', max_length=255, blank= True, null=True)
+    ciudad = models.CharField('ciudad', max_length=255, blank= True, null=True)
+    nacionalidad = models.CharField('nacionalidad', max_length=255, blank= True, null=True)
+    fecha_nacimiento = models.DateField(blank=True, null=True)
+    GENERO = (
+        ('Masculino', 'MASCULINO'),
+        ('Femenino', 'FEMENINO'),
+        ('LGBTI', 'LGBTI'),
+    )
+    genero = models.CharField(max_length=255, choices=GENERO, blank=True, null=True, verbose_name='Género')
+    num_pasaporte = models.CharField('número de pasaporte', max_length=255, blank= True, null=True)
+    
+    TIPO_PASAPORTE = (
+        ('Pasaporte', 'PASAPORTE'),
+        ('Visa', 'VISA'),
+        ('Carnet de refugiado','CARNET DE REFUGIADO')
+    )
+    tipo_pasaporte = models.CharField(max_length=255, choices=TIPO_PASAPORTE, blank=True, null=True, verbose_name='Pasaporte')
+    discapacidad = models.BooleanField('Discapacidad', default = False)
+    num_carnet_conadis = models.CharField('Número del carnet de conadis',  max_length=255, blank= True, null=True)
+    TIPO_DISCAPACIDAD = (
+        ('Física Motora', 'FISICA MOTORA'),
+        ('Auditiva', 'AUDITIVA'),
+        ('Intelectual', 'INTELECTUAL'),
+        ('Lenguaje', 'LENGUAJE'),
+        ('Psicosocial', 'PSICOSOCIAL'),
+        ('Visual', 'VISUAL')
+    )
+    tipo_discapacidad = models.CharField('Tipo de discapacidad', choices=TIPO_DISCAPACIDAD, max_length=255, blank=True, null=True)
+    porcentaje_discapacidad = models.PositiveSmallIntegerField('Porcentaje discapacidad', blank=True, null=True)
+    enfermedad_catastrofica = models.BooleanField('Enfermedad catastrofica', default = False)
+    TIPO_ENFERMEDAD = (
+        ('Aneurisma tóraco-abdominaI', 'ANEURISNA TORACO-ABDOMINAL'),
+        ('Insuficiencia renal crónica', 'INSUFICIENCIA RENAL CRONICA'),
+        ('Malformaciones arterio venosas cerebrales', 'MALFORMACIONES ARTERIO VENOSAS CEREBRALES'),
+        ('Malformaciones congénitas ', 'MALFORMACIONES CONGENITAS'),
+        ('Secuelas de quemaduras graves', 'SECUELAS DE QUEMADURAS GRAVES'),
+        ('Síndrome de Klippel Trenaunay', 'SINDROME DE KLIPPERL TRENAUNAY'),
+        ('Todo tipo de cáncer', 'TODO TIPOS DE CANCER'),
+        ('Trasplante de órganos: riñón, hígado, médula ósea', 'TRANSPLANTE DE ORGANOS: RIÑON, HIGADO, MEDULA OSEA'),
+        ('Tumor cerebral en cualquier estado y de cualquier tipo', 'TUMOR CEREBRAL EN CUALQUIER ESTADO Y TIPO'),
+        ('Tumores malignos', 'TUMORES MALIGNOS'),
+        ('Enfermedad de Hodgkin', 'ENFERMEDAD DE HODGKIN'),
+        ('Leucemia', 'LEUCEMIA'),
+        ('Carcinoma', 'CARCINOMA'),
+        ('Otras enfermedades', 'OTRAS ENFERMEDADES'),
+
+    )
+    tipo_enfermedad = models.CharField(max_length=255, choices=TIPO_ENFERMEDAD, blank=True, null=True, verbose_name='Tipo de sangre')
+    detalle_enfermedad = models.CharField('Detalle enfermedad', max_length=600, blank= True, null=True )
+    TIPO_SANGRE = (
+        ('O Positivo', 'O POSITIVO'),
+        ('O Negativo', 'O NEGATIVO'),
+        ('A Positivo', 'A POSITIVO'),
+        ('A Negativo', 'A NEGATIVO'),
+        ('B Positivo', 'B POSITIVO'),
+        ('B Negativo', 'B NEGATIVO'),
+        ('AB Positivo', 'AB POSITIVO'),
+        ('AB Negativo', 'AB NEGATIVO'),
+
+    )
+    tipo_sangre = models.CharField(max_length=255, choices=TIPO_SANGRE, blank=True, null=True, verbose_name='Tipo de sangre')
+    num_libreta_militar = models.CharField('Número de libreta militar',max_length=255, blank=True, null=True, )
+    TIPO_LIBRETA = (
+        ('Reservista', 'RESERVISTA'),
+        ('No Favorecido', 'NO FAVORECIDO'),
+        ('Extento', 'EXTENTO'),
+        ('Extrangero', 'EXTRANGERO'),
+        ('No Idoneo', 'MO IDONEO'),
+        ('Remiso Sancionado', 'REMISO SAMCIONADO'),
+        ('Licencia Final', 'LICENCIA FINAL'),
+
+    )
+    tipo_libreta = models.CharField(max_length=255, choices=TIPO_LIBRETA, blank=True, null=True, verbose_name='Tipo de libreta militar')
+    correo_personal = models.EmailField('Correo electrónico personal', max_length=255, blank=True, null=True)
+    correo_institucional = models.EmailField('Correo institucional', max_length=255, blank=True, null=True)
+    ETNIA=(
+        ('Afroecuatoriano', 'AFROECUATORIANO'),
+        ('Blanco', 'BLANCO'),
+        ('Indigena', 'INDIGENA'),
+        ('Mestizo', 'MESTIZO'),
+        ('Montubio', 'MONTUBIO'),
+        ('Mulato', 'MULATO'),
+        ('Negro', 'NEGRO'),
+        ('Saraguro', 'SARAGURO'),
+        ('Otro', 'OTRO'),
+    )
+    etnia = models.CharField('Etnia', choices=ETNIA, max_length=255, blank=True, null=True)
+    NACIONALIDAD_INDIGENA=(
+        ('Achuar', 'ACHUAR'),
+        ('Al Cofan', 'AL COFAN'),
+        ('Andoa', 'ANDOA'),
+        ('Awa', 'AWA'),
+        ('Cachi', 'CHACHI'),
+        ('Chibuelo', 'CHIBULEO'),
+        ('Epera', 'EPERA'),
+        ('Huancavilca', 'HUANCAVILCA'),
+        ('Huaorani', 'HUAORANI'),
+        ('Kañari', 'KAÑARI'),
+        ('Karanki', 'KARANKI'),
+        ('Kayambi', 'KAYAMBI'),
+        ('Kichwa', 'KICHWA'),
+        ('Kitukara', 'KITUKARA'),
+        ('Manta', 'MANTA'),
+        ('Natabuela', 'NATABUELA'),
+        ('Otavalo', 'OTAVALO'),
+        ('Paltas', 'PALTAS'),
+        ('Panzaleo', 'PANZALEO'),
+        ('Pastos', 'PASTOS'),
+        ('Salasaka', 'SALASAKA'),
+        ('Saraguro', 'SARAGURO'),
+        ('Secoya', 'SECOYA'),
+        ('Shuar', 'SHUAR'),
+        ('Siona', 'SIONA'),
+        ('Tsachila', 'TSACHILA'),
+        ('Waorani', 'WAORANI'),
+        ('Zapara', 'ZAPARA'),
+        ('Otro', 'OTRO'),
+    )
+    nacionalidad_indigena = models.CharField('Nacionalidad indigena', choices=NACIONALIDAD_INDIGENA, max_length=255, blank=True, null=True)
     historical = HistoricalRecords()
 
     @property
