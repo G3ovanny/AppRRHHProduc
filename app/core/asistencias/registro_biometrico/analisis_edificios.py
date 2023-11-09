@@ -19,9 +19,6 @@ def get_regimen_usuario(nombre_usuario, id_usuario):
     
     cod_biometrico = Trabajador.objects.filter(cod_biometrico=id_usuario)
 
-    #TODO # ANALISAR LOS USUARIOS DUPLICADOS
-    #SE SE REALIZA LA CONSULTA DEL REGIMEN DE CADA UNO DE LOS USUARIOS DEL BIOMETRICO POR EL NOMBRE
-    #SI EN LA BASE DE DATOS NO ESTA EL CODIGO DEL BIOMETRICO LO BUSCA POR NOMBRE CASO CONTRARIO LO DEJA EN BLANCO
     try:
         if cod_biometrico.exists():
             trabajador = cod_biometrico.first()  # Obtengo el primer registro

@@ -36,7 +36,8 @@ const formData = {
 }
 
 export const InformacionPersonal = () => {
-    const {
+    const servidor = localStorage.getItem('numero_identificacion')
+    let {
         apellido_paterno,
         apellido_materno,
         primer_nombre,
@@ -69,10 +70,16 @@ export const InformacionPersonal = () => {
         onResetForm,
         setFormState,
 
-    } = useForm(formData,
-        //formValidations
-    );
-    //console.log(formState);
+    } = useForm(formData);
+
+    const completarDatosServidor = (servidor) => {
+        if (servidor) {
+            num_cedula = servidor
+            formState.num_cedula = num_cedula
+        }
+    }
+    completarDatosServidor(servidor)
+    console.log(formState)
     return (
         <Box>
             <Typography align='center'>Información personal</Typography>
@@ -227,7 +234,7 @@ export const InformacionPersonal = () => {
                                     onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'genero' } })}
                                 >
                                     {generos.map(option => (
-                                        <MenuItem key={option.value} value={option.value}> {option.value}</MenuItem>
+                                        <MenuItem key={option.value} value={option.value}> {option.text}</MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>
@@ -239,14 +246,14 @@ export const InformacionPersonal = () => {
                                 sx={{ minWidth: 180 }}
                                 size="small"
                                 id='cedula'
-                                autoComplete='off'
+                                defaultValue={num_cedula}
                                 label='Número de cédula'
                                 type='text'
                                 placeholder='Ingrese el número de su cédula'
                                 fullWidth
-                                name='numero_cedula'
-                            //value={numero_identificacion || ''}
-                            //                                onChange={(e) => onInputChange({target: {value: e.target.value.toUpperCase(), name: 'apellido_materno'}})}
+                                name='num_cedula'
+                                value={num_cedula || ''}
+                                onChange={onInputChange}
 
                             />
                         </Grid>
@@ -281,7 +288,7 @@ export const InformacionPersonal = () => {
                                     onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'tipo_pasaporte' } })}
                                 >
                                     {pasaportes.map(option => (
-                                        <MenuItem key={option.value} value={option.value}> {option.value}</MenuItem>
+                                        <MenuItem key={option.value} value={option.value}> {option.text}</MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>
@@ -335,7 +342,7 @@ export const InformacionPersonal = () => {
                                     onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'tipo_discapacidad' } })}
                                 >
                                     {discapacidades.map(option => (
-                                        <MenuItem key={option.value} value={option.value}> {option.value}</MenuItem>
+                                        <MenuItem key={option.value} value={option.value}> {option.text}</MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>
@@ -391,7 +398,7 @@ export const InformacionPersonal = () => {
                                     onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'nombre_enfermedad' } })}
                                 >
                                     {enfermedades.map(option => (
-                                        <MenuItem key={option.value} value={option.value}> {option.value}</MenuItem>
+                                        <MenuItem key={option.value} value={option.value}> {option.text}</MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>
@@ -427,7 +434,7 @@ export const InformacionPersonal = () => {
                                     onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'tipo_sangre' } })}
                                 >
                                     {tipoSangre.map(option => (
-                                        <MenuItem key={option.value} value={option.value}> {option.value}</MenuItem>
+                                        <MenuItem key={option.value} value={option.value}> {option.text}</MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>
@@ -463,7 +470,7 @@ export const InformacionPersonal = () => {
                                     onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'tipo_libreta' } })}
                                 >
                                     {tiposLibreta.map(option => (
-                                        <MenuItem key={option.value} value={option.value}> {option.value}</MenuItem>
+                                        <MenuItem key={option.value} value={option.value}> {option.text}</MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>
@@ -518,7 +525,7 @@ export const InformacionPersonal = () => {
                                     onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'etnia' } })}
                                 >
                                     {etnias.map(option => (
-                                        <MenuItem key={option.value} value={option.value}> {option.value}</MenuItem>
+                                        <MenuItem key={option.value} value={option.value}> {option.text}</MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>
@@ -536,7 +543,7 @@ export const InformacionPersonal = () => {
                                     onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'nacionalidad_indigena' } })}
                                 >
                                     {nacionalidadesIndigenas.map(option => (
-                                        <MenuItem key={option.value} value={option.value}> {option.value}</MenuItem>
+                                        <MenuItem key={option.value} value={option.value}> {option.text}</MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>

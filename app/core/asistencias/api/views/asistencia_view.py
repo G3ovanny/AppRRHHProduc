@@ -26,12 +26,12 @@ class AsistenciaViewSet(viewsets.ModelViewSet):
             return Response(asistencia_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
-        # asistencia = self.get_queryset().all()
-        # asistencia.delete()
-        asistencia = self.get_queryset().filter(id=pk).first()
-        if asistencia:
-            #asistencia.delete()
-            asistencia.state = False
-            asistencia.save()
-            return Response({'mensaje': 'Asistencia eliminada correctamente'}, status= status.HTTP_200_OK)
+        asistencia = self.get_queryset().all()
+        asistencia.delete()
+        # asistencia = self.get_queryset().filter(id=pk).first()
+        # if asistencia:
+        #     #asistencia.delete()
+        #     asistencia.state = False
+        #     asistencia.save()
+        #     return Response({'mensaje': 'Asistencia eliminada correctamente'}, status= status.HTTP_200_OK)
         return Response({'mensaje': 'No existe la asistencia con esos datos'}, status=status.HTTP_400_BAD_REQUEST)

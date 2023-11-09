@@ -5,12 +5,14 @@ export const generos = [
 ]
 
 export const pasaportes = [
+    { value: '', text: 'NINGUNA' },
     { value: 'Pasaporte', text: 'PASAPORTE' },
     { value: 'Visa', text: 'VISA' },
     { value: 'Carnet de refugiado', text: 'CARNET DE REFUGIADO' },
 ]
 
 export const discapacidades = [
+    { value: '', text: 'NINGUNA' },
     { value: 'Física Motora', text: 'FISICA MOTORA' },
     { value: 'Auditiva', text: 'AUDITIVA' },
     { value: 'Intelectual', text: 'INTELECTUAL' },
@@ -20,6 +22,7 @@ export const discapacidades = [
 ]
 
 export const enfermedades = [
+    { value: '', text: 'NINGUNA' },
     { value: 'Aneurisma tóraco-abdominaI', text: 'ANEURISNA TORACO-ABDOMINAL' },
     { value: 'Insuficiencia renal crónica', text: 'INSUFICIENCIA RENAL CRONICA' },
     { value: 'Malformaciones arterio venosas cerebrales', text: 'MALFORMACIONES ARTERIO VENOSAS CEREBRALES' },
@@ -48,6 +51,7 @@ export const tipoSangre = [
 ]
 
 export const tiposLibreta = [
+    { value: '', text: 'NINGUNA' },
     { value: 'Reservista', text: 'RESERVISTA' },
     { value: 'No Favorecido', text: 'NO FAVORECIDO' },
     { value: 'Extento', text: 'EXTENTO' },
@@ -58,6 +62,7 @@ export const tiposLibreta = [
 ]
 
 export const etnias = [
+    { value: '', text: 'NINGUNA' },
     { value: 'Afroecuatoriano', text: 'AFROECUATORIANO' },
     { value: 'Blanco', text: 'BLANCO' },
     { value: 'Indigena', text: 'INDIGENA' },
@@ -69,6 +74,7 @@ export const etnias = [
     { value: 'Otro', text: 'OTRO' },
 ]
 export const nacionalidadesIndigenas = [
+    { value: '', text: 'NINGUNA' },
     { value: 'Achuar', text: 'ACHUAR' },
     { value: 'Al Cofan', text: 'AL COFAN' },
     { value: 'Andoa', text: 'ANDOA' },

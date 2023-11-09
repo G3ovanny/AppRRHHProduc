@@ -18,7 +18,7 @@ def get_attendance_biometrico(nombre_biometrico ,conn_status, zk):
             usuarios = zk.get_users()
             # Filtrar los registros para obtener solo los del día actual
             today_attendance = [
-                record for record in attendance_data if record.timestamp.date() == today] #selecciono el dia de asistencia
+                record for record in attendance_data if record.timestamp.date() == fecha_dia_anterior] #selecciono el dia de asistencia
             
 
             # almaceno los usuarios del biometrico en una lista

@@ -3695,7 +3695,7 @@
         "kind": 2,
         "importPath": "app.core.asistencias.registro_biometrico.activar_job",
         "description": "app.core.asistencias.registro_biometrico.activar_job",
-        "peekOfCode": "def tarea_programada():\n    get_connection_admin()\n    get_connection_aulas1()\n    get_connection_aulas2()\n    get_connection_aulas3()\n    get_connection_aulas4()\ndef job_function(job_id):\n    tarea_programada()\n    print('job %s is runed at %s' %\n          (job_id, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))",
+        "peekOfCode": "def tarea_programada():\n    global is_job_running\n    if is_job_running:\n        print(\"La tarea ya está en ejecucion, se omitira la ejecucion adicional.\")\n        return\n    is_job_running = True\n    try:\n        get_connection_admin()\n        get_connection_aulas1()\n        #get_connection_aulas2()",
         "detail": "app.core.asistencias.registro_biometrico.activar_job",
         "documentation": {}
     },
@@ -3714,6 +3714,15 @@
         "importPath": "app.core.asistencias.registro_biometrico.activar_job",
         "description": "app.core.asistencias.registro_biometrico.activar_job",
         "peekOfCode": "def job_exception_listener(event):\n    if event.exception:\n        # manejo de excepciones\n        print(\"La tarea programada(conexión a los biometricos) no se activo :(\")\n    else:\n        print(\"La tarea programada(conexión a los biometricos) se activo correctamente :)\")\n# Inicio sesion\nlogging.basicConfig()\nlogging.getLogger('apscheduler').setLevel(logging.DEBUG)\nscheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")",
+        "detail": "app.core.asistencias.registro_biometrico.activar_job",
+        "documentation": {}
+    },
+    {
+        "label": "is_job_running",
+        "kind": 5,
+        "importPath": "app.core.asistencias.registro_biometrico.activar_job",
+        "description": "app.core.asistencias.registro_biometrico.activar_job",
+        "peekOfCode": "is_job_running =  False\ndef tarea_programada():\n    global is_job_running\n    if is_job_running:\n        print(\"La tarea ya está en ejecucion, se omitira la ejecucion adicional.\")\n        return\n    is_job_running = True\n    try:\n        get_connection_admin()\n        get_connection_aulas1()",
         "detail": "app.core.asistencias.registro_biometrico.activar_job",
         "documentation": {}
     },
