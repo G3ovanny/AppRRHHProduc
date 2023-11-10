@@ -105,3 +105,23 @@ export const nacionalidadesIndigenas = [
     { value: 'Zapara', text: 'ZAPARA' },
     { value: 'Otro', text: 'OTRO' },
 ]
+export const tipoCuenta = [
+    { value: 'Ahorros', text: 'CUENTA AHORRO' },
+    { value: 'Corriente', text: 'CUENTA CORRIENTE' },
+]
+export const nivelInstruccion = [
+    { value: 'Primaria', text: 'PRIMARIA' },
+    { value: 'Secundaria', text: 'SECUNDARIA' },
+    { value: 'Tercer nivel', text: 'TERCER NIVEL' },
+    { value: 'Cuarto nivel', text: 'CUARTO NIVEL' },
+] 
+
+export const tipoRelacion = [
+    { value: '1er grado de Consanguinidad', text: '1er GRADO DE CONSANGUINIDAD' },
+    { value: '2do grado de Consanguinidad', text: '2do GRADO DE CONSANGUINIDAD' },
+    { value: '3er grado de Consanguinidad', text: '3er GRADO DE CONSANGUINIDAD' },
+    { value: '4to grado de Consanguinidad', text: '4to GRADO DE CONSANGUINIDAD' },
+    { value: '1er grado de Afinidad', text: '1er GRADO DE AFINIDAD' },
+    { value: '2do grado de Afinidad', text: '2do GRADO DE AFINIDAD' },
+    
+]

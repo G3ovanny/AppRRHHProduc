@@ -28,7 +28,7 @@ function a11yProps(index) {
     };
 }
 
-export const TabPanel = ({ selectedTab }) => {
+export const TabPanel = ({ selectedTab, onFormSubmit }) => {
     console.log(selectedTab)
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => {
@@ -49,7 +49,7 @@ export const TabPanel = ({ selectedTab }) => {
                     scrollButtons="auto"
                     aria-label="basic tabs example">
 
-                    <Tab component='div' label='iNFORMACIÓN PERSONAL' {...a11yProps(0)} />
+                    <Tab component='div' label='INFORMACIÓN PERSONAL' {...a11yProps(0)} />
                     <Tab component='div' label='INFORMACION BANCARIA' {...a11yProps(1)} />
                     <Tab component='div' label='DIRECCIÓN PERMANENTE' {...a11yProps(2)} />
                     <Tab component='div' label='CÓNYUGE Y/O COMPAÑERO' {...a11yProps(3)} />
@@ -67,23 +67,23 @@ export const TabPanel = ({ selectedTab }) => {
                     <Tab component='div' label='DOMINIO DE PAQUETES INFORMÁTICOS' {...a11yProps(14)} />
                     <Tab component='div' label='EXPERIENCIA LABORAL' {...a11yProps(14)} />
                 </Tabs>
-                {selectedTab === 0 && <InformacionPersonal />}
-                {selectedTab === 1 && <InformacionBancaria />}
-                {selectedTab === 2 && <DireccionPermanente />}
-                {selectedTab === 3 && <InformacionConyuge />}
-                {selectedTab === 4 && <InformacionHijos />}
-                {selectedTab === 5 && <InformacionFamiliares />}
-                {selectedTab === 6 && <HistorialIess />}
-                {selectedTab === 7 && <ContactoEmergencia />}
-                {selectedTab === 8 && <FormacionAcademica />}
-                {selectedTab === 9 && <Capacitaciones />}
-                {selectedTab === 10 && <EstudiosActuales />}
-                {selectedTab === 11 && <OtrosTrabajosInstitucionales />}
-                {selectedTab === 12 && <Publicaciones />}
-                {selectedTab === 13 && <MencionesHonorificas />}
-                {selectedTab === 14 && <OtrosIdiomas />}
-                {selectedTab === 15 && <DominioPaqueteInformatico />}
-                {selectedTab === 16 && <ExperienciaLaboral />}
+                {selectedTab === 0 && <InformacionPersonal onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 1 && <InformacionBancaria onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 2 && <DireccionPermanente onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 3 && <InformacionConyuge onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 4 && <InformacionHijos onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 5 && <InformacionFamiliares onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 6 && <HistorialIess onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 7 && <ContactoEmergencia onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 8 && <FormacionAcademica onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 9 && <Capacitaciones onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 10 && <EstudiosActuales onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 11 && <OtrosTrabajosInstitucionales onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 12 && <Publicaciones onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 13 && <MencionesHonorificas onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 14 && <OtrosIdiomas onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 15 && <DominioPaqueteInformatico onFormSubmit = {onFormSubmit} />}
+                {selectedTab === 16 && <ExperienciaLaboral onFormSubmit = {onFormSubmit} />}
             </Box>
             {/* <Box component='div'>
                 <BaseTab component='div' value={value} index={0} > <InformacionPersonal /> </BaseTab>

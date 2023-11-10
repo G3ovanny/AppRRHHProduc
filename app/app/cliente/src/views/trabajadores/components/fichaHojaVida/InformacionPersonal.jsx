@@ -1,9 +1,10 @@
-import { Box, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material'
+import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, InputLabel, MenuItem, Radio, RadioGroup, Select, Stack, TextField, Toolbar, Typography } from '@mui/material'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { useForm } from '../../../../hooks'
 import dayjs from 'dayjs'
 import { discapacidades, enfermedades, etnias, generos, nacionalidadesIndigenas, pasaportes, tipoSangre, tiposLibreta } from './selects'
+import { SaveAltOutlined } from '@mui/icons-material'
 
 
 const formData = {
@@ -35,7 +36,7 @@ const formData = {
     nacionalidad_indigena: '',
 }
 
-export const InformacionPersonal = () => {
+export const InformacionPersonal = ({selectedTab, onFormSubmit }) => {
     const servidor = localStorage.getItem('numero_identificacion')
     let {
         apellido_paterno,
@@ -64,6 +65,7 @@ export const InformacionPersonal = () => {
         correo_institucional,
         etnia,
         nacionalidad_indigena,
+
         onInputChange,
         isFormValid,
         formState,
@@ -79,7 +81,11 @@ export const InformacionPersonal = () => {
         }
     }
     completarDatosServidor(servidor)
-    console.log(formState)
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        onFormSubmit(formState, selectedTab);
+    };
+
     return (
         <Box>
             <Typography align='center'>Información personal</Typography>
@@ -551,6 +557,19 @@ export const InformacionPersonal = () => {
                     </Grid>
                 </Grid>
             </Grid>
+            
+            <Stack
+                direction='row'
+                spacing={2}
+                sx={{ mt: 2, mb: 2 }}>
+                <Button
+                    variant="contained"
+                    endIcon={<SaveAltOutlined />}
+                    onClick={handleSubmit}
+                >
+                    Guardar datos antes de enviar
+                </Button>
+            </Stack>
         </Box>
     )
 }

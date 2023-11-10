@@ -247,3 +247,27 @@ class DatosPersonalesTrabajadores(BaseModel):
         ordering = ['id']
 
 
+
+class InformacionBancaria(BaseModel):
+    institucion_financiera  = models.CharField('Institución financiera', max_length=255, blank= True, null=True)
+    TIPO_CUENTA = (
+        ('Ahorros', 'AHORROS'),
+        ('Corriente', 'CORRIENTE'),
+    )
+    tipo_cuenta = models.CharField(max_length=255, choices=TIPO_CUENTA, blank=True, null=True, verbose_name='Tipo cuenta bancaria')
+    num_cuenta = models.CharField('Número cuenta bancaria', max_length=255, blank= True, null=True)
+    historical = HistoricalRecords()
+
+    @property
+    def _history_user(self):
+        return self.changed_by
+
+    @_history_user.setter
+    def _history_user(self, value):
+        self.changed_by = value
+
+    class Meta:
+        verbose_name = "Información Bancaria"
+        verbose_name_plural = "Informacion Bancarias"
+        db_table = 'Informacion_bancaria'
+        ordering = ['id']

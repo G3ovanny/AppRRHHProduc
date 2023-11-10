@@ -4,6 +4,7 @@ import { onUnlinkedingCed } from '../../../store/auth/cedulaSlice'
 import { TabPanel } from '../components'
 import { StepPanel } from '../components/steps'
 import { useState } from 'react'
+import { LogoutOutlined, NavigateBeforeOutlined, NavigateNextOutlined, SaveOutlined } from '@mui/icons-material'
 
 
 export const FormTrabmasDatos = () => {
@@ -12,15 +13,12 @@ export const FormTrabmasDatos = () => {
     const { startSavingDatos } = useFormularioStore();
     const { onunlinkeding } = useCedulaStore();
 
+    const [formularios, setFormularios] = useState()
 
     const handleCancelSend = () => {
         onunlinkeding()
     }
 
-    const onSubmit = () => {
-        console.log('submit')
-        //startSavingDatos(formState)
-    }
     const handleNextTab = () => {
         if (selectedTab < 16) {
             setSelectedTab(selectedTab + 1);
@@ -32,6 +30,19 @@ export const FormTrabmasDatos = () => {
             setSelectedTab(selectedTab - 1);
         }
     };
+
+    const handleFormSubmit = (formData) => {
+        setFormularios((prevFormularios) => {
+            const newFormularios = [prevFormularios];
+            newFormularios[selectedTab] = formData;
+            return newFormularios;
+        });
+    };
+    const enviarTodosLosDatos = () => {
+        // Aquí puedes acceder a todos los datos en 'formularios' y enviarlos juntos.
+        console.log("Todos los datos:", formularios);
+    };
+
     return (
         <Box>
             <CssBaseline />
@@ -42,40 +53,43 @@ export const FormTrabmasDatos = () => {
                 >
                     <Typography align='center'>DATOS PERSONALES PARA EL REGISTRO EN TALENTO HUMANO</Typography>
                     {/* <StepPanel /> */}
-                    <TabPanel selectedTab = {selectedTab}/>
-                    <Toolbar  />
-                    <Divider />
+                    <TabPanel
+                        key={selectedTab}
+                        selectedTab={selectedTab}
+                        onFormSubmit={handleFormSubmit} />
                     <Stack
                         direction='row'
                         spacing={2}
                         sx={{ mt: 2 }}>
                         <Button
+                            color='error'
                             variant="outlined"
-                            //startIcon={<CancelScheduleSend />}
+                            endIcon={<LogoutOutlined />}
                             onClick={handleCancelSend}
                         >
-                            Cancelar
+                            Salir sin guardar
                         </Button>
 
                         <Button
                             variant="contained"
-                            //disabled={!isFormValid}
-                            //endIcon={<Send />}
-                            onClick={onSubmit}
-                        >
-                            Guardar
-                        </Button>
-                        <Button
-                            variant="contained"
+                            startIcon={<NavigateBeforeOutlined />}
                             onClick={handlePreviousTab} // Botón para retroceder a la pestaña anterior
                         >
                             Anterior
                         </Button>
                         <Button
                             variant="contained"
+                            endIcon={<NavigateNextOutlined />}
                             onClick={handleNextTab} // Botón para avanzar a la siguiente pestaña
                         >
                             Siguiente
+                        </Button>
+                        <Button
+                            variant="contained"
+                            endIcon={<SaveOutlined />}
+                            onClick={enviarTodosLosDatos} // Botón para avanzar a la siguiente pestaña
+                        >
+                            Enviar todo los datos
                         </Button>
                     </Stack>
                 </Box>

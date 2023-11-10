@@ -1,7 +1,34 @@
-import { Box, Grid, TextField, Typography } from '@mui/material'
+import { SaveAltOutlined, SaveOutlined } from '@mui/icons-material'
+import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField, Typography } from '@mui/material'
 import React from 'react'
+import { useForm } from '../../../../hooks'
+import { tipoCuenta } from './selects'
 
-export const InformacionBancaria = () => {
+
+const formData = {
+    institucion_financiera: '',
+    tipo_cuenta: '',
+    num_cuenta: '',
+}
+
+export const InformacionBancaria = ({ onFormSubmit }) => {
+
+    const {
+        institucion_financiera,
+        tipo_cuenta,
+        num_cuenta,
+
+        onInputChange,
+        isFormValid,
+        formState,
+        onResetForm,
+        setFormState,
+    } = useForm(formData)
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        onFormSubmit(formState);
+    };
     return (
         <Box>
 
@@ -23,31 +50,62 @@ export const InformacionBancaria = () => {
                                 placeholder='Ingrese la Institución financiera'
                                 fullWidth
                                 name='institucion_financiera'
-                            //value={nombres || ''}
-                            //onChange={onInputChange}
+                                value={institucion_financiera || ''}
+                                onChange={(e) => onInputChange({ target: { value: e.target.value.toUpperCase(), name: 'institucion_financiera' } })}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={3} sx={{ mt: 1 }}>
+                            <FormControl
+                                fullWidth
+                                size="small">
+                                <InputLabel id="select-cuenta-bancaria">Tipo de cuenta</InputLabel>
+                                <Select
+                                    labelId="select-cuenta-bancaria"
+                                    id="id-select-small"
+                                    label="Tipo de cuenta"
+                                    value={tipo_cuenta || ''}
+                                    onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'tipo_cuenta' } })}
+                                >
+                                    {tipoCuenta.map(option => (
+                                        <MenuItem key={option.value} value={option.value}> {option.text}</MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={3} sx={{ mt: 1 }}>
                             <TextField
-                            //TODO SELECT
+                                //TODO SELECT
                                 //error={ !== null}
                                 //helperText={numero_identificacionValid}
                                 sx={{ minWidth: 180 }}
                                 size="small"
-                                id='tipo_cuenta'
+                                id='num_cuenta'
                                 autoComplete='off'
-                                label='Tipo de institución Financiera'
+                                label='Número de cuenta'
                                 type='text'
-                                placeholder='Ingrese la Institución financiera'
+                                placeholder='Ingrese su número de cuenta'
                                 fullWidth
-                                name='tipo_institucion_financiera'
-                            //value={nombres || ''}
-                            //onChange={onInputChange}
+                                name='num_cuenta'
+                                value={num_cuenta || ''}
+                                onChange={onInputChange}
                             />
                         </Grid>
                     </Grid>
                 </Grid>
             </Grid>
+
+            <Stack
+                direction='row'
+                spacing={2}
+                sx={{ mt: 2, mb: 2 }}>
+                <Button
+                    variant="contained"
+                    endIcon={<SaveAltOutlined />}
+                    onClick={handleSubmit}
+                >
+                    Guardar
+                </Button>
+            </Stack>
         </Box>
     )
 }

@@ -266,6 +266,14 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -2068,6 +2076,30 @@
     },
     {
         "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
@@ -4708,6 +4740,24 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.migrations.0011_informacionbancaria_and_more",
+        "description": "app.core.trabajadores.migrations.0011_informacionbancaria_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('trabajadores', '0010_remove_datospersonalestrabajadores_nombre_enfermedad_and_more'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='InformacionBancaria',\n            fields=[\n                ('id', models.AutoField(primary_key=True, serialize=False)),",
+        "detail": "app.core.trabajadores.migrations.0011_informacionbancaria_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.migrations.0012_rename_institucion_bancaria_historicalinformacionbancaria_institucion_financiera_and_more",
+        "description": "app.core.trabajadores.migrations.0012_rename_institucion_bancaria_historicalinformacionbancaria_institucion_financiera_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('trabajadores', '0011_informacionbancaria_and_more'),\n    ]\n    operations = [\n        migrations.RenameField(\n            model_name='historicalinformacionbancaria',\n            old_name='institucion_bancaria',\n            new_name='institucion_financiera',\n        ),",
+        "detail": "app.core.trabajadores.migrations.0012_rename_institucion_bancaria_historicalinformacionbancaria_institucion_financiera_and_more",
+        "documentation": {}
+    },
+    {
         "label": "Trabajador_Admin",
         "kind": 6,
         "importPath": "app.core.trabajadores.admin",
@@ -4767,6 +4817,15 @@
         "importPath": "app.core.trabajadores.models",
         "description": "app.core.trabajadores.models",
         "peekOfCode": "class DatosPersonalesTrabajadores(BaseModel):\n    apellido_paterno = models.CharField('apellido_paterno', max_length=255, blank= True, null=True)\n    apellido_materno = models.CharField('apellido_materno', max_length=255, blank= True, null=True)\n    primer_nombre = models.CharField('primer_nombre', max_length=255, blank= True, null=True)\n    segundo_nombre = models.CharField('segundo_nombre', max_length=255, blank= True, null=True)\n    provincia = models.CharField('provincia', max_length=255, blank= True, null=True)\n    ciudad = models.CharField('ciudad', max_length=255, blank= True, null=True)\n    nacionalidad = models.CharField('nacionalidad', max_length=255, blank= True, null=True)\n    fecha_nacimiento = models.DateField(blank=True, null=True)\n    GENERO = (",
+        "detail": "app.core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "InformacionBancaria",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.models",
+        "description": "app.core.trabajadores.models",
+        "peekOfCode": "class InformacionBancaria(BaseModel):\n    institucion_financiera  = models.CharField('Institución financiera', max_length=255, blank= True, null=True)\n    TIPO_CUENTA = (\n        ('Ahorros', 'AHORROS'),\n        ('Corriente', 'CORRIENTE'),\n    )\n    tipo_cuenta = models.CharField(max_length=255, choices=TIPO_CUENTA, blank=True, null=True, verbose_name='Tipo cuenta bancaria')\n    num_cuenta = models.CharField('Número cuenta bancaria', max_length=255, blank= True, null=True)\n    historical = HistoricalRecords()\n    @property",
         "detail": "app.core.trabajadores.models",
         "documentation": {}
     },
