@@ -60,7 +60,6 @@ export const tiposLibreta = [
     { value: 'Remiso Sancionado', text: 'REMISO SAMCIONADO' },
     { value: 'Licencia Final', text: 'LICENCIA FINAL' },
 ]
-
 export const etnias = [
     { value: '', text: 'NINGUNA' },
     { value: 'Afroecuatoriano', text: 'AFROECUATORIANO' },
@@ -115,7 +114,6 @@ export const nivelInstruccion = [
     { value: 'Tercer nivel', text: 'TERCER NIVEL' },
     { value: 'Cuarto nivel', text: 'CUARTO NIVEL' },
 ] 
-
 export const tipoRelacion = [
     { value: '1er grado de Consanguinidad', text: '1er GRADO DE CONSANGUINIDAD' },
     { value: '2do grado de Consanguinidad', text: '2do GRADO DE CONSANGUINIDAD' },
@@ -124,4 +122,71 @@ export const tipoRelacion = [
     { value: '1er grado de Afinidad', text: '1er GRADO DE AFINIDAD' },
     { value: '2do grado de Afinidad', text: '2do GRADO DE AFINIDAD' },
     
+]
+export const tipoCurso =[
+    { value: 'Charla', text: 'CHARLA' },
+    { value: 'Ciclo', text: 'CICLO' },
+    { value: 'Coloquio', text: 'COLOQUIO' },
+    { value: 'Conferencia', text: 'CONFERENCIA' },
+    { value: 'Congreso', text: 'CONGRESO' },
+    { value: 'Curso', text: 'CURSO' },
+    { value: 'Disertacion', text: 'DISERTACION' },
+    { value: 'Encuentro', text: 'ENCUENTRO' },
+    { value: 'Formaciones tecnicas profesionales', text: 'FORMACIONES TECNICAS PROFECIONALES' },
+    { value: 'Foro', text: 'FORO' },
+    { value: 'Jornada', text: 'JORNADA' },
+    { value: 'Mesa redonda', text: 'MESA REDONDA' },
+    { value: 'Panel', text: 'PANEL' },
+    { value: 'Seminario', text: 'SEMINARIO' },
+    { value: 'Simposio', text: 'SIMPOSIO' },
+    { value: 'Taller', text: 'TALLER' },
+    { value: 'Otro', text: 'OTRO' },
+]
+export const tipoCertificado =[
+    { value: 'Aprobacion', text: 'APROBACION' },
+    { value: 'Asistencia', text: 'ASISTENCIA' },
+    { value: 'Ponencia', text: 'PONENCIA' },
+]
+export const tipoPublicacion =[
+    { value: 'Articulos científicos', text: 'ARTICULOS CIENTIFICOS' },
+    { value: 'Editoriales', text: 'EDITORIALES' },
+    { value: 'Enciclopedias', text: 'ENCICLOPEDIAS' },
+    { value: 'Folletos', text: 'FOLLETOS' },
+    { value: 'Handbooks ', text: 'HAMDBOOKS' },
+    { value: 'Libros de texto', text: 'LIBROS DE TEXTO' },
+    { value: 'Manuales', text: 'MANUALES' },
+    { value: 'Opiniones', text: 'OPINIONES' },
+    { value: 'Posters científicos', text: 'POSTERS CIENTIFICOS' },
+    { value: 'Publicación electrónica', text: 'PUBLICACION ELECTRONICA' },
+    { value: 'Reportes', text: 'REPORTES' },
+    { value: 'Reportes técnicos', text: 'REPORTES TECNICOS' },
+    { value: 'Revisiones de temas', text: 'REVISIONES DE TEMAS' },
+    { value: 'Revisiones sistemáticas', text: 'REVISIONES SISTEMATICAS' },
+    { value: 'Revistas científicas ', text: 'REVISTAS CIENTIFICAS' },
+    { value: 'Memorias', text: 'MEMORIAS' },
+]
+export const tipoQuartile =[
+    { value: 'Q1', text: 'Q1' },
+    { value: 'Q2', text: 'Q2' },
+    { value: 'Q3', text: 'Q3' },
+    { value: 'Q4', text: 'Q4' },
+    { value: 'No aplica', text: 'NO APLICA' },
+]
+export const tipoNacionalidad =[
+    { value: 'Nacional', text: 'NACIONAL' },
+    { value: 'Internacional', text: 'INTERNACIONAL' },
+]
+
+export const tipoSector =[
+    { value: 'Publico', text: 'PUBLICO' },
+    { value: 'Privado', text: 'PRIVADO' },
+]
+
+export const tipoSalida =[
+    { value: 'Abandono voluntario', text: 'ABANDONO VOLUNTARIO' },
+    { value: 'Despido unilateral por parte del empleador', text: 'DESPIDO UNILATERAL POR PARTE DEL EMPLEADOR' },
+    { value: 'Renincia voluntaria', text: 'RENUNCIA VOLUNTARIA' },
+    { value: 'Supresion de partida', text: 'SUPRESION DE PARTIDA' },
+    { value: 'Terminacion de contrato', text: 'TERMINACION DE CONTRATO' },
+    { value: 'Otro', text: 'OTRO' },
 ]

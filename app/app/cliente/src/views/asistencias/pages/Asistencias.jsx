@@ -19,7 +19,7 @@ export const Asistencias = () => {
                 id='tittle'
                 component='div'
             >
-                Acciones de personal
+                Asistencias
             </Typography>
         </Toolbar>
         <Divider />

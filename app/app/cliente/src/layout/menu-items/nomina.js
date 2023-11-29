@@ -26,12 +26,12 @@ export const nomina = {
             url: '/servidores',
             icon: icons.Person,
         },
-        {
-            id: 'datosServidores',
-            title: 'Más datos',
-            type: 'item',
-            url: '/datos_servidores',
-            icon: icons.FolderShared,
-        }
+        // {
+        //     id: 'datosServidores',
+        //     title: 'Más datos',
+        //     type: 'item',
+        //     url: '/datos_servidores',
+        //     icon: icons.FolderShared,
+        // }
     ]
 }

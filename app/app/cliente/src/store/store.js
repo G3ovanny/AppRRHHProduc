@@ -11,6 +11,7 @@ import { asistenciasSlice } from './asistencias'
 import { usuariosSlice } from './usuarios'
 import { cedulaSlice } from './auth/cedulaSlice'
 import { grupoSlice } from './grupos'
+import { formularioSlice } from './trabajadores/formularioSlice'
 
 export const store = configureStore({
     reducer: {
@@ -19,6 +20,7 @@ export const store = configureStore({
         menu: menuSlice.reducer,
         modal: modalSlice.reducer,
         trabajador: trabajadorSlice.reducer,
+        formularios: formularioSlice.reducer,
         datosTrabajadores: datosPersonalesSlice.reducer,
         archivo: archivoSlice.reducer,
         regimen: regimenSlice.reducer,
@@ -36,6 +38,7 @@ export const store = configureStore({
         asistencia: asistenciasSlice.reducer,
         usuarios: usuariosSlice.reducer,
         grupos: grupoSlice.reducer,
+
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false

@@ -95,14 +95,18 @@ export const TableFilters = (props) => {
           />
         </LocalizationProvider>
       </Grid>
-      <Grid item xs={12} sm={6} md={2}>
+      <Grid item 
+      //xs={12} sm={6} md={2}
+      >
         <Button
           variant="contained"
           onClick={filtrar}
         > Buscar </Button>
 
       </Grid>
-      <Grid item xs={12} sm={6} md={2}>
+      <Grid item 
+      //xs={12} sm={6} md={2}
+      >
         <Button
           variant="contained"
           onClick={limpiarFIltros}

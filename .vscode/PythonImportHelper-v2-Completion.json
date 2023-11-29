@@ -66,6 +66,22 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "date",
         "importPath": "datetime",
         "description": "datetime",
@@ -119,6 +135,14 @@
         "description": "app.config.db",
         "isExtraImport": true,
         "detail": "app.config.db",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -642,6 +666,14 @@
         "documentation": {}
     },
     {
+        "label": "filters",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "generics",
         "importPath": "rest_framework",
         "description": "rest_framework",
@@ -883,6 +915,22 @@
     },
     {
         "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
         "importPath": "rest_framework",
         "description": "rest_framework",
         "isExtraImport": true,
@@ -1258,6 +1306,22 @@
         "documentation": {}
     },
     {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
         "label": "Trabajador",
         "importPath": "core.trabajadores.models",
         "description": "core.trabajadores.models",
@@ -1290,7 +1354,47 @@
         "documentation": {}
     },
     {
+        "label": "CorreoTrabajadores",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "VacacionesTrabajadores",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
         "label": "Trabajador",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "Trabajador",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "VacacionesTrabajadores",
         "importPath": "core.trabajadores.models",
         "description": "core.trabajadores.models",
         "isExtraImport": true,
@@ -1363,6 +1467,14 @@
     },
     {
         "label": "Unidad_Organica",
+        "importPath": "core.distributivo.models",
+        "description": "core.distributivo.models",
+        "isExtraImport": true,
+        "detail": "core.distributivo.models",
+        "documentation": {}
+    },
+    {
+        "label": "*",
         "importPath": "core.distributivo.models",
         "description": "core.distributivo.models",
         "isExtraImport": true,
@@ -2107,6 +2219,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -2429,14 +2557,6 @@
         "documentation": {}
     },
     {
-        "label": "TestCase",
-        "importPath": "django.test",
-        "description": "django.test",
-        "isExtraImport": true,
-        "detail": "django.test",
-        "documentation": {}
-    },
-    {
         "label": "pandas",
         "kind": 6,
         "isExtraImport": true,
@@ -2470,6 +2590,14 @@
         "documentation": {}
     },
     {
+        "label": "DjangoFilterBackend",
+        "importPath": "django_filters.rest_framework",
+        "description": "django_filters.rest_framework",
+        "isExtraImport": true,
+        "detail": "django_filters.rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "EVENT_JOB_EXECUTED",
         "importPath": "apscheduler.events",
         "description": "apscheduler.events",
@@ -2539,6 +2667,22 @@
         "description": "apscheduler.schedulers.background",
         "isExtraImport": true,
         "detail": "apscheduler.schedulers.background",
+        "documentation": {}
+    },
+    {
+        "label": "post_migrate",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
+        "label": "receiver",
+        "importPath": "django.dispatch",
+        "description": "django.dispatch",
+        "isExtraImport": true,
+        "detail": "django.dispatch",
         "documentation": {}
     },
     {
@@ -2572,6 +2716,14 @@
         "description": "zk",
         "isExtraImport": true,
         "detail": "zk",
+        "documentation": {}
+    },
+    {
+        "label": "background",
+        "importPath": "background_task",
+        "description": "background_task",
+        "isExtraImport": true,
+        "detail": "background_task",
         "documentation": {}
     },
     {
@@ -2672,6 +2824,38 @@
         "documentation": {}
     },
     {
+        "label": "CorreoTrabajadoresSeializer",
+        "importPath": "core.trabajadores.api.serializers.archivo_serializers",
+        "description": "core.trabajadores.api.serializers.archivo_serializers",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.api.serializers.archivo_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "VacacionesTrabajadoresSerializer",
+        "importPath": "core.trabajadores.api.serializers.archivo_serializers",
+        "description": "core.trabajadores.api.serializers.archivo_serializers",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.api.serializers.archivo_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "analisis_correos",
+        "importPath": "core.trabajadores.cargarDocumentos.correo",
+        "description": "core.trabajadores.cargarDocumentos.correo",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.cargarDocumentos.correo",
+        "documentation": {}
+    },
+    {
+        "label": "analisis_vacaciones",
+        "importPath": "core.trabajadores.cargarDocumentos.vacaciones",
+        "description": "core.trabajadores.cargarDocumentos.vacaciones",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.cargarDocumentos.vacaciones",
+        "documentation": {}
+    },
+    {
         "label": "DatosPersonalesSerializer",
         "importPath": "core.trabajadores.api.serializers.datosPersonales_serializers",
         "description": "core.trabajadores.api.serializers.datosPersonales_serializers",
@@ -2688,6 +2872,14 @@
         "documentation": {}
     },
     {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
         "label": "TrabajadorViewSet",
         "importPath": "core.trabajadores.api.views.trabajadores_views",
         "description": "core.trabajadores.api.views.trabajadores_views",
@@ -2701,6 +2893,31 @@
         "description": "core.trabajadores.api.views.datosPersonales_views",
         "isExtraImport": true,
         "detail": "core.trabajadores.api.views.datosPersonales_views",
+        "documentation": {}
+    },
+    {
+        "label": "CorreosTrabajadoresViewSet",
+        "importPath": "core.trabajadores.api.views.archivo_views",
+        "description": "core.trabajadores.api.views.archivo_views",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.api.views.archivo_views",
+        "documentation": {}
+    },
+    {
+        "label": "VacacionesTrabajadoresViewSet",
+        "importPath": "core.trabajadores.api.views.archivo_views",
+        "description": "core.trabajadores.api.views.archivo_views",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.api.views.archivo_views",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
         "documentation": {}
     },
     {
@@ -3160,7 +3377,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    ],\n    'DEFAULT_PERMISSION_CLASSES': (\n        'rest_framework.permissions.IsAuthenticated',\n    )\n}\nMIDDLEWARE = [\n    'corsheaders.middleware.CorsMiddleware',",
+        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    ],\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.IsAuthenticated',\n    ],\n    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],\n}\nMIDDLEWARE = [",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3169,7 +3386,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'corsheaders.middleware.CorsMiddleware',\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n    'whitenoise.middleware.WhiteNoiseMiddleware',",
+        "peekOfCode": "MIDDLEWARE = [\n    'corsheaders.middleware.CorsMiddleware',\n    'whitenoise.middleware.WhiteNoiseMiddleware',\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3664,7 +3881,7 @@
         "kind": 6,
         "importPath": "app.core.asistencias.api.views.asistencia_view",
         "description": "app.core.asistencias.api.views.asistencia_view",
-        "peekOfCode": "class AsistenciaViewSet(viewsets.ModelViewSet):\n    serializer_class = AsistenciaSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state = True, id_trabajador__state=True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state = True, id_trabajador__state=True).first()\n    def create(self, request):\n        asistencia_serializer = self.serializer_class(data=request.data)\n        if asistencia_serializer.is_valid():\n            asistencia_serializer.save()",
+        "peekOfCode": "class AsistenciaViewSet(viewsets.ModelViewSet):\n    serializer_class = AsistenciaSerializer\n    #pagination_class = AsistenciaPagination\n    filter_backends = [DjangoFilterBackend, filters.SearchFilter]\n    filterset_fields = {\n        'fecha_registro': ['gte', 'lte'],\n    }\n    def get_queryset(self, pk=None):\n        today = datetime.now().date()\n        yesterday = today - timedelta(days=1)",
         "detail": "app.core.asistencias.api.views.asistencia_view",
         "documentation": {}
     },
@@ -3727,7 +3944,7 @@
         "kind": 2,
         "importPath": "app.core.asistencias.registro_biometrico.activar_job",
         "description": "app.core.asistencias.registro_biometrico.activar_job",
-        "peekOfCode": "def tarea_programada():\n    global is_job_running\n    if is_job_running:\n        print(\"La tarea ya está en ejecucion, se omitira la ejecucion adicional.\")\n        return\n    is_job_running = True\n    try:\n        get_connection_admin()\n        get_connection_aulas1()\n        #get_connection_aulas2()",
+        "peekOfCode": "def tarea_programada():\n    global is_job_running\n    if is_job_running:\n        print(\"La tarea ya está en ejecucion, se omitira la ejecucion adicional.\")\n        return\n    is_job_running = True\n    try:\n        get_connection_admin()\n        get_connection_aulas1()\n       #get_connection_aulas2()",
         "detail": "app.core.asistencias.registro_biometrico.activar_job",
         "documentation": {}
     },
@@ -3750,6 +3967,15 @@
         "documentation": {}
     },
     {
+        "label": "iniciar_scheduler",
+        "kind": 2,
+        "importPath": "app.core.asistencias.registro_biometrico.activar_job",
+        "description": "app.core.asistencias.registro_biometrico.activar_job",
+        "peekOfCode": "def iniciar_scheduler():\n    scheduler.add_job(\n        job_function,\n        trigger='cron',\n        day_of_week='mon-sun',\n        hour=23,\n        minute=30,\n        args=[1],\n        id='1',\n        name='Conectar a biometricos',",
+        "detail": "app.core.asistencias.registro_biometrico.activar_job",
+        "documentation": {}
+    },
+    {
         "label": "is_job_running",
         "kind": 5,
         "importPath": "app.core.asistencias.registro_biometrico.activar_job",
@@ -3763,7 +3989,7 @@
         "kind": 5,
         "importPath": "app.core.asistencias.registro_biometrico.activar_job",
         "description": "app.core.asistencias.registro_biometrico.activar_job",
-        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada dia a las 23:30 en la noche activando la conexión a los biometricos---------------------------------#\nscheduler.add_job(\n    job_function,\n    trigger='cron',\n    day_of_week='mon-sun',\n    hour=23,\n    minute=30,\n    args=[1],\n    id='1',",
+        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada dia a las 23:30 en la noche activando la conexión a los biometricos---------------------------------#\ndef iniciar_scheduler():\n    scheduler.add_job(\n        job_function,\n        trigger='cron',\n        day_of_week='mon-sun',\n        hour=23,\n        minute=30,\n        args=[1],",
         "detail": "app.core.asistencias.registro_biometrico.activar_job",
         "documentation": {}
     },
@@ -3925,7 +4151,7 @@
         "kind": 2,
         "importPath": "app.core.asistencias.registro_biometrico.obtener_asistencias",
         "description": "app.core.asistencias.registro_biometrico.obtener_asistencias",
-        "peekOfCode": "def get_attendance_biometrico(nombre_biometrico ,conn_status, zk):\n    print('nombre_biometrico', nombre_biometrico)\n    try:\n        if conn_status:\n            print('Conectando al biometrico del: ', nombre_biometrico)\n            # obtengo la fecha actual\n            today = datetime.now().date()\n            fecha_dia_anterior = today - timedelta(days=1)\n            # obtendo los registros de asistencia\n            attendance_data = zk.get_attendance()",
+        "peekOfCode": "def get_attendance_biometrico(nombre_biometrico ,conn_status, zk):\n    try:\n        if conn_status:\n            print('Iniciando conexion al', nombre_biometrico)\n            # obtengo la fecha actual\n            today = datetime.now().date()\n            fecha_dia_anterior = today - timedelta(days=1)\n            # obtendo los registros de asistencia\n            attendance_data = zk.get_attendance()\n            # obtengo los datos de los usuarios del biometrico",
         "detail": "app.core.asistencias.registro_biometrico.obtener_asistencias",
         "documentation": {}
     },
@@ -3943,7 +4169,7 @@
         "kind": 6,
         "importPath": "app.core.asistencias.apps",
         "description": "app.core.asistencias.apps",
-        "peekOfCode": "class AsistenciasConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.asistencias'\n    #funcion que permite activar tareas programadas que se genera desde la carpeta registro_biometrico/activar_job.py\n    def ready(self):\n       print(\"Iniciando la tarea de registro de asistencia biometrico...\")\n       from .registro_biometrico import activar_job",
+        "peekOfCode": "class AsistenciasConfig(AppConfig):\n   default_auto_field = 'django.db.models.BigAutoField'\n   name = 'core.asistencias'",
         "detail": "app.core.asistencias.apps",
         "documentation": {}
     },
@@ -3954,6 +4180,15 @@
         "description": "app.core.asistencias.models",
         "peekOfCode": "class Asistencia(BaseModel):\n    id_trabajador = models.ForeignKey(Trabajador, blank=True, null=True, on_delete=models.SET_NULL)\n    fecha_registro = models.DateTimeField('Fecha de registro asistencia', blank=True, null=True)\n    estado = models.CharField('Estado asistencia', max_length=255, blank=True, null=True)\n    edificio = models.CharField('Edificio', max_length=255, blank=True, null=True)\n    hora = models.DateTimeField('Hora registro asistencia', blank=True, null=True)\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by",
         "detail": "app.core.asistencias.models",
+        "documentation": {}
+    },
+    {
+        "label": "notify_user",
+        "kind": 2,
+        "importPath": "app.core.asistencias.task",
+        "description": "app.core.asistencias.task",
+        "peekOfCode": "def notify_user():\n    # lookup user by id and send them a message\n   print('Desde Task')",
+        "detail": "app.core.asistencias.task",
         "documentation": {}
     },
     {
@@ -4456,7 +4691,7 @@
         "kind": 6,
         "importPath": "app.core.permisos.admin",
         "description": "app.core.permisos.admin",
-        "peekOfCode": "class MotivoPermiso_Admin(admin.ModelAdmin):\n    list_display=('id', 'motivo')\n@admin.register(Permiso)\nclass Permiso_Admin(admin.ModelAdmin):\n    list_display=('id', 'fecha_hora_salida','fecha_hora_llegada','detalle')",
+        "peekOfCode": "class MotivoPermiso_Admin(admin.ModelAdmin):\n    list_display=('id', 'motivo')\n@admin.register(Permiso)\nclass Permiso_Admin(admin.ModelAdmin):\n    list_display=('id', 'id_trabajador','fecha_hora_salida','fecha_hora_llegada','detalle')\n    search_fields = ('id','id_trabajador', 'id_motivo')\n    list_filter = ('id','id_trabajador', 'id_motivo')",
         "detail": "app.core.permisos.admin",
         "documentation": {}
     },
@@ -4465,7 +4700,7 @@
         "kind": 6,
         "importPath": "app.core.permisos.admin",
         "description": "app.core.permisos.admin",
-        "peekOfCode": "class Permiso_Admin(admin.ModelAdmin):\n    list_display=('id', 'fecha_hora_salida','fecha_hora_llegada','detalle')",
+        "peekOfCode": "class Permiso_Admin(admin.ModelAdmin):\n    list_display=('id', 'id_trabajador','fecha_hora_salida','fecha_hora_llegada','detalle')\n    search_fields = ('id','id_trabajador', 'id_motivo')\n    list_filter = ('id','id_trabajador', 'id_motivo')",
         "detail": "app.core.permisos.admin",
         "documentation": {}
     },
@@ -4510,7 +4745,25 @@
         "kind": 6,
         "importPath": "app.core.trabajadores.api.serializers.archivo_serializers",
         "description": "app.core.trabajadores.api.serializers.archivo_serializers",
-        "peekOfCode": "class ArchTrabajadoresSerializer(serializers.ModelSerializer):\n    class Meta:\n        model= ArchivoTrabajadores\n        exclude = ('state',)",
+        "peekOfCode": "class ArchTrabajadoresSerializer(serializers.ModelSerializer):\n    class Meta:\n        model= ArchivoTrabajadores\n        exclude = ('state',)\nclass CorreoTrabajadoresSeializer(serializers.ModelSerializer):\n    class Meta:\n        model =  CorreoTrabajadores\n        exclude = ('state',)\nclass VacacionesTrabajadoresSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "detail": "app.core.trabajadores.api.serializers.archivo_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "CorreoTrabajadoresSeializer",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.api.serializers.archivo_serializers",
+        "description": "app.core.trabajadores.api.serializers.archivo_serializers",
+        "peekOfCode": "class CorreoTrabajadoresSeializer(serializers.ModelSerializer):\n    class Meta:\n        model =  CorreoTrabajadores\n        exclude = ('state',)\nclass VacacionesTrabajadoresSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = VacacionesTrabajadores\n        exclude = ('state',)",
+        "detail": "app.core.trabajadores.api.serializers.archivo_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "VacacionesTrabajadoresSerializer",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.api.serializers.archivo_serializers",
+        "description": "app.core.trabajadores.api.serializers.archivo_serializers",
+        "peekOfCode": "class VacacionesTrabajadoresSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = VacacionesTrabajadores\n        exclude = ('state',)",
         "detail": "app.core.trabajadores.api.serializers.archivo_serializers",
         "documentation": {}
     },
@@ -4547,6 +4800,24 @@
         "importPath": "app.core.trabajadores.api.views.archivo_views",
         "description": "app.core.trabajadores.api.views.archivo_views",
         "peekOfCode": "class ArchTrabajadoresViewSet(viewsets.ModelViewSet):\n    serializer_class = ArchTrabajadoresSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.all().order_by('id')\n        return self.get_queryset().Meta.model.objects.filter(id=pk).first()\n    def create(self, request):\n        serializer = self.serializer_class(data= request.data)\n        if serializer.is_valid():\n            serializer.save()",
+        "detail": "app.core.trabajadores.api.views.archivo_views",
+        "documentation": {}
+    },
+    {
+        "label": "CorreosTrabajadoresViewSet",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.api.views.archivo_views",
+        "description": "app.core.trabajadores.api.views.archivo_views",
+        "peekOfCode": "class CorreosTrabajadoresViewSet(viewsets.ModelViewSet):\n    serializer_class = CorreoTrabajadoresSeializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.all().order_by('id')\n        return self.get_queryset().Meta.model.objects.filter(id=pk).first()\n    def create(self, request):\n        serializer = self.serializer_class(data= request.data)\n        if serializer.is_valid():\n            serializer.save()",
+        "detail": "app.core.trabajadores.api.views.archivo_views",
+        "documentation": {}
+    },
+    {
+        "label": "VacacionesTrabajadoresViewSet",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.api.views.archivo_views",
+        "description": "app.core.trabajadores.api.views.archivo_views",
+        "peekOfCode": "class VacacionesTrabajadoresViewSet(viewsets.ModelViewSet):\n    serializer_class = VacacionesTrabajadoresSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.all().order_by('id')\n        return self.get_queryset().Meta.model.objects.filter(id=pk).first()\n    def create(self, request):\n        serializer = self.serializer_class(data= request.data)\n        if serializer.is_valid():\n            serializer.save()",
         "detail": "app.core.trabajadores.api.views.archivo_views",
         "documentation": {}
     },
@@ -4591,7 +4862,7 @@
         "kind": 5,
         "importPath": "app.core.trabajadores.api.routers",
         "description": "app.core.trabajadores.api.routers",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'trabajador', TrabajadorViewSet, basename='trabajador'),\nrouter.register(r'archivo', ArchTrabajadoresViewSet, basename='archivo trabajadores'),\nrouter.register(r'datos_trabajador', DatosTrabajadoresViewSet, basename= 'Datos personales del trabajador'),\n#path('link/', EnvioDatos.as_view(), name='link'),\n#router.register(r'link', EnvioDatos.as_view(), name='link'),\nurlpatterns = router.urls",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'trabajador', TrabajadorViewSet, basename='trabajador'),\nrouter.register(r'archivo', ArchTrabajadoresViewSet, basename='archivo trabajadores'),\nrouter.register(r'correos', CorreosTrabajadoresViewSet, basename='correos trabajadores'),\nrouter.register(r'vacaciones', VacacionesTrabajadoresViewSet, basename='archivo trabajadores'),\n#path('datos_trabajador', DatosTrabajadoresViewSet.as_view(), name='datos'),\n#path('link/', EnvioDatos.as_view(), name='link'),\nrouter.register(r'datos_trabajador', DatosTrabajadoresViewSet, basename= 'Datos personales del trabajador'),\n#router.register(r'link', EnvioDatos.as_view(), name='link'),\nurlpatterns = router.urls",
         "detail": "app.core.trabajadores.api.routers",
         "documentation": {}
     },
@@ -4602,6 +4873,60 @@
         "description": "app.core.trabajadores.api.routers",
         "peekOfCode": "urlpatterns = router.urls",
         "detail": "app.core.trabajadores.api.routers",
+        "documentation": {}
+    },
+    {
+        "label": "analisis_correos",
+        "kind": 2,
+        "importPath": "app.core.trabajadores.cargarDocumentos.correo",
+        "description": "app.core.trabajadores.cargarDocumentos.correo",
+        "peekOfCode": "def analisis_correos():\n    # database_settings = POSTGRESQL['default']\n    # engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    documento = CorreoTrabajadores.objects.latest('id').doc\n    documento =  pd.read_excel(documento, index_col=False, converters= {'numero_identificacion': lambda x: str(x)})\n    documento['correo_institucional'].replace({np.nan: ''}, inplace=True)\n    documento['correo_personal'].replace({np.nan: ''}, inplace=True)\n    error_messages = []\n    cedula = 'numero_identificacion' in documento.columns\n    try:",
+        "detail": "app.core.trabajadores.cargarDocumentos.correo",
+        "documentation": {}
+    },
+    {
+        "label": "process_error_messages",
+        "kind": 2,
+        "importPath": "app.core.trabajadores.cargarDocumentos.correo",
+        "description": "app.core.trabajadores.cargarDocumentos.correo",
+        "peekOfCode": "def process_error_messages(errors):\n    if errors:\n        # You can choose how to format and return the error messages here\n        error_response = {'errors': errors}\n        # Call another function to return the response to the client\n        return send_response(error_response)\n    else:\n        # If no errors, return a success response\n        return Response({'message': 'Success'})\n# Define a function to send the response to the client",
+        "detail": "app.core.trabajadores.cargarDocumentos.correo",
+        "documentation": {}
+    },
+    {
+        "label": "send_response",
+        "kind": 2,
+        "importPath": "app.core.trabajadores.cargarDocumentos.correo",
+        "description": "app.core.trabajadores.cargarDocumentos.correo",
+        "peekOfCode": "def send_response(response_data):\n    # Here, you can customize how you want to return the response to the client\n    # You can use the Response class or any other method that suits your API\n    return Response(response_data, status=status.HTTP_400_BAD_REQUEST)",
+        "detail": "app.core.trabajadores.cargarDocumentos.correo",
+        "documentation": {}
+    },
+    {
+        "label": "analisis_vacaciones",
+        "kind": 2,
+        "importPath": "app.core.trabajadores.cargarDocumentos.vacaciones",
+        "description": "app.core.trabajadores.cargarDocumentos.vacaciones",
+        "peekOfCode": "def analisis_vacaciones():\n        # database_settings = POSTGRESQL['default']\n    # engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    documento = VacacionesTrabajadores.objects.latest('id').doc\n    documento =  pd.read_excel(documento, index_col=False, converters= {'numero_identificacion': lambda x: str(x)})\n    documento['dias_vacaciones'].replace({np.nan: ''}, inplace=True)\n    documento['dias_vacaciones'] = documento['dias_vacaciones'].astype(float)\n    error_messages = []\n    cedula = 'numero_identificacion' in documento.columns\n    try:",
+        "detail": "app.core.trabajadores.cargarDocumentos.vacaciones",
+        "documentation": {}
+    },
+    {
+        "label": "process_error_messages",
+        "kind": 2,
+        "importPath": "app.core.trabajadores.cargarDocumentos.vacaciones",
+        "description": "app.core.trabajadores.cargarDocumentos.vacaciones",
+        "peekOfCode": "def process_error_messages(errors):\n    if errors:\n        # You can choose how to format and return the error messages here\n        error_response = {'errors': errors}\n        # Call another function to return the response to the client\n        return send_response(error_response)\n    else:\n        # If no errors, return a success response\n        return Response({'message': 'Success'})\n# Define a function to send the response to the client",
+        "detail": "app.core.trabajadores.cargarDocumentos.vacaciones",
+        "documentation": {}
+    },
+    {
+        "label": "send_response",
+        "kind": 2,
+        "importPath": "app.core.trabajadores.cargarDocumentos.vacaciones",
+        "description": "app.core.trabajadores.cargarDocumentos.vacaciones",
+        "peekOfCode": "def send_response(response_data):\n    # Here, you can customize how you want to return the response to the client\n    # You can use the Response class or any other method that suits your API\n    return Response(response_data, status=status.HTTP_400_BAD_REQUEST)",
+        "detail": "app.core.trabajadores.cargarDocumentos.vacaciones",
         "documentation": {}
     },
     {
@@ -4758,6 +5083,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.migrations.0013_correotrabajadores_vacacionestrabajadores_and_more",
+        "description": "app.core.trabajadores.migrations.0013_correotrabajadores_vacacionestrabajadores_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('trabajadores', '0012_rename_institucion_bancaria_historicalinformacionbancaria_institucion_financiera_and_more'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='CorreoTrabajadores',\n            fields=[\n                ('id', models.AutoField(primary_key=True, serialize=False)),",
+        "detail": "app.core.trabajadores.migrations.0013_correotrabajadores_vacacionestrabajadores_and_more",
+        "documentation": {}
+    },
+    {
         "label": "Trabajador_Admin",
         "kind": 6,
         "importPath": "app.core.trabajadores.admin",
@@ -4808,6 +5142,24 @@
         "importPath": "app.core.trabajadores.models",
         "description": "app.core.trabajadores.models",
         "peekOfCode": "class ArchivoTrabajadores(BaseModel):\n    doc= models.FileField(upload_to='./static/archivoTrabajadores')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
+        "detail": "app.core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "CorreoTrabajadores",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.models",
+        "description": "app.core.trabajadores.models",
+        "peekOfCode": "class CorreoTrabajadores(BaseModel):\n    doc= models.FileField(upload_to='./static/correosTrabajadores')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
+        "detail": "app.core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "VacacionesTrabajadores",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.models",
+        "description": "app.core.trabajadores.models",
+        "peekOfCode": "class VacacionesTrabajadores(BaseModel):\n    doc= models.FileField(upload_to='./static/vacacionesTrabajadores')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
         "detail": "app.core.trabajadores.models",
         "documentation": {}
     },

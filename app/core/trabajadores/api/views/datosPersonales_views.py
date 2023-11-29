@@ -1,6 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from ..serializers.datosPersonales_serializers import DatosPersonalesSerializer
+from rest_framework.views import APIView
 
 class DatosTrabajadoresViewSet(viewsets.ModelViewSet):
     serializer_class =  DatosPersonalesSerializer

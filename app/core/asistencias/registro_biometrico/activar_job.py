@@ -1,8 +1,11 @@
 from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR
 from apscheduler.schedulers.background import BackgroundScheduler
+from django.db.models.signals import post_migrate
+from django.dispatch import receiver
 from .conexion_biometrico import *
 import logging
 import datetime
+
 
 is_job_running =  False
 
@@ -15,7 +18,7 @@ def tarea_programada():
     try:
         get_connection_admin()
         get_connection_aulas1()
-        #get_connection_aulas2()
+       #get_connection_aulas2()
         get_connection_aulas3()
         get_connection_aulas4()
     finally:
@@ -42,18 +45,24 @@ logging.getLogger('apscheduler').setLevel(logging.DEBUG)
 scheduler = BackgroundScheduler(timezone="America/Guayaquil")
 
 # ---------------------------------Este job se activa cada dia a las 23:30 en la noche activando la conexión a los biometricos---------------------------------#
-scheduler.add_job(
-    job_function,
-    trigger='cron',
-    day_of_week='mon-sun',
-    hour=23,
-    minute=30,
-    args=[1],
-    id='1',
-    name='Conectar a biometricos',
-    max_instances=1, 
-    jobstore='default',
-    executor='default'
-)
-scheduler.add_listener(job_exception_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
-scheduler.start()
+def iniciar_scheduler():
+    scheduler.add_job(
+        job_function,
+        trigger='cron',
+        day_of_week='mon-sun',
+        hour=23,
+        minute=30,
+        args=[1],
+        id='1',
+        name='Conectar a biometricos',
+        max_instances=1, 
+        jobstore='default',
+        executor='default'
+    )
+
+    scheduler.add_listener(job_exception_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
+    scheduler.start()
+
+# @receiver(post_migrate)
+# def on_post_migrate(sender, **kwargs):
+#     iniciar_scheduler()

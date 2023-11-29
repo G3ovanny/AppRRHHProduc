@@ -47,6 +47,7 @@ export const cronogramaVacacionesSlice = createSlice({
         },
         onLoadCronograma: (state, { payload }) => {
             state.isLoadingCronograma = false;
+            //state.listCronograma = payload
             payload.forEach(cronograma => {
                 const exist = state.listCronograma.some(dbcronograma => dbcronograma.id === cronograma.id);
                 if (!exist) {

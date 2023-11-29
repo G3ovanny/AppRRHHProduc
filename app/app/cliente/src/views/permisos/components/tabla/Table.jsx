@@ -10,7 +10,7 @@ import dayjs from 'dayjs'
 
 export const Table = () => {
 
-    const { listPermiso, startLoadingPermiso, setActivePermiso, activePermiso, isLoadingPermiso } = usePermisoStore();
+    const { listPermiso, startLoadingPermiso, setActivePermiso, activePermiso } = usePermisoStore();
 
     const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
 
@@ -56,6 +56,7 @@ export const Table = () => {
     useEffect(() => {
         setResultadoBusqueda()
     }, [])
+
     const page = 0
     const pageSize = 10
     const rowsPerPage = 0
@@ -68,7 +69,6 @@ export const Table = () => {
                 objetos={listPermiso}
                 objactive={activePermiso}
                 setObjecActive={setActivePermiso}
-                isLoadingObjects={isLoadingPermiso}
                 startLoadingObjects={startLoadingPermiso()}
                 tableCells={<TableCells list={resultadoBusqueda} page={page} rowsPerPage={rowsPerPage} />}
                 indexCells={indexCells}

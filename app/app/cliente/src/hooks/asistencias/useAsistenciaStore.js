@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { rhApi } from '../../api';
 import { onAddNewAsistencia, onDeleteAsistencia, onLoadAsistencia, onSetActiveAsistencia, onUpdateAsistencia } from '../../store';
+import { useCallback } from 'react';
 
 
 
@@ -9,14 +10,29 @@ export const useAsistenciaStore = () => {
 
     const { listAsistencia, activeAsistencia, clearMessageAsistencia, isLoadingAsistencia } = useSelector(state => state.asistencia)
     
-    const startLoadingAsistencia = async () => {
+    // usando Callback
+    const startLoadingAsistencia = useCallback(async () => {
         try {
             const { data } = await rhApi.get('/asistencias/asistencia/');
-            dispatch(onLoadAsistencia(data))
+            dispatch(onLoadAsistencia(data));
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
+    }, [dispatch, onLoadAsistencia, rhApi]);
+
+    //solicitud normal
+
+    // const startLoadingAsistencia = async () => {
+    //     try {
+    //         const { data } = await rhApi.get('/asistencias/asistencia/');
+    //         dispatch(onLoadAsistencia(data))
+
+    //         console.log(data)
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+
     const startSavingAsistencia = async (asistencia) => {
         if (asistencia.id) {
             await rhApi.put(`/asistencias/asistencia/${asistencia.id}/`, asistencia)

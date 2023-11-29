@@ -38,6 +38,12 @@ export const TableFilters = (props) => {
   const filtrar = () => {
     props.onBuscar(valorBuscar, columnaBuscar, fechaDesdeBuscar, fechaHastaBuscar)
   }
+
+  const buscarBase = () => {
+    props.onBuscarBase(valorBuscar, columnaBuscar, fechaDesdeBuscar, fechaHastaBuscar)
+  }
+
+
   const limpiarFIltros = () => {
     setValorBuscar('')
     setColumnaBuscar('cedulaTrab')
@@ -107,19 +113,27 @@ export const TableFilters = (props) => {
           />
         </LocalizationProvider>
       </Grid>
-      <Grid item xs={12} sm={6} md={2}>
+
+      <Grid item >
         <Button
           variant="contained"
           onClick={filtrar}
         > Buscar </Button>
+      </Grid>
+      <Grid item >
+        <Button
+          variant="contained"
+          onClick={buscarBase}
+        > Buscar todos </Button>
 
       </Grid>
-      <Grid item xs={12} sm={6} md={2}>
+      <Grid item >
         <Button
           variant="contained"
           onClick={limpiarFIltros}
         >Limpiar</Button>
       </Grid>
+
     </Grid>
   )
 }

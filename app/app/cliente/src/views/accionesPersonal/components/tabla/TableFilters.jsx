@@ -7,10 +7,6 @@ import dayjs from 'dayjs'
 
 const filterOptions = [
   {
-    id: 'cedulaTrab',
-    label: 'Cédula',
-  },
-  {
     id: 'nombresTrab',
     label: 'Nombres',
   },
@@ -25,7 +21,7 @@ const filterOptions = [
 ]
 export const TableFilters = (props) => {
   const [valorBuscar, setValorBuscar] = useState('')
-  const [columnaBuscar, setColumnaBuscar] = useState('cedulaTrab')
+  const [columnaBuscar, setColumnaBuscar] = useState('nombresTrab')
   const [fechaDesdeBuscar, setFechaDesdeBuscar] = useState(null)
   const [fechaHastaBuscar, setFechaHastaBuscar] = useState(null)
 
@@ -102,14 +98,18 @@ export const TableFilters = (props) => {
           />
         </LocalizationProvider>
       </Grid>
-      <Grid item xs={3} sm={6} md={2}>
+      <Grid item 
+      //xs={3} sm={6} md={2}
+      >
         <Button
           variant="contained"
           onClick={filtrar}
         > Buscar </Button>
 
       </Grid>
-      <Grid item xs={3} sm={6} md={2}>
+      <Grid item 
+      //xs={3} sm={6} md={2}
+      >
         <Button
           variant="contained"
           onClick={limpiarFIltros}

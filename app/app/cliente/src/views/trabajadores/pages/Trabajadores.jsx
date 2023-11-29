@@ -1,8 +1,14 @@
 import { useRef, useState } from 'react'
-import { BadgeOutlined, PersonAdd, TableViewOutlined, TagTwoTone, UploadFile, UploadOutlined } from '@mui/icons-material'
-import { Alert, Box, Divider, Grid, IconButton, Input, Toolbar, Tooltip, Typography } from '@mui/material'
+import { BadgeOutlined, CloudUpload, PersonAdd, TableViewOutlined, TagTwoTone, UploadFile, UploadOutlined } from '@mui/icons-material'
+import { Alert, Box, Divider, Grid, IconButton, Input, Toolbar, Tooltip, Typography, FormControl, FormLabel, FormHelperText, InputLabel, Select, MenuItem, Button, Menu } from '@mui/material'
 import { Table, Cards, TrabajadorModal, MensajeArchivo } from '../components'
 import { useArchivoStore, useModalStore, useTrabStore } from '../../../hooks'
+
+const tipos_archivos = [
+  { value: 'DISTRIBUTIVO', text: 'DISTRIBUTIVO' },
+  { value: 'CORREOS', text: 'CORREOS ELECTRONICOS' },
+  { value: 'DIASVACACIONES', text: 'DIAS DE VACACIONES' },
+]
 
 export const Trabajadores = () => {
   const { setActiveTrab, mensaje, mensajesError } = useTrabStore();
@@ -10,10 +16,54 @@ export const Trabajadores = () => {
   const { openModal, nameModal } = useModalStore()
   const [vista, setVista] = useState('list')
 
+
+
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedFileType, setSelectedFileType] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleFileTypeSelect = (fileType) => {
+    setSelectedFileType(fileType);
+    handleMenuClose();
+
+    // Abre el navegador de archivos al seleccionar un tipo de archivo
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.click();
+
+    fileInput.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      setSelectedFile(file);
+
+      // Llama a la función de manejo con el archivo y el tipo de archivo seleccionado
+      handleFileAndTypeUpload(file, fileType);
+    });
+  };
+
+  const handleFileAndTypeUpload = (file, fileType) => {
+
+    if (file === 0) return;
+    startSavingArchivo(file, fileType);
+  };
+
+
+
+
+
   const onFileInputChange = async ({ target }) => {
-    if (target.files === 0) return;
-    const file = target.files[0]
-    startSavingArchivo(file)
+    console.log('asd')
+    // if (target.files === 0) return;
+    // const file = target.files[0]
+    // startSavingArchivo(file)
   }
 
   const handeleAddTrabajador = () => {
@@ -50,7 +100,7 @@ export const Trabajadores = () => {
         </Typography>
 
 
-        <Tooltip title="Carga multiple" color="secondary" >
+        {/* <Tooltip title="Carga multiple" color="secondary" >
           <IconButton >
             <label htmlFor="btnFile" >
               <UploadOutlined />
@@ -63,7 +113,34 @@ export const Trabajadores = () => {
           type="file"
           multiple
           onChange={onFileInputChange}
-        />
+        /> */}
+
+        <Tooltip title="Gargar archivos" color="secondary" >
+          <>
+            <IconButton
+              color="primary"
+              onClick={handleMenuOpen}
+            >
+              <CloudUpload />
+            </IconButton>
+
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+            >
+              <MenuItem onClick={() => handleFileTypeSelect("distributivo")}>
+                Distributivo
+              </MenuItem>
+              <MenuItem onClick={() => handleFileTypeSelect("correos")}>
+                Correos electrónicos
+              </MenuItem>
+              <MenuItem onClick={() => handleFileTypeSelect("vacaciones")}>
+                Dias de vacaciones
+              </MenuItem>
+
+            </Menu></>
+        </Tooltip>
 
         <Tooltip title="Agregar" color="secondary" >
           <IconButton

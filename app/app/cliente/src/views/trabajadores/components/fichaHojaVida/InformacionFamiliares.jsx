@@ -12,16 +12,15 @@ const formData = {
   apellidos: '',
   nombres: '',
   cedula: '',
-  fecha_nacimiento: '',
   cargo: '',
 }
-export const InformacionFamiliares = () => {
+export const InformacionFamiliares = ({ selectedTab, onFormSubmit }) => {
+  const [datosFamiliar, setDatosFamiliar] = useState([])
   const {
     tipo_relacion,
     apellidos,
     nombres,
     cedula,
-    fecha_nacimiento,
     cargo,
 
     onInputChange,
@@ -32,24 +31,23 @@ export const InformacionFamiliares = () => {
   } = useForm(formData)
 
   //Guardo los deatos de cada hijo en un arreglo
-  const [datosHijos, setDatosHijos] = useState([])
 
-  const handleAddHijo = () => {
-    setDatosHijos(prevDatosHijos => [...prevDatosHijos, formState]);
+  const handleAddFamiliar = () => {
+    setDatosFamiliar(prevDatosFamiliar => [...prevDatosFamiliar, formState]);
     onResetForm()
   };
 
-  const handleDeleteHijo = () => {
-    setDatosHijos(prevDatosHijos => {
-      const nuevosDatosHijos = [...prevDatosHijos];
-      nuevosDatosHijos.pop();
-      return nuevosDatosHijos;
+  const handleDeleteFamiliar = () => {
+    setDatosFamiliar(prevDatosFamiliar => {
+      const nuevosDatosFamiliar = [...prevDatosFamiliar];
+      nuevosDatosFamiliar.pop();
+      return nuevosDatosFamiliar;
     });
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onFormSubmit(datosHijos, selectedTab);
+    onFormSubmit(datosFamiliar, selectedTab);
   };
   return (
     <Box>
@@ -57,6 +55,42 @@ export const InformacionFamiliares = () => {
       <Grid container columnSpacing={{ xs: 2, sm: 2, md: 2 }}>
         <Grid item xs={12} sm={12} md={12}>
           <Grid item container columnSpacing={{ xs: 2, sm: 2, md: 2 }} >
+            <Grid item xs={12} sm={12} md={3} sx={{ mt: 1 }}>
+              <FormControl
+                fullWidth
+                size="small">
+                <InputLabel id="select-relacion">Tipo de relación</InputLabel>
+                <Select
+                  labelId="select-relacion"
+                  id="id-select-small"
+                  label="Tipo de relación"
+                  value={tipo_relacion || ''}
+                  onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'tipo_relacion' } })}
+                >
+                  {tipoRelacion.map(option => (
+                    <MenuItem key={option.value} value={option.value}> {option.text}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={12} sm={12} md={3} sx={{ mt: 1 }}>
+              <TextField
+                //error={ !== null}
+                //helperText={numero_identificacionValid}
+                sx={{ minWidth: 180 }}
+                size="small"
+                id='cedula'
+                autoComplete='off'
+                label='Cédula'
+                type='text'
+                placeholder='Ingrese la cedula del familiar'
+                fullWidth
+                name='cedula'
+                value={cedula || ''}
+                onChange={(e) => onInputChange({ target: { value: e.target.value.toUpperCase(), name: 'cedula' } })}
+              />
+            </Grid>
             <Grid item xs={12} sm={12} md={3} sx={{ mt: 1 }}>
               <TextField
                 //error={ !== null}
@@ -67,7 +101,7 @@ export const InformacionFamiliares = () => {
                 autoComplete='off'
                 label='Apellidos'
                 type='text'
-                placeholder='Ingrese los apellidos de su hijo'
+                placeholder='Ingrese los apellidos del familiar'
                 fullWidth
                 name='apellidos'
                 value={apellidos || ''}
@@ -84,7 +118,7 @@ export const InformacionFamiliares = () => {
                 autoComplete='off'
                 label='Nombres'
                 type='text'
-                placeholder='Ingrese los nombres de su hijo'
+                placeholder='Ingrese los nombres del familiar'
                 fullWidth
                 name='nombres'
                 value={nombres || ''}
@@ -97,53 +131,18 @@ export const InformacionFamiliares = () => {
                 //helperText={numero_identificacionValid}
                 sx={{ minWidth: 180 }}
                 size="small"
-                id='cedula'
-                autoComplete='off'
-                label='Cédula'
-                type='text'
-                placeholder='Ingrese la cedula de residencia'
-                fullWidth
-                name='cedula'
-                value={cedula || ''}
-                onChange={(e) => onInputChange({ target: { value: e.target.value.toUpperCase(), name: 'cedula' } })}
-              />
-            </Grid>
-
-            <Grid item xs={12} sm={12} md={3} sx={{ mt: 1 }}>
-              <FormControl
-                fullWidth
-                size="small">
-                <InputLabel id="select-nivel">Nivel instrucción</InputLabel>
-                <Select
-                  labelId="select-nivel"
-                  id="id-select-small"
-                  label="Nivel instrucción"
-                  value={tipo_relacion || ''}
-                  onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'tipo_relacion' } })}
-                >
-                  {tipoRelacion.map(option => (
-                    <MenuItem key={option.value} value={option.value}> {option.text}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12} sm={12} md={3} sx={{ mt: 1 }}>
-              <TextField
-                //error={ !== null}
-                //helperText={numero_identificacionValid}
-                sx={{ minWidth: 180 }}
-                size="small"
                 id='cargo'
                 autoComplete='off'
-                label='Ocupación'
+                label='Cargo en institución'
                 type='text'
-                placeholder='Ingrese la ocupación de su hijo'
+                placeholder='Ingrese el cargo del familiar en la institución'
                 fullWidth
                 name='cargo'
                 value={cargo || ''}
                 onChange={(e) => onInputChange({ target: { value: e.target.value.toUpperCase(), name: 'cargo' } })}
               />
             </Grid>
+            
             <Grid item xs={12} sm={12} md={4} sx={{ mt: 1 }}>
               <Stack
                 direction='row'
@@ -154,7 +153,7 @@ export const InformacionFamiliares = () => {
                   disabled={formState.cedula === ''}
                   variant="contained"
                   endIcon={<AddOutlined />}
-                  onClick={handleAddHijo}
+                  onClick={handleAddFamiliar}
                 >
                   Agregar
                 </Button>
@@ -162,7 +161,7 @@ export const InformacionFamiliares = () => {
                   color='error'
                   variant='outlined'
                   endIcon={<DeleteOutlineOutlined />}
-                  onClick={handleDeleteHijo}
+                  onClick={handleDeleteFamiliar}
                 >
                   Eliminar
                 </Button>
@@ -179,22 +178,20 @@ export const InformacionFamiliares = () => {
                     <TableCell align="center">Cédula</TableCell>
                     <TableCell align="center">Apellidos </TableCell>
                     <TableCell align="center">Nombres</TableCell>
-                    <TableCell align="center">Fecha de nacimiento</TableCell>
                     <TableCell align="center">Nivel de instrucción</TableCell>
-                    <TableCell align="center">Ocupación</TableCell>
+                    <TableCell align="center">Cargo en institución</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {datosHijos.map((hijo, index) => (
+                  {datosFamiliar.map((familiar, index) => (
                     <TableRow key={index}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                      <TableCell align="center">{hijo.cedula}</TableCell>
-                      <TableCell align="center">{hijo.apellidos}</TableCell>
-                      <TableCell align="center">{hijo.nombres}</TableCell>
-                      <TableCell align="center">{hijo.fecha_nacimiento}</TableCell>
-                      <TableCell align="center">{hijo.tipo_relacion}</TableCell>
-                      <TableCell align="center">{hijo.cargo}</TableCell>
+                      <TableCell align="center">{familiar.cedula}</TableCell>
+                      <TableCell align="center">{familiar.tipo_relacion}</TableCell>
+                      <TableCell align="center">{familiar.apellidos}</TableCell>
+                      <TableCell align="center">{familiar.nombres}</TableCell>
+                      <TableCell align="center">{familiar.cargo}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

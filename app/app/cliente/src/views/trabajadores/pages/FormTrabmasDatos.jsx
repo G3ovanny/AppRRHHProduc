@@ -1,5 +1,5 @@
 import { Box, Button, Container, CssBaseline, Divider, Grid, Stack, TextField, Toolbar, Typography } from '@mui/material'
-import { useCedulaStore, useForm, useFormularioStore } from '../../../hooks'
+import { useCedulaStore, useDatosTrabStore, useForm, useFormularioStore } from '../../../hooks'
 import { onUnlinkedingCed } from '../../../store/auth/cedulaSlice'
 import { TabPanel } from '../components'
 import { StepPanel } from '../components/steps'
@@ -10,10 +10,12 @@ import { LogoutOutlined, NavigateBeforeOutlined, NavigateNextOutlined, SaveOutli
 export const FormTrabmasDatos = () => {
     const servidor = localStorage.getItem('numero_identificacion')
     const [selectedTab, setSelectedTab] = useState(0);
-    const { startSavingDatos } = useFormularioStore();
+    //const { startSavingDatos } = useFormularioStore();
     const { onunlinkeding } = useCedulaStore();
+    const { startSavingDatosTrab } = useDatosTrabStore()
+    //const { startKeepingDates } = useFormularioStore()
 
-    const [formularios, setFormularios] = useState()
+    const [formularios, setFormularios] = useState([])
 
     const handleCancelSend = () => {
         onunlinkeding()
@@ -31,16 +33,15 @@ export const FormTrabmasDatos = () => {
         }
     };
 
-    const handleFormSubmit = (formData) => {
-        setFormularios((prevFormularios) => {
-            const newFormularios = [prevFormularios];
-            newFormularios[selectedTab] = formData;
-            return newFormularios;
-        });
+    const handleFormSubmit = (formData ) => {
+        formularios[selectedTab] = formData
+        //startKeepingDates(formularios)
     };
+
     const enviarTodosLosDatos = () => {
+        startSavingDatosTrab(formularios)
         // Aquí puedes acceder a todos los datos en 'formularios' y enviarlos juntos.
-        console.log("Todos los datos:", formularios);
+        //console.log("Todos los datos:", formularios);
     };
 
     return (
@@ -56,7 +57,8 @@ export const FormTrabmasDatos = () => {
                     <TabPanel
                         key={selectedTab}
                         selectedTab={selectedTab}
-                        onFormSubmit={handleFormSubmit} />
+                        onFormSubmit={handleFormSubmit}
+                        />
                     <Stack
                         direction='row'
                         spacing={2}
@@ -71,6 +73,7 @@ export const FormTrabmasDatos = () => {
                         </Button>
 
                         <Button
+                            disabled={selectedTab <= 0}
                             variant="contained"
                             startIcon={<NavigateBeforeOutlined />}
                             onClick={handlePreviousTab} // Botón para retroceder a la pestaña anterior
@@ -78,6 +81,7 @@ export const FormTrabmasDatos = () => {
                             Anterior
                         </Button>
                         <Button
+                            disabled={!(selectedTab < 16)}
                             variant="contained"
                             endIcon={<NavigateNextOutlined />}
                             onClick={handleNextTab} // Botón para avanzar a la siguiente pestaña
@@ -85,6 +89,7 @@ export const FormTrabmasDatos = () => {
                             Siguiente
                         </Button>
                         <Button
+                            disabled={!(selectedTab == 16)}
                             variant="contained"
                             endIcon={<SaveOutlined />}
                             onClick={enviarTodosLosDatos} // Botón para avanzar a la siguiente pestaña

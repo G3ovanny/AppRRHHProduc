@@ -58,9 +58,9 @@ export const InformacionConyuge = ({ selectedTab, onFormSubmit }) => {
                 size="small"
                 id='cedula'
                 autoComplete='off'
-                label='cedula'
+                label='Cédula'
                 type='text'
-                placeholder='Ingrese la cedula de residencia'
+                placeholder='Ingrese la cédula'
                 fullWidth
                 name='cedula'
                 value={cedula || ''}
@@ -75,9 +75,9 @@ export const InformacionConyuge = ({ selectedTab, onFormSubmit }) => {
                 size="small"
                 id='apellidos'
                 autoComplete='off'
-                label='apellidos'
+                label='Apellidos'
                 type='text'
-                placeholder='Ingrese la apellidos de residencia'
+                placeholder='Ingrese los apellidos'
                 fullWidth
                 name='apellidos'
                 value={apellidos || ''}
@@ -92,9 +92,9 @@ export const InformacionConyuge = ({ selectedTab, onFormSubmit }) => {
                 size="small"
                 id='nombres'
                 autoComplete='off'
-                label='nombres'
+                label='Nombres'
                 type='text'
-                placeholder='Ingrese la nombres de residencia'
+                placeholder='Ingrese los nombres'
                 fullWidth
                 name='nombres'
                 value={nombres || ''}
@@ -105,7 +105,7 @@ export const InformacionConyuge = ({ selectedTab, onFormSubmit }) => {
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   id='fecha_nacimiento'
-                  label="Fecha de nacimiento de su hijo"
+                  label="Fecha de nacimiento"
                   autoComplete='off'
                   slotProps={{ textField: { size: 'small' } }}
                   sx={{ minWidth: 150 }} size="small"
@@ -122,9 +122,9 @@ export const InformacionConyuge = ({ selectedTab, onFormSubmit }) => {
                 size="small"
                 id='edad'
                 autoComplete='off'
-                label='Calle principal'
+                label='Edad'
                 type='text'
-                placeholder='Ingrese la calle principal de residencia'
+                placeholder='Ingrese la edad'
                 fullWidth
                 name='edad'
                 value={edad || ''}
@@ -139,9 +139,9 @@ export const InformacionConyuge = ({ selectedTab, onFormSubmit }) => {
                 size="small"
                 id='telefono_celular'
                 autoComplete='off'
-                label='Número de calle'
+                label='Número de telefono'
                 type='text'
-                placeholder='Ingrese el número de calle'
+                placeholder='Ingrese el número de teléfono'
                 fullWidth
                 name='telefono_celular'
                 value={telefono_celular || ''}
@@ -156,9 +156,9 @@ export const InformacionConyuge = ({ selectedTab, onFormSubmit }) => {
                 size="small"
                 id='nivel_instruccion'
                 autoComplete='off'
-                label='Calle secundaria'
+                label='Nivel de instrucción'
                 type='text'
-                placeholder='Ingrese la calle secundaria'
+                placeholder='Ingrese el nivel instrucción'
                 fullWidth
                 name='nivel_instruccion'
                 value={nivel_instruccion || ''}
@@ -173,9 +173,9 @@ export const InformacionConyuge = ({ selectedTab, onFormSubmit }) => {
                 size="small"
                 id='correo_personal'
                 autoComplete='off'
-                label='Telefono domicilio'
+                label='Correo personal'
                 type='text'
-                placeholder='Ingrese su teléfono de domicilio'
+                placeholder='Ingrese el correo personal'
                 fullWidth
                 name='correo_personal'
                 value={correo_personal || ''}
@@ -190,9 +190,9 @@ export const InformacionConyuge = ({ selectedTab, onFormSubmit }) => {
                 size="small"
                 id='ocupacion'
                 autoComplete='off'
-                label='ocupacion'
+                label='Ocupación'
                 type='text'
-                placeholder='Ingrese el ocupacion de residencia'
+                placeholder='Ingrese la ocupación'
                 fullWidth
                 name='ocupacion'
                 value={ocupacion || ''}
@@ -207,9 +207,9 @@ export const InformacionConyuge = ({ selectedTab, onFormSubmit }) => {
                 size="small"
                 id='lugar_trabajo'
                 autoComplete='off'
-                label='Número de departamento'
+                label='El lugar de trabajo'
                 type='text'
-                placeholder='Ingrese el número de su departamento'
+                placeholder='Ingrese el lugar de trabajo'
                 fullWidth
                 name='lugar_trabajo'
                 value={lugar_trabajo || ''}
@@ -224,9 +224,9 @@ export const InformacionConyuge = ({ selectedTab, onFormSubmit }) => {
                 size="small"
                 id='telefono_trabajo'
                 autoComplete='off'
-                label='Conjunto residencial'
+                label='Teléfono de trabajo'
                 type='text'
-                placeholder='Ingrese el conjunto residencial'
+                placeholder='Ingrese el teléfono de trabajo'
                 fullWidth
                 name='telefono_trabajo'
                 value={telefono_trabajo || ''}

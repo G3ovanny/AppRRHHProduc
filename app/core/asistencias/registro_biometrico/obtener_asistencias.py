@@ -3,10 +3,9 @@ import pandas as pd
 from .analisis_edificios import *
 
 def get_attendance_biometrico(nombre_biometrico ,conn_status, zk):
-    print('nombre_biometrico', nombre_biometrico)
     try:
         if conn_status:
-            print('Conectando al biometrico del: ', nombre_biometrico)
+            print('Iniciando conexion al', nombre_biometrico)
             # obtengo la fecha actual
             today = datetime.now().date()
             fecha_dia_anterior = today - timedelta(days=1)
@@ -42,8 +41,7 @@ def get_attendance_biometrico(nombre_biometrico ,conn_status, zk):
             # uso la funcion merger de pandas para combinar los DataFrames en base a la columna 'id_usuario'
             merged_df = df_registros.merge(
                 df_usuarios, on='id_usuario', how='left')
-
-            print('Nombre del biometrico', nombre_biometrico)
+            
             def switch_case(nombre_biometrico):
                 switch_dict = {
                     'EDIFICIO_ADMINISTRATIVO': analisis_admin,
@@ -55,8 +53,9 @@ def get_attendance_biometrico(nombre_biometrico ,conn_status, zk):
                 return switch_dict.get(nombre_biometrico)
             
             funcion = switch_case(nombre_biometrico)
-            # parametro = zk
-            funcion(merged_df)
+            print(funcion)
+            # # parametro = zk
+            # funcion(merged_df)
 
         else:
             print('Fallo la conexion al biometrico del', nombre_biometrico)

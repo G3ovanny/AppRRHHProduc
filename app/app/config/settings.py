@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     # aplicaciones terceras
     'corsheaders',
     'rest_framework',
+    #'django_celery_beat',
     # 'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'simple_history',
+    'django_filters',
     # aplicaciones locales
     'core.base',
     'core.distributivo',
@@ -57,13 +59,15 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
-    'DEFAULT_PERMISSION_CLASSES': (
+    'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    )
+    ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -71,7 +75,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'app.config.urls'
@@ -220,3 +223,4 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'
 EMAIL_HOST_PASSWORD = 'Geovanny1993'
 EMAIL_USE_TLS = True
+

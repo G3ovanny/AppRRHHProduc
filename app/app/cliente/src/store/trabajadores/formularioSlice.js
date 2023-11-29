@@ -1,19 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
-import React from 'react'
 
 export const formularioSlice = createSlice({
     name: 'formulario',
     initialState: {
         setDatos: true,
-        datos: {},
+        formularios: [],
         messageDatos: null
     },
     reducers: {
-        onSetDatos: (state, { payload }) => {
-            state.setDatos = payload;
-            console.log(payload)
+        onKeepDates: (state, { payload }) => {
+            state.formularios = payload;
         }
     }
 })
 
-export const {onSetDatos} = formularioSlice.actions
+export const {onKeepDates} = formularioSlice.actions

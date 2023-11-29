@@ -11,6 +11,7 @@ export const Table = ({ title }) => {
   const { listAsistencia, startLoadingAsistencia, setActiveAsistencia, activeAsistencia, isLoadingAsistencia } = useAsistenciaStore();
 
   const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
+
   const handleBuscar = (valorBuscar, columna, fechaDesde, fechaHasta) => {
     const resultadosFiltrados = listAsistencia.filter((asistencia) => {
       switch (columna) {
@@ -46,6 +47,10 @@ export const Table = ({ title }) => {
     setResultadoBusqueda(resultadosFiltrados);
   }
 
+  const handleBuscarBase = (valorBuscar, columna, fechaDesde, fechaHasta) => {
+    console.log('desde base ',valorBuscar, columna, fechaDesde, fechaHasta)
+  }
+
   useEffect(() => {
     setResultadoBusqueda()
   }, [])
@@ -65,7 +70,7 @@ export const Table = ({ title }) => {
       tableCells={<TableCells list={resultadoBusqueda} page={page} rowsPerPage={rowsPerPage} />}
       indexCells={indexCells}
       tableButtons={<TableButtons />}
-      filters={<TableFilters onBuscar={handleBuscar} />}
+      filters={<TableFilters onBuscar={handleBuscar} onBuscarBase={handleBuscarBase} />}
       initialState={{
         pagination: {
           paginationModel: { page, pageSize },

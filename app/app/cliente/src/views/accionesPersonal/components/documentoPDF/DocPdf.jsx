@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         width: "100%",
         padding: "70px 55px",
-        //backgroundColor: "blue"
     },
     header: {
         display: "flex",
@@ -50,25 +49,25 @@ const styles = StyleSheet.create({
         borderTop: "1px solid #000000",
         border: "1px solid #000000",
         background: "#FFFFFF",
-        width: "100%",
-        height: "100%",
+        minwidth: "100%",
+        minheight: "100%",
         flexDirection: "column",
-        display: "flex",
     },
     rect_uno: {
         paddingLeft: "15px",
         paddingRight: "130px",
         paddingBottom: "10px",
-        paddingTop: "15px",
+        paddingTop: "10px",
         borderTop: "1px solid #000000",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
+
     },
     rect_dos: {
         paddingLeft: "15px",
         paddingRight: "300px",
-        paddingBottom: "15px",
+        paddingBottom: "10px",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
@@ -77,7 +76,7 @@ const styles = StyleSheet.create({
         paddingLeft: "15px",
         paddingRight: "15px",
         paddingBottom: "10px",
-        paddingTop: "15px",
+        paddingTop: "10px",
         flexDirection: "column",
         display: "flex",
         width: "100%",
@@ -88,14 +87,15 @@ const styles = StyleSheet.create({
     },
     explicacion: {
         borderBottom: "1px solid #000000",
-        paddingLeft: "10px",
-        paddingRight: "10px",
+        paddingLeft: "15px",
+        paddingRight: "15px",
         paddingBottom: "10px",
+        paddingTop: "10px",
         flexDirection: "column",
         display: "flex",
         width: "100%",
-        minHeight: "100px",
-        justifyContent: "center"
+        minHeight: "80px",
+        justifyContent: "center",
     },
     text: {
         fontFamily: 'Arial',
@@ -418,16 +418,20 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                                 <Typography style={styles.text_check} key={index}>
                                                     {col.nombre}
                                                     {col.nombre === 'OTRO' ?
-                                                        <Typography style={styles.text_check} >
-                                                            {data.otro_tipo}
-                                                        </Typography>
+                                                        <input type="checkbox" defaultChecked={check} />
                                                         :
                                                         <input type="checkbox" defaultChecked={check} />
+
                                                     }
                                                 </Typography>
                                             )
                                         }
                                     })}
+                                    <Typography
+                                        style={styles.text_check}
+                                    >
+                                        {data.otro_tipo}
+                                    </Typography>
                                 </Box>
                             </Box>
                             <Box style={styles.rect_cuatro}>
@@ -593,54 +597,20 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                     <Box style={styles.explicacion}>
                                         <br />
                                         <Typography style={styles.text}>
-                                            CAUCION REGISTRADA CON No. __________________________________________________
+                                            CAUCION REGISTRADA CON No. ____________________________________________________________________________
                                         </Typography>
                                         <br />
                                         <Typography style={styles.text}>
-                                            Fecha: ____________________
+                                            Fecha: ________________________________________
                                         </Typography>
                                         <br />
                                         <Typography style={styles.text}>
-                                            _______________________________________________________________________________________
-                                        </Typography>
-                                        <br />
-                                        <br />
-                                        <Typography style={styles.text}>
-                                            _______________________________________________________________________________________
-                                        </Typography>
-                                        <br />
-                                    </Box>
-                                </Box>
-                            </Box>
-                            <Box style={styles.rect_cuatro}>
-                                <Box style={styles.rect_pequeño}>
-                                    <Box style={styles.explicacion}>
-                                        <br />
-                                        <br />
-                                        <br />
-                                        <Typography style={styles.text}>
-                                            LA PERSONA REEMPLAZA A: ______________________________________
-                                        </Typography>
-                                        <br />
-                                        <Typography style={styles.text}>
-                                            EN EL PUESTO DE: ________________
-                                        </Typography>
-                                        <br />
-                                        <Typography style={styles.text}>
-                                            QUIEN CESO EN FUNCIONES POR: _______________________________________________________________________
+                                            _________________________________________________________________________________________________________
                                         </Typography>
                                         <br />
                                         <br />
                                         <Typography style={styles.text}>
-                                            ACCION DE PERSONAL REGISTRADA CON No. ____________________________
-                                        </Typography>
-                                        <br />
-                                        <Typography style={styles.text}>
-                                            No. ____________________________
-                                        </Typography>
-                                        <br />
-                                        <Typography style={styles.text}>
-                                            FECHA ____________________________
+                                            _________________________________________________________________________________________________________
                                         </Typography>
                                         <br />
                                     </Box>
@@ -653,7 +623,41 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                         <br />
                                         <br />
                                         <Typography style={styles.text}>
-                                            YO {data.apellido_paterno} {data.apellido_materno} {data.nombres}
+                                            LA PERSONA REEMPLAZA A: _______________________________________________________________________________
+                                        </Typography>
+                                        <br />
+                                        <Typography style={styles.text}>
+                                            EN EL PUESTO DE: _______________________________________________________________________________________
+                                        </Typography>
+                                        <br />
+                                        <Typography style={styles.text}>
+                                            QUIEN CESO EN FUNCIONES POR: __________________________________________________________________________
+                                        </Typography>
+                                        <br />
+                                        <br />
+                                        <Typography style={styles.text}>
+                                            ACCION DE PERSONAL REGISTRADA CON No. ________________________________________________________________
+                                        </Typography>
+                                        <br />
+                                        <Typography style={styles.text}>
+                                            No. ___________________________________________
+                                        </Typography>
+                                        <br />
+                                        <Typography style={styles.text}>
+                                            FECHA ________________________________________
+                                        </Typography>
+                                        <br />
+                                    </Box>
+                                </Box>
+                            </Box>
+                            <Box style={styles.rect_cuatro}>
+                                <Box style={styles.rect_pequeño}>
+                                    <Box style={styles.explicacion}>
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <Typography style={styles.text}>
+                                            YO;  {data.apellido_paterno} {data.apellido_materno} {data.nombres}
                                         </Typography>
                                         <br />
                                         <br />

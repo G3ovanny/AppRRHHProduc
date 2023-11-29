@@ -7,5 +7,13 @@ import { asistencias } from './asistencias'
 import { usuarios } from './usuarios'
 
 export const menuItems = {
-    items: [dashboard, nomina, permisos, vacaciones, accionesPersonal, asistencias, usuarios]
+    items: [
+        dashboard, 
+        nomina, 
+        permisos, 
+        vacaciones, 
+        accionesPersonal, 
+        //asistencias, 
+        usuarios,
+    ]
 }

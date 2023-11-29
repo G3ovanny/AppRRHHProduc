@@ -7,7 +7,6 @@ import { TableFilters } from './TableFilters';
 export const TableCells = ({ list, page, rowsPerPage }) => {
     const { listPermiso, activePermiso, setActivePermiso } = usePermisoStore()
 
-
     const onSelected = (event, permiso) => {
 
         const selectedIndex = activePermiso.indexOf(permiso)
@@ -37,7 +36,6 @@ export const TableCells = ({ list, page, rowsPerPage }) => {
     } else {
         lista = list
     }
-
 
     return (
         <>

@@ -104,6 +104,45 @@ class ArchivoTrabajadores(BaseModel):
         db_table = 'Archivo_trabajadores'
         ordering = ['id']
 
+class CorreoTrabajadores(BaseModel):
+    doc= models.FileField(upload_to='./static/correosTrabajadores')
+    historical = HistoricalRecords()
+
+    @property
+    def _history_user(self):
+        return self.changed_by
+
+    @_history_user.setter
+    def _history_user(self, value):
+        self.changed_by = value
+
+    class Meta:
+        verbose_name = "Correo Trabajadores"
+        verbose_name_plural = "Correos Trabajadores"
+        db_table = 'Correo_trabajadores'
+        ordering = ['id']
+
+
+class VacacionesTrabajadores(BaseModel):
+    doc= models.FileField(upload_to='./static/vacacionesTrabajadores')
+    historical = HistoricalRecords()
+
+    @property
+    def _history_user(self):
+        return self.changed_by
+
+    @_history_user.setter
+    def _history_user(self, value):
+        self.changed_by = value
+
+    class Meta:
+        verbose_name = "Vacaciones Trabajadore"
+        verbose_name_plural = "Vacaciones Trabajadores"
+        db_table = 'Vacaciones_trabajadores'
+        ordering = ['id']
+
+
+
 ################################################################ datos personales de los servidores
 class DatosPersonalesTrabajadores(BaseModel):
     apellido_paterno = models.CharField('apellido_paterno', max_length=255, blank= True, null=True)

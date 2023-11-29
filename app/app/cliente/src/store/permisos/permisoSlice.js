@@ -19,10 +19,10 @@ export const permisoSlice = createSlice({
       }
     },
     onAddNewPermiso: (state, { payload }) => {
-      //state.listPermiso.push(payload);
       state.activePermiso = [];
-      state.inicialPermiso = []
+      state.inicialPermiso = [];
       state.mensajePermiso = 'Los datos se han guardado correctamente';
+      //state.listPermiso.push(payload);
     },
     onUpdatePermiso: (state, { payload }) => {
       state.listPermiso = state.listPermiso.map(permiso => {
@@ -47,6 +47,7 @@ export const permisoSlice = createSlice({
     },
     onLoadPermiso: (state, { payload }) => {
       state.isLoadingPermiso = false;
+      //state.listPermiso = payload
       payload.forEach(permiso => {
         const exist = state.listPermiso.some(dbpermiso => dbpermiso.id === permiso.id);
         if (!exist) {
@@ -54,7 +55,7 @@ export const permisoSlice = createSlice({
         }
       });
     },
-    
+
     clearMessagePermiso: (state) => {
       state.mensajePermiso = null;
     }

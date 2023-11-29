@@ -5,6 +5,8 @@ import { useForm } from '../../../../hooks'
 import dayjs from 'dayjs'
 import { discapacidades, enfermedades, etnias, generos, nacionalidadesIndigenas, pasaportes, tipoSangre, tiposLibreta } from './selects'
 import { SaveAltOutlined } from '@mui/icons-material'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 
 const formData = {
@@ -36,9 +38,34 @@ const formData = {
     nacionalidad_indigena: '',
 }
 
-export const InformacionPersonal = ({selectedTab, onFormSubmit }) => {
+export const InformacionPersonal = ({ selectedTab, onFormSubmit }) => {
     const servidor = localStorage.getItem('numero_identificacion')
+    
+    const formValidations = {
+        apellido_paterno: [
+            (value) => !!value,
+            'El campo es requerido'
+        ],
+        apellido_materno: [
+            (value) => !!value,
+            'El campo es requerido'
+        ],
+        primer_nombre: [
+            (value) => !!value,
+            'El campo es requerido'
+        ],
+        segundo_nombre: [
+            (value) => !!value,
+            'El campo es requerido'
+        ],
+    }
+
     let {
+        apellido_paternoValid,
+        apellido_maternoValid,
+        primer_nombreValid,
+        segundo_nombreValid,
+
         apellido_paterno,
         apellido_materno,
         primer_nombre,
@@ -72,7 +99,7 @@ export const InformacionPersonal = ({selectedTab, onFormSubmit }) => {
         onResetForm,
         setFormState,
 
-    } = useForm(formData);
+    } = useForm(formData, formValidations);
 
     const completarDatosServidor = (servidor) => {
         if (servidor) {
@@ -81,10 +108,16 @@ export const InformacionPersonal = ({selectedTab, onFormSubmit }) => {
         }
     }
     completarDatosServidor(servidor)
+
     const handleSubmit = (event) => {
         event.preventDefault();
         onFormSubmit(formState, selectedTab);
+        console.log('props')
     };
+
+    useEffect(() => {
+        //setFormState({...formState})
+    }, [])
 
     return (
         <Box>
@@ -94,8 +127,8 @@ export const InformacionPersonal = ({selectedTab, onFormSubmit }) => {
                     <Grid item container columnSpacing={{ xs: 2, sm: 2, md: 2 }} >
                         <Grid item xs={12} sm={12} md={3} sx={{ mt: 1 }}>
                             <TextField
-                                //error={ !== null}
-                                //helperText={numero_identificacionValid}
+                                error={apellido_paternoValid !== null}
+                                helperText={apellido_paternoValid}
                                 sx={{ minWidth: 180 }}
                                 size="small"
                                 id='apellido_paterno'
@@ -111,8 +144,8 @@ export const InformacionPersonal = ({selectedTab, onFormSubmit }) => {
                         </Grid>
                         <Grid item xs={12} sm={12} md={3} sx={{ mt: 1 }}>
                             <TextField
-                                //error={ !== null}
-                                //helperText={numero_identificacionValid}
+                                error={apellido_maternoValid !== null}
+                                helperText={apellido_maternoValid}
                                 sx={{ minWidth: 180 }}
                                 size="small"
                                 id='apellido_materno'
@@ -128,8 +161,8 @@ export const InformacionPersonal = ({selectedTab, onFormSubmit }) => {
                         </Grid>
                         <Grid item xs={12} sm={12} md={3} sx={{ mt: 1 }}>
                             <TextField
-                                //error={ !== null}
-                                //helperText={numero_identificacionValid}
+                                error={primer_nombreValid !== null}
+                                helperText={primer_nombreValid}
                                 sx={{ minWidth: 180 }}
                                 size="small"
                                 id='primer_nombre'
@@ -145,8 +178,8 @@ export const InformacionPersonal = ({selectedTab, onFormSubmit }) => {
                         </Grid>
                         <Grid item xs={12} sm={12} md={3} sx={{ mt: 1 }}>
                             <TextField
-                                //error={ !== null}
-                                //helperText={numero_identificacionValid}
+                                error={segundo_nombreValid !== null}
+                                helperText={segundo_nombreValid}
                                 sx={{ minWidth: 180 }}
                                 size="small"
                                 id='segundo_nombre'
@@ -557,12 +590,13 @@ export const InformacionPersonal = ({selectedTab, onFormSubmit }) => {
                     </Grid>
                 </Grid>
             </Grid>
-            
+
             <Stack
                 direction='row'
                 spacing={2}
                 sx={{ mt: 2, mb: 2 }}>
                 <Button
+                    disabled={!isFormValid}
                     variant="contained"
                     endIcon={<SaveAltOutlined />}
                     onClick={handleSubmit}

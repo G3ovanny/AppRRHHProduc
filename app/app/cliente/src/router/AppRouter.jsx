@@ -75,7 +75,7 @@ export const AppRouter = () => {
                                     {/* NOMINA */}
                                     <Route path='/distributivo' element={<Parametros />} />
                                     <Route path='/servidores' element={<Trabajadores />} />
-                                    <Route path='/datos_servidores' element={<DatosPersonales />} />
+                                    {/* <Route path='/datos_servidores' element={<DatosPersonales />} /> */}
                                     {/* PERMISOS */}
                                     <Route path='/permisos' element={<Permisos />} />
                                     <Route path='/motivo' element={<MotivoPermisos />} />

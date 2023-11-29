@@ -112,6 +112,7 @@ class UsuarioLast_logingSerializer(serializers.ModelSerializer):
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     pass
+
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario

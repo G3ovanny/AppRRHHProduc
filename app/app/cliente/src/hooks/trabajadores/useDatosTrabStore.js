@@ -8,19 +8,28 @@ export const useDatosTrabStore = () => {
     const dispatch = useDispatch()
 
     const { activeDatos, inicialDatos, datosTrab, isLoadingDatos } = useSelector(state => state.datosTrabajadores)
-    console.log(isLoadingDatos)
+    
     const setActiveDatosTrab = (datosTrab) => {
         dispatch(onSetActiveDatos(datosTrab))
     }
 
     const startSavingDatosTrab = async (datosTrab) => {
-        if (datosTrab.id) {
-            await rhApi.put(`/trabajadores/datos_trabajador/${datosTrab.id}/`, datosTrab)
-            dispatch(onUpdateDatos({ ...datosTrab }))
-        } else {
-            await rhApi.post('/trabajadores/datos_trabajador/', datosTrab);
-            dispatch(onAddNewDatos({ ...datosTrab }))
+        console.log(datosTrab)
+        let url;
+        for (let i = 0; i < datosTrab.length; i++) {
+            const element = datosTrab[i];
+            console.log(element)
+            if (element.id) {
+                url = `/trabajadores/datos_trabajador/${element.id}/`
+                await rhApi.put(url, element)
+                dispatch(onUpdateDatos({ ...element }))
+            } else {
+                url = '/trabajadores/datos_trabajador/'
+                await rhApi.post(url, element);
+                dispatch(onAddNewDatos({ ...element }))
+            }
         }
+
     }
 
     const startSavingListDatosTrab = async (datosTrab = []) => {

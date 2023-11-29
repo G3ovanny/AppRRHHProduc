@@ -28,6 +28,7 @@ export const InformacionBancaria = ({ onFormSubmit }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         onFormSubmit(formState);
+        console.log(formState)
     };
     return (
         <Box>

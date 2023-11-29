@@ -95,7 +95,7 @@ export const PermisoModal = ({ titleModal }) => {
   } = useForm(formData, formValidations);
 
   const onSubmit = async (event) => {
-    event.preventDefault();
+    //event.preventDefault();
     if (isFormValid) {
       startSavingPermiso(formState)
       //console.log(formState)
@@ -105,12 +105,12 @@ export const PermisoModal = ({ titleModal }) => {
       setErrorMessage('Error en el formulario')
     }
   }
+
+
   const handleCancel = () => {
     closeModal()
     onResetForm()
   }
-
-
   setTimeout(() => {
     setErrorMessage('');
   }, 3000);
@@ -206,7 +206,6 @@ export const PermisoModal = ({ titleModal }) => {
         <form onSubmit={onSubmit}>
           <Grid item
             xs={12}
-            //display= {true}
             display={!!errorMessage ? '' : 'none'}
           >
             <Alert severity='error' >{errorMessage}</Alert>
@@ -216,7 +215,6 @@ export const PermisoModal = ({ titleModal }) => {
             <Grid item container columnSpacing={{ xs: 2, sm: 2, md: 2 }}>
               <Grid item xs sx={{ mt: 2 }}>
                 <Autocomplete
-                  error={id_trabajadorValid !== null}
                   size='small'
                   inputValue={inputValue || ''}
                   onInputChange={(event, newInputValue) => { setInputValue(newInputValue); }}
@@ -236,7 +234,6 @@ export const PermisoModal = ({ titleModal }) => {
                 <TextField sx={{ minWidth: 180 }} size="small"
                   id="outlined-read-only-input"
                   label="Cédula"
-                  defaultValue={trabajador.numero_identificacion}
                   readOnly
                   fullWidth
                   value={trabajador.numero_identificacion || ''}
@@ -247,7 +244,6 @@ export const PermisoModal = ({ titleModal }) => {
                 <TextField sx={{ minWidth: 180 }} size="small"
                   id="outlined-read-only-input"
                   label="Nombres"
-                  defaultValue={trabajador.nombres}
                   readOnly
                   fullWidth
                   value={trabajador.nombres || ''}
@@ -258,7 +254,6 @@ export const PermisoModal = ({ titleModal }) => {
                 <TextField sx={{ minWidth: 180 }} size="small"
                   id="outlined-read-only-input"
                   label="Dias de vacaciones"
-                  defaultValue={trabajador.dias_vacaciones}
                   readOnly
                   fullWidth
                   value={trabajador.dias_vacaciones || ''}
@@ -271,7 +266,6 @@ export const PermisoModal = ({ titleModal }) => {
               <Grid item xs sx={{ mt: 2 }}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DateTimePicker
-                    errors={fecha_hora_salidaValid !== null}
                     id='fecha_hora_salida'
                     label="Fecha y hora de salida"
                     slotProps={{ textField: { size: 'small' } }}
@@ -298,7 +292,6 @@ export const PermisoModal = ({ titleModal }) => {
                 <TextField sx={{ minWidth: 180 }} size="small"
                   id="outlined-read-only-input"
                   label="Tiempo total a tomar"
-                  defaultValue={tiempoResta}
                   readOnly
                   fullWidth
                   value={tiempoResta || ''}
@@ -312,7 +305,6 @@ export const PermisoModal = ({ titleModal }) => {
                 >
                   <InputLabel id="demo-simple-select-label">Motivo del permiso</InputLabel>
                   <Select
-                    error={id_motivoValid !== null}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Nivel ocupacional"
@@ -334,7 +326,6 @@ export const PermisoModal = ({ titleModal }) => {
                       <Checkbox
                         checked={certificado_medico || false}
                         onChange={e => onInputChange({ target: { value: e.target.checked, name: 'certificado_medico' } })}
-
                       />
                     }
                     label="Certificado médico" />

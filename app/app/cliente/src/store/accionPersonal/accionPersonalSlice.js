@@ -48,6 +48,7 @@ export const accionPersonalSlice = createSlice({
         },
         onLoadAccion: (state, { payload }) => {
             state.isLoadingAccion = false;
+            //state.listAccion = payload
             payload.forEach(accionPersonal => {
                 const exist = state.listAccion.some(dbaccionPersonal => dbaccionPersonal.id === accionPersonal.id);
                 if (!exist) {
