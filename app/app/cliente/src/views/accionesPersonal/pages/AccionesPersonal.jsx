@@ -13,7 +13,6 @@ export const AccionesPersonal = () => {
     const onFileInputChange = async ({ target }) => {
         if (target.files === 0) return;
         const file = target.files[0]
-        console.log(file)
         startSavingArchivoAcc(file)
     }
     const handleChange = (event) => {

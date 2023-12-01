@@ -13,6 +13,7 @@ import { Navbar } from '../layout'
 import { Box, Toolbar } from '@mui/material'
 import { Asistencias } from '../views/asistencias'
 import { EnlaceDatosTrab } from '../auth/pages/EnlaceDatosTrab'
+import { Profile } from '../views/Perfiles'
 
 
 export const AppRouter = () => {
@@ -72,6 +73,8 @@ export const AppRouter = () => {
                                     {/* DASHBOARD */}
                                     <Route path='/*' element={<Navigate to="/dashboard" />} />
                                     <Route path='/dashboard' element={<Dashboard />} />
+                                    <Route path='/perfil' element={<Profile />} />
+
                                     {/* NOMINA */}
                                     <Route path='/distributivo' element={<Parametros />} />
                                     <Route path='/servidores' element={<Trabajadores />} />

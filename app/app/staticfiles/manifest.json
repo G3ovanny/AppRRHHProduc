@@ -1,14 +1,6 @@
 {
-  "assets/images/logos/logoMdt.png": {
-    "file": "assets/logoMdt-467e4bed.png",
-    "src": "assets/images/logos/logoMdt.png"
-  },
-  "assets/images/logos/logoUpec.png": {
-    "file": "assets/logoUpec-76fdb83c.png",
-    "src": "assets/images/logos/logoUpec.png"
-  },
   "index.html": {
-    "file": "assets/index-6ef2bc76.js",
+    "file": "assets/index-54a57151.js",
     "isEntry": true,
     "src": "index.html"
   }

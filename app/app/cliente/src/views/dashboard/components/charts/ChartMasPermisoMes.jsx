@@ -33,7 +33,6 @@ export const ChartMasPermisoMes = () => {
   lista_contadores.sort()
   const source = lista_contadores.slice(-5);
 
-  console.log(source)
   const option = {
     dataset: {
       source

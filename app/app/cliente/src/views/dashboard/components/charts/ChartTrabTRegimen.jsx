@@ -34,19 +34,20 @@ export const ChartTrabTRegimen = () => {
             trigger: 'item'
         },
         legend: {
-            top: '5%',
+            top: '1%',
             left: 'center'
         },
         series: [
             {
                 name: 'Servidores por régimen laboral',
+                top: '5%',
                 type: 'pie',
                 radius: ['40%', '70%'],
                 avoidLabelOverlap: false,
                 itemStyle: {
                     borderRadius: 10,
                     borderColor: '#fff',
-                    borderWidth: 2
+                    borderWidth: 5
                 },
                 label: {
                     show: false,
@@ -55,7 +56,7 @@ export const ChartTrabTRegimen = () => {
                 emphasis: {
                     label: {
                         show: true,
-                        fontSize: 10,
+                        fontSize: 15,
                         fontWeight: 'bold'
                     }
                 },

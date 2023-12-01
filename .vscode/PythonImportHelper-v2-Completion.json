@@ -3629,7 +3629,7 @@
         "kind": 5,
         "importPath": "app.app.config.urls",
         "description": "app.app.config.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formulario\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formularios\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"dashboard\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"distributivo\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"servidores\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"datos_servidores\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"permisos\", TemplateView.as_view(template_name = 'base.html')),",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formulario\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formularios\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"dashboard\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"perfil\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"distributivo\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"servidores\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"datos_servidores\", TemplateView.as_view(template_name = 'base.html')),",
         "detail": "app.app.config.urls",
         "documentation": {}
     },

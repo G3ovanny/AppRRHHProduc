@@ -54,4 +54,6 @@ class AccionPersonalSerializer(serializers.ModelSerializer):
             'rmu_propuesta': instance.rmu_propuesta,
             'estructura_propuesta': instance.estructura_propuesta,
             'partida_propuesta': instance.partida_propuesta,
+
+            'created_date': instance.created_date,
         }

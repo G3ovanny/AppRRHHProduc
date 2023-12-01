@@ -1,13 +1,13 @@
-import { Dashboard } from "@mui/icons-material"
-
+import { Dashboard, AccountBox } from "@mui/icons-material"
 
 const icons = {
     Dashboard,
+    AccountBox,
 }
 
 export const dashboard = {
     id: 'dashboard',
-    title: 'Dashboard',
+    title: 'Panel de control',
     type: 'group',
     children: [
         {
@@ -16,6 +16,13 @@ export const dashboard = {
             type: 'item',
             url: '/dashboard',
             icon: icons.Dashboard,
+        },
+        {
+            id: 'profile',
+            title: 'Mi perfil',
+            type: 'item',
+            url: '/perfil',
+            icon: icons.AccountBox,
         }
     ]
 }

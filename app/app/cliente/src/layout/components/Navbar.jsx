@@ -1,6 +1,6 @@
 import { LogoutOutlined, MenuOpenOutlined } from "@mui/icons-material"
 import { AppBar, Box, Toolbar, IconButton, Typography, Grid, Drawer } from "@mui/material"
-import { Navigation } from "."
+import { Navigation, Profile } from "."
 import { useAuthStore, useMenuStore } from "../../hooks"
 import { Outlet } from "react-router-dom"
 
@@ -18,9 +18,9 @@ export const Navbar = ({ window }) => {
         closeMenu()
     }
 
-    const handleLogout = () => {
-        startLogout();
-    }
+    // const handleLogout = () => {
+    //     startLogout();
+    // }
 
     const container =
         window !== undefined ? () => window().document.body : undefined;
@@ -43,9 +43,13 @@ export const Navbar = ({ window }) => {
                     </IconButton>
                     <Grid container direction='row' justifyContent='space-between' alignItems='center'>
                         <Typography className='animate__animated animate__jackInTheBox'>Talento Humano</Typography>
-                        <IconButton color='quaternary' onClick={handleLogout}>
+                        
+                        {/* <IconButton color='quaternary' onClick={handleLogout}>
                             <LogoutOutlined />
-                        </IconButton>
+                        </IconButton> */}
+                        
+                        <Profile />
+
                     </Grid>
                 </Toolbar>
             </AppBar>

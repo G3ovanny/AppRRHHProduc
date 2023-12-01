@@ -1,13 +1,9 @@
 import React, { forwardRef } from 'react'
 
-import ReactPDF, { Document, Page, StyleSheet, View, Text, PDFViewer } from '@react-pdf/renderer'
+import  {StyleSheet } from '@react-pdf/renderer'
 import { useAccionPersonalStore, useDenominacionPuestoStore, useEstructuraProgramaticaStore, useUnidadOrganicaStore } from '../../../../hooks';
 import { tipos_accion, tipos_doc } from '../../tipos-accion';
 import { Box, Typography } from '@mui/material';
-
-
-import logoUpec from '../../../../assets/images/logos/logoUpec.png';
-import logoMdt from '../../../../assets/images/logos/logoMdt.png';
 
 const tiposDoc = tipos_doc.tipos
 // me permite dividir en 4 columnas el arreglo de tipo de accion
