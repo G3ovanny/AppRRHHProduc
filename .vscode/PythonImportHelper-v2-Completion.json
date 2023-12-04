@@ -3386,7 +3386,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'corsheaders.middleware.CorsMiddleware',\n    'whitenoise.middleware.WhiteNoiseMiddleware',\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',",
+        "peekOfCode": "MIDDLEWARE = [\n    'corsheaders.middleware.CorsMiddleware',\n    #'whitenoise.middleware.WhiteNoiseMiddleware',\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -4790,7 +4790,7 @@
         "kind": 6,
         "importPath": "app.core.trabajadores.api.serializers.trabajadores_serializers",
         "description": "app.core.trabajadores.api.serializers.trabajadores_serializers",
-        "peekOfCode": "class TrabajadorSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Trabajador\n        fields = '__all__'\n        #exclude = ('state',)\n    def to_representation(self, instance):\n        id_proceso = instance.id_denominacion_puesto.id_proceso\n        if id_proceso:\n            id_proces = id_proceso.id\n            proceso = id_proceso.proceso,",
+        "peekOfCode": "class TrabajadorSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Trabajador\n        fields = '__all__'\n        #exclude = ('state',)\n    def to_representation(self, instance):\n        if instance is None:\n            return None \n        id_proceso = instance.id_denominacion_puesto.id_proceso\n        if id_proceso:",
         "detail": "app.core.trabajadores.api.serializers.trabajadores_serializers",
         "documentation": {}
     },

@@ -27,8 +27,8 @@ def analisis_trabajadores():
 
     # engine = create_engine('postgresql+psycopg2://phhlodnsitnoam:965304b8f993a45fd005b0515bcdc205c4672180d6a2aab7304ab98d448ad887@ec2-3-219-111-26.compute-1.amazonaws.com:5432/d85gt08imns7s2')
 
-    # documento = ArchivoTrabajadores.objects.latest('id').doc
-    # distributivo = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)})
+    documento = ArchivoTrabajadores.objects.latest('id').doc
+    distributivo = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)})
     id_doc = ArchivoTrabajadores.objects.latest('id').id  # permite obtener el id del documento
 
     error_messages= []
