@@ -151,16 +151,6 @@ TIME_INPUT_FORMATS = [
     '%H:%M:%S.%f',  # '14:30:59.000200'
 ]
 
-# DATETIME_INPUT_FORMATS = [
-#    '%m/%d/%Y %H:%M',       # '10/25/2006 14:30'
-#    '%Y-%m-%d %H:%M:%S',    # '2006-10-25 14:30:59'
-#    '%Y-%m-%d %H:%M',       # '2006-10-25 14:30'
-#    '%Y-%m-%d',             # '2006-10-25'
-#    '%m/%d/%Y %H:%M:%S',    # '10/25/2006 14:30:59'
-#    '%m/%d/%Y',             # '10/25/2006'
-#    '%m/%d/%y %H:%M:%S',    # '10/25/06 14:30:59'
-#    '%m/%d/%y %H:%M',       # '10/25/06 14:30'
-#    '%m/%d/%y']
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
@@ -171,38 +161,26 @@ SIMPLE_JWT = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-##################
-# Needed for 'debug' to be available inside templates.
-# https://docs.djangoproject.com/en/3.2/ref/templates/api/#django-template-context-processors-debug
-# INTERNAL_IPS = ['127.0.0.1']
-
-# # Vite App Dir: point it to the folder your vite app is in.
 VITE_APP_DIR = BASE_DIR / "cliente/src"
 
-# # Static files (CSS, JavaScript, Images)
-# # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-# # You may change these, but it's important that the dist folder is includedself.
-# # If it's not, collectstatic won't copy your bundle to production.
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     VITE_APP_DIR / "dist",
 ]
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-###################
-# STATIC_URL = '/static/'
+# Ruta base donde se guardarán los archivos subidos
+MEDIA_ROOT = '/docCargados/' 
 
-# STATICFILES_DIRS = [ 
-#      os.path.join(BASE_DIR, 'cliente/src/dist'),
-# ]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)
+MEDIA_URL = '/media/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 
 CORS_ORIGIN_ALLOW_ALL = True

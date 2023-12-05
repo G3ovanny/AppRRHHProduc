@@ -14,7 +14,7 @@ export default defineConfig({
     //   },
     // },
   },
-  base: process.env.mode === "production" ? "/staticfiles" : "/", 
+  base: "/static/", 
   root: "./src",
   plugins: [
     react(),
