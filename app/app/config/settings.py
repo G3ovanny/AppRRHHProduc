@@ -171,11 +171,13 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Ruta base donde se guardarán los archivos subidos
-MEDIA_ROOT = '/docCargados/' 
-
-# URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# # Ruta base donde se guardarán los archivos subidos
+# MEDIA_ROOT = '/docCargados/' 
+
+# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)
+# MEDIA_URL = '/media/'
 
 
 

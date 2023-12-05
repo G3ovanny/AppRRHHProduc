@@ -105,7 +105,7 @@ class ArchivoTrabajadores(BaseModel):
         ordering = ['id']
 
 class CorreoTrabajadores(BaseModel):
-    doc= models.FileField(upload_to='docCargados/correosTrabajadores')
+    doc= models.FileField(upload_to='correosTrabajadores')
     historical = HistoricalRecords()
 
     @property

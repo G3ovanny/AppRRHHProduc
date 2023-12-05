@@ -3512,7 +3512,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "VITE_APP_DIR = BASE_DIR / \"cliente/src\"\nSTATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\n# Ruta base donde se guardarán los archivos subidos\nMEDIA_ROOT = '/docCargados/' \n# URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\nMEDIA_URL = '/media/'",
+        "peekOfCode": "VITE_APP_DIR = BASE_DIR / \"cliente/src\"\nSTATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' ",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3521,7 +3521,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "STATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\n# Ruta base donde se guardarán los archivos subidos\nMEDIA_ROOT = '/docCargados/' \n# URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\nMEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3530,7 +3530,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "STATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\n# Ruta base donde se guardarán los archivos subidos\nMEDIA_ROOT = '/docCargados/' \n# URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\nMEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True",
+        "peekOfCode": "STATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3539,16 +3539,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "STATIC_ROOT = BASE_DIR / \"staticfiles\"\n# Ruta base donde se guardarán los archivos subidos\nMEDIA_ROOT = '/docCargados/' \n# URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\nMEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",",
-        "detail": "app.app.config.settings",
-        "documentation": {}
-    },
-    {
-        "label": "MEDIA_ROOT",
-        "kind": 5,
-        "importPath": "app.app.config.settings",
-        "description": "app.app.config.settings",
-        "peekOfCode": "MEDIA_ROOT = '/docCargados/' \n# URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\nMEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",",
+        "peekOfCode": "STATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3557,7 +3548,16 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [",
+        "detail": "app.app.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "app.app.config.settings",
+        "description": "app.app.config.settings",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -5168,7 +5168,7 @@
         "kind": 6,
         "importPath": "app.core.trabajadores.models",
         "description": "app.core.trabajadores.models",
-        "peekOfCode": "class CorreoTrabajadores(BaseModel):\n    doc= models.FileField(upload_to='docCargados/correosTrabajadores')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
+        "peekOfCode": "class CorreoTrabajadores(BaseModel):\n    doc= models.FileField(upload_to='correosTrabajadores')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
         "detail": "app.core.trabajadores.models",
         "documentation": {}
     },
