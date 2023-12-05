@@ -20,16 +20,16 @@ export const useArchivoStore = () => {
 
             switch (tipo) {
                 case "distributivo":
-                // console.log('/trabajadores/archivo/', formData)    
-                await rhApi.post('/trabajadores/archivo/', formData)
+                console.log('/trabajadores/archivo/', formData)    
+                // await rhApi.post('/trabajadores/archivo/', formData)
                     break;
                 case "correos":
-                // console.log('/trabajadores/correos/', formData)    
-                await rhApi.post('/trabajadores/correos/', formData)
+                console.log('/trabajadores/correos/', formData)    
+                // await rhApi.post('/trabajadores/correos/', formData)
                     break;
                 case "vacaciones":
-                // console.log('/trabajadores/vacaciones/', formData)    
-                await rhApi.post('/trabajadores/vacaciones/', formData)
+                console.log('/trabajadores/vacaciones/', formData)    
+                // await rhApi.post('/trabajadores/vacaciones/', formData)
                     break;
                 default:
                     break;
