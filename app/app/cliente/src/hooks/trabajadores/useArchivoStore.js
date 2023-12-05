@@ -47,6 +47,7 @@ export const useArchivoStore = () => {
             formData.append('doc', archivo);
             const response =  await rhApi.post('/trabajadores/correos/', formData);
             const mensaje = response.data.mensaje
+            console.log(mensaje)
             dispatch(onAddNewArchivo(mensaje))
         } catch (error) {
             // En caso de una excepción al realizar la solicitud, puedes manejarla aquí
