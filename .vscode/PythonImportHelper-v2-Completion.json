@@ -3512,7 +3512,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "VITE_APP_DIR = BASE_DIR / \"cliente/src\"\nSTATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' ",
+        "peekOfCode": "VITE_APP_DIR = BASE_DIR / \"cliente/src\"\nSTATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3521,7 +3521,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "STATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)",
+        "peekOfCode": "STATIC_URL = \"/static/\"\nSTATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' ",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3530,7 +3530,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "STATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'",
+        "peekOfCode": "STATICFILES_DIRS = [\n    VITE_APP_DIR / \"dist\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3539,7 +3539,16 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "STATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS",
+        "peekOfCode": "STATIC_ROOT = BASE_DIR / \"staticfiles\"\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True",
+        "detail": "app.app.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_STORAGE",
+        "kind": 5,
+        "importPath": "app.app.config.settings",
+        "description": "app.app.config.settings",
+        "peekOfCode": "STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -4763,7 +4772,7 @@
         "kind": 6,
         "importPath": "app.core.trabajadores.api.serializers.archivo_serializers",
         "description": "app.core.trabajadores.api.serializers.archivo_serializers",
-        "peekOfCode": "class ArchTrabajadoresSerializer(serializers.ModelSerializer):\n    class Meta:\n        model= ArchivoTrabajadores\n        exclude = ('state',)\nclass CorreoTrabajadoresSeializer(serializers.ModelSerializer):\n    class Meta:\n        model =  CorreoTrabajadores\n        exclude = ('state',)\nclass VacacionesTrabajadoresSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "peekOfCode": "class ArchTrabajadoresSerializer(serializers.ModelSerializer):\n    class Meta:\n        model= ArchivoTrabajadores\n        exclude = ('state',)\nclass CorreoTrabajadoresSeializer(serializers.ModelSerializer):\n    doc = serializers.FileField(max_length=5242880)\n    class Meta:\n        model =  CorreoTrabajadores\n        exclude = ('state',)\nclass VacacionesTrabajadoresSerializer(serializers.ModelSerializer):",
         "detail": "app.core.trabajadores.api.serializers.archivo_serializers",
         "documentation": {}
     },
@@ -4772,7 +4781,7 @@
         "kind": 6,
         "importPath": "app.core.trabajadores.api.serializers.archivo_serializers",
         "description": "app.core.trabajadores.api.serializers.archivo_serializers",
-        "peekOfCode": "class CorreoTrabajadoresSeializer(serializers.ModelSerializer):\n    class Meta:\n        model =  CorreoTrabajadores\n        exclude = ('state',)\nclass VacacionesTrabajadoresSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = VacacionesTrabajadores\n        exclude = ('state',)",
+        "peekOfCode": "class CorreoTrabajadoresSeializer(serializers.ModelSerializer):\n    doc = serializers.FileField(max_length=5242880)\n    class Meta:\n        model =  CorreoTrabajadores\n        exclude = ('state',)\nclass VacacionesTrabajadoresSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = VacacionesTrabajadores\n        exclude = ('state',)",
         "detail": "app.core.trabajadores.api.serializers.archivo_serializers",
         "documentation": {}
     },
@@ -4898,25 +4907,7 @@
         "kind": 2,
         "importPath": "app.core.trabajadores.cargarDocumentos.correo",
         "description": "app.core.trabajadores.cargarDocumentos.correo",
-        "peekOfCode": "def analisis_correos():\n    # database_settings = POSTGRESQL['default']\n    # engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    documento = CorreoTrabajadores.objects.latest('id').doc\n    documento =  pd.read_excel(documento, index_col=False, converters= {'numero_identificacion': lambda x: str(x)})\n    documento['correo_institucional'].replace({np.nan: ''}, inplace=True)\n    documento['correo_personal'].replace({np.nan: ''}, inplace=True)\n    error_messages = []\n    cedula = 'numero_identificacion' in documento.columns\n    try:",
-        "detail": "app.core.trabajadores.cargarDocumentos.correo",
-        "documentation": {}
-    },
-    {
-        "label": "process_error_messages",
-        "kind": 2,
-        "importPath": "app.core.trabajadores.cargarDocumentos.correo",
-        "description": "app.core.trabajadores.cargarDocumentos.correo",
-        "peekOfCode": "def process_error_messages(errors):\n    if errors:\n        # You can choose how to format and return the error messages here\n        error_response = {'errors': errors}\n        # Call another function to return the response to the client\n        return send_response(error_response)\n    else:\n        # If no errors, return a success response\n        return Response({'message': 'Success'})\n# Define a function to send the response to the client",
-        "detail": "app.core.trabajadores.cargarDocumentos.correo",
-        "documentation": {}
-    },
-    {
-        "label": "send_response",
-        "kind": 2,
-        "importPath": "app.core.trabajadores.cargarDocumentos.correo",
-        "description": "app.core.trabajadores.cargarDocumentos.correo",
-        "peekOfCode": "def send_response(response_data):\n    # Here, you can customize how you want to return the response to the client\n    # You can use the Response class or any other method that suits your API\n    return Response(response_data, status=status.HTTP_400_BAD_REQUEST)",
+        "peekOfCode": "def analisis_correos():\n    # database_settings = POSTGRESQL['default']\n    # engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    documento = CorreoTrabajadores.objects.latest('id').doc\n    documento =  pd.read_excel(documento, index_col=False, converters= {'numero_identificacion': lambda x: str(x)})\n    documento['correo_institucional'].replace({np.nan: ''}, inplace=True)\n    documento['correo_personal'].replace({np.nan: ''}, inplace=True)\n    error_messages = []\n    success_message = []\n    cedula = 'numero_identificacion' in documento.columns",
         "detail": "app.core.trabajadores.cargarDocumentos.correo",
         "documentation": {}
     },

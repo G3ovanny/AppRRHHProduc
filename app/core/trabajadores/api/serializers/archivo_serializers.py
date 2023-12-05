@@ -9,6 +9,7 @@ class ArchTrabajadoresSerializer(serializers.ModelSerializer):
         exclude = ('state',)
 
 class CorreoTrabajadoresSeializer(serializers.ModelSerializer):
+    doc = serializers.FileField(max_length=5242880)
     class Meta:
         model =  CorreoTrabajadores
         exclude = ('state',)

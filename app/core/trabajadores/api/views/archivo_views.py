@@ -61,13 +61,15 @@ class CorreosTrabajadoresViewSet(viewsets.ModelViewSet):
         serializer = self.serializer_class(data= request.data)
         if serializer.is_valid():
             serializer.save()
-            error_messages = analisis_correos()  # Get the error messages
-            if error_messages:
-            # If there are error messages, return them as a response
-                return Response({'mensaje': error_messages}, status=status.HTTP_400_BAD_REQUEST)
+            response = analisis_correos()  # Get the error messages
+            if 'El documento se ha guardado correctamente' in response:  # Check if 'Success' message is in the list
+                return Response({'mensaje': response}, status=status.HTTP_201_CREATED)
             else:
-            # If no errors, return a success response
-                return Response({'mensaje': 'Los datos se han creado correctamente'}, status=status.HTTP_201_CREATED)
+                return Response({'mensaje': response}, status=status.HTTP_400_BAD_REQUEST)
+            # if 'El documento se ha guardado correctamente' in str(error_messages.data):  # Check if success message is present in the response
+            #     return Response({'mensaje': 'Los datos se han creado correctamente'}, status=status.HTTP_201_CREATED)
+            # else:
+            #     return Response({'mensaje': error_messages.data['errors']}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def update(self, request, pk=None):
