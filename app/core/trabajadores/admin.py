@@ -10,11 +10,16 @@ class Trabajador_Admin(admin.ModelAdmin):
     list_filter = ('id','numero_identificacion', 'nombres')
 
 
+@admin.register(DatosPersonalesTrabajadores)
+class DatosPersonalesTrabajador_Admin(admin.ModelAdmin):
+    list_display=('id',)
+
 @admin.register(ArchivoTrabajadores)
 class ArchivoTrabajador_Admin(admin.ModelAdmin):
     list_display=('id', 'doc')
 
 
-@admin.register(DatosPersonalesTrabajadores)
-class DatosPersonalesTrabajador_Admin(admin.ModelAdmin):
-    list_display=('id',)
+@admin.register(CorreoTrabajadores)
+class CorreoTrabajador_Admin(admin.ModelAdmin):
+    list_display=('id', 'doc')
+

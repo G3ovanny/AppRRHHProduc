@@ -3332,7 +3332,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3341,7 +3341,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3350,7 +3350,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "DEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3539,7 +3539,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "STATIC_ROOT = BASE_DIR / \"staticfiles\"\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True",
+        "peekOfCode": "STATIC_ROOT = BASE_DIR / \"staticfiles\"\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3557,7 +3557,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3566,7 +3566,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# # Ruta base donde se guardarán los archivos subidos\n# MEDIA_ROOT = '/docCargados/' \n# # URL base para servir archivos media (se asume que la ruta es estática, en desarrollo)\n# MEDIA_URL = '/media/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -5105,16 +5105,7 @@
         "kind": 6,
         "importPath": "app.core.trabajadores.admin",
         "description": "app.core.trabajadores.admin",
-        "peekOfCode": "class Trabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'numero_identificacion', 'nombres', 'id_unidad_organica', 'state',)\n    search_fields = ('id','numero_identificacion', 'nombres')\n    list_filter = ('id','numero_identificacion', 'nombres')\n@admin.register(ArchivoTrabajadores)\nclass ArchivoTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'doc')\n@admin.register(DatosPersonalesTrabajadores)\nclass DatosPersonalesTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id',)",
-        "detail": "app.core.trabajadores.admin",
-        "documentation": {}
-    },
-    {
-        "label": "ArchivoTrabajador_Admin",
-        "kind": 6,
-        "importPath": "app.core.trabajadores.admin",
-        "description": "app.core.trabajadores.admin",
-        "peekOfCode": "class ArchivoTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'doc')\n@admin.register(DatosPersonalesTrabajadores)\nclass DatosPersonalesTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id',)",
+        "peekOfCode": "class Trabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'numero_identificacion', 'nombres', 'id_unidad_organica', 'state',)\n    search_fields = ('id','numero_identificacion', 'nombres')\n    list_filter = ('id','numero_identificacion', 'nombres')\n@admin.register(DatosPersonalesTrabajadores)\nclass DatosPersonalesTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id',)\n@admin.register(ArchivoTrabajadores)\nclass ArchivoTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'doc')",
         "detail": "app.core.trabajadores.admin",
         "documentation": {}
     },
@@ -5123,7 +5114,25 @@
         "kind": 6,
         "importPath": "app.core.trabajadores.admin",
         "description": "app.core.trabajadores.admin",
-        "peekOfCode": "class DatosPersonalesTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id',)",
+        "peekOfCode": "class DatosPersonalesTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id',)\n@admin.register(ArchivoTrabajadores)\nclass ArchivoTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'doc')\n@admin.register(CorreoTrabajadores)\nclass CorreoTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'doc')",
+        "detail": "app.core.trabajadores.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ArchivoTrabajador_Admin",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.admin",
+        "description": "app.core.trabajadores.admin",
+        "peekOfCode": "class ArchivoTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'doc')\n@admin.register(CorreoTrabajadores)\nclass CorreoTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'doc')",
+        "detail": "app.core.trabajadores.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CorreoTrabajador_Admin",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.admin",
+        "description": "app.core.trabajadores.admin",
+        "peekOfCode": "class CorreoTrabajador_Admin(admin.ModelAdmin):\n    list_display=('id', 'doc')",
         "detail": "app.core.trabajadores.admin",
         "documentation": {}
     },
