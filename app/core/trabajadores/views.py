@@ -31,6 +31,7 @@ def analisis_trabajadores():
     distributivo = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)})
     id_doc = ArchivoTrabajadores.objects.latest('id').id  # permite obtener el id del documento
 
+    success_message = []
     error_messages= []
     cedula = 'numero_identificacion' in distributivo.columns
 
@@ -168,31 +169,37 @@ def analisis_trabajadores():
             ]]
             #print(nuevoDocumento)
             nuevoDocumento.to_sql('Trabajador', engine, if_exists='append', index=False)
-            error_messages.append('El documento se ha guardado correctamente')
+            success_message.append('El documento se ha guardado correctamente')
         else:
             error_messages.append('El documento no se ha guardado correctamente')
     except Exception as e:
         error_messages.append(str(e))  # Append the exception message to the list
 
-    # Pass the error_messages list to another function for further processing
-    process_error_messages(error_messages)
+    #Se maneja el envio de errores para alertas
+    if len(error_messages) > 0:
+        return error_messages
+    elif len(success_message) > 0 :
+        return success_message
 
-    return error_messages
+#     # Pass the error_messages list to another function for further processing
+#     process_error_messages(error_messages)
+
+#     return error_messages
 
 
-# Define the function to process error messages
-def process_error_messages(errors):
-    if errors:
-        # You can choose how to format and return the error messages here
-        error_response = {'errors': errors}
-        # Call another function to return the response to the client
-        return send_response(error_response)
-    else:
-        # If no errors, return a success response
-        return Response({'message': 'Success'})
+# # Define the function to process error messages
+# def process_error_messages(errors):
+#     if errors:
+#         # You can choose how to format and return the error messages here
+#         error_response = {'errors': errors}
+#         # Call another function to return the response to the client
+#         return send_response(error_response)
+#     else:
+#         # If no errors, return a success response
+#         return Response({'message': 'Success'})
 
-# Define a function to send the response to the client
-def send_response(response_data):
-    # Here, you can customize how you want to return the response to the client
-    # You can use the Response class or any other method that suits your API
-    return Response(response_data, status=status.HTTP_400_BAD_REQUEST)  # Example: Returning a 400 status code
+# # Define a function to send the response to the client
+# def send_response(response_data):
+#     # Here, you can customize how you want to return the response to the client
+#     # You can use the Response class or any other method that suits your API
+#     return Response(response_data, status=status.HTTP_400_BAD_REQUEST)  # Example: Returning a 400 status code

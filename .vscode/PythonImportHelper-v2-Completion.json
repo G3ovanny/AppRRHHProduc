@@ -4916,25 +4916,7 @@
         "kind": 2,
         "importPath": "app.core.trabajadores.cargarDocumentos.vacaciones",
         "description": "app.core.trabajadores.cargarDocumentos.vacaciones",
-        "peekOfCode": "def analisis_vacaciones():\n        # database_settings = POSTGRESQL['default']\n    # engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    documento = VacacionesTrabajadores.objects.latest('id').doc\n    documento =  pd.read_excel(documento, index_col=False, converters= {'numero_identificacion': lambda x: str(x)})\n    documento['dias_vacaciones'].replace({np.nan: ''}, inplace=True)\n    documento['dias_vacaciones'] = documento['dias_vacaciones'].astype(float)\n    error_messages = []\n    cedula = 'numero_identificacion' in documento.columns\n    try:",
-        "detail": "app.core.trabajadores.cargarDocumentos.vacaciones",
-        "documentation": {}
-    },
-    {
-        "label": "process_error_messages",
-        "kind": 2,
-        "importPath": "app.core.trabajadores.cargarDocumentos.vacaciones",
-        "description": "app.core.trabajadores.cargarDocumentos.vacaciones",
-        "peekOfCode": "def process_error_messages(errors):\n    if errors:\n        # You can choose how to format and return the error messages here\n        error_response = {'errors': errors}\n        # Call another function to return the response to the client\n        return send_response(error_response)\n    else:\n        # If no errors, return a success response\n        return Response({'message': 'Success'})\n# Define a function to send the response to the client",
-        "detail": "app.core.trabajadores.cargarDocumentos.vacaciones",
-        "documentation": {}
-    },
-    {
-        "label": "send_response",
-        "kind": 2,
-        "importPath": "app.core.trabajadores.cargarDocumentos.vacaciones",
-        "description": "app.core.trabajadores.cargarDocumentos.vacaciones",
-        "peekOfCode": "def send_response(response_data):\n    # Here, you can customize how you want to return the response to the client\n    # You can use the Response class or any other method that suits your API\n    return Response(response_data, status=status.HTTP_400_BAD_REQUEST)",
+        "peekOfCode": "def analisis_vacaciones():\n        # database_settings = POSTGRESQL['default']\n    # engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    documento = VacacionesTrabajadores.objects.latest('id').doc\n    documento =  pd.read_excel(documento, index_col=False, converters= {'numero_identificacion': lambda x: str(x)})\n    documento['dias_vacaciones'].replace({np.nan: ''}, inplace=True)\n    documento['dias_vacaciones'] = documento['dias_vacaciones'].astype(float)\n    success_message = []\n    error_messages = []\n    cedula = 'numero_identificacion' in documento.columns",
         "detail": "app.core.trabajadores.cargarDocumentos.vacaciones",
         "documentation": {}
     },
@@ -5159,7 +5141,7 @@
         "kind": 6,
         "importPath": "app.core.trabajadores.models",
         "description": "app.core.trabajadores.models",
-        "peekOfCode": "class ArchivoTrabajadores(BaseModel):\n    doc= models.FileField(upload_to='./static/archivoTrabajadores')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
+        "peekOfCode": "class ArchivoTrabajadores(BaseModel):\n    doc= models.FileField(upload_to='archivoTrabajadores')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
         "detail": "app.core.trabajadores.models",
         "documentation": {}
     },
@@ -5177,7 +5159,7 @@
         "kind": 6,
         "importPath": "app.core.trabajadores.models",
         "description": "app.core.trabajadores.models",
-        "peekOfCode": "class VacacionesTrabajadores(BaseModel):\n    doc= models.FileField(upload_to='./static/vacacionesTrabajadores')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
+        "peekOfCode": "class VacacionesTrabajadores(BaseModel):\n    doc= models.FileField(upload_to='vacacionesTrabajadores')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
         "detail": "app.core.trabajadores.models",
         "documentation": {}
     },
@@ -5223,24 +5205,6 @@
         "importPath": "app.core.trabajadores.views",
         "description": "app.core.trabajadores.views",
         "peekOfCode": "def analisis_trabajadores():\n    database_settings = POSTGRESQL['default']\n    # engine = database_settings['ENGINE']\n    # name = database_settings['NAME']\n    # user = database_settings['USER']\n    # password = database_settings['PASSWORD']\n    # host = database_settings['HOST']\n    # port = database_settings['PORT']\n    # print('coneccion base de datos', name, user, password, host, port)\n    engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")",
-        "detail": "app.core.trabajadores.views",
-        "documentation": {}
-    },
-    {
-        "label": "process_error_messages",
-        "kind": 2,
-        "importPath": "app.core.trabajadores.views",
-        "description": "app.core.trabajadores.views",
-        "peekOfCode": "def process_error_messages(errors):\n    if errors:\n        # You can choose how to format and return the error messages here\n        error_response = {'errors': errors}\n        # Call another function to return the response to the client\n        return send_response(error_response)\n    else:\n        # If no errors, return a success response\n        return Response({'message': 'Success'})\n# Define a function to send the response to the client",
-        "detail": "app.core.trabajadores.views",
-        "documentation": {}
-    },
-    {
-        "label": "send_response",
-        "kind": 2,
-        "importPath": "app.core.trabajadores.views",
-        "description": "app.core.trabajadores.views",
-        "peekOfCode": "def send_response(response_data):\n    # Here, you can customize how you want to return the response to the client\n    # You can use the Response class or any other method that suits your API\n    return Response(response_data, status=status.HTTP_400_BAD_REQUEST)  # Example: Returning a 400 status code",
         "detail": "app.core.trabajadores.views",
         "documentation": {}
     },

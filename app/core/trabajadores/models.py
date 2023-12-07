@@ -87,7 +87,7 @@ class Trabajador(BaseModel):
         self.save()
 
 class ArchivoTrabajadores(BaseModel):
-    doc= models.FileField(upload_to='./static/archivoTrabajadores')
+    doc= models.FileField(upload_to='archivoTrabajadores')
     historical = HistoricalRecords()
 
     @property
@@ -124,7 +124,7 @@ class CorreoTrabajadores(BaseModel):
 
 
 class VacacionesTrabajadores(BaseModel):
-    doc= models.FileField(upload_to='./static/vacacionesTrabajadores')
+    doc= models.FileField(upload_to='vacacionesTrabajadores')
     historical = HistoricalRecords()
 
     @property
