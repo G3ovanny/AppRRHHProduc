@@ -11,7 +11,7 @@ export const useCedulaStore = () => {
     try {
       const { data } = await rhApi.post('/formulario/', { numero_identificacion });
       localStorage.setItem('numero_identificacion', data.numero_identificacion);
-      dispatch(onlinkedingCed({numero_identificacion: data.numero_identificacion}))
+      dispatch(onlinkedingCed({ numero_identificacion: data.numero_identificacion }))
     } catch (error) {
       dispatch(onUnlinkedingCed('Número de cedula no encontrado'));
       setTimeout(() => {
@@ -22,7 +22,7 @@ export const useCedulaStore = () => {
 
   const checkCedula = async () => {
     const cedula = localStorage.getItem('numero_identificacion');
-    if (!cedula){
+    if (!cedula) {
       dispatch(onUnlinkedingCed());
     } else {
       dispatch(onlinkedingCed())

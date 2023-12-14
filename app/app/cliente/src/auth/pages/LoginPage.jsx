@@ -66,15 +66,15 @@ export const LoginPage = () => {
                                 Iniciar sesión
                             </Button>
                         </Grid>
-                        {/* <Grid item xs={12} sm={12} alignItems={'center'}>
+                        <Grid item xs={12} sm={12} alignItems={'center'}>
                             <Link
-                                to="/"
+                                to="/reset_password"
                                 component="button"
                                 variant="body2"
                             >
                                 ¿Olvidaste tu contraseña?
                             </Link>
-                        </Grid> */}
+                        </Grid>
                     </Grid>
                 </Grid>
             </form>

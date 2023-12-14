@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,8 +37,6 @@ INSTALLED_APPS = [
     # aplicaciones terceras
     'corsheaders',
     'rest_framework',
-    #'django_celery_beat',
-    # 'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'simple_history',
@@ -203,9 +201,9 @@ CORS_ORIGIN_WHITELIST = [
 
 # EMAIL
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.office365.com'
+EMAIL_HOST = 'smtp-mail.outlook.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'
-EMAIL_HOST_PASSWORD = 'Geovanny1993'
+EMAIL_HOST_USER = 'talento.humano@upec.edu.ec'
+EMAIL_HOST_PASSWORD = 'taLENTO223@'
 EMAIL_USE_TLS = True
 

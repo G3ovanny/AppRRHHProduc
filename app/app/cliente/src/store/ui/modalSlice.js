@@ -13,6 +13,7 @@ export const modalSlice = createSlice({
             state.nameModal = payload;
         },
         onCloseModal: (state, { payload }) => {
+            state.nameModal = null
             state.isModalOpen = false
         }
     }

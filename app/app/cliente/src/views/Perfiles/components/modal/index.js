@@ -1,2 +1,2 @@
-export * from './Passwords';
+export * from './PasswordModal';
 export * from './PerfilModal';

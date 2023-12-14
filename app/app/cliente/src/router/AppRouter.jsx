@@ -14,6 +14,7 @@ import { Box, Toolbar } from '@mui/material'
 import { Asistencias } from '../views/asistencias'
 import { EnlaceDatosTrab } from '../auth/pages/EnlaceDatosTrab'
 import { Profile } from '../views/Perfiles'
+import { ResetPass } from '../auth/pages/ResetPass'
 
 
 export const AppRouter = () => {
@@ -46,6 +47,7 @@ export const AppRouter = () => {
                                     <>
                                         <Route path='/enlace_formularios' element={<Navigate to="/enlace_formulario" />} />
                                         <Route path='/enlace_formulario' element={<EnlaceDatosTrab />} />
+                                        <Route path='/reset_password' element={<ResetPass />} />
                                     </>
                                 )
                                 : (

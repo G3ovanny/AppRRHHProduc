@@ -12,10 +12,12 @@ import { usuariosSlice } from './usuarios'
 import { cedulaSlice } from './auth/cedulaSlice'
 import { grupoSlice } from './grupos'
 import { formularioSlice } from './trabajadores/formularioSlice'
+import { resetPassSlice } from './auth/resetPassSlice'
 
 export const store = configureStore({
     reducer: {
         auth: authSlice.reducer,
+        resetPassword: resetPassSlice.reducer,
         cedula: cedulaSlice.reducer,
         menu: menuSlice.reducer,
         modal: modalSlice.reducer,

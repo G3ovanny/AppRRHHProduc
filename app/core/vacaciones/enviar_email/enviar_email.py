@@ -26,7 +26,7 @@ logging.getLogger('apscheduler').setLevel(logging.DEBUG)
 
 scheduler = BackgroundScheduler(timezone="America/Guayaquil")
 
-# ---------------------------------Este job se activa cada dia a las 8 de la mañana notificando al trabajador que sale de vacaciones---------------------------------#
+##### ---------------------------------Este job se activa cada dia a las 8 de la mañana notificando al trabajador que sale de vacaciones---------------------------------#
 # scheduler.add_job(
 # job_function, 
 # trigger='cron', 

@@ -43,9 +43,9 @@ export const useAuthStore = () => {
     }
 
 
-    const startLogout = () => {
-        localStorage.clear();
-        dispatch(onLogout());
+    const startLogout = async () => {
+        await localStorage.clear();
+        await dispatch(onLogout());
     }
 
     return {

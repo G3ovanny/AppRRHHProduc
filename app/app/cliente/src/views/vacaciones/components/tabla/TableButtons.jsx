@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { IconButton, Tooltip } from '@mui/material';
 import { DeleteOutline, Edit, EditOutlined, LocalPrintshopOutlined, NoteAddOutlined } from '@mui/icons-material';
-import { useAccionPersonalStore, useCronogramaVacacionesStore, useForm, useModalStore } from '../../../../hooks'
+import { useAccionPersonalStore, useCronogramaVacacionesStore, useForm, useModalStore, useTrabStore } from '../../../../hooks'
 import { VacacionesDocPdf } from '../documentoPDF';
 import { useReactToPrint } from 'react-to-print'
 import dayjs from 'dayjs';
@@ -12,6 +12,7 @@ export const TableButtons = () => {
 
     const { activeCronograma, startSavingCronograma, startDeletingCrongrama, setChangeMessageCronograma } = useCronogramaVacacionesStore();
     const { startLoadingAccion, listAccion, startSavingAccion } = useAccionPersonalStore();
+    const { trabajadores, startLoadingTrab } = useTrabStore();
     const { openModal } = useModalStore();
 
     const componentRef = useRef();
@@ -54,13 +55,24 @@ export const TableButtons = () => {
             const estadoAccion = element.estado_accion
 
             if (estadoAccion == false) {
+                let lista_trabajadores = trabajadores.filter(trab => trab.id === element.id_trabajador)
+                let trabajador = lista_trabajadores[0]
                 const formDataAccion = {
                     id_trabajador: element.id_trabajador,
+
+                    proceso_actual: trabajador.proceso[0],
+                    subproceso_actual: trabajador.unidad_organica,
+                    puesto_actual: trabajador.denominacion_puesto,
+                    rmu_actual: trabajador.rmu_puesto,
+                    estructura_actual: trabajador.estructura_programatica,
+                    partida_actual: trabajador.partida_individual,
+
                     fecha_accion: dayjs(Date.now()).format('YYYY-MM-DD'),
                     fecha_rigue: dayjs(Date.now()).format('YYYY-MM-DD'),
                     tipo_accion: 'VACACIONES',
                     contador: sigCont
                 }
+                //console.log(formDataAccion)
                 startSavingAccion(formDataAccion)
                 const formDataCronograma = {
                     ...element,
@@ -87,6 +99,7 @@ export const TableButtons = () => {
     })
 
     useEffect(() => {
+        startLoadingTrab()
         startLoadingAccion()
     }, [])
 

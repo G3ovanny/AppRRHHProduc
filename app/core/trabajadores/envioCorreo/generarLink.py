@@ -9,14 +9,14 @@ from rest_framework.response import Response
 from rest_framework import status
 # Create your tests here.
 def generar_enlace(request):
-    enlace = "http://localhost:8000/enlace_formulario"
+    enlace = "http://http://10.100.100.146:85//enlace_formulario"
     print(request)
     return HttpResponse(enlace)
     
 def send_link(trabajador):
     servidor= trabajador[0]
     correoInstitucional = servidor.correo_institucional
-    correo_desde = 'jefferson.lara@upec.edu.ec'
+    correo_desde = 'talento.humano@upec.edu.ec'
     #correoInstitucional = ['jefferson.lara@upec.edu.ec']
     mensajesError=[]
     try:
@@ -24,7 +24,7 @@ def send_link(trabajador):
             subject = 'Envio de formulario'
             #recipient_list = correoInstitucional
             #email_from = settings.EMAIL_HOST_USER
-            mensaje_form = "http://localhost:8000/enlace_formulario"
+            mensaje_form = "http://http://10.100.100.146:85//enlace_formulario"
             
             send_mail(
                 subject,

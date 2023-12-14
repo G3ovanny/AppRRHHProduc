@@ -8,7 +8,7 @@ export const usuariosSlice = createSlice({
         listUsuario: [],
         inicialUsuario: [],
         mensajeUsuario: null,
-        mensajeErrorUsuario : null,
+        mensajeErrorUsuario: null,
     },
     reducers: {
         onSetActiveUsuario: (state, { payload }) => {
@@ -49,7 +49,7 @@ export const usuariosSlice = createSlice({
             }
         },
 
-        onLoadUsuario : (state, { payload }) => {
+        onLoadUsuario: (state, { payload }) => {
             state.isLoadingUsuario = false;
             //state.listUsuario = payload
             payload.forEach(usuario => {
@@ -63,11 +63,23 @@ export const usuariosSlice = createSlice({
         onChangeMessageUsuario: (state, { payload }) => {
             state.mensajeUsuario = payload
         },
+        onChangeErrorMessageUser: (state, { payload }) => {
+            state.mensajeErrorUsuario = payload
+        },
 
         clearMessageUsuario: (state) => {
             state.mensajeUsuario = null;
+            state.mensajeErrorUsuario = null;
         }
     }
 })
-
-export const { onSetActiveUsuario, onAddNewUsuario, onUpdateUsuario, onDeleteUsuario, onLoadUsuario , onChangeMessageUsuario, clearMessageUsuario } = usuariosSlice.actions
+export const {
+    onSetActiveUsuario,
+    onAddNewUsuario,
+    onUpdateUsuario,
+    onDeleteUsuario,
+    onLoadUsuario,
+    onChangeMessageUsuario,
+    clearMessageUsuario,
+    onChangeErrorMessageUser,
+} = usuariosSlice.actions

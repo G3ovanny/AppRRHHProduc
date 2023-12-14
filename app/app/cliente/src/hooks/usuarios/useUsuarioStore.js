@@ -1,11 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearMessageUsuario, onAddNewUsuario, onChangeMessageUsuario, onDeleteUsuario, onLoadUsuario, onSetActiveUsuario, onUpdateUsuario } from "../../store";
+import {
+    clearMessageUsuario,
+    onAddNewUsuario,
+    onChangeMessageUsuario,
+    onDeleteUsuario,
+    onLoadUsuario,
+    onSetActiveUsuario,
+    onUpdateUsuario,
+    onChangeErrorMessageUser,
+} from "../../store";
 import { rhApi } from '../../api';
 
 export const useUsuarioStore = () => {
     const dispatch = useDispatch();
-    const { listUsuario, activeUsuario, mensajeUsuario,mensajeErrorUsuario, isLoadingUsuario } = useSelector(state => state.usuarios)
-    
+    const { listUsuario, activeUsuario, mensajeUsuario, mensajeErrorUsuario, isLoadingUsuario } = useSelector(state => state.usuarios)
+
     const startLoadingUsuario = async () => {
         try {
             const { data } = await rhApi.get('/usuarios/usuario/');
@@ -14,7 +23,6 @@ export const useUsuarioStore = () => {
             console.log(error)
         }
     }
-
     const startSavingUsuario = async (usuario) => {
         if (usuario.id) {
             await rhApi.put(`/usuarios/usuario/${usuario.id}/`, usuario)
@@ -26,6 +34,21 @@ export const useUsuarioStore = () => {
         setTimeout(() => {
             dispatch(clearMessageUsuario());
         }, 3000);
+    }
+    const startChangePassUsuario = async (usuario) => {
+        try {
+            if (usuario.id) {
+                //console.log(usuario)
+                const responseUsuario = await rhApi.post(`/usuarios/usuario/${usuario.id}/set_pass/`, usuario)
+                console.log(responseUsuario)
+                dispatch(onUpdateUsuario({ ...usuario }))
+            }
+        } catch (error) {
+            dispatch(onChangeErrorMessageUser(error.response.data.message))
+        }
+        setTimeout(() => {
+            dispatch(clearMessageUsuario());
+        }, 5000);
     }
 
     const startDeletingUsuario = async () => {
@@ -39,7 +62,6 @@ export const useUsuarioStore = () => {
             dispatch(onDeleteUsuario());
         } catch (error) {
             console.log(error)
-
         }
 
         setTimeout(() => {
@@ -64,6 +86,7 @@ export const useUsuarioStore = () => {
         listUsuario,
         activeUsuario,
         mensajeUsuario,
+        mensajeErrorUsuario,
         isLoadingUsuario,
         //*Metodos
         startSavingUsuario,
@@ -71,5 +94,6 @@ export const useUsuarioStore = () => {
         startDeletingUsuario,
         setActiveUsuario,
         setChangeMessageUsuario,
+        startChangePassUsuario,
     }
 }

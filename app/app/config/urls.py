@@ -14,13 +14,14 @@ from core.trabajadores.api.views.datosFormulario_views import DatosFormulario
 
 from core.permisos.views import PermisoAA
 from core.trabajadores.envioCorreo.envio_correo_datos import EnvioDatos
+from core.usuarios.views import ResetPass
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", TemplateView.as_view(template_name = 'base.html')),
     path("enlace_formulario", TemplateView.as_view(template_name = 'base.html')),
-    path("enlace_formularios", TemplateView.as_view(template_name = 'base.html')),
+    path("reset_password", TemplateView.as_view(template_name = 'base.html')),
     path("dashboard", TemplateView.as_view(template_name = 'base.html')),
     path("perfil", TemplateView.as_view(template_name = 'base.html')),
     path("distributivo", TemplateView.as_view(template_name = 'base.html')),
@@ -35,7 +36,8 @@ urlpatterns = [
 
 
     path('loging/', Login.as_view(), name='login'),   
-    path('logout/', Logout.as_view(), name='logout'), 
+    path('logout/', Logout.as_view(), name='logout'),
+    path('reset_pass/', ResetPass.as_view(), name='reset_password' ),
     path('test/', PermisoAA.as_view(), name = 'test'),
     path('formulario/', DatosFormulario.as_view(), name = 'datos_formulario'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

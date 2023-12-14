@@ -8,6 +8,7 @@ from django.contrib.auth.models import User, Group
 from core.usuarios.api.serializers.usuarios_serializers import UsuarioSerializer, UsuarioUpdateSerializer, CustomUserSerializer, UsuarioListSerializer, PasswordSerializer
 from core.usuarios.models import Usuario
 from core.usuarios.permissions import IsInGroupPermission
+from core.usuarios.api.serializers.password_serializers import PasswordUserSerializer
 
 
 class UsuarioViewSet(viewsets.ModelViewSet):
@@ -39,29 +40,31 @@ class UsuarioViewSet(viewsets.ModelViewSet):
     #                       'errors': PasswordSerializer.errors
     #                       }, status=status.HTTP_400_BAD_REQUEST)
 
-    # ##Canbio de contraseña por usuario
-    # @action(detail=True, methods=['post'])
-    # def set_pass(self, request, pk=None):
-    #     usuario=Usuario.objects.filter(id=pk).first()
-    #     password_serialiser = PasswordUserSerializer(data = request.data)
-    #     if password_serialiser.is_valid():
-    #         usuario_old_password = password_serialiser.validated_data['old_password']
-    #         #permite verificar la contraseña antigua
-    #         if usuario.check_password(usuario_old_password):
-    #             usuario.set_password(password_serialiser.validated_data['password'])
-    #         else:
-    #             return Response({
-    #                 'message': 'El dato ingresado no cincide conla contreseña anterior'
-    #             }, status=status.HTTP_400_BAD_REQUEST)
-    #         usuario.save()
-    #         Usuario.objects.filter(id=pk).update(clave_provicional =  False , fecha_clave =  date.today())
-    #         return Response({
-    #             'message':'Contraseña actualizada correctamente'
-    #         })
-    #     return Response({
-    #         'message': 'Hay errores en la información enviada',
-    #         'errors': password_serialiser.errors
-    #     }, status=status.HTTP_400_BAD_REQUEST)
+    ###Cambio de contraseña por usuario
+    @action(detail=True, methods=['post'])
+    def set_pass(self, request, pk=None):
+        usuario=Usuario.objects.filter(id=pk).first()
+        password_serialiser = PasswordUserSerializer(data = request.data)
+        if password_serialiser.is_valid():
+            usuario_old_password = password_serialiser.validated_data['old_password']
+            #permite verificar la contraseña antigua
+            if usuario.check_password(usuario_old_password):
+                usuario.set_password(password_serialiser.validated_data['password'])
+                usuario.save()
+                Usuario.objects.filter(id=pk).update(clave_temporal=True, fecha_clave=date.today())
+                return Response({
+                    'message':'Contraseña actualizada correctamente'
+                    }, status=status.HTTP_200_OK)
+            else:
+                return Response({
+                    'message': 'La contraseña actual no es la correcta'
+                }, status=status.HTTP_400_BAD_REQUEST)
+            
+            #Usuario.objects.filter(id=pk).update(clave_provicional =  False , fecha_clave =  date.today())
+        return Response({
+            'message': 'Hay errores en la información enviada',
+            'errors': password_serialiser.errors
+        }, status=status.HTTP_400_BAD_REQUEST)
 
 
     def create(self, request, format=None):

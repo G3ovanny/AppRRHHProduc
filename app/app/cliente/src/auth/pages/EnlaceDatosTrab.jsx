@@ -19,7 +19,7 @@ export const EnlaceDatosTrab = () => {
     }
     return (
         <AuthLayout title={'Ingrese su número de cédula'}>
-            <form onSubmit={onsubmit}>
+            <form onSubmit={onSubmit}>
                 <Grid container>
                     <Grid item xs={12} sx={{ mt: 2 }}>
                         <TextField

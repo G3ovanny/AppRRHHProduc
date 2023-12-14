@@ -106,6 +106,14 @@
         "documentation": {}
     },
     {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "timedelta",
         "importPath": "datetime",
         "description": "datetime",
@@ -135,6 +143,14 @@
         "description": "app.config.db",
         "isExtraImport": true,
         "detail": "app.config.db",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -475,6 +491,14 @@
     },
     {
         "label": "Logout",
+        "importPath": "core.usuarios.views",
+        "description": "core.usuarios.views",
+        "isExtraImport": true,
+        "detail": "core.usuarios.views",
+        "documentation": {}
+    },
+    {
+        "label": "ResetPass",
         "importPath": "core.usuarios.views",
         "description": "core.usuarios.views",
         "isExtraImport": true,
@@ -971,6 +995,14 @@
     },
     {
         "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
         "importPath": "rest_framework",
         "description": "rest_framework",
         "isExtraImport": true,
@@ -2235,6 +2267,54 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -2816,6 +2896,14 @@
         "documentation": {}
     },
     {
+        "label": "GenericAPIView",
+        "importPath": "rest_framework.generics",
+        "description": "rest_framework.generics",
+        "isExtraImport": true,
+        "detail": "rest_framework.generics",
+        "documentation": {}
+    },
+    {
         "label": "ArchTrabajadoresSerializer",
         "importPath": "core.trabajadores.api.serializers.archivo_serializers",
         "description": "core.trabajadores.api.serializers.archivo_serializers",
@@ -2869,6 +2957,14 @@
         "description": "core.trabajadores.api.serializers.trabajadores_serializers",
         "isExtraImport": true,
         "detail": "core.trabajadores.api.serializers.trabajadores_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
         "documentation": {}
     },
     {
@@ -2934,6 +3030,22 @@
         "isExtraImport": true,
         "importPath": "django.core.mail",
         "description": "django.core.mail",
+        "detail": "django.core.mail",
+        "documentation": {}
+    },
+    {
+        "label": "send_mail",
+        "importPath": "django.core.mail",
+        "description": "django.core.mail",
+        "isExtraImport": true,
+        "detail": "django.core.mail",
+        "documentation": {}
+    },
+    {
+        "label": "send_mass_mail",
+        "importPath": "django.core.mail",
+        "description": "django.core.mail",
+        "isExtraImport": true,
         "detail": "django.core.mail",
         "documentation": {}
     },
@@ -3114,6 +3226,30 @@
         "documentation": {}
     },
     {
+        "label": "ResetPasswordUserSerializer",
+        "importPath": "core.usuarios.api.serializers.password_serializers",
+        "description": "core.usuarios.api.serializers.password_serializers",
+        "isExtraImport": true,
+        "detail": "core.usuarios.api.serializers.password_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordUserSerializer",
+        "importPath": "core.usuarios.api.serializers.password_serializers",
+        "description": "core.usuarios.api.serializers.password_serializers",
+        "isExtraImport": true,
+        "detail": "core.usuarios.api.serializers.password_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ResetPasswordUserSerializer",
+        "importPath": "core.usuarios.api.serializers.password_serializers",
+        "description": "core.usuarios.api.serializers.password_serializers",
+        "isExtraImport": true,
+        "detail": "core.usuarios.api.serializers.password_serializers",
+        "documentation": {}
+    },
+    {
         "label": "action",
         "importPath": "rest_framework.decorators",
         "description": "rest_framework.decorators",
@@ -3186,6 +3322,14 @@
         "documentation": {}
     },
     {
+        "label": "ResetPasswordViews",
+        "importPath": "core.usuarios.api.views.reset_password_views",
+        "description": "core.usuarios.api.views.reset_password_views",
+        "isExtraImport": true,
+        "detail": "core.usuarios.api.views.reset_password_views",
+        "documentation": {}
+    },
+    {
         "label": "timezone",
         "importPath": "django.utils",
         "description": "django.utils",
@@ -3247,6 +3391,14 @@
         "description": "rest_framework_simplejwt.tokens",
         "isExtraImport": true,
         "detail": "rest_framework_simplejwt.tokens",
+        "documentation": {}
+    },
+    {
+        "label": "get_random_string",
+        "importPath": "django.utils.crypto",
+        "description": "django.utils.crypto",
+        "isExtraImport": true,
+        "detail": "django.utils.crypto",
         "documentation": {}
     },
     {
@@ -3332,7 +3484,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3341,7 +3493,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3350,7 +3502,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "DEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3584,7 +3736,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "CORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.office365.com'",
+        "peekOfCode": "CORS_ORIGIN_ALLOW_ALL = True\n# CORRIGE EL ERROR DE CORS\nCORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp-mail.outlook.com'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3593,7 +3745,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "CORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.office365.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'",
+        "peekOfCode": "CORS_ORIGIN_WHITELIST = [\n    \"http://10.100.100.146:85\",\n    \"http://localhost:5173\",\n    \"http://127.0.0.1:5173\",\n]\n# EMAIL\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp-mail.outlook.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'talento.humano@upec.edu.ec'",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3602,7 +3754,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.office365.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'\nEMAIL_HOST_PASSWORD = 'Geovanny1993'\nEMAIL_USE_TLS = True",
+        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp-mail.outlook.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'talento.humano@upec.edu.ec'\nEMAIL_HOST_PASSWORD = 'taLENTO223@'\nEMAIL_USE_TLS = True",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3611,7 +3763,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "EMAIL_HOST = 'smtp.office365.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'\nEMAIL_HOST_PASSWORD = 'Geovanny1993'\nEMAIL_USE_TLS = True",
+        "peekOfCode": "EMAIL_HOST = 'smtp-mail.outlook.com'\nEMAIL_PORT = 587\nEMAIL_HOST_USER = 'talento.humano@upec.edu.ec'\nEMAIL_HOST_PASSWORD = 'taLENTO223@'\nEMAIL_USE_TLS = True",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3620,7 +3772,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "EMAIL_PORT = 587\nEMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'\nEMAIL_HOST_PASSWORD = 'Geovanny1993'\nEMAIL_USE_TLS = True",
+        "peekOfCode": "EMAIL_PORT = 587\nEMAIL_HOST_USER = 'talento.humano@upec.edu.ec'\nEMAIL_HOST_PASSWORD = 'taLENTO223@'\nEMAIL_USE_TLS = True",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3629,7 +3781,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "EMAIL_HOST_USER = 'jefferson.lara@upec.edu.ec'\nEMAIL_HOST_PASSWORD = 'Geovanny1993'\nEMAIL_USE_TLS = True",
+        "peekOfCode": "EMAIL_HOST_USER = 'talento.humano@upec.edu.ec'\nEMAIL_HOST_PASSWORD = 'taLENTO223@'\nEMAIL_USE_TLS = True",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3638,7 +3790,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "EMAIL_HOST_PASSWORD = 'Geovanny1993'\nEMAIL_USE_TLS = True",
+        "peekOfCode": "EMAIL_HOST_PASSWORD = 'taLENTO223@'\nEMAIL_USE_TLS = True",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3656,7 +3808,7 @@
         "kind": 5,
         "importPath": "app.app.config.urls",
         "description": "app.app.config.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formulario\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formularios\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"dashboard\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"perfil\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"distributivo\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"servidores\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"datos_servidores\", TemplateView.as_view(template_name = 'base.html')),",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formulario\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"reset_password\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"dashboard\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"perfil\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"distributivo\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"servidores\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"datos_servidores\", TemplateView.as_view(template_name = 'base.html')),",
         "detail": "app.app.config.urls",
         "documentation": {}
     },
@@ -3701,7 +3853,7 @@
         "kind": 6,
         "importPath": "app.core.accionesPersonal.api.views.AccionPersonal_views",
         "description": "app.core.accionesPersonal.api.views.AccionPersonal_views",
-        "peekOfCode": "class AccionPersonalViewSet(viewsets.ModelViewSet):\n    serializer_class = AccionPersonalSerializer\n    def get_queryset(self, pk= None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state = True, id_trabajador__state=True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state= True, id_trabajador__state=True).first()\n    def create(self, request):\n        accion_serializer = self.serializer_class(data = request.data)\n        accion_anterior = AccionPersonal.objects.all()\n        if accion_serializer.is_valid():",
+        "peekOfCode": "class AccionPersonalViewSet(viewsets.ModelViewSet):\n    serializer_class = AccionPersonalSerializer\n    def get_queryset(self, pk= None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state = True, id_trabajador__state=True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state= True, id_trabajador__state=True).first()\n    def create(self, request):\n        accion_serializer = self.serializer_class(data = request.data)\n        accion_anterior = AccionPersonal.objects.all().filter(state = True)\n        if accion_serializer.is_valid():",
         "detail": "app.core.accionesPersonal.api.views.AccionPersonal_views",
         "documentation": {}
     },
@@ -4934,7 +5086,7 @@
         "kind": 2,
         "importPath": "app.core.trabajadores.envioCorreo.generarLink",
         "description": "app.core.trabajadores.envioCorreo.generarLink",
-        "peekOfCode": "def generar_enlace(request):\n    enlace = \"http://localhost:8000/enlace_formulario\"\n    print(request)\n    return HttpResponse(enlace)\ndef send_link(trabajador):\n    servidor= trabajador[0]\n    correoInstitucional = servidor.correo_institucional\n    correo_desde = 'jefferson.lara@upec.edu.ec'\n    #correoInstitucional = ['jefferson.lara@upec.edu.ec']\n    mensajesError=[]",
+        "peekOfCode": "def generar_enlace(request):\n    enlace = \"http://http://10.100.100.146:85//enlace_formulario\"\n    print(request)\n    return HttpResponse(enlace)\ndef send_link(trabajador):\n    servidor= trabajador[0]\n    correoInstitucional = servidor.correo_institucional\n    correo_desde = 'talento.humano@upec.edu.ec'\n    #correoInstitucional = ['jefferson.lara@upec.edu.ec']\n    mensajesError=[]",
         "detail": "app.core.trabajadores.envioCorreo.generarLink",
         "documentation": {}
     },
@@ -4943,7 +5095,7 @@
         "kind": 2,
         "importPath": "app.core.trabajadores.envioCorreo.generarLink",
         "description": "app.core.trabajadores.envioCorreo.generarLink",
-        "peekOfCode": "def send_link(trabajador):\n    servidor= trabajador[0]\n    correoInstitucional = servidor.correo_institucional\n    correo_desde = 'jefferson.lara@upec.edu.ec'\n    #correoInstitucional = ['jefferson.lara@upec.edu.ec']\n    mensajesError=[]\n    try:\n        if correoInstitucional:\n            subject = 'Envio de formulario'\n            #recipient_list = correoInstitucional",
+        "peekOfCode": "def send_link(trabajador):\n    servidor= trabajador[0]\n    correoInstitucional = servidor.correo_institucional\n    correo_desde = 'talento.humano@upec.edu.ec'\n    #correoInstitucional = ['jefferson.lara@upec.edu.ec']\n    mensajesError=[]\n    try:\n        if correoInstitucional:\n            subject = 'Envio de formulario'\n            #recipient_list = correoInstitucional",
         "detail": "app.core.trabajadores.envioCorreo.generarLink",
         "documentation": {}
     },
@@ -5083,6 +5235,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.core.trabajadores.migrations.0014_alter_archivotrabajadores_doc_and_more",
+        "description": "app.core.trabajadores.migrations.0014_alter_archivotrabajadores_doc_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('trabajadores', '0013_correotrabajadores_vacacionestrabajadores_and_more'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='archivotrabajadores',\n            name='doc',\n            field=models.FileField(upload_to='archivoTrabajadores'),\n        ),",
+        "detail": "app.core.trabajadores.migrations.0014_alter_archivotrabajadores_doc_and_more",
+        "documentation": {}
+    },
+    {
         "label": "Trabajador_Admin",
         "kind": 6,
         "importPath": "app.core.trabajadores.admin",
@@ -5218,6 +5379,24 @@
         "documentation": {}
     },
     {
+        "label": "PasswordUserSerializer",
+        "kind": 6,
+        "importPath": "app.core.usuarios.api.serializers.password_serializers",
+        "description": "app.core.usuarios.api.serializers.password_serializers",
+        "peekOfCode": "class PasswordUserSerializer(serializers.Serializer):\n    old_password = serializers.CharField(max_length=128, min_length=1, write_only=True)\n    password = serializers.CharField(max_length=128, min_length=6, write_only=True)\n    password2 = serializers.CharField(max_length=128, min_length=6, write_only=True)\n    def validate(self, data):\n        if data['password'] != data['password2']:\n            raise serializers.ValidationError({'password':'Debe ingresar ambas contraseñas iguales'})\n        return data\nclass ResetPasswordUserSerializer(serializers.Serializer):\n    username = serializers.CharField(max_length=128)",
+        "detail": "app.core.usuarios.api.serializers.password_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ResetPasswordUserSerializer",
+        "kind": 6,
+        "importPath": "app.core.usuarios.api.serializers.password_serializers",
+        "description": "app.core.usuarios.api.serializers.password_serializers",
+        "peekOfCode": "class ResetPasswordUserSerializer(serializers.Serializer):\n    username = serializers.CharField(max_length=128)\n    class Meta:\n        fields = ['username', ]",
+        "detail": "app.core.usuarios.api.serializers.password_serializers",
+        "documentation": {}
+    },
+    {
         "label": "UserTokenSerializer",
         "kind": 6,
         "importPath": "app.core.usuarios.api.serializers.usuarios_serializers",
@@ -5317,6 +5496,15 @@
         "documentation": {}
     },
     {
+        "label": "ResetPasswordViews",
+        "kind": 6,
+        "importPath": "app.core.usuarios.api.views.reset_password_views",
+        "description": "app.core.usuarios.api.views.reset_password_views",
+        "peekOfCode": "class ResetPasswordViews(GenericAPIView):\n    def post(self, request):\n        serializer = ResetPasswordUserSerializer(data = request.data)\n        if serializer.is_valid():\n            usuario = serializer.data.get('username')\n            print(usuario)",
+        "detail": "app.core.usuarios.api.views.reset_password_views",
+        "documentation": {}
+    },
+    {
         "label": "UsuarioViewSet",
         "kind": 6,
         "importPath": "app.core.usuarios.api.views.usuarios_views",
@@ -5359,6 +5547,24 @@
         "description": "app.core.usuarios.migrations.0002_historicalusuario_tipousuario_usuario_tipousuario",
         "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('usuarios', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='historicalusuario',\n            name='tipoUsuario',\n            field=models.IntegerField(blank=True, null=True, verbose_name='Tipo de usuario'),\n        ),",
         "detail": "app.core.usuarios.migrations.0002_historicalusuario_tipousuario_usuario_tipousuario",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.core.usuarios.migrations.0003_alter_historicalusuario_username_and_more",
+        "description": "app.core.usuarios.migrations.0003_alter_historicalusuario_username_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('usuarios', '0002_historicalusuario_tipousuario_usuario_tipousuario'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='historicalusuario',\n            name='username',\n            field=models.CharField(blank=True, db_index=True, max_length=30, null=True, verbose_name='username'),\n        ),",
+        "detail": "app.core.usuarios.migrations.0003_alter_historicalusuario_username_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.core.usuarios.migrations.0004_historicalusuario_clave_temporal_and_more",
+        "description": "app.core.usuarios.migrations.0004_historicalusuario_clave_temporal_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('usuarios', '0003_alter_historicalusuario_username_and_more'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='historicalusuario',\n            name='clave_temporal',\n            field=models.BooleanField(default=True),\n        ),",
+        "detail": "app.core.usuarios.migrations.0004_historicalusuario_clave_temporal_and_more",
         "documentation": {}
     },
     {
@@ -5411,7 +5617,7 @@
         "kind": 6,
         "importPath": "app.core.usuarios.models",
         "description": "app.core.usuarios.models",
-        "peekOfCode": "class Usuario(AbstractBaseUser, PermissionsMixin):\n    username = models.CharField('username', max_length=255, blank=True, null= True, unique=True)\n    password = models.CharField('password', max_length=255, blank=True, null= True, unique=True)\n    correo = models.EmailField('Correo electrónico', max_length=255, blank=True, null=True)\n    nombre = models.CharField(max_length=255, null=True, blank= True, verbose_name= 'Nombre Usuario')\n    apellido_paterno = models.CharField(max_length=255, blank=True, null=True, verbose_name=\"Apellido Paterno\")\n    tipoUsuario = models.IntegerField('Tipo de usuario', blank=True, null=True)\n    is_active = models.BooleanField(default=True)\n    is_staff = models.BooleanField(default=False)\n    historical = HistoricalRecords()",
+        "peekOfCode": "class Usuario(AbstractBaseUser, PermissionsMixin):\n    username = models.CharField('username', max_length=30, blank=True, null= True, unique=True)\n    clave_temporal = models.BooleanField(default=True)\n    fecha_clave = models.DateField('Fecha cambio contraseña', auto_now=True, blank=True, null=True)\n    password = models.CharField('password', max_length=255, blank=True, null= True, unique=True)\n    correo = models.EmailField('Correo electrónico', max_length=255, blank=True, null=True)\n    nombre = models.CharField(max_length=255, null=True, blank= True, verbose_name= 'Nombre Usuario')\n    apellido_paterno = models.CharField(max_length=255, blank=True, null=True, verbose_name=\"Apellido Paterno\")\n    tipoUsuario = models.IntegerField('Tipo de usuario', blank=True, null=True)\n    is_active = models.BooleanField(default=True)",
         "detail": "app.core.usuarios.models",
         "documentation": {}
     },
@@ -5438,7 +5644,25 @@
         "kind": 6,
         "importPath": "app.core.usuarios.views",
         "description": "app.core.usuarios.views",
-        "peekOfCode": "class Logout(GenericAPIView):\n    def post(self, request, *args, **kwargs):\n        usuario = Usuario.objects.filter(id = request.data.get('usuario', 0))\n        if usuario.exists():\n            RefreshToken.for_user(usuario.first())\n            return Response({'message':'Sesión cerrada correctamente'}, status=status.HTTP_200_OK)\n        return Response({'error':'No existe este usuario'}, status=status.HTTP_400_BAD_REQUEST)",
+        "peekOfCode": "class Logout(GenericAPIView):\n    def post(self, request, *args, **kwargs):\n        usuario = Usuario.objects.filter(id = request.data.get('usuario', 0))\n        if usuario.exists():\n            RefreshToken.for_user(usuario.first())\n            return Response({'message':'Sesión cerrada correctamente'}, status=status.HTTP_200_OK)\n        return Response({'error':'No existe este usuario'}, status=status.HTTP_400_BAD_REQUEST)\nclass ResetPass(TokenObtainPairView):\n    serializer_class = ResetPasswordUserSerializer\n    def post(self, request, *args, **kwargs):",
+        "detail": "app.core.usuarios.views",
+        "documentation": {}
+    },
+    {
+        "label": "ResetPass",
+        "kind": 6,
+        "importPath": "app.core.usuarios.views",
+        "description": "app.core.usuarios.views",
+        "peekOfCode": "class ResetPass(TokenObtainPairView):\n    serializer_class = ResetPasswordUserSerializer\n    def post(self, request, *args, **kwargs):\n        username = request.data.get('username', '')\n        user = Usuario.objects.filter(username = username)\n        if user:\n            usuario = user.get()          \n            reset_serializer = self.serializer_class(data = request.data)\n            if reset_serializer.is_valid():\n                        #### se genera la contraseña de 10 digitos",
+        "detail": "app.core.usuarios.views",
+        "documentation": {}
+    },
+    {
+        "label": "ocultar_email",
+        "kind": 2,
+        "importPath": "app.core.usuarios.views",
+        "description": "app.core.usuarios.views",
+        "peekOfCode": "def ocultar_email(email):\n    partes = email.split('@')\n    nombre = partes[0]\n    dominio = partes[1]\n    # Ocultar caracteres del nombre\n    nombre_oculto = '*' * (len(nombre) - 7) + nombre[-7:]\n    return f\"{nombre_oculto}@{dominio}\"\nclass Login(TokenObtainPairView):\n    serializer_class = CustomTokenObtainPairSerializer\n    def post(self, request, *args, **kwargs):",
         "detail": "app.core.usuarios.views",
         "documentation": {}
     },
@@ -5537,7 +5761,7 @@
         "kind": 5,
         "importPath": "app.core.vacaciones.enviar_email.enviar_email",
         "description": "app.core.vacaciones.enviar_email.enviar_email",
-        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n# ---------------------------------Este job se activa cada dia a las 8 de la mañana notificando al trabajador que sale de vacaciones---------------------------------#\n# scheduler.add_job(\n# job_function, \n# trigger='cron', \n# day_of_week='mon-sun', \n# hour=8, \n# minute=0, \n# args=[1], \n# id='2', ",
+        "peekOfCode": "scheduler = BackgroundScheduler(timezone=\"America/Guayaquil\")\n##### ---------------------------------Este job se activa cada dia a las 8 de la mañana notificando al trabajador que sale de vacaciones---------------------------------#\n# scheduler.add_job(\n# job_function, \n# trigger='cron', \n# day_of_week='mon-sun', \n# hour=8, \n# minute=0, \n# args=[1], \n# id='2', ",
         "detail": "app.core.vacaciones.enviar_email.enviar_email",
         "documentation": {}
     },
@@ -5618,7 +5842,7 @@
         "kind": 2,
         "importPath": "app.core.vacaciones.views",
         "description": "app.core.vacaciones.views",
-        "peekOfCode": "def send_notification():\n    now = date.today()\n    # variable con los dias de anticiacion a los dias de vacaciobes#\n    td = timedelta(7)\n    dia_notificacion = now + td\n    id_trab_sale = CronogramaVacaciones.objects.all().filter(\n        state=True, fecha_inicio=dia_notificacion).values_list('id_trabajador', flat=True)\n    direct = ['jefferson.lara@upec.edu.ec']\n    try:\n        subject = 'Notificación de vacaciones'",
+        "peekOfCode": "def send_notification():\n    now = date.today()\n    # variable con los dias de anticipacion a los dias de vacaciobes#\n    td = timedelta(7)\n    dia_notificacion = now + td\n    # se optienen los datos de lo  trabajadores que estan por salir de vacaciones\n    id_trab_sale = CronogramaVacaciones.objects.all().filter(state=True, fecha_inicio=dia_notificacion).values_list('id_trabajador', flat=True)\n    direct = ['talento.humano@upec.edu.ec']\n    try:\n        trabajadores = Trabajador.objects.all().filter(id__in=id_trab_sale)",
         "detail": "app.core.vacaciones.views",
         "documentation": {}
     },

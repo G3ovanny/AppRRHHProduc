@@ -15,7 +15,7 @@ class AccionPersonalViewSet(viewsets.ModelViewSet):
     
     def create(self, request):
         accion_serializer = self.serializer_class(data = request.data)
-        accion_anterior = AccionPersonal.objects.all()
+        accion_anterior = AccionPersonal.objects.all().filter(state = True)
         if accion_serializer.is_valid():
             count = accion_serializer.validated_data.get('contador')
             accion_trabajador = accion_serializer.validated_data.get('id_trabajador')

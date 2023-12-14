@@ -1,15 +1,13 @@
 import { Avatar, Divider, Fade, IconButton, ListItemIcon, Menu, MenuItem, Stack } from '@mui/material'
 import React from 'react'
 import { AccountCircle, Logout, PersonAdd, Settings, ManageAccounts } from '@mui/icons-material';
-import { useAuthStore, useModalStore } from '../../hooks';
-import { PerfilModal } from '../../views/Perfiles/components/modal/PerfilModal';
-
+import { useAuthStore } from '../../hooks';
+import { useNavigate } from 'react-router-dom'
 export const Profile = () => {
-    const {startLogout } = useAuthStore();
+    const { startLogout } = useAuthStore();
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
-
-    const { openModal, nameModal } = useModalStore()
+    const history = useNavigate()
 
     const handleChange = (event) => {
         setAuth(event.target.checked);
@@ -24,7 +22,7 @@ export const Profile = () => {
     };
 
     const openPerfil = () => {
-       
+        history('/perfil');
     }
 
     const handleLogout = () => {
@@ -83,7 +81,7 @@ export const Profile = () => {
                     Salir
                 </MenuItem>
             </Menu>
-            <PerfilModal titleModal={nameModal} />
+            {/* <PerfilModal titleModal={nameModal} /> */}
         </div>
     )
 }

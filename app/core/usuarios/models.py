@@ -28,7 +28,9 @@ class UserManager(BaseUserManager):
     
 
 class Usuario(AbstractBaseUser, PermissionsMixin):
-    username = models.CharField('username', max_length=255, blank=True, null= True, unique=True)
+    username = models.CharField('username', max_length=30, blank=True, null= True, unique=True)
+    clave_temporal = models.BooleanField(default=True)
+    fecha_clave = models.DateField('Fecha cambio contraseña', auto_now=True, blank=True, null=True)
     password = models.CharField('password', max_length=255, blank=True, null= True, unique=True)
     correo = models.EmailField('Correo electrónico', max_length=255, blank=True, null=True)
     nombre = models.CharField(max_length=255, null=True, blank= True, verbose_name= 'Nombre Usuario')
