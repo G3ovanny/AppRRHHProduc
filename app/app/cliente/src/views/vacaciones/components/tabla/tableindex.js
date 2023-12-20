@@ -15,6 +15,13 @@ export const indexCells = [
         width: 200
     },
     {
+        id: 'created_date',
+        numeric: false,
+        //disablePadding: true,
+        label: 'Fecha de registro',
+        width: 200
+    },
+    {
         id: 'desde',
         //numeric: false,
         //disablePadding: true,

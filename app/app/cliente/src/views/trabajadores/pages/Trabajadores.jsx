@@ -16,9 +16,6 @@ export const Trabajadores = () => {
   const { openModal, nameModal } = useModalStore()
   const [vista, setVista] = useState('list')
 
-
-
-
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedFileType, setSelectedFileType] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
@@ -56,15 +53,6 @@ export const Trabajadores = () => {
   };
 
 
-
-
-
-  const onFileInputChange = async ({ target }) => {
-    console.log('asd')
-    // if (target.files === 0) return;
-    // const file = target.files[0]
-    // startSavingArchivo(file)
-  }
 
   const handeleAddTrabajador = () => {
     setActiveTrab('')

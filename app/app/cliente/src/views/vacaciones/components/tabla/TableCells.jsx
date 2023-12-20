@@ -42,6 +42,7 @@ export const TableCells = ({ list, page, rowsPerPage }) => {
       {lista.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((cronograma) => {
           const isItemSelected = isSelected(cronograma);
+          const fecha_creacion = dayjs(cronograma.created_date).format("D/M/YYYY - HH:mm");
           const inicio = dayjs(cronograma.fecha_inicio).format('DD/MM/YYYY');
           const fin = dayjs(cronograma.fecha_fin).format('DD/MM/YYYY');
           const estado = cronograma.estado_accion
@@ -72,6 +73,7 @@ export const TableCells = ({ list, page, rowsPerPage }) => {
                 {cronograma.numero_identificacion}
               </TableCell>
               <TableCell component='div' >{cronograma.nombres}</TableCell>
+              <TableCell component='div' >{fecha_creacion}</TableCell>
               <TableCell component='div' >{inicio}</TableCell>
               <TableCell component='div' >{fin}</TableCell>
               <TableCell component='div' >{cronograma.min_acumulados / 480}</TableCell>

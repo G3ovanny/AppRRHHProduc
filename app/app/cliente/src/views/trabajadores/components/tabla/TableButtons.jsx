@@ -1,7 +1,8 @@
-import { DeleteOutline, Edit, LocalPrintshopOutlined, ForwardToInboxOutlined } from '@mui/icons-material'
+import { DeleteOutline, Edit, LocalPrintshopOutlined, ForwardToInboxOutlined, Download } from '@mui/icons-material'
 import { IconButton, Tooltip } from '@mui/material'
 import React from 'react'
 import { useModalStore, useTrabStore } from '../../../../hooks'
+import { DocExcel } from '../documentoExcel'
 export const TableButtons = () => {
   const { activeTrab, startDeletingTrab, startSendEmailTrab } = useTrabStore();
 
@@ -20,10 +21,22 @@ export const TableButtons = () => {
   const handleDelete = () => {
     startDeletingTrab()
   }
+  const handlePrint = () => {
+    DocExcel(activeTrab)
+  }
   return (
     <>
       {numActivos !== 1 ? (
         <>
+          <Tooltip title="Exportar a excel" color='secondary'>
+            <IconButton
+              component='div'
+              disabled={!numActivos}
+              onClick={handlePrint}
+            >
+              <Download />
+            </IconButton>
+          </Tooltip>
           <Tooltip title="Enviar correo" color="secondary">
             <IconButton
               component='div'
@@ -50,11 +63,13 @@ export const TableButtons = () => {
 
       ) : (
         <>
-          <Tooltip title="Imprimir" color='secondary'>
+          <Tooltip title="Exportar a excel" color='secondary'>
             <IconButton
-            //onClick={handlePrint}
+              component='div'
+              disabled={!numActivos}
+              onClick={handlePrint}
             >
-              <LocalPrintshopOutlined />
+              <Download />
             </IconButton>
           </Tooltip>
           <Tooltip title="Editar" color='secondary'>

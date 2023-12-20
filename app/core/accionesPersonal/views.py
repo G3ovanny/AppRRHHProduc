@@ -7,7 +7,7 @@ from .models import AccionPersonal
 from ..trabajadores.models import Trabajador
 # Create your views here.
 
-#me permite generar acciones de personal de forma masiva utilizando la libria pandas#
+#me permite generar acciones de personal de forma masiva utilizando la libreria pandas#
 def analisis_Archivo():
     engine = create_engine(
         'postgresql+psycopg2://postgres:admin@localhost:5432/TalentoHumano_db')

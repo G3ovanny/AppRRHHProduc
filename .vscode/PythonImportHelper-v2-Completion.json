@@ -146,6 +146,22 @@
         "documentation": {}
     },
     {
+        "label": "POSTGRESQL",
+        "importPath": "app.config.db",
+        "description": "app.config.db",
+        "isExtraImport": true,
+        "detail": "app.config.db",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
         "label": "settings",
         "importPath": "django.conf",
         "description": "django.conf",
@@ -1114,6 +1130,30 @@
         "documentation": {}
     },
     {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "viewsets",
         "importPath": "rest_framework",
         "description": "rest_framework",
@@ -1127,6 +1167,14 @@
         "description": "rest_framework",
         "isExtraImport": true,
         "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
@@ -1459,6 +1507,14 @@
     },
     {
         "label": "*",
+        "importPath": "core.trabajadores.models",
+        "description": "core.trabajadores.models",
+        "isExtraImport": true,
+        "detail": "core.trabajadores.models",
+        "documentation": {}
+    },
+    {
+        "label": "Trabajador",
         "importPath": "core.trabajadores.models",
         "description": "core.trabajadores.models",
         "isExtraImport": true,
@@ -2427,6 +2483,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -2670,6 +2742,14 @@
         "documentation": {}
     },
     {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "DjangoFilterBackend",
         "importPath": "django_filters.rest_framework",
         "description": "django_filters.rest_framework",
@@ -2829,6 +2909,14 @@
         "description": "django.utils.safestring",
         "isExtraImport": true,
         "detail": "django.utils.safestring",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "dateutil.relativedelta",
+        "description": "dateutil.relativedelta",
+        "isExtraImport": true,
+        "detail": "dateutil.relativedelta",
         "documentation": {}
     },
     {
@@ -3402,6 +3490,46 @@
         "documentation": {}
     },
     {
+        "label": "ArchivoCronograma",
+        "importPath": "core.vacaciones.models",
+        "description": "core.vacaciones.models",
+        "isExtraImport": true,
+        "detail": "core.vacaciones.models",
+        "documentation": {}
+    },
+    {
+        "label": "ArchivoCronograma",
+        "importPath": "core.vacaciones.models",
+        "description": "core.vacaciones.models",
+        "isExtraImport": true,
+        "detail": "core.vacaciones.models",
+        "documentation": {}
+    },
+    {
+        "label": "ArchCronogramaVacacionesSerializer",
+        "importPath": "core.vacaciones.api.serializers.archivoCronograma_serializers",
+        "description": "core.vacaciones.api.serializers.archivoCronograma_serializers",
+        "isExtraImport": true,
+        "detail": "core.vacaciones.api.serializers.archivoCronograma_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "cargarCronograma",
+        "importPath": "core.vacaciones.cargarDocumento.cronogramaVacaciones",
+        "description": "core.vacaciones.cargarDocumento.cronogramaVacaciones",
+        "isExtraImport": true,
+        "detail": "core.vacaciones.cargarDocumento.cronogramaVacaciones",
+        "documentation": {}
+    },
+    {
+        "label": "ArchCronogramaVacacionesViewSet",
+        "importPath": "core.vacaciones.api.views.archivoCronograma_views",
+        "description": "core.vacaciones.api.views.archivoCronograma_views",
+        "isExtraImport": true,
+        "detail": "core.vacaciones.api.views.archivoCronograma_views",
+        "documentation": {}
+    },
+    {
         "label": "asignar_dias",
         "importPath": "core.vacaciones.asignar_vacaciones_mes.asignar_dias",
         "description": "core.vacaciones.asignar_vacaciones_mes.asignar_dias",
@@ -3484,7 +3612,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3493,7 +3621,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3502,7 +3630,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "DEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -5667,12 +5795,30 @@
         "documentation": {}
     },
     {
+        "label": "ArchCronogramaVacacionesSerializer",
+        "kind": 6,
+        "importPath": "app.core.vacaciones.api.serializers.archivoCronograma_serializers",
+        "description": "app.core.vacaciones.api.serializers.archivoCronograma_serializers",
+        "peekOfCode": "class ArchCronogramaVacacionesSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = ArchivoCronograma\n        exclude = ('state',)",
+        "detail": "app.core.vacaciones.api.serializers.archivoCronograma_serializers",
+        "documentation": {}
+    },
+    {
         "label": "CronogramaVacacionesSerializer",
         "kind": 6,
         "importPath": "app.core.vacaciones.api.serializers.cronograma_serializers",
         "description": "app.core.vacaciones.api.serializers.cronograma_serializers",
         "peekOfCode": "class CronogramaVacacionesSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = CronogramaVacaciones\n        exclude = ('state',)\n    def to_representation(self, instance):\n        return {\n            'id': instance.id,\n            'fecha_solicitud': instance.fecha_solicitud,\n            'fecha_inicio': instance.fecha_inicio,\n            'fecha_fin': instance.fecha_fin,",
         "detail": "app.core.vacaciones.api.serializers.cronograma_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ArchCronogramaVacacionesViewSet",
+        "kind": 6,
+        "importPath": "app.core.vacaciones.api.views.archivoCronograma_views",
+        "description": "app.core.vacaciones.api.views.archivoCronograma_views",
+        "peekOfCode": "class ArchCronogramaVacacionesViewSet(viewsets.ModelViewSet):\n    serializer_class = ArchCronogramaVacacionesSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.all().order_by('id')\n        return self.get_queryset().Meta.model.objects.filter(id=pk).first()\n    def create(self, request):\n        serializer = self.serializer_class(data= request.data)\n        if serializer.is_valid():\n            serializer.save()",
+        "detail": "app.core.vacaciones.api.views.archivoCronograma_views",
         "documentation": {}
     },
     {
@@ -5689,7 +5835,7 @@
         "kind": 5,
         "importPath": "app.core.vacaciones.api.routers",
         "description": "app.core.vacaciones.api.routers",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'cronograma', CronogramaVacacionesViewSet,\n                basename='cronograma'),\nurlpatterns = router.urls",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'cronograma', CronogramaVacacionesViewSet, basename='cronograma'),\nrouter.register(r'archivo', ArchCronogramaVacacionesViewSet, basename='archivo cronograma de vacaciones')\nurlpatterns = router.urls",
         "detail": "app.core.vacaciones.api.routers",
         "documentation": {}
     },
@@ -5736,6 +5882,15 @@
         "description": "app.core.vacaciones.asignar_vacaciones_mes.asignar_dias",
         "peekOfCode": "def asignar_dias():\n    fecha_actual = datetime.date.today()\n    dias_asignar = 2.5\n    servidor_asignar = Trabajador.objects.all().filter(state = True)\n    id_ocasionales = Modalidad_Laboral.objects.all().filter(Q(modalidad_laboral__icontains=\"ocasionales\") | Q(modalidad_laboral__iexact=\"CONTRATOS OCASIONALES\")).values_list('id', flat=True).get()\n    id_regimen = Regimen_Laboral.objects.all().filter(Q(regimen_laboral__icontains= \"codigo\") | Q(regimen_laboral__iexact=\"CODIGO DE TRABAJO\")).values_list('id', flat=True).get()\n    for servidor in servidor_asignar:\n        dias_servidor = servidor.dias_vacaciones\n        #contratos ocacionales se les asignara cada mes 15 dias de vacaciones si el servidor ingresa en menos de un mes se le asignara el equivalente\n        if servidor.id_modalidad_laboral.id == id_ocasionales:",
         "detail": "app.core.vacaciones.asignar_vacaciones_mes.asignar_dias",
+        "documentation": {}
+    },
+    {
+        "label": "cargarCronograma",
+        "kind": 2,
+        "importPath": "app.core.vacaciones.cargarDocumento.cronogramaVacaciones",
+        "description": "app.core.vacaciones.cargarDocumento.cronogramaVacaciones",
+        "peekOfCode": "def cargarCronograma():\n    database_settings = POSTGRESQL['default']\n    engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    documento = ArchivoCronograma.objects.latest('id').doc\n    cronograma = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)})\n    fecha_actual = datetime.datetime.now()\n    tiempo_actual = fecha_actual + datetime.timedelta(hours=5)\n    success_message = []\n    error_messages= []\n    loes = 'En cumplimiento a la LOES, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo indicado. Fecha de reincorporación a actividades'",
+        "detail": "app.core.vacaciones.cargarDocumento.cronogramaVacaciones",
         "documentation": {}
     },
     {
@@ -5811,6 +5966,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.core.vacaciones.migrations.0006_archivocronograma_historicalarchivocronograma",
+        "description": "app.core.vacaciones.migrations.0006_archivocronograma_historicalarchivocronograma",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('vacaciones', '0005_alter_cronogramavacaciones_options'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='ArchivoCronograma',\n            fields=[\n                ('id', models.AutoField(primary_key=True, serialize=False)),",
+        "detail": "app.core.vacaciones.migrations.0006_archivocronograma_historicalarchivocronograma",
+        "documentation": {}
+    },
+    {
         "label": "Cronograma_vacaciones",
         "kind": 6,
         "importPath": "app.core.vacaciones.admin",
@@ -5824,7 +5988,7 @@
         "kind": 6,
         "importPath": "app.core.vacaciones.apps",
         "description": "app.core.vacaciones.apps",
-        "peekOfCode": "class VacacionesConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.vacaciones'\n    def ready(self):\n        print(\"Iniciando la tarea de asignación de dias de vacaciones...\")\n        from .asignar_vacaciones_mes import activar_job",
+        "peekOfCode": "class VacacionesConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'core.vacaciones'\n    # def ready(self):\n    #     print(\"Iniciando la tarea de asignación de dias de vacaciones...\")\n    #     from .asignar_vacaciones_mes import activar_job",
         "detail": "app.core.vacaciones.apps",
         "documentation": {}
     },
@@ -5834,6 +5998,15 @@
         "importPath": "app.core.vacaciones.models",
         "description": "app.core.vacaciones.models",
         "peekOfCode": "class CronogramaVacaciones(BaseModel):\n    id_trabajador = models.ForeignKey(\n        Trabajador, blank=True, null=True, on_delete=models.SET_NULL)\n    fecha_solicitud = models.DateField(\n        blank=True, null=True, auto_now=True, verbose_name='Fecha solicitud')\n    fecha_inicio = models.DateField(\n        blank=True, null=True, verbose_name='Fecha desde')\n    fecha_fin = models.DateField(\n        blank=True, null=True, verbose_name='Fecha hasta')\n    min_acumulados = models.IntegerField(blank=True, null=True, unique=False)",
+        "detail": "app.core.vacaciones.models",
+        "documentation": {}
+    },
+    {
+        "label": "ArchivoCronograma",
+        "kind": 6,
+        "importPath": "app.core.vacaciones.models",
+        "description": "app.core.vacaciones.models",
+        "peekOfCode": "class ArchivoCronograma(BaseModel):\n    doc = models.FileField(upload_to = 'archivoCronograma')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    class Meta:",
         "detail": "app.core.vacaciones.models",
         "documentation": {}
     },

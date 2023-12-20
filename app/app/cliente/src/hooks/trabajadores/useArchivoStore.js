@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { rhApi } from "../../api"
 import { onAddNewArchivo } from "../../store"
 import { onClearMessage } from "../../store/trabajadores/archivoSlice"
-import axios from 'axios'
+
 export const useArchivoStore = () => {
     const dispatch = useDispatch()
 

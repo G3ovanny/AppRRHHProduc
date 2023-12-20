@@ -1,18 +1,26 @@
-import { EditCalendar } from '@mui/icons-material'
+import { DriveFolderUpload, EditCalendar } from '@mui/icons-material'
 import { Alert, Box, Divider, Grid, IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
 import React from 'react'
-import { useCronogramaVacacionesStore, useModalStore } from '../../../hooks'
+import { useArchivoCronogramaStore, useCronogramaVacacionesStore, useModalStore } from '../../../hooks'
 import { CronogramaModal, Table } from '../components'
+import { VacacionesModal } from '../components/modal/VacacionesModal'
 
 export const Cronograma = () => {
   const { mensajeCronograma, setActiveCronograma } = useCronogramaVacacionesStore()
   const { openModal, nameModal } = useModalStore();
+  const { startSavingArchivoCron, mensajeArchivoCron } = useArchivoCronogramaStore();
+
+  const onFileInputChange = async ({ target }) => {
+    if (target.files === 0) return;
+    const file = target.files[0]
+    startSavingArchivoCron(file)
+  }
 
   const handleAddCronograma = () => {
     setActiveCronograma([])
     openModal('Nuevo Cronograma')
   }
-  
+
   return (
     <Box>
       <Toolbar
@@ -29,7 +37,23 @@ export const Cronograma = () => {
         >
           Cronograma de vacaciones
         </Typography>
-        <Tooltip title="Agregar Cronograma" color="secondary">
+
+        <Tooltip title='Cargar cronograma de vacaciones' color='secondary'>
+          <IconButton >
+            <label htmlFor="btnFile" >
+              <DriveFolderUpload />
+            </label>
+          </IconButton>
+        </Tooltip>
+        <input
+          id="btnFile"
+          style={{ display: "none" }}
+          type="file"
+          multiple
+          onChange={onFileInputChange}
+        />
+
+        <Tooltip title="Agregar Cronograma de vacaciones" color="secondary">
           <IconButton
             onClick={handleAddCronograma}
           >
@@ -50,6 +74,11 @@ export const Cronograma = () => {
 
         </Grid>
       </Toolbar>
+      {mensajeArchivoCron
+        ? <VacacionesModal />
+        : <></>
+      }
+
       <Table />
       <CronogramaModal titleModal={nameModal} />
     </Box>

@@ -16,7 +16,7 @@ class CronogramaVacacionesSerializer(serializers.ModelSerializer):
             'min_acumulados': instance.min_acumulados,
             'explicacion': instance.explicacion,
             'estado_accion': instance.estado_accion,
-
+            'created_date': instance.created_date,
             'id_trabajador': instance.id_trabajador.id,
             'numero_identificacion': instance.id_trabajador.numero_identificacion,
             'nombres': instance.id_trabajador.nombres,

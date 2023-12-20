@@ -21,24 +21,38 @@ const filterOptions = [
 ]
 export const TableFilters = (props) => {
   const [valorBuscar, setValorBuscar] = useState('')
-  const [columnaBuscar, setColumnaBuscar] = useState('nombresTrab')
-  const [fechaDesdeBuscar, setFechaDesdeBuscar] = useState(null)
-  const [fechaHastaBuscar, setFechaHastaBuscar] = useState(null)
+  const [columnaBuscar, setColumnaBuscar] = useState('nombresTrab');
+  const [fechaRegistroBuscar, setFechaRegistroBuscar] = useState(null);
+  const [fechaDesdeBuscar, setFechaDesdeBuscar] = useState(null);
+  const [fechaHastaBuscar, setFechaHastaBuscar] = useState(null);
 
   const filtrar = () => {
-    props.onBuscar(valorBuscar, columnaBuscar, fechaDesdeBuscar, fechaHastaBuscar)
+    props.onBuscar(
+      valorBuscar,
+      columnaBuscar,
+      fechaRegistroBuscar,
+      fechaDesdeBuscar,
+      fechaHastaBuscar
+    )
   }
   const limpiarFIltros = () => {
     setValorBuscar('')
     setColumnaBuscar('cedulaTrab')
+    setFechaRegistroBuscar(null)
     setFechaDesdeBuscar(null)
     setFechaHastaBuscar(null)
     filtrar()
   }
 
   useEffect(() => {
-    props.onBuscar(valorBuscar, columnaBuscar, fechaDesdeBuscar, fechaHastaBuscar);
-  }, [valorBuscar, columnaBuscar, fechaDesdeBuscar, fechaHastaBuscar]);
+    props.onBuscar(
+      valorBuscar,
+      columnaBuscar,
+      fechaRegistroBuscar,
+      fechaDesdeBuscar,
+      fechaHastaBuscar
+    );
+  }, [valorBuscar, columnaBuscar, fechaRegistroBuscar, fechaDesdeBuscar, fechaHastaBuscar]);
 
   return (
     <Grid container spacing={2}>
@@ -80,6 +94,17 @@ export const TableFilters = (props) => {
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
             slotProps={{ textField: { size: 'small' } }}
+            label="Fecha de registro"
+            value={fechaRegistroBuscar}
+            onChange={(newValue) => setFechaRegistroBuscar(dayjs(newValue))}
+          />
+        </LocalizationProvider>
+      </Grid>
+
+      <Grid item xs={12} sm={6} md={2}>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker
+            slotProps={{ textField: { size: 'small' } }}
             label="Desde"
             value={fechaDesdeBuscar}
             onChange={(newValue) => setFechaDesdeBuscar(dayjs(newValue))}
@@ -98,7 +123,7 @@ export const TableFilters = (props) => {
           />
         </LocalizationProvider>
       </Grid>
-      <Grid item 
+      <Grid item
       //xs={3} sm={6} md={2}
       >
         <Button
@@ -107,7 +132,7 @@ export const TableFilters = (props) => {
         > Buscar </Button>
 
       </Grid>
-      <Grid item 
+      <Grid item
       //xs={3} sm={6} md={2}
       >
         <Button

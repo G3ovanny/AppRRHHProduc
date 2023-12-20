@@ -12,7 +12,7 @@ export const Table = () => {
 
   const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
 
-  const handleBuscar = (valorBuscar, columna, fechaDesde, fechaHasta) => {
+  const handleBuscar = (valorBuscar, columna,fechaRegistro, fechaDesde, fechaHasta) => {
     const resultadosFiltrados = listAccion.filter((accion) => {
       //return dayjs(accion.fecha_hora_salida).isBetween(fechaDesde, fechaHasta)
       //se filtra por el tipo de columna y el datos ingresado
@@ -30,7 +30,7 @@ export const Table = () => {
     }).filter((accion) => {
 
       //Filtro por columna, le dato ingresado y fechas
-      if (!fechaDesde && !fechaHasta) {
+      if (!fechaDesde && !fechaHasta && !fechaRegistro) {
         return accion; // Si no se especifican fechas, se considera dentro del rango
       }
       if (fechaDesde && fechaHasta) {
@@ -41,7 +41,9 @@ export const Table = () => {
 
         return dayjs(accion.fecha_rigue).isBefore(fechaHasta);
       }
-
+      if (fechaRegistro) {
+        return dayjs(accion.created_date).isSame(fechaRegistro, 'day')
+    }
       return accion;
     });
     setResultadoBusqueda(resultadosFiltrados);

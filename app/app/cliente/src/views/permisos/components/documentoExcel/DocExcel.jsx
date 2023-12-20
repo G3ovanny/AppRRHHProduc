@@ -49,17 +49,6 @@ export const DocExcel = (activePermiso) => {
         for (let i = 1; i < data.length; i++) {
             suma = suma + data[i].I;
         }
-
-        // // Calcula las horas y los minutos
-        // const horas = Math.floor(suma / 60);
-        // const minutosRestantes = suma % 60;
-
-        // // Crea un objeto dayjs con la cantidad de tiempo
-        // const tiempo = dayjs().hour(horas).minute(minutosRestantes);
-
-        // // Formatea el tiempo en el formato deseado (HH:mm)
-        // const formatoHora = tiempo.format('HH:mm');
-
         const dias = Math.floor(suma / 480); // 480 minutos en un día
         const horasRestantes = Math.floor((suma % 480) / 60); // Horas restantes
         const minutosRestantes = suma % 60; // Minutos restantes

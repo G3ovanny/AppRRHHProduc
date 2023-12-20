@@ -14,9 +14,6 @@ const formData = {
   correo: '',
 }
 export const PerfilModal = ({ titleModal, user }) => {
-
-  // const { listUsuario, startLoadingUsuario } = useUsuarioStore()
-  // const usuario = localStorage.getItem('username')
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const { closeModal } = useModalStore()
@@ -213,7 +210,7 @@ export const PerfilModal = ({ titleModal, user }) => {
 
             <Button
               variant="contained"
-              disabled={isFormValid}
+              disabled={!isFormValid}
               onClick={onSubmit}
             >
               Guardar

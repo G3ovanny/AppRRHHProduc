@@ -45,6 +45,7 @@ export const TableCells = ({ list, page, rowsPerPage }) => {
       {lista.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         .map((accion) => {
           const isItemSelected = isSelected(accion);
+          const fecha_creacion = dayjs(accion.created_date).format("D/M/YYYY - HH:mm");
 
           return (
             <TableRow
@@ -74,6 +75,7 @@ export const TableCells = ({ list, page, rowsPerPage }) => {
               </TableCell>
               <TableCell component='div'>{accion.apellido_paterno} {accion.apellido_materno} {accion.nombres}</TableCell>
               <TableCell component='div'>{accion.tipo_accion}</TableCell>
+              <TableCell component='div' >{fecha_creacion}</TableCell>
               <TableCell component='div'>{dayjs(accion.fecha_accion).format("D/M/YYYY")}</TableCell>
               <TableCell component='div'>{dayjs(accion.fecha_rigue).format("D/M/YYYY")}</TableCell>
               <TableCell component='div'>{accion.estado_accion}</TableCell>

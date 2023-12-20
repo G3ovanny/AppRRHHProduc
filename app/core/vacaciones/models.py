@@ -39,3 +39,22 @@ class CronogramaVacaciones(BaseModel):
 
     def __str__(self):
         return str(self.fecha_inicio)
+
+
+class ArchivoCronograma(BaseModel):
+    doc = models.FileField(upload_to = 'archivoCronograma')
+    historical = HistoricalRecords()
+
+    @property
+    def _history_user(self):
+        return self.changed_by
+
+    @_history_user.setter
+    def _history_user(self, value):
+        self.changed_by = value
+
+    class Meta:
+        verbose_name = "Archivo cronograma"
+        verbose_name_plural = "Archivos cronograma"
+        db_table = 'Archivo_cronograma'
+        ordering = ['id']

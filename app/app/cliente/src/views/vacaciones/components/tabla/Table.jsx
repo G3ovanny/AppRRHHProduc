@@ -12,7 +12,7 @@ export const Table = () => {
 
     const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
 
-    const handleBuscar = (valorBuscar, columna, fechaDesde, fechaHasta) => {
+    const handleBuscar = (valorBuscar, columna, fechaRegistro, fechaDesde, fechaHasta) => {
         const resultadosFiltrados = listCronograma.filter((cronograma) => {
 
             switch (columna) {
@@ -29,7 +29,7 @@ export const Table = () => {
         }).filter((cronograma) => {
 
             //Filtro por columna, le dato ingresado y fechas
-            if (!fechaDesde && !fechaHasta) {
+            if (!fechaDesde && !fechaHasta &&!fechaRegistro) {
                 return cronograma; // Si no se especifican fechas, se considera dentro del rango
             }
             if (fechaDesde && fechaHasta) {
@@ -40,7 +40,9 @@ export const Table = () => {
 
                 return dayjs(cronograma.fecha_inicio).isBefore(fechaHasta);
             }
-
+            if (fechaRegistro) {
+                return dayjs(cronograma.created_date).isSame(fechaRegistro, 'day')
+            }
             return cronograma;
         });
         setResultadoBusqueda(resultadosFiltrados);

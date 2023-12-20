@@ -22,10 +22,17 @@ export const indexCells = [
         width: 200
     },
     {
+        id: 'created_date',
+        numeric: false,
+        //disablePadding: true,
+        label: 'Fecha de registro',
+        width: 200
+    },
+    {
         id: 'fechaCreacion',
         //numeric: false,
         //disablePadding: true,
-        label: 'Fecha de creacion',
+        label: 'Fecha de acción personal',
         width: 400
     },
     {

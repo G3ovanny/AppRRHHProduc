@@ -45,7 +45,7 @@ export const AccionesPersonal = () => {
                 >
                     Acciones de personal
                 </Typography>
-                <Tooltip title='Cargar' color='secondary'>
+                {/* <Tooltip title='Cargar' color='secondary'>
                     <IconButton >
                         <label htmlFor="btnFile" >
                             <DriveFolderUpload />
@@ -58,7 +58,7 @@ export const AccionesPersonal = () => {
                     type="file"
                     multiple
                     onChange={onFileInputChange}
-                />
+                /> */}
                 <Tooltip title='Agregar' color='secondary'>
                     <IconButton
                         onClick={handleAddAccion}

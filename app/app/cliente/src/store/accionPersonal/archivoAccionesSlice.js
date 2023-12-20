@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import React from 'react'
 
 export const archivoAccionesSlice = createSlice({
     name: 'archivoAcciones',

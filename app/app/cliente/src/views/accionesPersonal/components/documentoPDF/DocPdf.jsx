@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 
-import  {StyleSheet } from '@react-pdf/renderer'
+import { StyleSheet } from '@react-pdf/renderer'
 import { useAccionPersonalStore, useDenominacionPuestoStore, useEstructuraProgramaticaStore, useUnidadOrganicaStore } from '../../../../hooks';
 import { tipos_accion, tipos_doc } from '../../tipos-accion';
 import { Box, Typography } from '@mui/material';
@@ -159,6 +159,10 @@ const styles = StyleSheet.create({
         fontSize: "15px",
         display: "flex",
         justifyContent: "space-between",
+    },
+    salto: {
+        backgroundColor: 'blue',
+        marginTop: "23px",
     }
 });
 
@@ -591,84 +595,132 @@ export const DocPdf = React.forwardRef((props, ref) => {
                             <Box style={styles.rect_cuatro}>
                                 <Box style={styles.rect_pequeño}>
                                     <Box style={styles.explicacion}>
-                                        <br />
+                                        <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             CAUCION REGISTRADA CON No. ____________________________________________________________________________
                                         </Typography>
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             Fecha: ________________________________________
                                         </Typography>
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             _________________________________________________________________________________________________________
                                         </Typography>
-                                        <br />
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             _________________________________________________________________________________________________________
                                         </Typography>
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                     </Box>
                                 </Box>
                             </Box>
                             <Box style={styles.rect_cuatro}>
                                 <Box style={styles.rect_pequeño}>
                                     <Box style={styles.explicacion}>
-                                        <br />
-                                        <br />
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             LA PERSONA REEMPLAZA A: _______________________________________________________________________________
                                         </Typography>
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             EN EL PUESTO DE: _______________________________________________________________________________________
                                         </Typography>
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             QUIEN CESO EN FUNCIONES POR: __________________________________________________________________________
                                         </Typography>
-                                        <br />
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             ACCION DE PERSONAL REGISTRADA CON No. ________________________________________________________________
                                         </Typography>
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             No. ___________________________________________
                                         </Typography>
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             FECHA ________________________________________
                                         </Typography>
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                     </Box>
                                 </Box>
                             </Box>
                             <Box style={styles.rect_cuatro}>
                                 <Box style={styles.rect_pequeño}>
                                     <Box style={styles.explicacion}>
-                                        <br />
-                                        <br />
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             YO;  {data.apellido_paterno} {data.apellido_materno} {data.nombres}
                                         </Typography>
-                                        <br />
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             CON CEDULA DE CIUDADANIA No. {data.numero_identidad}
                                         </Typography>
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             LUGAR: Tulcán
                                         </Typography>
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
                                         <Typography style={styles.text}>
                                             FECHA: {data.fecha_accion}
                                         </Typography>
-                                        <br />
+                                       <Box style={styles.salto}>
+                                          
+                                        </Box>
 
                                         <Box style={styles.rect_cuatro}>
                                             <Box style={styles.rect_pequeño}>
