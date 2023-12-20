@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         width: "100%",
         //padding: "175px 65px",
         padding: "170px 55px",
-        backgroundColor: "red",
+        //backgroundColor: "red",
     },
     margen: {
     },
