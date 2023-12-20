@@ -54,7 +54,7 @@ export const TableButtons = () => {
             const element = activeCronograma[i];
             const estadoAccion = element.estado_accion
 
-            if (estadoAccion == false) {
+            if (estadoAccion !== true) {
                 let lista_trabajadores = trabajadores.filter(trab => trab.id === element.id_trabajador)
                 let trabajador = lista_trabajadores[0]
                 const formDataAccion = {
