@@ -59,7 +59,7 @@ def cargarCronograma():
                     cronograma['explicacion'] = loes + ' ' + fecha_retorno
                 # Resta las fechas para obtener la diferencia en días
                 if cronograma['fecha_inicio'].notnull().any() and cronograma['fecha_fin'].notnull().any():
-                    dias_t = (cronograma['fecha_fin'] - cronograma['fecha_inicio']).dt.days
+                    dias_t = (cronograma['fecha_fin'] - cronograma['fecha_inicio']).dt.days + 1
                     min_dia = (dias_t * 8) * 60
                     cronograma['min_acumulados'] = min_dia
                     ## se obtiene los dias de vacaciones de cada uno de los trabajadores
