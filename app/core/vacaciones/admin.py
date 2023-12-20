@@ -6,4 +6,5 @@ from .models import *
 
 @admin.register(CronogramaVacaciones)
 class Cronograma_vacaciones(admin.ModelAdmin):
-    list_display = ('id',)
+    list_display = ('id', 'id_trabajador')
+    search_fields = ('id', 'id_trabajador')

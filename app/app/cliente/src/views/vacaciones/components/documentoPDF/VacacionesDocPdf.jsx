@@ -39,9 +39,10 @@ for (let i = 0; i < regimen.tipos.length; i += longitud) {
 const styles = StyleSheet.create({
     page: {
         flexDirection: 'column',
-        display: "flex",
         width: "100%",
-        padding: "175px 65px",
+        //padding: "175px 65px",
+        padding: "170px 55px",
+        backgroundColor: "red",
     },
     margen: {
     },
