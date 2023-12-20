@@ -17,9 +17,9 @@ def cargarCronograma():
     success_message = []
     error_messages= []
     
-    loes = 'Por lo dispuesto a la ley y en cumplimiento al candelario académico, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo indicado. Fecha de reincorporación a actividades'
-    losep = 'Por lo dispuesto a la ley y en cumplimiento al candelario académico, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo indicado. Fecha de reincorporación a actividades'
-    codigo = 'Por lo dispuesto a la ley y en cumplimiento al candelario académico, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo indicado. Fecha de reincorporación a actividades'
+    loes = 'Por lo dispuesto a la Ley y en cumplimiento al candelario académico, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo antes citado. Fecha de reincorporación a actividades'
+    losep = 'Por lo dispuesto a la Ley y en cumplimiento al candelario académico, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo antes citado. Fecha de reincorporación a actividades'
+    codigo = 'Por lo dispuesto a la Ley y en cumplimiento al candelario académico, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo antes citado. Fecha de reincorporación a actividades'
     
     cedula = 'numero_identificacion' in cronograma.columns
 
