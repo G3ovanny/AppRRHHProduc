@@ -10,10 +10,34 @@ class AccionPersonalSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         if instance.id_trabajador:
             nombres = instance.id_trabajador.nombres
-            palabras = nombres.split(' ')
-            nomb = ' '.join(palabras[-2:])
-            ap2 = ''.join(palabras[-3])
-            ap1 = ''.join(palabras[-4])
+            palabras = nombres.split()
+            palabras_a_ignorar = ["DEL", "DE LOS ", "DE LAS ", "DE LA "]
+            # Eliminar la palabra "DEL" si está presente y concatenarla a la palabra siguiente
+            for palabra in palabras_a_ignorar:
+                if palabra in palabras:
+                    indice_del = palabras.index(palabra)
+                    if indice_del < len(palabras) - 1:
+                        palabras[indice_del + 1] = palabra+ ' ' + palabras[indice_del + 1]
+                    palabras.remove(palabra)
+            
+            # Identificar los apellidos y nombres
+            if len(palabras) >= 3:
+                apellido_paterno = palabras[0]
+                apellido_materno = palabras[1]
+                nombres = " ".join(palabras[2:])
+                # return {"apellido_paterno": apellido_paterno, "apellido_materno": apellido_materno, "nombres": nombres}
+            elif len(palabras) == 2:
+                apellido_paterno = palabras[0]
+                apellido_materno= ''
+                nombres = palabras[1]
+                # return {"apellido_paterno": apellido_paterno, "apellido_materno": apellido_materno, "nombres": nombres}
+        # if instance.id_trabajador:
+        #     nombres = instance.id_trabajador.nombres
+
+        #     palabras = nombres.split(' ')
+        #     nomb = ' '.join(palabras[-2:])
+            #apellido_materno = ''.join(palabras[-3])
+            #apellido_paterno = ''.join(palabras[-4])
         
         proceso_propuesta =  instance.proceso_propuesta,
         subproceso_propuesta =  instance.subproceso_propuesta,
@@ -26,9 +50,9 @@ class AccionPersonalSerializer(serializers.ModelSerializer):
             'id': instance.id,
             'id_trabajador': instance.id_trabajador.id,
             'numero_identidad': instance.id_trabajador.numero_identificacion,
-            'nombres': nomb,
-            'apellido_paterno': ap1,
-            'apellido_materno': ap2,
+            'nombres': nombres,
+            'apellido_paterno': apellido_paterno,
+            'apellido_materno': apellido_materno,
             'contador': instance.contador,
             'fecha_accion': instance.fecha_accion,
             'fecha_rigue': instance.fecha_rigue,

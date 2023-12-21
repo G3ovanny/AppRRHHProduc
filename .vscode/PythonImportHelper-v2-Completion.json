@@ -3972,7 +3972,7 @@
         "kind": 6,
         "importPath": "app.core.accionesPersonal.api.serializers.serializers",
         "description": "app.core.accionesPersonal.api.serializers.serializers",
-        "peekOfCode": "class AccionPersonalSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = AccionPersonal\n        exclude = ('state',)\n    def to_representation(self, instance):\n        if instance.id_trabajador:\n            nombres = instance.id_trabajador.nombres\n            palabras = nombres.split(' ')\n            nomb = ' '.join(palabras[-2:])\n            ap2 = ''.join(palabras[-3])",
+        "peekOfCode": "class AccionPersonalSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = AccionPersonal\n        exclude = ('state',)\n    def to_representation(self, instance):\n        if instance.id_trabajador:\n            nombres = instance.id_trabajador.nombres\n            palabras = nombres.split()\n            palabras_a_ignorar = [\"DEL\", \"DE LOS \", \"DE LAS \", \"DE LA \"]\n            # Eliminar la palabra \"DEL\" si está presente y concatenarla a la palabra siguiente",
         "detail": "app.core.accionesPersonal.api.serializers.serializers",
         "documentation": {}
     },
@@ -4134,7 +4134,7 @@
         "kind": 6,
         "importPath": "app.core.accionesPersonal.admin",
         "description": "app.core.accionesPersonal.admin",
-        "peekOfCode": "class AccionPersonal_Admin(admin.ModelAdmin):\n    list_display=('id', 'tipo_accion', 'contador')",
+        "peekOfCode": "class AccionPersonal_Admin(admin.ModelAdmin):\n    list_display=('id', 'tipo_accion', 'contador', 'estado_accion')",
         "detail": "app.core.accionesPersonal.admin",
         "documentation": {}
     },

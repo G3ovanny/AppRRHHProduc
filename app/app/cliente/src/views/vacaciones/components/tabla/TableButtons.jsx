@@ -36,7 +36,7 @@ export const TableButtons = () => {
         }
     }
 
-    const handleAccion = () => {
+    const handleAccion = async() => {
 
         const accionUltimoId = ultAccion()
 
@@ -59,7 +59,6 @@ export const TableButtons = () => {
                 let trabajador = lista_trabajadores[0]
                 const formDataAccion = {
                     id_trabajador: element.id_trabajador,
-
                     proceso_actual: trabajador.proceso[0],
                     subproceso_actual: trabajador.unidad_organica,
                     puesto_actual: trabajador.denominacion_puesto,
@@ -68,17 +67,21 @@ export const TableButtons = () => {
                     partida_actual: trabajador.partida_individual,
 
                     fecha_accion: dayjs(Date.now()).format('YYYY-MM-DD'),
-                    fecha_rigue: dayjs(Date.now()).format('YYYY-MM-DD'),
+                    fecha_rigue: activeCronograma[i].fecha_inicio,
                     tipo_accion: 'VACACIONES',
                     contador: sigCont
                 }
-                //console.log(formDataAccion)
-                startSavingAccion(formDataAccion)
-                const formDataCronograma = {
-                    ...element,
-                    estado_accion: true
+                try {
+                    
+                    await startSavingAccion(formDataAccion)
+                    const formDataCronograma = {
+                        ...element,
+                        estado_accion: true
+                    }
+                    await startSavingCronograma(formDataCronograma)
+                } catch (error) {
+                    console.log(error)
                 }
-                startSavingCronograma(formDataCronograma)
             } else {
                 const mensaje = 'La acción de personal ya esta creada'
                 setChangeMessageCronograma(mensaje)
