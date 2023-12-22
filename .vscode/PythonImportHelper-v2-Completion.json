@@ -3972,7 +3972,7 @@
         "kind": 6,
         "importPath": "app.core.accionesPersonal.api.serializers.serializers",
         "description": "app.core.accionesPersonal.api.serializers.serializers",
-        "peekOfCode": "class AccionPersonalSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = AccionPersonal\n        exclude = ('state',)\n    def to_representation(self, instance):\n        if instance.id_trabajador:\n            nombres = instance.id_trabajador.nombres\n            partes_nombre = nombres.split()\n            palabras = [\"DE LA\", \"DE LOS\", \"DEL\", \"DE LAS\"]\n            # Eliminar la palabra \"DEL\" si está presente y concatenarla a la palabra siguiente",
+        "peekOfCode": "class AccionPersonalSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = AccionPersonal\n        exclude = ('state',)\n    def to_representation(self, instance):\n        if instance.id_trabajador:\n            nombres = instance.id_trabajador.nombres\n            partes_nombre = nombres.split()\n            palabras = [\"DE LA\", \"DE LOS\", \"DEL\", \"DE LAS\", \"DE\"]\n            # Eliminar la palabra \"DEL\" si está presente y concatenarla a la palabra siguiente",
         "detail": "app.core.accionesPersonal.api.serializers.serializers",
         "documentation": {}
     },

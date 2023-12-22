@@ -11,7 +11,7 @@ class AccionPersonalSerializer(serializers.ModelSerializer):
         if instance.id_trabajador:
             nombres = instance.id_trabajador.nombres
             partes_nombre = nombres.split()
-            palabras = ["DE LA", "DE LOS", "DEL", "DE LAS"]
+            palabras = ["DE LA", "DE LOS", "DEL", "DE LAS", "DE"]
             # Eliminar la palabra "DEL" si está presente y concatenarla a la palabra siguiente
 
             separado = []
