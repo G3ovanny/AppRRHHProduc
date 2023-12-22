@@ -78,7 +78,7 @@ export const TableButtons = () => {
                         ...element,
                         estado_accion: true
                     }
-                    await startSavingCronograma(formDataCronograma)
+                    startSavingCronograma(formDataCronograma)
                 } catch (error) {
                     console.log(error)
                 }

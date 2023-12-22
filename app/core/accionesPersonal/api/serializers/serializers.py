@@ -10,27 +10,55 @@ class AccionPersonalSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         if instance.id_trabajador:
             nombres = instance.id_trabajador.nombres
-            palabras = nombres.split()
-            palabras_a_ignorar = ["DEL", "DE LOS ", "DE LAS ", "DE LA "]
+            partes_nombre = nombres.split()
+            palabras = ["DE LA", "DE LOS", "DEL", "DE LAS"]
             # Eliminar la palabra "DEL" si está presente y concatenarla a la palabra siguiente
-            for palabra in palabras_a_ignorar:
-                if palabra in palabras:
-                    indice_del = palabras.index(palabra)
-                    if indice_del < len(palabras) - 1:
-                        palabras[indice_del + 1] = palabra+ ' ' + palabras[indice_del + 1]
-                    palabras.remove(palabra)
-            
-            # Identificar los apellidos y nombres
-            if len(palabras) >= 3:
-                apellido_paterno = palabras[0]
-                apellido_materno = palabras[1]
-                nombres = " ".join(palabras[2:])
-                # return {"apellido_paterno": apellido_paterno, "apellido_materno": apellido_materno, "nombres": nombres}
-            elif len(palabras) == 2:
-                apellido_paterno = palabras[0]
+
+            separado = []
+            i = 0
+            while i < len(partes_nombre):
+                if ' '.join(partes_nombre[i:i + 2]) in palabras:
+                    separado.append(' '.join(partes_nombre[i:i + 2]))
+                    i += 2
+                else:
+                    separado.append(partes_nombre[i])
+                    i += 1
+            for palabra in palabras:
+                if palabra in separado:
+                    indice_palabra = separado.index(palabra)
+                    if indice_palabra < len(separado) - 1:
+                        separado[indice_palabra + 1] = palabra+ ' ' +separado[indice_palabra + 1]
+                    separado.remove(palabra)
+            if len(separado) >= 3:
+                apellido_paterno = separado[0]
+                apellido_materno = separado[1]
+                nombres = " ".join(separado[2:])
+                #print({"apellido_paterno": apellido_paterno, "apellido_materno": apellido_materno, "nombres": nombres})
+            elif len(separado) == 2:
+                apellido_paterno = separado[0]
                 apellido_materno= ''
-                nombres = palabras[1]
-                # return {"apellido_paterno": apellido_paterno, "apellido_materno": apellido_materno, "nombres": nombres}
+                nombres = separado[1]
+                #print({"apellido_paterno": apellido_paterno, "apellido_materno": apellido_materno, "nombres": nombres})
+
+
+            # for palabra in palabras_a_ignorar:
+            #     if palabra in palabras:
+            #         indice_del = palabras.index(palabra)
+            #         if indice_del < len(palabras) - 1:
+            #             palabras[indice_del + 1] = palabra+ ' ' + palabras[indice_del + 1]
+            #         palabras.remove(palabra)
+            
+            # # Identificar los apellidos y nombres
+            # if len(palabras) >= 3:
+            #     apellido_paterno = palabras[0]
+            #     apellido_materno = palabras[1]
+            #     nombres = " ".join(palabras[2:])
+            #     # return {"apellido_paterno": apellido_paterno, "apellido_materno": apellido_materno, "nombres": nombres}
+            # elif len(palabras) == 2:
+            #     apellido_paterno = palabras[0]
+            #     apellido_materno= ''
+            #     nombres = palabras[1]
+            #     # return {"apellido_paterno": apellido_paterno, "apellido_materno": apellido_materno, "nombres": nombres}
         # if instance.id_trabajador:
         #     nombres = instance.id_trabajador.nombres
 
