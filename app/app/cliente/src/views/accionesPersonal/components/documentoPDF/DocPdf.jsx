@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Arial',
         fontSize: "11px",
         display: "flex",
-        justifyContent: "space-between",
+        //justifyContent: "space-between",
     },
     text_check: {
         fontFamily: 'Calibri',
@@ -443,23 +443,25 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                         </Typography>
                                     </Box>
                                     <Box style={styles.rect_tres}>
-                                        <Typography style={styles.text} >
-                                            PROCESO: {data.proceso_actual}
+                                        <Typography
+                                            style={styles.text}
+                                        >
+                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}>PROCESO:</span> {data.proceso_actual}
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            SUBPROCESO: {data.subproceso_actual}
+                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> SUBPROCESO: </span> {data.subproceso_actual}
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            PUESTO: {data.puesto_actual}
+                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> PUESTO: </span> {data.puesto_actual}
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            LUGAR DE TRABAJO: TULCÁN-UPEC
+                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}>LUGAR DE TRABAJO:</span> TULCÁN-UPEC
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            REMUNERACIÓN MENSUAL: {data.rmu_actual}
+                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}>REMUNERACIÓN MENSUAL: </span> {data.rmu_actual}
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            PARTIDA PRESUPUESTARIA:
+                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> PARTIDA PRESUPUESTARIA: </span>
                                         </Typography>
                                         <Typography style={styles.text} >
                                             {data.estructura_actual} - {data.partida_actual}
@@ -474,22 +476,22 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                     </Box>
                                     <Box style={styles.rect_tres}>
                                         <Typography style={styles.text} >
-                                            PROCESO: {data.proceso_propuesta}
+                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> PROCESO:</span> {data.proceso_propuesta}
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            SUBPROCESO: {unidad_propuesta}
+                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> SUBPROCESO:</span> {unidad_propuesta}
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            PUESTO: {nombre_denominacion}
+                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> PUESTO: </span> {nombre_denominacion}
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            LUGAR DE TRABAJO: {lugarTrabajo}
+                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> LUGAR DE TRABAJO: </span> {lugarTrabajo}
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            REMUNERACIÓN MENSUAL: {data.rmu_propuesta}
+                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> REMUNERACIÓN MENSUAL: </span> {data.rmu_propuesta}
                                         </Typography>
                                         <Typography style={styles.text} >
-                                            PARTIDA PRESUPUESTARIA:
+                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> PARTIDA PRESUPUESTARIA:</span>
                                         </Typography>
                                         <Typography style={styles.text} >
                                             {num_estructura} - {data.partida_propuesta}
@@ -597,34 +599,34 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                 <Box style={styles.rect_pequeño}>
                                     <Box style={styles.explicacion}>
                                         <Box style={styles.salto}>
-                                          
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             CAUCION REGISTRADA CON No. ____________________________________________________________________________
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             Fecha: ________________________________________
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             _________________________________________________________________________________________________________
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             _________________________________________________________________________________________________________
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                     </Box>
                                 </Box>
@@ -632,53 +634,53 @@ export const DocPdf = React.forwardRef((props, ref) => {
                             <Box style={styles.rect_cuatro}>
                                 <Box style={styles.rect_pequeño}>
                                     <Box style={styles.explicacion}>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             LA PERSONA REEMPLAZA A: _______________________________________________________________________________
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             EN EL PUESTO DE: _______________________________________________________________________________________
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             QUIEN CESO EN FUNCIONES POR: __________________________________________________________________________
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             ACCION DE PERSONAL REGISTRADA CON No. ________________________________________________________________
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             No. ___________________________________________
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             FECHA ________________________________________
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                     </Box>
                                 </Box>
@@ -686,41 +688,41 @@ export const DocPdf = React.forwardRef((props, ref) => {
                             <Box style={styles.rect_cuatro}>
                                 <Box style={styles.rect_pequeño}>
                                     <Box style={styles.explicacion}>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             YO;  {data.apellido_paterno} {data.apellido_materno} {data.nombres}
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             CON CEDULA DE CIUDADANIA No. {data.numero_identidad}
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             LUGAR: Tulcán
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
                                         <Typography style={styles.text}>
                                             FECHA: {data.fecha_accion}
                                         </Typography>
-                                       <Box style={styles.salto}>
-                                          
+                                        <Box style={styles.salto}>
+
                                         </Box>
 
                                         <Box style={styles.rect_cuatro}>
