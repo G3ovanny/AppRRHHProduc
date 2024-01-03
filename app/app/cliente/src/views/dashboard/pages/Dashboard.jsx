@@ -143,7 +143,7 @@ export const Dashboard = () => {
         <Grid item xs={12} md={6}>
 
           <Cards
-            titulo={'Servidores con mas permisos'}
+            titulo={'Servidores con más permisos'}
             children={<ChartMasPermisoMes />}
           />
         </Grid>

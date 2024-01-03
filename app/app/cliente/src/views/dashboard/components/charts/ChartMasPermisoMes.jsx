@@ -5,7 +5,6 @@ import dayjs from 'dayjs';
 
 export const ChartMasPermisoMes = () => {
   const { listPermiso } = usePermisoStore()
-
   const anioActual = dayjs().year()
   
   const lista = listPermiso.filter((permisos) =>
@@ -23,13 +22,16 @@ export const ChartMasPermisoMes = () => {
   const lista_contadores = []
 
   idsUnicosArray.forEach(element => {
-    const nueva_list = listPermiso.filter(item => item.id_trabajador === element)
+    const nueva_list = lista.filter(item => item.id_trabajador === element)
+   
     const contador = nueva_list.length
+   
     const nombres = nueva_list.map(elemento => elemento.nombres)
 
     const dicc = [contador, nombres[0]]
     lista_contadores.push(dicc)
   });
+
   lista_contadores.sort()
   const source = lista_contadores.slice(-5);
 
