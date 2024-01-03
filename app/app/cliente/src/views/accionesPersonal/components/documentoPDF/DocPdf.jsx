@@ -180,7 +180,8 @@ export const DocPdf = React.forwardRef((props, ref) => {
         const tipoDo = data.doc_base
 
         //-----------------permite generar el codigo de la accion de personal--------------------//
-        const anio = new Date().getFullYear();
+        //const anio = new Date().getFullYear();
+        const anio = data.fecha_accion.split("-")[0]
         const codApPa = data.apellido_paterno.substring(0, 2)
         const codNom = data.nombres.substring(0, 2)
         const contador = data.contador
