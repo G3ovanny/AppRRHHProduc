@@ -70,7 +70,7 @@ export const ChartTrabModalidad = () => {
         data: [
           { value: aut_univ.length, name: 'AUTORIDAD UNIVERSITARIA' },
           { value: cont_indef.length, name: 'CONTRATO INDEFINIDO' },
-          { value: cont_ocac.length, name: 'CONTRATOS OCACIONALES' },
+          { value: cont_ocac.length, name: 'CONTRATOS OCASIONALES' },
           { value: nombramiento.length, name: 'NOMBRAMIENT0' },
         ]
       }
