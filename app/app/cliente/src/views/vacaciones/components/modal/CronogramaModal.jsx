@@ -83,6 +83,7 @@ export const CronogramaModal = ({ titleModal }) => {
     const onSubmit = () => {
         if (isFormValid) {
             startSavingCronograma(formState)
+            //console.log(formState);
             closeModal()
             onResetForm()
         } else {

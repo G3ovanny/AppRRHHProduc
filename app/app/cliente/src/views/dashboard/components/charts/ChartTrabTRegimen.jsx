@@ -13,7 +13,6 @@ export const ChartTrabTRegimen = () => {
     for (let i = 0; i < trabajadores.length; i++) {
         const element = trabajadores[i];
         const regimen = element.regimen_laboral
-        
         switch (true) {
             case regimen.includes("LOSEP"):
                 losep.push(regimen)

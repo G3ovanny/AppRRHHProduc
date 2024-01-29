@@ -26,7 +26,8 @@ class CronogramaVacacionesViewSet(viewsets.ModelViewSet):
             fecha_fin = cronograma_serializer.validated_data.get('fecha_fin')
 
             tiempo = relativedelta(fecha_fin, fecha_desde)
-            dias_t = (tiempo.days)+1
+            meses_t = (tiempo.months*30)
+            dias_t = (meses_t + tiempo.days)+1
             min_dia = (dias_t * 8) * 60
             if fecha_desde and fecha_fin:
                 cronograma_serializer.save(min_acumulados=min_dia)
@@ -56,7 +57,8 @@ class CronogramaVacacionesViewSet(viewsets.ModelViewSet):
                 fecha_hasta = cronograma_serializer.validated_data.get(
                     'fecha_fin')
                 tiempo = relativedelta(fecha_hasta, fecha_desde)
-                dias_t = (tiempo.days)+1
+                meses_t = (tiempo.months*30)
+                dias_t = (meses_t + tiempo.days)+1
                 min_t = (dias_t*480)
 
                 min_acumulados = cronograma_serializer.validated_data.get(

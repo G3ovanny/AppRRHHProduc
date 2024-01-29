@@ -5,4 +5,5 @@ from .models import *
 
 @admin.register(AccionPersonal)
 class AccionPersonal_Admin(admin.ModelAdmin):
-    list_display=('id', 'tipo_accion', 'contador', 'estado_accion')
+    list_display=('id', 'id_trabajador', 'tipo_accion', 'contador', 'estado_accion','state')
+    search_fields=('id', 'id_trabajador', 'tipo_accion', 'contador', 'estado_accion', 'state')

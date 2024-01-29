@@ -10,7 +10,7 @@ class CronogramaVacaciones(BaseModel):
     id_trabajador = models.ForeignKey(
         Trabajador, blank=True, null=True, on_delete=models.SET_NULL)
     fecha_solicitud = models.DateField(
-        blank=True, null=True, auto_now=True, verbose_name='Fecha solicitud')
+        blank=True, null=True, auto_now=False, verbose_name='Fecha solicitud')
     fecha_inicio = models.DateField(
         blank=True, null=True, verbose_name='Fecha desde')
     fecha_fin = models.DateField(

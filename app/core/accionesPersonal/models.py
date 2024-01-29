@@ -107,7 +107,7 @@ class AccionPersonal(BaseModel):
         verbose_name = "Acción de personal"
         verbose_name_plural = "Acciones de personal"
         db_table = 'Accion_personal'
-        ordering = ['-contador']
+        ordering = ['-fecha_accion__year','-contador']
 
     def __str__(self):
         return f'{self.id}'
