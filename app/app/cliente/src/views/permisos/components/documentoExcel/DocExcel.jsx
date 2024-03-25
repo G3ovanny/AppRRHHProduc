@@ -69,7 +69,8 @@ export const DocExcel = (activePermiso) => {
             [, , , , , , , "Total en horas", formatoTiempo,]
         ], { origin: -1 });
         XLSX.utils.book_append_sheet(libro, hoja, "Permisos");
-        XLSX.writeFile(libro, `${fechaDownload}.xlsx`)
+        const nombreArchivo = `Permisos_${fechaDownload}.xlsx`;
+        XLSX.writeFile(libro, nombreArchivo)
     }
 
     handleDownload()

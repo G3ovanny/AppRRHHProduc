@@ -15,11 +15,13 @@ from core.trabajadores.api.views.datosFormulario_views import DatosFormulario
 from core.permisos.views import PermisoAA
 from core.trabajadores.envioCorreo.envio_correo_datos import EnvioDatos
 from core.usuarios.views import ResetPass
+from core.base.views import base_view
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", TemplateView.as_view(template_name = 'base.html')),
+    path('', base_view, name='base'),   
+    #path("", TemplateView.as_view(template_name = 'base.html')),
     path("enlace_formulario", TemplateView.as_view(template_name = 'base.html')),
     path("reset_password", TemplateView.as_view(template_name = 'base.html')),
     path("dashboard", TemplateView.as_view(template_name = 'base.html')),

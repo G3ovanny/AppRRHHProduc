@@ -2,10 +2,10 @@ import React, { useRef } from 'react'
 import { TableCells } from './TableCells'
 import { useAccionPersonalStore, useModalStore } from '../../../../hooks'
 import { IconButton, Tooltip } from '@mui/material';
-import { DeleteOutline, Edit, LocalPrintshopOutlined } from '@mui/icons-material';
+import { DeleteOutline, Download, Edit, LocalPrintshopOutlined } from '@mui/icons-material';
 import { useReactToPrint } from 'react-to-print'
 import { DocPdf } from '../documentoPDF';
-import ReactPDF, { PDFViewer } from '@react-pdf/renderer';
+import { DocExcel } from '../documentoExcel/DocExcel';
 
 export const TableButtons = () => {
   const componentRef = useRef();
@@ -27,12 +27,24 @@ export const TableButtons = () => {
     content: () => componentRef.current,
   })
 
-
+  const handleUpload = () => {
+    DocExcel(activeAccion)
+  }
   return (
     <>
       {
         numActivos !== 1 ? (
           <>
+            <Tooltip title="Exportar a excel" color='secondary'>
+              <IconButton
+                component='div'
+                disabled={!numActivos}
+                onClick={handleUpload}
+              >
+                <Download />
+              </IconButton>
+            </Tooltip>
+
             <Tooltip title="Imprimir" color='secondary'>
               <IconButton
                 component='div'
@@ -62,6 +74,16 @@ export const TableButtons = () => {
           </>
         ) : (
           <>
+            <Tooltip title="Exportar a excel" color='secondary'>
+              <IconButton
+                component='div'
+                disabled={!numActivos}
+                onClick={handleUpload}
+              >
+                <Download />
+              </IconButton>
+            </Tooltip>
+
             <Tooltip title="Imprimir" color='secondary'>
               <IconButton
                 onClick={handlePrint}

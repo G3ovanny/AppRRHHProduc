@@ -78,10 +78,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'app.config.urls'
 
+#'cliente/src/dist'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join(BASE_DIR, 'cliente/src/dist')
+        'DIRS': [ os.path.join(BASE_DIR, 'app/core/base/templates' )
             ],
         'APP_DIRS': True,
         'OPTIONS': {

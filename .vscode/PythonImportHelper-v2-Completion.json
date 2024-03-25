@@ -330,6 +330,14 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -551,6 +559,14 @@
         "description": "core.trabajadores.envioCorreo.envio_correo_datos",
         "isExtraImport": true,
         "detail": "core.trabajadores.envioCorreo.envio_correo_datos",
+        "documentation": {}
+    },
+    {
+        "label": "base_view",
+        "importPath": "core.base.views",
+        "description": "core.base.views",
+        "isExtraImport": true,
+        "detail": "core.base.views",
         "documentation": {}
     },
     {
@@ -3699,7 +3715,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "ROOT_URLCONF = 'app.config.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [ os.path.join(BASE_DIR, 'cliente/src/dist')\n            ],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',",
+        "peekOfCode": "ROOT_URLCONF = 'app.config.urls'\n#'cliente/src/dist'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [ os.path.join(BASE_DIR, 'app/core/base/templates' )\n            ],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3708,7 +3724,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [ os.path.join(BASE_DIR, 'cliente/src/dist')\n            ],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [ os.path.join(BASE_DIR, 'app/core/base/templates' )\n            ],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -3960,7 +3976,7 @@
         "kind": 5,
         "importPath": "app.app.config.urls",
         "description": "app.app.config.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formulario\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"reset_password\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"dashboard\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"perfil\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"distributivo\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"servidores\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"datos_servidores\", TemplateView.as_view(template_name = 'base.html')),",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', base_view, name='base'),   \n    #path(\"\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"enlace_formulario\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"reset_password\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"dashboard\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"perfil\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"distributivo\", TemplateView.as_view(template_name = 'base.html')),\n    path(\"servidores\", TemplateView.as_view(template_name = 'base.html')),",
         "detail": "app.app.config.urls",
         "documentation": {}
     },
@@ -4574,6 +4590,15 @@
         "description": "app.core.base.models",
         "peekOfCode": "class BaseModel(models.Model):\n    #modelo base\n    id = models.AutoField(primary_key=True)\n    state = models.BooleanField('Estado', default=True)\n    #campos que permiten identificar modificaciones de los datos#\n    created_date = models.DateTimeField('Fecha de creación',  auto_now=False, auto_now_add=True, null=True, blank= True)\n    modified_date = models.DateTimeField('Fecha de modificación', auto_now=True, auto_now_add=False, null=True, blank= True)\n    delete_date = models.DateTimeField('Fecha de eliminación',  auto_now=True, auto_now_add=False, null=True, blank= True)\n    class Meta:\n        abstract = True",
         "detail": "app.core.base.models",
+        "documentation": {}
+    },
+    {
+        "label": "base_view",
+        "kind": 2,
+        "importPath": "app.core.base.views",
+        "description": "app.core.base.views",
+        "peekOfCode": "def base_view(request):\n    debug_mode = settings.DEBUG\n    return render(request, 'base.html', {'debug_mode': debug_mode})",
+        "detail": "app.core.base.views",
         "documentation": {}
     },
     {
