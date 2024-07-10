@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Alert, Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Divider, Grid, IconButton, List, ListItem, ListItemText, Paper, Stack, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
 import { DeleteOutline, Edit } from '@mui/icons-material';
-import { useForm } from '../../../hooks';
+import { useAlertDialogStore, useForm } from '../../../hooks';
 import { useUnidadOrganicaStore } from '../../../hooks/distributivo';
 import { FiltroGeneral } from '../components/filtros';
+import { AlertDialog } from '../../../ui';
 
 const formData = {
   cod_unidad: '',
@@ -14,6 +15,11 @@ export const UnidadOrganica = () => {
 
   const { listUnidad, startDeletingUnidad, setActiveUnidad, startSavingUnidad, startLoadingUnidad, activeUnidad, inicialUnidad = [], mensajeUnidad, mensajeError } = useUnidadOrganicaStore();
   const [resultadoBusqueda, setResultadoBusqueda] = useState('')
+
+  const { openAlertDialog, closeAlertDialog } = useAlertDialogStore();
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+
+  const content = '¿Está seguro que quiere eliminar el registro?'
 
   const handelBuscar = (valorBuscar) => {
     const resultadoFiltrado = listUnidad.filter((unidad) => {
@@ -51,7 +57,9 @@ export const UnidadOrganica = () => {
     setFormState } = useForm(formData, formValidations);
 
   const handleDelete = (e, element) => {
-    startDeletingUnidad(element)
+    setActiveUnidad(element)
+    openAlertDialog(content)
+    //startDeletingUnidad(element)
   }
 
   const handleEdit = (e, element) => {
@@ -69,6 +77,14 @@ export const UnidadOrganica = () => {
     setActiveUnidad(inicialUnidad)
     onResetForm()
   }
+
+  const handleConfirmation = () => {
+    startDeletingUnidad(activeUnidad)
+    closeAlertDialog();
+    setDeleteConfirmation(false); // Reinicia el estado de confirmación de eliminación
+  };
+
+
   let mensaje = null
   if (mensajeUnidad) {
     mensaje = <Alert severity='success'>{mensajeUnidad}</Alert>;
@@ -77,6 +93,7 @@ export const UnidadOrganica = () => {
   } else {
     mensaje  // No se muestra ningún mensaje si no hay ni éxito ni error
   }
+
   useEffect(() => {
     setResultadoBusqueda()
   }, [])
@@ -219,6 +236,13 @@ export const UnidadOrganica = () => {
           </Card>
         </Grid>
       </Grid >
+      <AlertDialog
+        open={deleteConfirmation}
+        onClose={() => setDeleteConfirmation(false)}
+        onConfirm={handleConfirmation}
+        title="Confirmar Eliminación"
+        content={content}
+      />
     </Box>
   )
 }

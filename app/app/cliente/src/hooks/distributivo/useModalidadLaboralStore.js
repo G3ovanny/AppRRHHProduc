@@ -28,6 +28,7 @@ export const useModalidadLaboralStore = () => {
         setTimeout(() => {
             dispatch(clearMessageModalidad());
         }, 3000);
+        startLoadingModalidad();
     }
 
     const startDeletingModalidad = async (modalidad) => {
@@ -44,6 +45,7 @@ export const useModalidadLaboralStore = () => {
         setTimeout(() => {
             dispatch(clearMessageModalidad());
         }, 3000);
+        startLoadingModalidad();
     }
 
     const setActiveModalidad = (modalidad) => {

@@ -1,11 +1,12 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { IconButton, Tooltip } from '@mui/material';
 import { DeleteOutline, Edit, EditOutlined, LocalPrintshopOutlined, NoteAddOutlined } from '@mui/icons-material';
-import { useAccionPersonalStore, useCronogramaVacacionesStore, useForm, useModalStore, useTrabStore } from '../../../../hooks'
+import { useAccionPersonalStore, useAlertDialogStore, useCronogramaVacacionesStore, useForm, useModalStore, useTrabStore } from '../../../../hooks'
 import { VacacionesDocPdf } from '../documentoPDF';
 import { useReactToPrint } from 'react-to-print'
 import dayjs from 'dayjs';
 import { useSelector } from 'react-redux';
+import { AlertDialog } from '../../../../ui';
 
 
 export const TableButtons = () => {
@@ -14,7 +15,10 @@ export const TableButtons = () => {
     const { startLoadingAccion, listAccion, startSavingAccion } = useAccionPersonalStore();
     const { trabajadores, startLoadingTrab } = useTrabStore();
     const { openModal } = useModalStore();
-
+    const { openAlertDialog, closeAlertDialog } = useAlertDialogStore();
+    const [deleteConfirmation, setDeleteConfirmation] = useState(false); // Estado para controlar la apertura de la alerta
+    const content = '¿Está seguro que quiere eliminar el registro?';
+    
     const componentRef = useRef();
     const numActivos = activeCronograma.length;
 
@@ -36,7 +40,7 @@ export const TableButtons = () => {
         }
     }
 
-    const handleAccion = async() => {
+    const handleAccion = async () => {
 
         const accionUltimoId = ultAccion()
 
@@ -72,7 +76,7 @@ export const TableButtons = () => {
                     contador: sigCont
                 }
                 try {
-                    
+
                     await startSavingAccion(formDataAccion)
                     const formDataCronograma = {
                         ...element,
@@ -94,8 +98,16 @@ export const TableButtons = () => {
     }
 
     const handleDelete = () => {
-        startDeletingCrongrama()
+        openAlertDialog(content);
+        // startDeletingCrongrama()
     }
+
+    const handleConfirmation = () => {
+        startDeletingCrongrama();
+        closeAlertDialog();
+        setDeleteConfirmation(false); // Reinicia el estado de confirmación de eliminación
+    };
+
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -183,6 +195,13 @@ export const TableButtons = () => {
                     </>
 
                 )}
+            <AlertDialog
+                open={deleteConfirmation}
+                onClose={() => setDeleteConfirmation(false)}
+                onConfirm={handleConfirmation}
+                title="Confirmar Eliminación"
+                content={content}
+            />
         </>
     )
 }

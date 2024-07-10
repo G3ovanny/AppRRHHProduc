@@ -6,7 +6,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-from app.config.db import POSTGRESQL
+from app.config.db import POSTGRESQL, DESARROLLOTH
 # SQLITE
 # POSTGRESQL
 
@@ -103,9 +103,13 @@ WSGI_APPLICATION = 'app.config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = POSTGRESQL
+# DATABASES = DESARROLLOTH
 # SQLITE
 
+if DEBUG:
+    DATABASES = DESARROLLOTH
+else:
+    DATABASES = POSTGRESQL
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

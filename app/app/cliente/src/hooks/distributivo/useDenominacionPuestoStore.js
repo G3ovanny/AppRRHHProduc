@@ -27,6 +27,7 @@ export const useDenominacionPuestoStore = () => {
         setTimeout(() => {
             dispatch(clearMessageDenominacion());
         }, 3000);
+        startLoadingDenominacion();
     }
 
     const startDeletingDenominacion = async (denominacion) => {
@@ -43,6 +44,7 @@ export const useDenominacionPuestoStore = () => {
         setTimeout(() => {
             dispatch(clearMessageDenominacion());
         }, 3000);
+        startLoadingDenominacion();
     }
 
     const setActiveDenominacion = (denominacion) => {

@@ -8,7 +8,7 @@ import { TableFilters } from './TableFilters';
 import dayjs from 'dayjs';
 
 export const Table = () => {
-    const { listCronograma, startLoadingCronograma, setActiveCronograma, activeCronograma } = useCronogramaVacacionesStore();
+    const { listCronograma, startLoadingCronograma, setActiveCronograma, activeCronograma, isLoadingCronograma } = useCronogramaVacacionesStore();
 
     const [resultadoBusqueda, setResultadoBusqueda] = useState(null);
 
@@ -65,6 +65,7 @@ export const Table = () => {
                 objetos={listCronograma}
                 objactive={activeCronograma}
                 setObjecActive={setActiveCronograma}
+                isLoadingObjects={isLoadingCronograma}
                 startLoadingObjects={startLoadingCronograma()}
                 tableCells={<TableCells list={resultadoBusqueda} page={page} rowsPerPage={rowsPerPage} />}
                 indexCells={indexCells}

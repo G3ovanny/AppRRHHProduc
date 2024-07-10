@@ -74,6 +74,22 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "timedelta",
         "importPath": "datetime",
         "description": "datetime",
@@ -138,7 +154,7 @@
         "documentation": {}
     },
     {
-        "label": "POSTGRESQL",
+        "label": "DESARROLLOTH",
         "importPath": "app.config.db",
         "description": "app.config.db",
         "isExtraImport": true,
@@ -146,11 +162,19 @@
         "documentation": {}
     },
     {
-        "label": "POSTGRESQL",
-        "importPath": "app.config.db",
-        "description": "app.config.db",
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
         "isExtraImport": true,
-        "detail": "app.config.db",
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -458,6 +482,14 @@
         "documentation": {}
     },
     {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "serve",
         "importPath": "django.views.static",
         "description": "django.views.static",
@@ -619,6 +651,14 @@
     },
     {
         "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "JsonResponse",
         "importPath": "django.http",
         "description": "django.http",
         "isExtraImport": true,
@@ -867,6 +907,22 @@
     },
     {
         "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "viewsets",
         "importPath": "rest_framework",
         "description": "rest_framework",
         "isExtraImport": true,
@@ -1183,6 +1239,14 @@
         "description": "rest_framework",
         "isExtraImport": true,
         "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
@@ -2903,6 +2967,22 @@
         "documentation": {}
     },
     {
+        "label": "Sum",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
         "label": "Q",
         "importPath": "django.db.models",
         "description": "django.db.models",
@@ -2952,11 +3032,19 @@
         "documentation": {}
     },
     {
-        "label": "*",
-        "importPath": "dateutil.relativedelta",
-        "description": "dateutil.relativedelta",
+        "label": "Permiso",
+        "importPath": "core.permisos.models",
+        "description": "core.permisos.models",
         "isExtraImport": true,
-        "detail": "dateutil.relativedelta",
+        "detail": "core.permisos.models",
+        "documentation": {}
+    },
+    {
+        "label": "Permiso",
+        "importPath": "core.permisos.models",
+        "description": "core.permisos.models",
+        "isExtraImport": true,
+        "detail": "core.permisos.models",
         "documentation": {}
     },
     {
@@ -2973,6 +3061,22 @@
         "description": "dateutil.relativedelta",
         "isExtraImport": true,
         "detail": "dateutil.relativedelta",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "dateutil.relativedelta",
+        "description": "dateutil.relativedelta",
+        "isExtraImport": true,
+        "detail": "dateutil.relativedelta",
+        "documentation": {}
+    },
+    {
+        "label": "PermisosTrabajadorViewSet",
+        "importPath": "core.permisos.api.views.permisos_trabajador_views",
+        "description": "core.permisos.api.views.permisos_trabajador_views",
+        "isExtraImport": true,
+        "detail": "core.permisos.api.views.permisos_trabajador_views",
         "documentation": {}
     },
     {
@@ -3625,7 +3729,7 @@
         "kind": 5,
         "importPath": "app.app.config.db",
         "description": "app.app.config.db",
-        "peekOfCode": "BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))\n#SQLITE = {\n#    'default': {\n#        'ENGINE': 'django.db.backends.sqlite3',\n#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),\n#    }\n#}\nPOSTGRESQL = {\n        'default': {\n            'ENGINE': 'django.db.backends.postgresql_psycopg2',",
+        "peekOfCode": "BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))\n#SQLITE = {\n#    'default': {\n#        'ENGINE': 'django.db.backends.sqlite3',\n#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),\n#    }\n#}\nDESARROLLOTH = {\n        'default': {\n            'ENGINE': 'django.db.backends.postgresql_psycopg2',",
         "detail": "app.app.config.db",
         "documentation": {}
     },
@@ -3634,7 +3738,16 @@
         "kind": 5,
         "importPath": "app.app.config.db",
         "description": "app.app.config.db",
-        "peekOfCode": "#SQLITE = {\n#    'default': {\n#        'ENGINE': 'django.db.backends.sqlite3',\n#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),\n#    }\n#}\nPOSTGRESQL = {\n        'default': {\n            'ENGINE': 'django.db.backends.postgresql_psycopg2',\n            'NAME': 'talentohumano_db',",
+        "peekOfCode": "#SQLITE = {\n#    'default': {\n#        'ENGINE': 'django.db.backends.sqlite3',\n#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),\n#    }\n#}\nDESARROLLOTH = {\n        'default': {\n            'ENGINE': 'django.db.backends.postgresql_psycopg2',\n            'NAME': 'talentohumano_db',",
+        "detail": "app.app.config.db",
+        "documentation": {}
+    },
+    {
+        "label": "DESARROLLOTH",
+        "kind": 5,
+        "importPath": "app.app.config.db",
+        "description": "app.app.config.db",
+        "peekOfCode": "DESARROLLOTH = {\n        'default': {\n            'ENGINE': 'django.db.backends.postgresql_psycopg2',\n            'NAME': 'talentohumano_db',\n            'USER': 'postgres',\n            'PASSWORD': 'admin', \n            'HOST': 'localhost',\n            'PORT': '5432',\n        }\n}",
         "detail": "app.app.config.db",
         "documentation": {}
     },
@@ -3733,16 +3846,7 @@
         "kind": 5,
         "importPath": "app.app.config.settings",
         "description": "app.app.config.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'app.config.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases\nDATABASES = POSTGRESQL\n# SQLITE\n# Password validation\n# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',",
-        "detail": "app.app.config.settings",
-        "documentation": {}
-    },
-    {
-        "label": "DATABASES",
-        "kind": 5,
-        "importPath": "app.app.config.settings",
-        "description": "app.app.config.settings",
-        "peekOfCode": "DATABASES = POSTGRESQL\n# SQLITE\n# Password validation\n# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',",
+        "peekOfCode": "WSGI_APPLICATION = 'app.config.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases\n# DATABASES = DESARROLLOTH\n# SQLITE\nif DEBUG:\n    DATABASES = DESARROLLOTH\nelse:\n    DATABASES = POSTGRESQL\n# Password validation",
         "detail": "app.app.config.settings",
         "documentation": {}
     },
@@ -4998,12 +5102,30 @@
         "documentation": {}
     },
     {
+        "label": "PermisosTrabajadorSerializer",
+        "kind": 6,
+        "importPath": "app.core.permisos.api.serializers.permiso_serializers",
+        "description": "app.core.permisos.api.serializers.permiso_serializers",
+        "peekOfCode": "class PermisosTrabajadorSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Permiso\n        fields = '__all__'",
+        "detail": "app.core.permisos.api.serializers.permiso_serializers",
+        "documentation": {}
+    },
+    {
         "label": "MotivoPermisoViewSet",
         "kind": 6,
         "importPath": "app.core.permisos.api.views.motivo_views",
         "description": "app.core.permisos.api.views.motivo_views",
         "peekOfCode": "class MotivoPermisoViewSet(viewsets.ModelViewSet):\n    serializer_class = MotivoPermisoSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state = True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state = True).first()\n    def create(self, request):\n        motivo_serializer = self.serializer_class(data = request.data)\n        if motivo_serializer.is_valid():\n            motivo_serializer.save()",
         "detail": "app.core.permisos.api.views.motivo_views",
+        "documentation": {}
+    },
+    {
+        "label": "PermisosTrabajadorViewSet",
+        "kind": 6,
+        "importPath": "app.core.permisos.api.views.permisos_trabajador_views",
+        "description": "app.core.permisos.api.views.permisos_trabajador_views",
+        "peekOfCode": "class PermisosTrabajadorViewSet(viewsets.ViewSet):\n    def list(self, request):\n        id_trabajador = request.query_params.get('id_trabajador')\n        if id_trabajador:\n            print( id_trabajador )\n            # Obtener los permisos del trabajador\n            permisos = Permiso.objects.filter(id_trabajador=id_trabajador, state=True)\n            # Inicializar la lista de permisos\n            permisos_list = []\n            # Calcular el total de permisos por año y la suma en minutos",
+        "detail": "app.core.permisos.api.views.permisos_trabajador_views",
         "documentation": {}
     },
     {
@@ -5020,7 +5142,7 @@
         "kind": 5,
         "importPath": "app.core.permisos.api.routers",
         "description": "app.core.permisos.api.routers",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'motivo', MotivoPermisoViewSet, basename='motivo')\nrouter.register(r'permiso', PermisoViewSet, basename='permiso')\nurlpatterns = router.urls",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'motivo', MotivoPermisoViewSet, basename='motivo')\nrouter.register(r'permiso', PermisoViewSet, basename='permiso')\nrouter.register(r'permisos', PermisosTrabajadorViewSet, basename='permisos por trabajador')\nurlpatterns = router.urls",
         "detail": "app.core.permisos.api.routers",
         "documentation": {}
     },
@@ -5094,6 +5216,15 @@
         "description": "app.core.permisos.models",
         "peekOfCode": "class Permiso(BaseModel):\n    id_trabajador = models.ForeignKey(Trabajador, on_delete=models.CASCADE, null=True, blank=True, unique=False, verbose_name='Trabajador')\n    id_motivo = models.ForeignKey(MotivoPermiso, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Motivo')\n    fecha_hora_salida = models.DateTimeField(verbose_name='Fecha/Hora de Salida', null=True, blank=True)\n    #fecha_hora_estimada = models.DateTimeField(verbose_name='Fecha/Hora de Estimada', null=True, blank=True)\n    fecha_hora_llegada = models.DateTimeField(verbose_name='Fecha/Hora de LLegada', null=True, blank=True)\n    detalle = models.CharField('Detalle',max_length=600, blank=True, null=True)\n    min_acumulados = models.IntegerField('Minutos del permiso',blank=True, null=True, unique=False)\n    horas_almuerzo =  models.CharField('Horas de almuerzo',max_length=255, blank=True, null=True)\n    otra_hora = models.TimeField(verbose_name='Otra hora de almuerzo', null=True, blank=True)",
         "detail": "app.core.permisos.models",
+        "documentation": {}
+    },
+    {
+        "label": "calculo_permisos",
+        "kind": 2,
+        "importPath": "app.core.permisos.services",
+        "description": "app.core.permisos.services",
+        "peekOfCode": "def calculo_permisos(id_trabajador):\n    permisos = Permiso.objects.filter(id_trabajador=id_trabajador, state = True)\n    permisos_cargo_vacaciones = permisos.filter(state = True, id_motivo = 2)\n    total_permisos = len(permisos_cargo_vacaciones) \n    print(total_permisos)\n    print(permisos_cargo_vacaciones)",
+        "detail": "app.core.permisos.services",
         "documentation": {}
     },
     {
@@ -5551,7 +5682,7 @@
         "kind": 2,
         "importPath": "app.core.trabajadores.views",
         "description": "app.core.trabajadores.views",
-        "peekOfCode": "def analisis_trabajadores():\n    database_settings = POSTGRESQL['default']\n    # engine = database_settings['ENGINE']\n    # name = database_settings['NAME']\n    # user = database_settings['USER']\n    # password = database_settings['PASSWORD']\n    # host = database_settings['HOST']\n    # port = database_settings['PORT']\n    # print('coneccion base de datos', name, user, password, host, port)\n    engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")",
+        "peekOfCode": "def analisis_trabajadores():\n    database_settings = settings.DATABASES['default']\n    #database_settings = POSTGRESQL['default']\n    # engine = database_settings['ENGINE']\n    # name = database_settings['NAME']\n    # user = database_settings['USER']\n    # password = database_settings['PASSWORD']\n    # host = database_settings['HOST']\n    # port = database_settings['PORT']\n    # print('coneccion base de datos', name, user, password, host, port)",
         "detail": "app.core.trabajadores.views",
         "documentation": {}
     },
@@ -5947,7 +6078,7 @@
         "kind": 2,
         "importPath": "app.core.vacaciones.cargarDocumento.cronogramaVacaciones",
         "description": "app.core.vacaciones.cargarDocumento.cronogramaVacaciones",
-        "peekOfCode": "def cargarCronograma():\n    database_settings = POSTGRESQL['default']\n    engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    documento = ArchivoCronograma.objects.latest('id').doc\n    cronograma = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)})\n    fecha_actual = datetime.datetime.now()\n    tiempo_actual = fecha_actual + datetime.timedelta(hours=5)\n    success_message = []\n    error_messages= []\n    loes = 'Por lo dispuesto en la Ley y en cumplimiento al candelario académico, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo antes citado. Fecha de reincorporación a mis actividades,'",
+        "peekOfCode": "def cargarCronograma():\n    database_settings = settings.DATABASES['default']\n    #database_settings = POSTGRESQL['default']\n    engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    documento = ArchivoCronograma.objects.latest('id').doc\n    cronograma = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)})\n    fecha_actual = datetime.datetime.now()\n    tiempo_actual = fecha_actual + datetime.timedelta(hours=5)\n    success_message = []\n    error_messages= []",
         "detail": "app.core.vacaciones.cargarDocumento.cronogramaVacaciones",
         "documentation": {}
     },

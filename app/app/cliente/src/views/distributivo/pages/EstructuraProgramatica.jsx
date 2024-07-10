@@ -1,8 +1,9 @@
 import { Alert, Box, Button, Card, CardActions, CardContent, Divider, Grid, IconButton, List, ListItem, ListItemText, TextField, Toolbar, Tooltip, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { useForm, useEstructuraProgramaticaStore } from '../../../hooks'
+import { useForm, useEstructuraProgramaticaStore, useAlertDialogStore } from '../../../hooks'
 import { DeleteOutline, Edit } from '@mui/icons-material'
 import { FiltroGeneral } from '../components/filtros'
+import { AlertDialog } from '../../../ui'
 
 const formData = {
     estructura_programatica: '',
@@ -10,8 +11,12 @@ const formData = {
 
 export const EstructuraProgramatica = () => {
     const { listEstructura, startDeletingEstructura, setActiveEstructura, startSavingEstructura, startLoadingEstructura, activeEstructura, inicialEstructura = [], mensajeEstructura } = useEstructuraProgramaticaStore()
-
     const [resultadoBusqueda, setResultadoBusqueda] = useState('')
+
+    const { openAlertDialog, closeAlertDialog } = useAlertDialogStore();
+    const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+
+    const content = '¿Está seguro que quiere eliminar el registro?'
 
     const handelBuscar = (valorBuscar) => {
         const resultadoFiltrado = listEstructura.filter((estructura) => {
@@ -46,7 +51,9 @@ export const EstructuraProgramatica = () => {
         setFormState } = useForm(formData, formValidations);
 
     const handleDelete = (e, element) => {
-        startDeletingEstructura(element)
+        setActiveEstructura(element)
+        openAlertDialog(content)
+        //startDeletingEstructura(element)
     }
 
     const handleEdit = (e, element) => {
@@ -66,7 +73,11 @@ export const EstructuraProgramatica = () => {
         setActiveEstructura(inicialEstructura)
         onResetForm()
     }
-
+    const handleConfirmation = () => {
+        startDeletingEstructura(activeEstructura)
+        closeAlertDialog();
+        setDeleteConfirmation(false); // Reinicia el estado de confirmación de eliminación
+    };
     useEffect(() => {
         setResultadoBusqueda()
     }, [])
@@ -192,6 +203,13 @@ export const EstructuraProgramatica = () => {
                     </Card>
                 </Grid>
             </Grid>
+            <AlertDialog
+                open={deleteConfirmation}
+                onClose={() => setDeleteConfirmation(false)}
+                onConfirm={handleConfirmation}
+                title="Confirmar Eliminación"
+                content={content}
+            />
         </Box>
     )
 }

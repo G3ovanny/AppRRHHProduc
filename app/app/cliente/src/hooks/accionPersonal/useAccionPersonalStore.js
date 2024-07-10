@@ -28,6 +28,7 @@ export const useAccionPersonalStore = () => {
         setTimeout(() => {
             dispatch(clearMessageAccion());
         }, 3000);
+        startLoadingAccion();
     }
     const startDeletingAccion = async () => {
         try {
@@ -45,6 +46,7 @@ export const useAccionPersonalStore = () => {
         setTimeout(() => {
             dispatch(clearMessageAccion());
         }, 3000);
+        startLoadingAccion();
     }
     const setActiveAccion = (accion) => {
         dispatch(onSetActiveAccion(accion))

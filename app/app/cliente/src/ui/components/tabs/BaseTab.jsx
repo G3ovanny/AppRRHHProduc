@@ -5,7 +5,7 @@ import { Box, Typography } from '@mui/material';
 export const BaseTab = (props) => {
     const { children, value, index, ...other } = props;
     return (
-        <div
+        <Box
             role="tabpanel"
             hidden={value !== index}
             id={`simple-tabpanel-${index}`}
@@ -17,7 +17,7 @@ export const BaseTab = (props) => {
                     <Typography>{children}</Typography>
                 </Box>
             )}
-        </div>
+        </Box>
     )
 }
 

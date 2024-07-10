@@ -3,6 +3,7 @@ import { BadgeOutlined, CloudUpload, PersonAdd, TableViewOutlined, TagTwoTone, U
 import { Alert, Box, Divider, Grid, IconButton, Input, Toolbar, Tooltip, Typography, FormControl, FormLabel, FormHelperText, InputLabel, Select, MenuItem, Button, Menu } from '@mui/material'
 import { Table, Cards, TrabajadorModal, MensajeArchivo } from '../components'
 import { useArchivoStore, useModalStore, useTrabStore } from '../../../hooks'
+import { AlertDialog } from '../../../ui'
 
 const tipos_archivos = [
   { value: 'DISTRIBUTIVO', text: 'DISTRIBUTIVO' },
@@ -87,22 +88,6 @@ export const Trabajadores = () => {
           Servidores
         </Typography>
 
-
-        {/* <Tooltip title="Carga multiple" color="secondary" >
-          <IconButton >
-            <label htmlFor="btnFile" >
-              <UploadOutlined />
-            </label>
-          </IconButton>
-        </Tooltip>
-        <input
-          id="btnFile"
-          style={{ display: "none" }}
-          type="file"
-          multiple
-          onChange={onFileInputChange}
-        /> */}
-
         <Tooltip title="Gargar archivos" color="secondary" >
           <>
             <IconButton
@@ -137,20 +122,7 @@ export const Trabajadores = () => {
             <PersonAdd />
           </IconButton>
         </Tooltip>
-        {/* <Tooltip title="Lista" color="secondary" >
-          <IconButton
-            onClick={e => handleView(e, 'list')}
-          >
-            <TableViewOutlined />
-          </IconButton>
-        </Tooltip>
-        <Tooltip title="Tarjetas" color="secondary">
-          <IconButton
-            onClick={e => handleView(e, 'cards')}
-          >
-            <BadgeOutlined />
-          </IconButton>
-        </Tooltip> */}
+
       </Toolbar>
       <Divider />
       <Toolbar>
@@ -174,6 +146,7 @@ export const Trabajadores = () => {
         : <> </>
       }
       <TrabajadorModal titleModal={nameModal} />
+
     </Box>
   )
 }

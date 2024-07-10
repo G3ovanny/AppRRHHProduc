@@ -24,6 +24,7 @@ export const useTrabStore = () => {
         setTimeout(() => {
             dispatch(onClearMessage());
         }, 3000);
+        startLoadingTrab();
     }
 
     const startSavingListTrab = async (trabajadores = []) => {
@@ -37,6 +38,7 @@ export const useTrabStore = () => {
                 dispatch(onAddNewTrab({ ...trabajador }))
             }
         }
+        startLoadingTrab();
     }
 
     const startLoadingTrab = async () => {
@@ -64,6 +66,7 @@ export const useTrabStore = () => {
         setTimeout(() => {
             dispatch(onClearMessage());
         }, 3000);
+        startLoadingTrab();
     }
 
     const startSendEmailTrab = async () => {

@@ -27,6 +27,7 @@ export const useCronogramaVacacionesStore = () => {
         setTimeout(() => {
             dispatch(clearMessageCronograma());
         }, 3000);
+        startLoadingCronograma();
     }
 
     const startDeletingCrongrama = async () => {
@@ -46,6 +47,7 @@ export const useCronogramaVacacionesStore = () => {
         setTimeout(() => {
             dispatch(clearMessageCronograma());
         }, 3000);
+        startLoadingCronograma();
     }
 
     const setActiveCronograma = (cronograma) => {

@@ -26,7 +26,7 @@ export const useRegimenStore = () => {
         setTimeout(() => {
             dispatch(clearMessage());
         }, 3000);
-
+        startLoadingReg();
     }
 
     const startDeletingReg = async (regimen) => {
@@ -43,6 +43,7 @@ export const useRegimenStore = () => {
         setTimeout(() => {
             dispatch(clearMessage());
         }, 3000);
+        startLoadingReg();
 
     }
 

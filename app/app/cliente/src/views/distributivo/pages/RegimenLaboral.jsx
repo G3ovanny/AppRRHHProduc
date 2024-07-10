@@ -4,8 +4,9 @@ import { Alert, Box, Button, Card, CardActionArea, CardActions, CardContent, Car
 import { CancelScheduleSend, Delete, DeleteOutline, Edit, Send } from '@mui/icons-material';
 import { useRegimenStore } from '../../../hooks/distributivo';
 import { useEffect, useState } from 'react';
-import { useForm } from '../../../hooks';
+import { useAlertDialogStore, useForm } from '../../../hooks';
 import { FiltroGeneral } from '../components/filtros/FiltroGeneral';
+import { AlertDialog } from '../../../ui';
 
 
 const formData = {
@@ -15,8 +16,11 @@ const formData = {
 
 export const RegimenLaboral = () => {
   const { startSavingReg, startLoadingReg, startDeletingReg, listReg, setActiveReg, activeReg, inicialReg = [], mensaje } = useRegimenStore();
-
   const [resultadoBusqueda, setResultadoBusqueda] = useState('')
+  const { openAlertDialog, closeAlertDialog } = useAlertDialogStore();
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+
+  const content = '¿Está seguro que quiere eliminar el registro?'
 
   const handelBuscar = (valorBuscar) => {
     const resultadoFiltrado = listReg.filter((regimen) => {
@@ -54,7 +58,9 @@ export const RegimenLaboral = () => {
     setFormState } = useForm(formData, formValidations);
 
   const handleDelete = (e, element) => {
-    startDeletingReg(element)
+    setActiveReg(element)
+    openAlertDialog(content)
+    //startDeletingReg(element)
   }
 
   const handleEdit = (e, element) => {
@@ -73,6 +79,12 @@ export const RegimenLaboral = () => {
     setActiveReg(inicialReg)
     onResetForm()
   }
+
+  const handleConfirmation = () => {
+    startDeletingReg(activeReg)
+    closeAlertDialog();
+    setDeleteConfirmation(false); // Reinicia el estado de confirmación de eliminación
+  };
 
   useEffect(() => {
     setResultadoBusqueda()
@@ -247,10 +259,16 @@ export const RegimenLaboral = () => {
                 </CardActions>
               </Grid>
             </form>
-
           </Card>
         </Grid>
       </Grid >
+      <AlertDialog
+        open={deleteConfirmation}
+        onClose={() => setDeleteConfirmation(false)}
+        onConfirm={handleConfirmation}
+        title="Confirmar Eliminación"
+        content={content}
+      />
     </Box>
   )
 }

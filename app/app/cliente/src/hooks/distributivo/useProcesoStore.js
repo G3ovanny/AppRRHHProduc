@@ -26,6 +26,8 @@ export const useProcesoStore = () => {
         setTimeout(() => {
             dispatch(onClearMessageProceso());
         }, 3000);
+        
+        startLoadingProceso();
     }
 
     const startDeletingProceso = async (proceso) => {
@@ -38,7 +40,13 @@ export const useProcesoStore = () => {
             console.log(error)
             console.log('Error al eliminar el proceso')
         }
+        setTimeout(() => {
+            dispatch(onClearMessageProceso());
+        }, 3000);
+
+        startLoadingProceso();
     }
+
     const setActiveProceso = (proceso) => {
         dispatch(onSetActiveProceso(proceso))
     }

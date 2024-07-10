@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Alert, Box, Button, Card, CardActions, CardContent, Divider, Grid, IconButton, List, ListItem, ListItemText, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
 import { DeleteOutline, Edit } from '@mui/icons-material';
-import { useForm } from '../../../hooks';
+import { useAlertDialogStore, useForm } from '../../../hooks';
 import { useModalidadLaboralStore } from '../../../hooks/distributivo';
 import { FiltroGeneral } from '../components/filtros';
+import { AlertDialog } from '../../../ui';
 
 const formData = {
   cod_modalidad: '',
@@ -15,6 +16,10 @@ export const ModalidadLaboral = () => {
   const { listModalidad, startDeletingModalidad, setActiveModalidad, startSavingModalidad, startLoadingModalidad, activeModalidad, inicialModalidad = [], mensajeModalidad } = useModalidadLaboralStore();
 
   const [resultadoBusqueda, setResultadoBusqueda] = useState('')
+  const { openAlertDialog, closeAlertDialog } = useAlertDialogStore();
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+
+  const content = '¿Está seguro que quiere eliminar el registro?'
 
   const handelBuscar = (valorBuscar) => {
     const resultadoFiltrado = listModalidad.filter((modalidad) => {
@@ -53,7 +58,9 @@ export const ModalidadLaboral = () => {
     setFormState } = useForm(formData, formValidations);
 
   const handleDelete = (e, element) => {
-    startDeletingModalidad(element)
+    setActiveModalidad(element)
+    openAlertDialog(content)
+    //startDeletingModalidad(element)
   }
 
   const handleEdit = (e, element) => {
@@ -72,6 +79,13 @@ export const ModalidadLaboral = () => {
     setActiveModalidad(inicialModalidad)
     onResetForm()
   }
+
+  const handleConfirmation = () => {
+    startDeletingModalidad(activeModalidad)
+    closeAlertDialog();
+    setDeleteConfirmation(false); // Reinicia el estado de confirmación de eliminación
+  };
+
   useEffect(() => {
     setResultadoBusqueda()
   }, [])
@@ -212,6 +226,13 @@ export const ModalidadLaboral = () => {
           </Card>
         </Grid>
       </Grid >
+      <AlertDialog
+        open={deleteConfirmation}
+        onClose={() => setDeleteConfirmation(false)}
+        onConfirm={handleConfirmation}
+        title="Confirmar Eliminación"
+        content={content}
+      />
     </Box >
   )
 }

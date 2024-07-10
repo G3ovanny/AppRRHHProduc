@@ -3,24 +3,36 @@ import dayjs from 'dayjs';
 
 
 export const DocExcel = (activeAccion) => {
-
+    console.log(activeAccion);
     const fechaDownload = dayjs()
 
     const handleDownload = () => {
         let tabla = [
             {
                 A: "id",
-                B: "contador",
-                C: "numero_identidad",
-                D: "apellido_paterno",
-                E: "apellido_materno",
-                F: "nombres",
-                G: "fecha_rigue",
-                H: "tipo_accion",
-                I: "otro_tipo",
+                B: "CONTADOR",
+                C: "CEDULA",
+                D: "APELLIDO PATERNO",
+                E: "APELLIDO MATERNO",
+                F: "NOMBRES",
+                G: "TIPO DE ACCION",
+                H: "FECHA RIGE",
+                I: "FECHA ACCION",
+                J: "FECHA DE CREACION"
             }
         ]
         activeAccion.forEach((accion) => {
+            const tipo_accion = accion.tipo_accion
+            const otro_tipo_accion = accion.otro_tipo
+            let tipo = ''
+            const created_date = dayjs(accion.created_date).format("D/M/YYYY - HH:mm")
+            
+            if (tipo_accion === "OTRO" && otro_tipo_accion){
+                tipo = otro_tipo_accion
+            }else{
+                tipo = tipo_accion
+            }
+
             tabla.push({
                 A: accion.id,
                 B: accion.contador,
@@ -28,9 +40,10 @@ export const DocExcel = (activeAccion) => {
                 D: accion.apellido_paterno,
                 E: accion.apellido_materno,
                 F: accion.nombres,
-                G: accion.fecha_rigue,
-                H: accion.tipo_accion,
-                I: accion.otro_tipo,
+                G: tipo,
+                H: accion.fecha_rigue,
+                I: accion.fecha_accion,
+                J: created_date,
             })
         });
         const data = [...tabla];

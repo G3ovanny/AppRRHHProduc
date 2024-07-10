@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, Card, CardActions, CardContent, Divider, Grid, IconButton, List, ListItem, ListItemText, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
-import { useForm, useMotivoPermisoStore } from '../../../hooks';
+import { Alert, Box, Button, Card, CardActions, CardContent, Divider, Grid, IconButton, List, ListItem, ListItemText, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
+import { useAlertDialogStore, useForm, useMotivoPermisoStore } from '../../../hooks';
 import { DeleteOutline, Edit } from '@mui/icons-material';
 import { FiltroGeneral } from '../../distributivo/components/filtros';
+import { AlertDialog } from '../../../ui';
 
 const formData = {
     motivo: '',
 }
 
 export const MotivoPermisos = () => {
-    const { listMotivo, startDeletingMotivo, setActiveMotivo, startSavingMotivo, startLoadingMotivo, activeMotivo, inicialMotivo = [] } = useMotivoPermisoStore();
-
+    const { listMotivo, startDeletingMotivo, setActiveMotivo, startSavingMotivo, startLoadingMotivo, activeMotivo, inicialMotivo = [], mensajeMotivo } = useMotivoPermisoStore();
     const [resultadoBusqueda, setResultadoBusqueda] = useState('')
+    const { openAlertDialog, closeAlertDialog } = useAlertDialogStore();
+    const [deleteConfirmation, setDeleteConfirmation] = useState(false);
 
+    const content = '¿Está seguro que quiere eliminar el registro?'
     const handelBuscar = (valorBuscar) => {
         const resultadoFiltrado = listMotivo.filter((motivo) => {
             return motivo.motivo.toLowerCase().includes(valorBuscar.toLowerCase())
@@ -45,7 +48,9 @@ export const MotivoPermisos = () => {
         setFormState } = useForm(formData, formValidations);
 
     const handleDelete = (e, element) => {
-        startDeletingMotivo(element)
+        setActiveMotivo(element)
+        openAlertDialog(content)
+        //startDeletingMotivo(element)
     }
 
     const handleEdit = (e, element) => {
@@ -64,6 +69,12 @@ export const MotivoPermisos = () => {
         setActiveMotivo(inicialMotivo)
         onResetForm()
     }
+
+    const handleConfirmation = () => {
+        startDeletingMotivo(activeMotivo)
+        closeAlertDialog();
+        setDeleteConfirmation(false); // Reinicia el estado de confirmación de eliminación
+    };
 
     useEffect(() => {
         setResultadoBusqueda()
@@ -89,11 +100,20 @@ export const MotivoPermisos = () => {
                     id='tableTitle'
                     component='div'
                 >
-                    Motivos de permisos
+                    Motivos de permiso
                 </Typography>
             </Toolbar>
             <Divider />
-            <Toolbar />
+            <Toolbar>
+                <Grid
+                    className='animate__animated animate__backInRight'
+                    item
+                    sx={{ flex: ' 1 1 100%' }}
+                    display={!!mensajeMotivo ? '' : 'none'}
+                >
+                    <Alert severity='success' >{mensajeMotivo}</Alert>
+                </Grid>
+            </Toolbar>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 3, sm: 3, md: 3 }}>
                 <Grid item xs={12} sm={12} md={6}>
                     <Card>
@@ -199,6 +219,13 @@ export const MotivoPermisos = () => {
                     </Card>
                 </Grid>
             </Grid >
+            <AlertDialog
+                open={deleteConfirmation}
+                onClose={() => setDeleteConfirmation(false)}
+                onConfirm={handleConfirmation}
+                title="Confirmar Eliminación"
+                content={content}
+            />
         </Box >
     )
 }

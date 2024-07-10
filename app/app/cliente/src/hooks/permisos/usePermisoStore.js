@@ -28,6 +28,7 @@ export const usePermisoStore = () => {
     setTimeout(() => {
       dispatch(clearMessagePermiso());
     }, 3000);
+    startLoadingPermiso();
   }
 
   const startDeletingPermiso = async () => {
@@ -47,6 +48,7 @@ export const usePermisoStore = () => {
     setTimeout(() => {
       dispatch(clearMessagePermiso());
     }, 3000);
+    startLoadingPermiso();
   }
 
   const setActivePermiso = (permiso) => {

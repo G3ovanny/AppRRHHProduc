@@ -1,6 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-
-
 export const motivoPermisoSlice = createSlice({
     name: 'motivoPermiso',
     initialState: {
@@ -33,16 +31,12 @@ export const motivoPermisoSlice = createSlice({
             })
             state.mensajeMotivo = 'Los datos se actualizaron correctamente'
         },
-        onDeleteMotivo: (state) => {
-            const motivoActivo = state.activeMotivo
-            for (let i = 0; i < motivoActivo.length; i++) {
-                const element = motivoActivo[i].id;
-                if (element) {
-                    state.listMotivo = state.listMotivo.filter(motivoPermiso => motivoPermiso.id !== element);
-                    state.activeMotivo = [];
-                    state.inicialMotivo = [];
-                    state.mensajeMotivo = 'Los datos se han eliminado correctamente'
-                }
+        onDeleteMotivo: (state, { payload }) => {
+            if (payload.id) {
+                state.listMotivo = state.listMotivo.filter(motivoPermiso => motivoPermiso.id !== payload.id);
+                state.activeMotivo = [];
+                state.inicialMotivo = [];
+                state.mensajeMotivo = 'Los datos se han eliminado correctamente'
             }
         },
         onLoadMotivo: (state, { payload }) => {
@@ -60,5 +54,11 @@ export const motivoPermisoSlice = createSlice({
     }
 })
 
-export const { onSetActiveMotivo, onAddNewMotivo, onUpdateMotivo, onDeleteMotivo, onLoadMotivo, clearMessageMotivo } = motivoPermisoSlice.actions
+export const {
+    onSetActiveMotivo,
+    onAddNewMotivo,
+    onUpdateMotivo,
+    onDeleteMotivo,
+    onLoadMotivo,
+    clearMessageMotivo } = motivoPermisoSlice.actions
 

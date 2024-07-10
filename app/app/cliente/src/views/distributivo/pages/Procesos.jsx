@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useForm, useProcesoStore } from '../../../hooks'
+import { useAlertDialogStore, useForm, useProcesoStore } from '../../../hooks'
 import { Alert, Box, Button, Card, CardActions, CardContent, Divider, Grid, IconButton, List, ListItem, ListItemText, TextField, Toolbar, Tooltip, Typography } from '@mui/material'
 import { FiltroGeneral } from '../components/filtros'
 import { DeleteOutline, Edit } from '@mui/icons-material'
+import { AlertDialog } from '../../../ui'
 
 
 const formData = {
@@ -11,6 +12,12 @@ const formData = {
 export const Procesos = () => {
     const { listProceso, startDeletingProceso, setActiveProceso, startSavingProceso, startLoadingProceso, activeProceso, isLoadingProceso = [], mensajeProceso, mensajeError } = useProcesoStore()
     const [resultadoBusqueda, setResultadoBusqueda] = useState('')
+    const { openAlertDialog, closeAlertDialog } = useAlertDialogStore();
+    const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+
+    const content = '¿Está seguro que quiere eliminar el registro?'
+
+
     const handelBuscar = (valorBuscar) => {
         const resultadoFiltrado = listProceso.filter((proceso) => {
             return proceso.proceso.toLowerCase().includes(valorBuscar.toLowerCase())
@@ -39,7 +46,9 @@ export const Procesos = () => {
         setFormState } = useForm(formData, formValidations);
 
     const handleDelete = (e, element) => {
-        startDeletingProceso(element)
+        setActiveProceso(element)
+        openAlertDialog(content)
+        //startDeletingProceso(element)
     }
 
     const handleEdit = (e, element) => {
@@ -49,13 +58,19 @@ export const Procesos = () => {
         event.preventDefault();
         if (isFormValid) {
             await startSavingProceso({ ...formState })
-            onResetForm() 
+            onResetForm()
         }
     }
     const handleCancelar = () => {
         setActiveProceso(isLoadingProceso)
         onResetForm()
     }
+
+    const handleConfirmation = () => {
+        startDeletingProceso(activeProceso)
+        closeAlertDialog();
+        setDeleteConfirmation(false); // Reinicia el estado de confirmación de eliminación
+    };
 
     let mensaje = null
     if (mensajeProceso) {
@@ -71,7 +86,7 @@ export const Procesos = () => {
 
     useEffect(() => {
         startLoadingProceso()
-        if (activeProceso!== null) {
+        if (activeProceso !== null) {
             setFormState(activeProceso)
         }
     }, [activeProceso])
@@ -185,6 +200,13 @@ export const Procesos = () => {
                     </Card>
                 </Grid>
             </Grid>
+            <AlertDialog
+                open={deleteConfirmation}
+                onClose={() => setDeleteConfirmation(false)}
+                onConfirm={handleConfirmation}
+                title="Confirmar Eliminación"
+                content={content}
+            />
         </Box>
     )
 }

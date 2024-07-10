@@ -27,6 +27,7 @@ export const useNivelOcuStore = () => {
         setTimeout(() => {
             dispatch(clearMessageNivel());
         }, 3000);
+        startLoadingNivel();
     }
 
     const startDeletingNivel = async (nivel) => {
@@ -43,6 +44,7 @@ export const useNivelOcuStore = () => {
         setTimeout(() => {
             dispatch(clearMessageNivel());
         }, 3000);
+        startLoadingNivel();
     }
 
     const setActiveNivel = (nivel) => {

@@ -27,7 +27,7 @@ class MotivoPermisoViewSet(viewsets.ModelViewSet):
         return Response(motivo_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def destroy(self, request, pk = None):
-        motivo= self.get_queryset().filter(id=pk)
+        motivo = self.get_queryset().filter(id=pk).first()
         if motivo:
             #motivo.delete()
             motivo.state = False

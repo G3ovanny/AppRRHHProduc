@@ -34,6 +34,7 @@ export const useUsuarioStore = () => {
         setTimeout(() => {
             dispatch(clearMessageUsuario());
         }, 3000);
+        startLoadingUsuario();
     }
     const startChangePassUsuario = async (usuario) => {
         try {
@@ -49,6 +50,7 @@ export const useUsuarioStore = () => {
         setTimeout(() => {
             dispatch(clearMessageUsuario());
         }, 5000);
+        startLoadingUsuario();
     }
 
     const startDeletingUsuario = async () => {
@@ -67,6 +69,7 @@ export const useUsuarioStore = () => {
         setTimeout(() => {
             dispatch(clearMessageUsuario());
         }, 3000);
+        startLoadingUsuario();
     }
 
     const setActiveUsuario = (usuario) => {

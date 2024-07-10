@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Alert, Box, Button, Card, CardActions, CardContent, Divider, Grid, IconButton, List, ListItem, ListItemText, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
 import { DeleteOutline, Edit } from '@mui/icons-material';
-import { useForm } from '../../../hooks';
+import { useAlertDialogStore, useForm } from '../../../hooks';
 import { useNivelOcuStore } from '../../../hooks/distributivo';
 import { FiltroGeneral } from '../components/filtros';
+import { AlertDialog } from '../../../ui';
 
 const formData = {
   cod_nivel_ocupacional: '',
@@ -12,8 +13,12 @@ const formData = {
 
 export const NivelOcupacional = () => {
   const { startDeletingNivel, setActiveNivel, startSavingNivel, startLoadingNivel, listNivel, activeNivel, inicialNivel = [], mensajeNivel } = useNivelOcuStore();
-
   const [resultadoBusqueda, setResultadoBusqueda] = useState('')
+  const { openAlertDialog, closeAlertDialog } = useAlertDialogStore();
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+
+  const content = '¿Está seguro que quiere eliminar el registro?'
+
 
   const handelBuscar = (valorBuscar) => {
     const resultadoFiltrado = listNivel.filter((nivel) => {
@@ -52,7 +57,9 @@ export const NivelOcupacional = () => {
     setFormState } = useForm(formData, formValidations);
 
   const handleDelete = (e, element) => {
-    startDeletingNivel(element)
+    setActiveNivel(element)
+    openAlertDialog(content)
+    //startDeletingNivel(element)
   }
 
   const handleEdit = (e, element) => {
@@ -72,6 +79,13 @@ export const NivelOcupacional = () => {
     onResetForm()
   }
 
+  const handleConfirmation = () => {
+    startDeletingNivel(activeNivel)
+    closeAlertDialog();
+    setDeleteConfirmation(false); // Reinicia el estado de confirmación de eliminación
+  };
+
+
   useEffect(() => {
     setResultadoBusqueda()
   }, [])
@@ -85,7 +99,7 @@ export const NivelOcupacional = () => {
 
   return (
     <Box >
-        <Toolbar>
+      <Toolbar>
         <Grid
           className='animate__animated animate__backInRight'
           item
@@ -214,6 +228,13 @@ export const NivelOcupacional = () => {
           </Card>
         </Grid>
       </Grid >
+      <AlertDialog
+        open={deleteConfirmation}
+        onClose={() => setDeleteConfirmation(false)}
+        onConfirm={handleConfirmation}
+        title="Confirmar Eliminación"
+        content={content}
+      />
     </Box >
   )
 }

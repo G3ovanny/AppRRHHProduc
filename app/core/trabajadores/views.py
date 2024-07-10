@@ -5,11 +5,12 @@ from rest_framework import status
 from .models import ArchivoTrabajadores
 from core.distributivo.models import *
 from core.trabajadores.models import *
-from app.config.db import POSTGRESQL
-
+#from app.config.db import POSTGRESQL
+from django.conf import settings
 
 def analisis_trabajadores():
-    database_settings = POSTGRESQL['default']
+    database_settings = settings.DATABASES['default']
+    #database_settings = POSTGRESQL['default']
     # engine = database_settings['ENGINE']
     # name = database_settings['NAME']
     # user = database_settings['USER']

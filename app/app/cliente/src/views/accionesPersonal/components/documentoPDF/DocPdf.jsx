@@ -4,6 +4,7 @@ import { StyleSheet } from '@react-pdf/renderer'
 import { useAccionPersonalStore, useDenominacionPuestoStore, useEstructuraProgramaticaStore, useUnidadOrganicaStore } from '../../../../hooks';
 import { tipos_accion, tipos_doc } from '../../tipos-accion';
 import { Box, Typography } from '@mui/material';
+// import logoUpec from '';
 
 const tiposDoc = tipos_doc.tipos
 // me permite dividir en 4 columnas el arreglo de tipo de accion
@@ -166,7 +167,6 @@ const styles = StyleSheet.create({
     }
 });
 
-//
 
 export const DocPdf = React.forwardRef((props, ref) => {
     const { activeAccion } = useAccionPersonalStore();
@@ -240,7 +240,8 @@ export const DocPdf = React.forwardRef((props, ref) => {
                         >
                             <Box style={styles.header}>
                                 <img
-                                    src="https://upload.wikimedia.org/wikipedia/commons/8/84/UPEC_LOGO.svg"
+                                    src='https://static.wixstatic.com/media/7a1b61_f0aebc03ee2f4a80bfb6bf8c15e71edd~mv2.png/v1/fill/w_500,h_458,al_c,q_85,enc_auto/7a1b61_f0aebc03ee2f4a80bfb6bf8c15e71edd~mv2.png'
+                                    // src="https://static.wixstatic.com/media/7a1b61_f0aebc03ee2f4a80bfb6bf8c15e71edd~mv2.png/v1/fill/w_500,h_458,al_c,q_85,enc_auto/7a1b61_f0aebc03ee2f4a80bfb6bf8c15e71edd~mv2.png"
                                     width="70" height="70"
                                 />
 
@@ -330,7 +331,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                 </Box>
                                 <Box style={styles.rect_pequeño_uno}>
                                     <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.text}>Rigue a partir de:</Typography>
+                                        <Typography style={styles.text}>Rige a partir de:</Typography>
                                     </Box>
                                     <Box style={styles.rect_pequeño_dos}>
                                         <Typography style={styles.text}>{data.fecha_rigue}</Typography>

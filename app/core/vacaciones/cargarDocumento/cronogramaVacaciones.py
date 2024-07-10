@@ -1,13 +1,15 @@
 import datetime
 import pandas as pd
 from dateutil.relativedelta import *
-from app.config.db import POSTGRESQL
+#from app.config.db import POSTGRESQL
+from django.conf import settings
 from sqlalchemy import create_engine
 from core.vacaciones.models import ArchivoCronograma
 from core.trabajadores.models import Trabajador
 
 def cargarCronograma():
-    database_settings = POSTGRESQL['default']
+    database_settings = settings.DATABASES['default']
+    #database_settings = POSTGRESQL['default']
     engine = create_engine(f"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}")
     
     documento = ArchivoCronograma.objects.latest('id').doc

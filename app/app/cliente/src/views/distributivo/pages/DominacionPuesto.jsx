@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Alert, Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Divider, FormControl, Grid, IconButton, InputLabel, List, ListItem, ListItemText, MenuItem, Paper, Select, Stack, TextField, Toolbar, Tooltip, Typography } from '@mui/material';
 import { DeleteOutline, Edit, Search } from '@mui/icons-material';
-import { useForm } from '../../../hooks';
+import { useAlertDialogStore, useForm } from '../../../hooks';
 import { useDenominacionPuestoStore, useProcesoStore } from '../../../hooks/';
 import { FiltroGeneral } from '../components/filtros/FiltroGeneral';
+import { AlertDialog } from '../../../ui';
 
 const formData = {
   cod_denominacion_puesto: '',
@@ -14,8 +15,12 @@ const formData = {
 export const DominacionPuesto = () => {
   const { listDenominacion, startDeletingDenominacion, setActiveDenominacion, startSavingDenominacion, startLoadingDenominacion, activeDenominacion, inicialDenominacion = [], mensajeDenominacion } = useDenominacionPuestoStore();
   const [resultadoBusqueda, setResultadoBusqueda] = useState('')
-
   const { listProceso, startLoadingProceso } = useProcesoStore()
+  const { openAlertDialog, closeAlertDialog } = useAlertDialogStore();
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+
+  const content = '¿Está seguro que quiere eliminar el registro?'
+
   const handelBuscar = (valorBuscar) => {
     const resultadoFiltrado = listDenominacion.filter((denominacion) => {
       return denominacion.denominacion_puesto.toLowerCase().includes(valorBuscar.toLowerCase()) || denominacion.cod_denominacion_puesto.toLowerCase().includes(valorBuscar.toLowerCase())
@@ -54,7 +59,9 @@ export const DominacionPuesto = () => {
     setFormState } = useForm(formData, formValidations);
 
   const handleDelete = (e, element) => {
-    startDeletingDenominacion(element)
+    setActiveDenominacion(element)
+    openAlertDialog(content)
+    //startDeletingDenominacion(element)
   }
 
   const handleEdit = (e, element) => {
@@ -73,6 +80,13 @@ export const DominacionPuesto = () => {
     setActiveDenominacion(inicialDenominacion)
     onResetForm()
   }
+
+  const handleConfirmation = () => {
+    startDeletingDenominacion(activeDenominacion)
+    closeAlertDialog();
+    setDeleteConfirmation(false); // Reinicia el estado de confirmación de eliminación
+  };
+
   useEffect(() => {
     setResultadoBusqueda()
   }, [])
@@ -84,7 +98,6 @@ export const DominacionPuesto = () => {
       setFormState(activeDenominacion)
     }
   }, [activeDenominacion])
-
   return (
     <Box >
       <Toolbar>
@@ -142,6 +155,7 @@ export const DominacionPuesto = () => {
                                 <DeleteOutline />
                               </IconButton>
                             </Tooltip>
+
                             <Tooltip title="Editar" color='secondary'>
                               <IconButton
                                 onClick={e => handleEdit(e, denominacion)}
@@ -151,6 +165,7 @@ export const DominacionPuesto = () => {
                             </Tooltip>
                           </ListItem>
                         )
+
                       })
                     }
                   </List>
@@ -232,6 +247,13 @@ export const DominacionPuesto = () => {
           </Card>
         </Grid>
       </Grid >
+      <AlertDialog
+        open={deleteConfirmation}
+        onClose={() => setDeleteConfirmation(false)}
+        onConfirm={handleConfirmation}
+        title="Confirmar Eliminación"
+        content={content}
+      />
     </Box >
   )
 }

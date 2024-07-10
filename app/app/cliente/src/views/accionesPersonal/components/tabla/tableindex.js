@@ -39,7 +39,7 @@ export const indexCells = [
         id: 'fechaRige',
         numeric: false,
         //disablePadding: true,
-        label: 'Rigue a partir de',
+        label: 'Rige a partir de',
         width: 400
     },
     {

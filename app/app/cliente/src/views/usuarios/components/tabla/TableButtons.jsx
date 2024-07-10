@@ -1,22 +1,32 @@
-import React from 'react'
-import { useModalStore, useUsuarioStore } from '../../../../hooks'
+import React, { useState } from 'react'
+import { useAlertDialogStore, useModalStore, useUsuarioStore } from '../../../../hooks'
 import { IconButton, Tooltip } from '@mui/material';
 import { DeleteOutline, EditOutlined, NoteAddOutlined } from '@mui/icons-material';
+import { AlertDialog } from '../../../../ui';
 
 export const TableButtons = () => {
 
   const { activeUsuario, startSavingUsuario, startDeletingUsuario } = useUsuarioStore();
 
   const { openModal } = useModalStore();
+  const { openAlertDialog, closeAlertDialog } = useAlertDialogStore();
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false); // Estado para controlar la apertura de la alerta
+  const content = '¿Está seguro que quiere eliminar el registro?';
+
   const numActivos = activeUsuario.length;
   const handleEdit = () => {
     openModal('Editando datos')
   }
 
   const handleDelete = () => {
-    startDeletingUsuario()
+    openAlertDialog(content);
+    // startDeletingUsuario()
   }
-
+  const handleConfirmation = () => {
+    startDeletingUsuario();
+    closeAlertDialog();
+    setDeleteConfirmation(false); // Reinicia el estado de confirmación de eliminación
+  };
   return (
     <>
       {
@@ -56,6 +66,13 @@ export const TableButtons = () => {
           </>
 
         )}
+      <AlertDialog
+        open={deleteConfirmation}
+        onClose={() => setDeleteConfirmation(false)}
+        onConfirm={handleConfirmation}
+        title="Confirmar Eliminación"
+        content={content}
+      />
     </>
   )
 }

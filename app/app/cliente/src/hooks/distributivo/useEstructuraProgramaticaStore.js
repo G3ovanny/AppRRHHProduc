@@ -28,6 +28,7 @@ export const useEstructuraProgramaticaStore = () => {
         setTimeout(() => {
             dispatch(clearMessageEstructura());
         }, 3000);
+        startLoadingEstructura();
     }
 
     const startDeletingEstructura = async (estructura) => {
@@ -44,6 +45,7 @@ export const useEstructuraProgramaticaStore = () => {
         setTimeout(() => {
             dispatch(clearMessageEstructura());
         }, 3000);
+        startLoadingEstructura();
     }
 
     const setActiveEstructura = (estructura) => {

@@ -4,18 +4,20 @@ import { Navigate, Route, Router, Routes, Link, Outlet } from 'react-router-dom'
 import { LoginPage } from '../auth/pages/LoginPage'
 import { useAuthStore, useCedulaStore } from '../hooks'
 import { useEffect } from 'react'
-import { AccionesPersonal, Cronograma, Dashboard, FormTrabmasDatos, Usuarios } from '../views'
+import { AccionesPersonal, Cronograma, Dashboard, FormTrabmasDatos, MotivoPermisos, Parametros, Permisos, Profile, Trabajadores, Usuarios } from '../views'
 import { ThBase } from '../views/base'
-import { DatosPersonales, Trabajadores } from '../views/trabajadores/pages'
-import { MotivoPermisos, Permisos } from '../views/permisos/pages'
-import { Parametros } from '../views/distributivo'
+//import { DatosPersonales, Trabajadores } from '../views/trabajadores/pages'
+//import { MotivoPermisos, Permisos } from '../views/permisos/pages'
+//import { Parametros } from '../views/distributivo'
 import { Navbar } from '../layout'
 import { Box, Toolbar } from '@mui/material'
 import { Asistencias } from '../views/asistencias'
 import { EnlaceDatosTrab } from '../auth/pages/EnlaceDatosTrab'
-import { Profile } from '../views/Perfiles'
+//import { Profile } from '../views/Perfiles'
 import { ResetPass } from '../auth/pages/ResetPass'
 
+//const { AccionesPersonal, Cronograma, Dashboard, FormTrabmasDatos, MotivoPermisos, Parametros, Permisos, Profile, Trabajadores, Usuarios } = lazy(() => import('../views'));
+//import { AccionesPersonal, Cronograma, Dashboard, FormTrabmasDatos, MotivoPermisos, Parametros, Permisos, Profile, Trabajadores, Usuarios } from '../views'
 
 export const AppRouter = () => {
     const { status, checkAuthToken } = useAuthStore();

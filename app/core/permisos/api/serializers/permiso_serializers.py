@@ -1,7 +1,8 @@
 from ...models import Permiso
 
 from rest_framework import serializers
-
+from datetime import datetime
+from django.db.models import Sum, Count
 
 class PermisoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,3 +27,8 @@ class PermisoSerializer(serializers.ModelSerializer):
             'certificado_medico': instance.certificado_medico, 
             'min_acumulados': instance.min_acumulados,
         }
+
+class PermisosTrabajadorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Permiso
+        fields = '__all__'

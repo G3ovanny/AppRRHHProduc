@@ -32,10 +32,11 @@ export const useUnidadOrganicaStore = () => {
         } catch (error) {
             console.log(error)
             dispatch(onErrorUnidad(error.response.data.mensaje));
-            setTimeout(() => {
-                dispatch(clearMessageUnidad());
-            }, 3000);
         }
+        setTimeout(() => {
+            dispatch(clearMessageUnidad());
+        }, 3000);
+        startLoadingUnidad();
     }
 
     const startDeletingUnidad = async (unidad) => {
@@ -52,6 +53,7 @@ export const useUnidadOrganicaStore = () => {
         setTimeout(() => {
             dispatch(clearMessageUnidad());
         }, 3000);
+        startLoadingUnidad();
     }
 
     const setActiveUnidad = (unidad) => {
