@@ -246,7 +246,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                 />
 
                                 <img
-                                    src="https://seeklogo.com/images/M/ministerio-del-trabajo-ecuador-logo-F140F8BD3A-seeklogo.com.png"
+                                    src="https://i0.wp.com/www.soltricon.com/wp-content/uploads/2018/07/logo-ministerio-trabajo-soltricon-grande.png?ssl=1"
                                     width="200" height="75"
 
                                 />

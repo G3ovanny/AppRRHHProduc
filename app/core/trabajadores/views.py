@@ -137,7 +137,7 @@ def analisis_trabajadores():
                         servidor.celular = fila['celular'].iloc[0]
                         servidor.state = fila['state'].iloc[0]
                         servidor.estado_servidor = fila['estado_servidor'].iloc[0]
-                        #servidor.dias_vacaciones = fila['dias_vacaciones'].iloc[0]
+                        servidor.dias_vacaciones = fila['dias_vacaciones'].iloc[0]
                         servidor.fecha_inicio = fila['fecha_inicio'].iloc[0]
                         servidor.fecha_fin = fila['fecha_fin'].iloc[0]
                         #servidor.correo_institucional = fila['correo_institucional'].iloc[0]
@@ -165,7 +165,7 @@ def analisis_trabajadores():
                 'celular',
                 'state',
                 'estado_servidor',
-                #'dias_vacaciones',
+                'dias_vacaciones',
                 #'correo_institucional',
             ]]
             #print(nuevoDocumento)
