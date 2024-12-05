@@ -13,6 +13,8 @@ class Trabajador(BaseModel):
     id_unidad_organica = models.ForeignKey(Unidad_Organica,  blank=True, null=True, on_delete=models.SET_NULL, verbose_name='Unidad orgánica')
     id_denominacion_puesto = models.ForeignKey(Denominacion_Puesto,  blank=True, null=True, on_delete=models.SET_NULL, verbose_name='Denominación del puesto')
     id_estructura_programatica = models.ForeignKey(Estructura_Programatica,  blank=True, null=True, on_delete=models.SET_NULL, verbose_name='Estructura programática')
+    id_escala_ocupacional = models.ForeignKey(Escala_Ocupacional,  blank=True, null=True, on_delete=models.SET_NULL, verbose_name='Escala ocupacional')
+    id_grado = models.ForeignKey(Grado,  blank=True, null=True, on_delete=models.SET_NULL, verbose_name='Grado')
 
     numero_identificacion = models.CharField('Cédula', max_length=255, blank=True, null=False)
     nombres = models.CharField('Nombres', max_length=255, blank=True, null=False)

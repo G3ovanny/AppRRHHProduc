@@ -1,9 +1,10 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useEffect } from 'react'
 
 import { StyleSheet } from '@react-pdf/renderer'
 import { useAccionPersonalStore, useDenominacionPuestoStore, useEstructuraProgramaticaStore, useUnidadOrganicaStore } from '../../../../hooks';
 import { tipos_accion, tipos_doc } from '../../tipos-accion';
-import { Box, Typography } from '@mui/material';
+import { Checkbox, Grid, Typography, Box } from "@mui/material";
+import { red } from '@mui/material/colors';
 // import logoUpec from '';
 
 const tiposDoc = tipos_doc.tipos
@@ -17,155 +18,6 @@ for (let i = 0; i < tipos.length; i += longitud) {
     columnas.push(colum);
 }
 
-//crear el estilo del documento
-const styles = StyleSheet.create({
-    page: {
-        flexDirection: 'column',
-        width: "100%",
-        padding: "70px 55px",
-    },
-    header: {
-        display: "flex",
-        flexDirection: "row",
-        width: "100%",
-        justifyContent: "space-between",
-        alignItems: "flex-start",
-    },
-    img: {
-        border: "1px solid #ddd",
-        borderRadius: "4px",
-        padding: "5px",
-        width: "150px",
-        height: "65px",
-    },
-    image: {
-        marginVertical: 15,
-        marginHorizontal: 100,
-    },
-    margen: {
-        borderTop: "1px solid #000000",
-        border: "1px solid #000000",
-        background: "#FFFFFF",
-        minwidth: "100%",
-        minheight: "100%",
-        flexDirection: "column",
-    },
-    rect_uno: {
-        paddingLeft: "15px",
-        paddingRight: "130px",
-        paddingBottom: "10px",
-        paddingTop: "10px",
-        borderTop: "1px solid #000000",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-
-    },
-    rect_dos: {
-        paddingLeft: "15px",
-        paddingRight: "300px",
-        paddingBottom: "10px",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-    },
-    rect_tres: {
-        paddingLeft: "15px",
-        paddingRight: "15px",
-        paddingBottom: "10px",
-        paddingTop: "10px",
-        flexDirection: "column",
-        display: "flex",
-        width: "100%",
-    },
-    rect_cuatro: {
-        display: "flex",
-        flexDirection: "row",
-    },
-    explicacion: {
-        borderBottom: "1px solid #000000",
-        paddingLeft: "15px",
-        paddingRight: "15px",
-        paddingBottom: "10px",
-        paddingTop: "10px",
-        flexDirection: "column",
-        display: "flex",
-        width: "100%",
-        minHeight: "80px",
-        justifyContent: "center",
-    },
-    text: {
-        fontFamily: 'Arial',
-        fontSize: "11px",
-        display: "flex",
-        //justifyContent: "space-between",
-    },
-    text_check: {
-        fontFamily: 'Calibri',
-        fontSize: "10px",
-        display: "flex",
-        justifyContent: "space-between",
-    },
-    rect_pequeño: {
-        flexDirection: "column",
-        display: "flex",
-        width: "100%",
-    },
-    rect_pequeño_uno: {
-        borderLeft: "1px solid #000000",
-        flexDirection: "column",
-        display: "flex",
-        width: "100%",
-    },
-    rect_pequeño_dos: {
-        borderTop: "1px solid #000000",
-        display: "flex",
-        justifyContent: "center"
-    },
-    rect_pequeño_tres: {
-        display: "flex",
-        justifyContent: "center"
-    },
-    firma: {
-        paddingTop: "35px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        maxHeight: "85px",
-    },
-    fech: {
-        paddingLeft: "10px",
-        paddingRight: "10px",
-        paddingTop: "35px",
-        display: "flex",
-        justifyContent: "space-between",
-    },
-    cuadro: {
-        width: "170px",
-        borderLeft: "1px solid #000000",
-        flexDirection: "column",
-        display: "flex",
-        justifyItems: "center",
-    },
-    titulos: {
-        fontFamily: 'Arial',
-        fontWeight: 'bold',
-        fontSize: "11px",
-        display: "flex",
-        justifyContent: "space-between",
-    },
-    nombres: {
-        fontFamily: 'Arial',
-        fontWeight: 'bold',
-        fontSize: "15px",
-        display: "flex",
-        justifyContent: "space-between",
-    },
-    salto: {
-        backgroundColor: 'blue',
-        marginTop: "23px",
-    }
-});
 
 
 export const DocPdf = React.forwardRef((props, ref) => {
@@ -226,542 +78,2815 @@ export const DocPdf = React.forwardRef((props, ref) => {
             nombre_denominacion = denominacion.denominacion_puesto
         }
 
+        const fechaHora = (data.fecha_accion)
+        // Crear un objeto Date
+        const fecha = new Date(fechaHora);
+
+        // Obtener la parte de la fecha (YYYY-MM-DD)
+        const fechaSolo = fecha.toISOString().split('T')[0];
+
+        // Restar 5 horas a la hora
+        fecha.setHours(fecha.getHours() - 5);
+
+        // Obtener solo la parte de la hora y los minutos (HH:MM)
+        const horaSolo = fecha.toISOString().split('T')[1].split('Z')[0].substring(0, 5);
+
+        const declaracion = data.declaracion_jurada
+
         return (
             document.push(
                 <Box
                     key={index}
                 >
-                    <Box
+                    <Grid
                         size="A4"
-                        style={styles.page}
+                        sx={{
+                            flexDirection: "column",
+                            width: "100%",
+                            padding: "70px 55px",
+                        }}
                     >
-                        <Box
-                            style={styles.margen}
+                        <Grid
+                            container
+                            sx={{
+                                border: "1px solid #000000",
+                                // minWidth: '100%',
+                                // height: '100vh', // Altura completa de la ventana del navegador
+                                alignItems: "center",
+                            }}
                         >
-                            <Box style={styles.header}>
-                                <img
-                                    src='https://static.wixstatic.com/media/7a1b61_f0aebc03ee2f4a80bfb6bf8c15e71edd~mv2.png/v1/fill/w_500,h_458,al_c,q_85,enc_auto/7a1b61_f0aebc03ee2f4a80bfb6bf8c15e71edd~mv2.png'
-                                    // src="https://static.wixstatic.com/media/7a1b61_f0aebc03ee2f4a80bfb6bf8c15e71edd~mv2.png/v1/fill/w_500,h_458,al_c,q_85,enc_auto/7a1b61_f0aebc03ee2f4a80bfb6bf8c15e71edd~mv2.png"
-                                    width="70" height="70"
-                                />
+                            <Grid
+                                item
+                                xs={7}
+                                sx={{
+                                    display: "flex",
+                                    justifyContent: "space-between", // Espacio entre las imágenes
+                                    alignItems: "center",
+                                    padding: "2px 64px", // Centrar verticalmente las imágenes dentro del contenedor
+                                }}
+                            >
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sx={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    <img
+                                        src="https://static.wixstatic.com/media/7a1b61_f0aebc03ee2f4a80bfb6bf8c15e71edd~mv2.png/v1/fill/w_500,h_458,al_c,q_85,enc_auto/7a1b61_f0aebc03ee2f4a80bfb6bf8c15e71edd~mv2.png"
+                                        width="70"
+                                        height="70"
+                                    />
+                                </Grid>
 
-                                <img
-                                    src="https://i0.wp.com/www.soltricon.com/wp-content/uploads/2018/07/logo-ministerio-trabajo-soltricon-grande.png?ssl=1"
-                                    width="200" height="75"
-
-                                />
-                                {/* <img src={logoUpec} /> */}
-                                {/* <img src={logoMdt} /> */}
-                                <Box style={styles.cuadro}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.titulos}>
-                                            ACCION DE PERSONAL
-                                        </Typography >
-                                    </Box>
-                                    <Box style={styles.rect_tres}>
-                                        <Typography style={styles.text}>
-                                            No. {cod_accion}
-                                        </Typography>
-                                        <Typography style={styles.text}>
-                                            Fecha: {data.fecha_accion}
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                            </Box>
-                            <Box style={styles.rect_uno}>
-                                {tiposDoc.map((doc, index) => {
-                                    let check = false
-                                    {
-                                        if (doc.nombre === tipoDo) {
-                                            check = true;
-                                        } else {
-                                            check = false;
-                                        }
-                                        return (
-                                            <Typography style={styles.text} key={index}>
-                                                {doc.nombre}
-                                                <input type="checkbox" defaultChecked={check} />
-                                            </Typography>
-                                        )
-                                    }
-                                })}
-                            </Box>
-                            <Box style={styles.rect_dos}>
-                                <Typography style={styles.text} >
-                                    No. {data.num_doc}
-                                </Typography>
-                                <Typography style={styles.text} >
-                                    FECHA: {data.fecha_doc}
-                                </Typography>
-                            </Box>
-                            <Box style={styles.rect_cuatro}>
-                                <Box style={styles.rect_pequeño}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.nombres}>{data.apellido_paterno} {data.apellido_materno}</Typography>
-                                    </Box>
-                                    <Box style={styles.rect_pequeño_tres}>
-                                        <Typography style={styles.text} >APELLIDOS</Typography>
-                                    </Box>
-                                </Box>
-                                <Box style={styles.rect_pequeño_uno}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.nombres}>{data.nombres}</Typography>
-                                    </Box>
-                                    <Box style={styles.rect_pequeño_tres}>
-                                        <Typography style={styles.text}>NOMBRES</Typography>
-                                    </Box>
-                                </Box>
-                            </Box>
-                            <Box style={styles.rect_cuatro}>
-                                <Box style={styles.rect_pequeño}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.text}>No. de Cédula de Ciudadania</Typography>
-                                    </Box>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.text} >{data.numero_identidad}</Typography>
-                                    </Box>
-                                </Box>
-                                <Box style={styles.rect_pequeño_uno}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.text}>No. De Afiliacion IESS</Typography>
-                                    </Box>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.text}>1768132370001</Typography>
-                                    </Box>
-                                </Box>
-                                <Box style={styles.rect_pequeño_uno}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.text}>Rige a partir de:</Typography>
-                                    </Box>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.text}>{data.fecha_rigue}</Typography>
-                                    </Box>
-                                </Box>
-                            </Box>
-                            <Box style={styles.rect_cuatro}>
-                                <Box style={styles.rect_pequeño}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.titulos}>
-                                            EXPLICACION
-                                        </Typography>
-                                    </Box>
-                                    <Box style={styles.explicacion}>
-                                        <Typography style={styles.text}>
-                                            {data.explicacion}
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                            </Box>
-                            <Box style={styles.rect_cuatro}>
-                                <Box style={styles.rect_tres}>
-                                    {columnas[0].map((col, index) => {
-                                        let check = false
-                                        {
-                                            if (col.nombre === tipo) {
-                                                check = true;
-                                            } else {
-                                                check = false;
-                                            }
-                                            return (
-                                                <Typography style={styles.text_check} key={index} >
-                                                    {col.nombre}
-                                                    <input type="checkbox" defaultChecked={check} />
-                                                </Typography>
-                                            )
-                                        }
-                                    })}
-                                </Box>
-                                <Box style={styles.rect_tres}>
-                                    {columnas[1].map((col, index) => {
-                                        let check = false
-                                        {
-                                            if (col.nombre === tipo) {
-                                                check = true;
-                                            } else {
-                                                check = false;
-                                            }
-                                            return (
-                                                <Typography style={styles.text_check} key={index} >
-                                                    {col.nombre}
-                                                    <input type="checkbox" defaultChecked={check} />
-                                                </Typography>
-                                            )
-                                        }
-                                    })}
-                                </Box>
-                                <Box style={styles.rect_tres}>
-                                    {columnas[2].map((col, index) => {
-                                        let check = false
-                                        {
-                                            if (col.nombre === tipo) {
-                                                check = true;
-                                            } else {
-                                                check = false;
-                                            }
-                                            return (
-                                                <Typography style={styles.text_check} key={index} >
-                                                    {col.nombre}
-                                                    <input type="checkbox" defaultChecked={check} />
-                                                </Typography>
-                                            )
-                                        }
-                                    })}
-                                </Box>
-                                <Box style={styles.rect_tres}>
-                                    {columnas[3].map((col, index) => {
-                                        let check = false
-                                        {
-                                            if (col.nombre === tipo) {
-                                                check = true;
-                                            } else {
-                                                check = false;
-                                            }
-                                            return (
-                                                <Typography style={styles.text_check} key={index}>
-                                                    {col.nombre}
-                                                    {col.nombre === 'OTRO' ?
-                                                        <input type="checkbox" defaultChecked={check} />
-                                                        :
-                                                        <input type="checkbox" defaultChecked={check} />
-
-                                                    }
-                                                </Typography>
-                                            )
-                                        }
-                                    })}
+                                {/* <Grid
+                                    item
+                                    xs={3}
+                                    sx={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    <img
+                                        src="https://static.wixstatic.com/media/7a1b61_f0aebc03ee2f4a80bfb6bf8c15e71edd~mv2.png/v1/fill/w_500,h_458,al_c,q_85,enc_auto/7a1b61_f0aebc03ee2f4a80bfb6bf8c15e71edd~mv2.png"
+                                        width="70"
+                                        height="70"
+                                    />
+                                </Grid> */}
+                            </Grid>
+                            <Grid
+                                item
+                                xs={5}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+                                    alignItems: "flex-start",
+                                }}
+                            >
+                                <Grid
+                                    container
+                                    sx={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        padding: "4px",
+                                        borderLeft: "1px solid #000000",
+                                        borderBottom: "1px solid #000000",
+                                        // backgroundColor: '#E0E0E0',
+                                    }}
+                                >
                                     <Typography
-                                        style={styles.text_check}
+                                        sx={{
+                                            fontSize: "16px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                        }}
                                     >
-                                        {data.otro_tipo}
+                                        ACCIÓN DE PERSONAL
                                     </Typography>
-                                </Box>
-                            </Box>
-                            <Box style={styles.rect_cuatro}>
-                                <Box style={styles.rect_pequeño}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.titulos}>
-                                            SITUACION ACTUAL
-                                        </Typography>
-                                    </Box>
-                                    <Box style={styles.rect_tres}>
+                                </Grid>
+                                <Grid container>
+                                    <Grid
+                                        item
+                                        xs={5}
+                                        sx={{
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            padding: "2px",
+                                            borderLeft: "1px solid #000000",
+                                            borderBottom: "1px solid #000000",
+                                        }}
+                                    >
                                         <Typography
-                                            style={styles.text}
+                                            sx={{
+                                                fontSize: "11px",
+                                                color: "#000000",
+                                                fontWeight: 'bold',
+
+                                            }}
                                         >
-                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}>PROCESO:</span> {data.proceso_actual}
+                                            Nro.
                                         </Typography>
-                                        <Typography style={styles.text} >
-                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> SUBPROCESO: </span> {data.subproceso_actual}
-                                        </Typography>
-                                        <Typography style={styles.text} >
-                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> PUESTO: </span> {data.puesto_actual}
-                                        </Typography>
-                                        <Typography style={styles.text} >
-                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}>LUGAR DE TRABAJO:</span> TULCÁN-UPEC
-                                        </Typography>
-                                        <Typography style={styles.text} >
-                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}>REMUNERACIÓN MENSUAL: </span> {data.rmu_actual}
-                                        </Typography>
-                                        <Typography style={styles.text} >
-                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> PARTIDA PRESUPUESTARIA: </span>
-                                        </Typography>
-                                        <Typography style={styles.text} >
-                                            {data.estructura_actual} - {data.partida_actual}
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                                <Box style={styles.rect_pequeño_uno}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.titulos}>
-                                            SITUACION PROPUESTA
-                                        </Typography>
-                                    </Box>
-                                    <Box style={styles.rect_tres}>
-                                        <Typography style={styles.text} >
-                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> PROCESO:</span> {data.proceso_propuesta}
-                                        </Typography>
-                                        <Typography style={styles.text} >
-                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> SUBPROCESO:</span> {unidad_propuesta}
-                                        </Typography>
-                                        <Typography style={styles.text} >
-                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> PUESTO: </span> {nombre_denominacion}
-                                        </Typography>
-                                        <Typography style={styles.text} >
-                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> LUGAR DE TRABAJO: </span> {lugarTrabajo}
-                                        </Typography>
-                                        <Typography style={styles.text} >
-                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> REMUNERACIÓN MENSUAL: </span> {data.rmu_propuesta}
-                                        </Typography>
-                                        <Typography style={styles.text} >
-                                            <span style={{ fontWeight: 'bold', marginRight: '4px' }}> PARTIDA PRESUPUESTARIA:</span>
-                                        </Typography>
-                                        <Typography style={styles.text} >
-                                            {num_estructura} - {data.partida_propuesta}
-                                        </Typography>
-                                    </Box>
-
-                                </Box>
-                            </Box>
-                            <Box style={styles.rect_cuatro}>
-                                <Box style={styles.rect_pequeño}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.titulos}>
-                                            ACTA FINAL DE CONCURSO
-                                        </Typography>
-                                    </Box>
-                                    <Box style={styles.fech} >
-                                        <Typography style={styles.text}>
-                                            No. ____________________
-                                        </Typography>
-                                        <Typography style={styles.text}>
-                                            Fecha: ____________________
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                                <Box style={styles.rect_pequeño_uno}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.titulos}>
-                                            PROCESO DE TALENTO HUMANO
-                                        </Typography>
-                                    </Box>
-                                    <Box style={styles.firma}>
-                                        <Typography style={styles.text}>
-                                            f.______________________
-                                        </Typography>
-                                        <Typography style={styles.titulos}>
-                                            Nombre:  Dra: Rocío Montenegro A.
-                                        </Typography>
-                                        <Typography style={styles.titulos}>
-                                            Jefe de Talento Humano
-                                        </Typography>
-                                    </Box>
-
-                                </Box>
-                            </Box>
-                            <Box style={styles.rect_cuatro}>
-                                <Box style={styles.rect_pequeño}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.titulos}>
-                                            DIOS, PATRIA Y LIBERTAD
-                                        </Typography>
-                                    </Box>
-                                    <Box style={styles.firma}>
-                                        <Typography style={styles.text}
+                                    </Grid>
+                                    <Grid
+                                        item
+                                        xs={7}
+                                        sx={{
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            padding: "2px",
+                                            borderLeft: "1px solid #000000",
+                                            borderBottom: "1px solid #000000",
+                                        }}
+                                    >
+                                        <Typography
+                                            sx={{
+                                                fontSize: "11px",
+                                                color: "#000000",
+                                            }}
                                         >
-                                            f.____________________
+                                            {cod_accion}
                                         </Typography>
-                                        <Typography style={styles.titulos}>
-                                            Nombre:  PhD. Jorge Mina Ortega
+                                    </Grid>
+                                </Grid>
+
+                                <Grid
+                                    container
+                                    direction="column"
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "flex-start", // Alinea los elementos hijos a la izquierda
+                                        borderLeft: "1px solid #000000",
+                                    }}
+                                >
+                                    <Grid
+                                        item
+                                        sx={{
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            borderBottom: "1px solid #000000", // Borde inferior para separación
+                                            width: "100%", // Asegura que cada celda ocupe el ancho completo del contenedor
+                                        }}
+                                    >
+                                        <Typography
+                                            sx={{
+                                                fontSize: "9px", // Tamaño de la fuente
+                                                color: "#000000", // Color del texto
+                                                fontWeight: 'bold',
+
+                                            }}
+                                        >
+                                            FECHA DE ELABORACIÓN
                                         </Typography>
-                                        <Typography style={styles.titulos}>
-                                            AUTORIDAD NOMINADORA
+                                    </Grid>
+                                    <Grid
+                                        item
+                                        sx={{
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            width: "100%", // Asegura que cada celda ocupe el ancho completo del contenedor
+                                        }}
+                                    >
+                                        <Typography
+                                            sx={{
+                                                fontSize: "11px", // Tamaño de la fuente
+                                                color: "#000000", // Color del texto
+                                            }}
+                                        >
+                                            {fechaSolo}
                                         </Typography>
-                                    </Box>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid
+                                container
+                                sx={{
+                                    borderTop: "1px solid #000000",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <Grid
+                                    item
+                                    xs={6}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    <Typography padding="5px" fontSize="13px" color="initial">
+                                        {data.apellido_paterno} {data.apellido_materno}
+                                    </Typography>
+                                    <Typography fontSize="12px" color="initial" fontWeight='bold' >
+                                        APELLIDOS
+                                    </Typography>
+                                </Grid>
+                                <Grid
+                                    item
+                                    xs={6}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderLeft: "1px solid #000000",
+                                    }}
+                                >
+                                    <Typography padding="5px" fontSize="13px" color="initial">
+                                        {data.nombres}
+                                    </Typography>
+                                    <Typography fontSize="12px" color="initial" fontWeight='bold' >
+                                        NOMBRES
+                                    </Typography>
+                                </Grid>
+                            </Grid>
 
-                                </Box>
-                            </Box>
-                            <Box style={styles.rect_cuatro}>
-                                <Box style={styles.rect_pequeño}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.titulos}>
-                                            TALENTO HUMANO
+                            <Grid
+                                container
+                                sx={{
+                                    borderTop: "1px solid #000000",
+                                    borderBottom: "1px solid #000000",
+                                    // alignItems: "center",
+                                }}
+                            >
+                                <Grid
+                                    xs={6}
+                                    sx={{
+                                        display: "flex",
+                                    }}
+                                >
+                                    <Grid container direction="column">
+                                        <Grid
+                                            item
+                                            sx={{
+                                                display: "flex",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                padding: "8px",
+                                                borderBottom: "1px solid #000000",
+                                                // width: '100%',
+                                            }}
+                                        >
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "8px",
+                                                    fontWeight: 'bold',
+
+                                                }}
+                                            >
+                                                DOCUMENTO DE IDENTIFICACIÓN
+                                            </Typography>
+                                        </Grid>
+                                        <Grid
+                                            sx={{
+                                                display: "flex",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                padding: 0.5,
+                                            }}
+                                        >
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "11px",
+                                                    color: "#000000",
+                                                }}
+                                            >
+                                                CÉDULA
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+
+                                    <Grid
+                                        container
+                                        direction="column"
+                                        sx={{
+                                            borderLeft: "1px solid #000000",
+                                        }}
+                                    >
+                                        <Grid
+                                            item
+                                            sx={{
+                                                display: "flex",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                padding: "8px",
+                                                borderBottom: "1px solid #000000",
+
+                                                // width: '100%',
+                                            }}
+                                        >
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "8px",
+                                                    fontWeight: 'bold'
+                                                }}
+                                            >
+                                                NRO. DE IDENTIFICACIÓN
+                                            </Typography>
+                                        </Grid>
+                                        <Grid
+                                            sx={{
+                                                display: "flex",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                padding: 0.5,
+                                            }}
+                                        >
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "11px",
+                                                    color: "#000000",
+                                                }}
+                                            >
+                                                {data.numero_identidad}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid
+                                    item
+                                    xs={6}
+                                    sx={{
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        borderLeft: "1px solid #000000",
+                                        width: "100%",
+                                    }}
+                                >
+                                    {/* Grid RIGE */}
+                                    <Grid
+                                        sx={{
+                                            width: "100%",
+                                            borderBottom: "1px solid #000000",
+                                        }}
+                                    >
+                                        <Typography
+                                            sx={{
+                                                display: "flex",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                fontSize: "9px",
+                                                fontWeight: "bold",
+                                            }}
+                                        >
+                                            RIGE:
                                         </Typography>
-                                    </Box>
-                                    <Box style={styles.fech}>
-                                        <Typography style={styles.text} >
-                                            No. {cod_accion}
-                                        </Typography>
-                                        <Typography style={styles.text}>
-                                            Fecha: {data.fecha_accion}
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                                <Box style={styles.rect_pequeño_uno}>
-                                    <Box style={styles.rect_pequeño_dos}>
-                                        <Typography style={styles.titulos}>
-                                            REGISTRO Y CONTROL
-                                        </Typography>
-                                    </Box>
-                                    <Box style={styles.firma}>
-                                        <Typography style={styles.text}>
-                                            f.______________________
-                                        </Typography>
-                                        <Typography style={styles.titulos}>
-                                            Responsable del Registro Talento Humano
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                            </Box>
-                        </Box>
-                        <Typography fontSize={8} align='center'>Fecha de creación de formato: 2014-05-27    /    Versión: 01    /    Página 1 de 2.</Typography>
-                    </Box >
-                    <Box size="A4" style={styles.page}>
-                        <Box style={styles.margen}>
-                            <Box style={styles.rect_cuatro}>
-                                <Box style={styles.rect_pequeño}>
-                                    <Box style={styles.explicacion}>
-                                        <Box style={styles.salto}>
+                                    </Grid>
 
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            CAUCION REGISTRADA CON No. ____________________________________________________________________________
-                                        </Typography>
-                                        <Box style={styles.salto}>
+                                    {/* Container para los elementos inferiores */}
+                                    <Grid
+                                        container
+                                        sx={{
+                                            width: "100%",
+                                        }}
+                                    >
+                                        {/* Documento de Identificación */}
+                                        <Grid
+                                            item
+                                            xs={6}
+                                            sx={{
+                                                borderRight: "1px solid #000000",
+                                            }}
+                                        >
+                                            <Grid
+                                                sx={{
+                                                    borderBottom: "1px solid #000000",
+                                                }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        display: "flex",
+                                                        justifyContent: "center",
+                                                        alignItems: "center",
+                                                        width: "100%",
+                                                        fontSize: "9px",
+                                                        fontWeight: 'bold',
 
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            Fecha: ________________________________________
-                                        </Typography>
-                                        <Box style={styles.salto}>
+                                                    }}
+                                                >
+                                                    DESDE (dd-mm-aaaa)
+                                                </Typography>
+                                            </Grid>
+                                            <Grid
+                                                sx={{
+                                                    display: "flex",
+                                                    justifyContent: "center",
+                                                    alignItems: "center",
+                                                    padding: 0.5,
+                                                }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "11px",
+                                                        color: "#000000",
+                                                    }}
+                                                >
+                                                    {data.fecha_rigue}
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
 
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            _________________________________________________________________________________________________________
-                                        </Typography>
-                                        <Box style={styles.salto}>
+                                        {/* Nro. de Identificación */}
+                                        <Grid item xs={6}>
+                                            <Grid
+                                                sx={{
+                                                    borderBottom: "1px solid #000000",
+                                                }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        display: "flex",
+                                                        justifyContent: "center",
+                                                        alignItems: "center",
+                                                        width: "100%",
+                                                        fontSize: "9px",
+                                                        fontWeight: 'bold',
 
-                                        </Box>
-                                        <Box style={styles.salto}>
+                                                    }}
+                                                >
+                                                    HASTA (dd-mm-aaaa) (cuando aplica)
+                                                </Typography>
+                                            </Grid>
+                                            <Grid
+                                                sx={{
+                                                    display: "flex",
+                                                    justifyContent: "center",
+                                                    alignItems: "center",
+                                                    padding: 0.5,
+                                                }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "11px",
+                                                        color: "#000000",
+                                                    }}
+                                                >
 
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            _________________________________________________________________________________________________________
-                                        </Typography>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                    </Box>
-                                </Box>
-                            </Box>
-                            <Box style={styles.rect_cuatro}>
-                                <Box style={styles.rect_pequeño}>
-                                    <Box style={styles.explicacion}>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            LA PERSONA REEMPLAZA A: _______________________________________________________________________________
-                                        </Typography>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            EN EL PUESTO DE: _______________________________________________________________________________________
-                                        </Typography>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            QUIEN CESO EN FUNCIONES POR: __________________________________________________________________________
-                                        </Typography>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            ACCION DE PERSONAL REGISTRADA CON No. ________________________________________________________________
-                                        </Typography>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            No. ___________________________________________
-                                        </Typography>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            FECHA ________________________________________
-                                        </Typography>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                    </Box>
-                                </Box>
-                            </Box>
-                            <Box style={styles.rect_cuatro}>
-                                <Box style={styles.rect_pequeño}>
-                                    <Box style={styles.explicacion}>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            YO;  {data.apellido_paterno} {data.apellido_materno} {data.nombres}
-                                        </Typography>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            CON CEDULA DE CIUDADANIA No. {data.numero_identidad}
-                                        </Typography>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            LUGAR: Tulcán
-                                        </Typography>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-                                        <Typography style={styles.text}>
-                                            FECHA: {data.fecha_accion}
-                                        </Typography>
-                                        <Box style={styles.salto}>
-
-                                        </Box>
-
-                                        <Box style={styles.rect_cuatro}>
-                                            <Box style={styles.rect_pequeño}>
-                                                <Box style={styles.rect_tres}>
-                                                    <Box style={styles.firma}>
-                                                        <Typography style={styles.text}>
-                                                            f.______________________
+                                                    {data.fecha_rigue_hasta}
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "row", // Mantiene los elementos en línea
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    padding: "2px 16px",
+                                    gap: 1, // Espacio entre los Typography
+                                    flexWrap: "wrap", // Permite que el contenido se ajuste en pantallas pequeñas
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    Escoja una opción
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        maxWidth: "100%",
+                                        textAlign: "left",
+                                    }}
+                                >
+                                    (según lo estipulado en el artículo 21 del Reglamento General a la
+                                    Ley Orgánica del Servicio Público)
+                                </Typography>
+                            </Grid>
+                            <Grid
+                                container
+                                sx={{
+                                    borderTop: "1px solid #000000",
+                                    borderBottom: "1px solid #000000",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <Grid
+                                    item
+                                    xs={3}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        // backgroundColor: "#E0E0E0",
+                                    }}
+                                >
+                                    <Grid
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            justifyContent: "space-between",
+                                            padding: 1,
+                                            width: "100%",
+                                        }}
+                                    >
+                                        {columnas[0].map((col, index) => {
+                                            let check = false;
+                                            {
+                                                if (col.nombre === tipo) {
+                                                    check = true;
+                                                } else {
+                                                    check = false;
+                                                }
+                                                return (
+                                                    <div
+                                                        key={index}
+                                                        style={{
+                                                            display: "flex",
+                                                            justifyContent: "space-between",
+                                                            alignItems: "center",
+                                                            width: "100%",
+                                                            // marginBottom: "4px", // Espacio entre filas
+                                                        }}
+                                                    >
+                                                        <Typography
+                                                            sx={{
+                                                                fontSize: "9px",
+                                                                color: "#000000",
+                                                                flexGrow: 1, // Permite que el texto ocupe el espacio disponible
+                                                            }}
+                                                        >
+                                                            {col.nombre}
                                                         </Typography>
-                                                        <Typography style={styles.text}>
-                                                            Funcionario
-                                                        </Typography>
-                                                    </Box>
-                                                </Box>
-                                            </Box>
-                                            <Box style={styles.rect_pequeño}>
-                                                <Box style={styles.rect_pequeño}>
-                                                    <Box style={styles.rect_tres}>
-                                                        <Box style={styles.firma}>
-                                                            <Typography style={styles.text}>
-                                                                f.______________________
-                                                            </Typography>
-                                                            <Typography style={styles.text}>
-                                                                Responsable de Talento Humano
-                                                            </Typography>
-                                                        </Box>
-                                                    </Box>
-                                                </Box>
-                                            </Box>
-                                        </Box>
-                                    </Box>
+                                                        <Checkbox
+                                                            defaultChecked={check}
+                                                            sx={{
+                                                                "& .MuiSvgIcon-root": {
+                                                                    fontSize: 11,
+                                                                },
+                                                                padding: "1px",
+                                                                marginLeft: 1, // Espacio entre el texto y el checkbox
+                                                            }}
+                                                        />
+                                                    </div>
+                                                );
+                                            }
+                                        })}
+                                    </Grid>
+                                </Grid>
 
-                                </Box>
-                            </Box>
-                        </Box>
-                        <Typography fontSize={8} align='center'>Fecha de creación de formato: 2014-05-27    /    Versión: 01    /    Página 2 de 2.</Typography>
-                    </Box>
+                                <Grid
+                                    item
+                                    xs={3}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        // backgroundColor: "#E0E0E0",
+                                    }}
+                                >
+                                    <Grid
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            justifyContent: "space-between",
+                                            padding: 1,
+                                            width: "100%",
+                                        }}
+                                    >
+                                        {columnas[1].map((col, index) => {
+                                            let check = false;
+                                            {
+                                                if (col.nombre === tipo) {
+                                                    check = true;
+                                                } else {
+                                                    check = false;
+                                                }
+                                                return (
+                                                    <div
+                                                        key={index}
+                                                        style={{
+                                                            display: "flex",
+                                                            justifyContent: "space-between",
+                                                            alignItems: "center",
+                                                            width: "100%",
+                                                            // marginBottom: "4px", // Espacio entre filas
+                                                        }}
+                                                    >
+                                                        <Typography
+                                                            sx={{
+                                                                fontSize: "9px",
+                                                                color: "#000000",
+                                                                flexGrow: 1, // Permite que el texto ocupe el espacio disponible
+                                                            }}
+                                                        >
+                                                            {col.nombre}
+                                                        </Typography>
+                                                        <Checkbox
+                                                            defaultChecked={check}
+                                                            sx={{
+                                                                "& .MuiSvgIcon-root": {
+                                                                    fontSize: 11,
+                                                                },
+                                                                padding: "1px",
+                                                                marginLeft: 1, // Espacio entre el texto y el checkbox
+                                                            }}
+                                                        />
+                                                    </div>
+                                                );
+                                            }
+                                        })}
+                                    </Grid>
+                                </Grid>
+
+                                <Grid
+                                    item
+                                    xs={3}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        // backgroundColor: "#E0E0E0",
+                                    }}
+                                >
+                                    <Grid
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            justifyContent: "space-between",
+                                            padding: 1,
+                                            width: "100%",
+                                        }}
+                                    >
+                                        {columnas[2].map((col, index) => {
+                                            let check = false;
+                                            {
+                                                if (col.nombre === tipo) {
+                                                    check = true;
+                                                } else {
+                                                    check = false;
+                                                }
+                                                return (
+                                                    <div
+                                                        key={index}
+                                                        style={{
+                                                            display: "flex",
+                                                            justifyContent: "space-between",
+                                                            alignItems: "center",
+                                                            width: "100%",
+                                                            // marginBottom: "4px", // Espacio entre filas
+                                                        }}
+                                                    >
+                                                        <Typography
+                                                            sx={{
+                                                                fontSize: "9px",
+                                                                color: "#000000",
+                                                                flexGrow: 1, // Permite que el texto ocupe el espacio disponible
+                                                            }}
+                                                        >
+                                                            {col.nombre}
+                                                        </Typography>
+                                                        <Checkbox
+                                                            defaultChecked={check}
+                                                            sx={{
+                                                                "& .MuiSvgIcon-root": {
+                                                                    fontSize: 11,
+                                                                },
+                                                                padding: "1px",
+                                                                marginLeft: 1, // Espacio entre el texto y el checkbox
+                                                            }}
+                                                        />
+                                                    </div>
+                                                );
+                                            }
+                                        })}
+                                    </Grid>
+                                </Grid>
+
+                                <Grid
+                                    item
+                                    xs={3}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        // backgroundColor: "#E0E0E0",
+                                    }}
+                                >
+                                    <Grid
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            justifyContent: "space-between",
+                                            padding: 1,
+                                            width: "100%",
+                                        }}
+                                    >
+                                        {columnas[3].map((col, index) => {
+                                            let check = false;
+                                            {
+                                                if (col.nombre === tipo) {
+                                                    check = true;
+                                                } else {
+                                                    check = false;
+                                                }
+                                                return (
+                                                    <div
+                                                        key={index}
+                                                        style={{
+                                                            display: "flex",
+                                                            justifyContent: "space-between",
+                                                            alignItems: "center",
+                                                            width: "100%",
+                                                            // marginBottom: "4px", // Espacio entre filas
+                                                        }}
+                                                    >
+                                                        <Typography
+                                                            sx={{
+                                                                fontSize: "9px",
+                                                                color: "#000000",
+                                                                flexGrow: 1, // Permite que el texto ocupe el espacio disponible
+                                                            }}
+                                                        >
+                                                            {col.nombre}
+                                                        </Typography>
+                                                        <Checkbox
+                                                            defaultChecked={check}
+                                                            sx={{
+                                                                "& .MuiSvgIcon-root": {
+                                                                    fontSize: 11,
+                                                                },
+                                                                padding: "1px",
+                                                                marginLeft: 1, // Espacio entre el texto y el checkbox
+                                                            }}
+                                                        />
+                                                    </div>
+                                                );
+                                            }
+                                        })}
+                                        <Typography
+                                            sx={{
+                                                fontSize: "9px",
+                                                color: "#000000",
+                                                flexGrow: 1, // Permite que el texto ocupe el espacio disponible
+                                            }}
+                                        >
+                                            {data.otro_tipo}
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                                <Grid
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "row", // Mantiene los elementos en línea
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        padding: "2px 16px",
+                                        gap: 1, // Espacio entre los Typography
+                                        flexWrap: "wrap", // Permite que el contenido se ajuste en pantallas pequeñas
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: "8px",
+                                            color: "#000000",
+                                            // fontWeight: "bold",
+                                            whiteSpace: "nowrap", // Evita que el título se rompa
+                                        }}
+                                    >
+                                        EN CASO DE REQUERIR EXPLICACIÓN DE LO SELECCIONADO:  {data.detalle_tipo_accion}
+                                    </Typography>
+                                </Grid>
+                                {/* DELCARACION JURADA */}
+                                <Grid
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "row", // Mantiene los elementos en línea
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        padding: "2px 16px",
+                                        gap: 1, // Espacio entre los Typography
+                                        flexWrap: "wrap", // Permite que el contenido se ajuste en pantallas pequeñas
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                            whiteSpace: "nowrap", // Evita que el título se rompa
+                                        }}
+                                    >
+                                        *PRESENTÓ LA DECLARACIÓN JURADA:
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            maxWidth: "100%",
+                                            textAlign: "left",
+                                        }}
+                                    >
+                                        (número 2 del art. 3 RLOSEP)
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "8px",
+                                            color: "#000000",
+                                            flexGrow: 1, // Permite que el texto ocupe el espacio disponible
+                                        }}
+                                    >
+                                        SI
+                                    </Typography>
+                                    <Checkbox
+                                        //defaultChecked={check}
+                                        sx={{
+                                            "& .MuiSvgIcon-root": {
+                                                fontSize: 11,
+                                            },
+                                            padding: "1px",
+                                            marginLeft: 1, // Espacio entre el texto y el checkbox
+                                        }}
+                                        checked={declaracion}
+                                    />
+                                    <Typography
+                                        sx={{
+                                            fontSize: "8px",
+                                            color: "#000000",
+                                            flexGrow: 1, // Permite que el texto ocupe el espacio disponible
+                                        }}
+                                    >
+                                        NO APLICA
+                                    </Typography>
+                                    <Checkbox
+                                        //defaultChecked={check}
+                                        sx={{
+                                            "& .MuiSvgIcon-root": {
+                                                fontSize: 11,
+                                            },
+                                            padding: "1px",
+                                            marginLeft: 1, // Espacio entre el texto y el checkbox
+                                        }}
+                                        checked={!declaracion}
+
+                                    />
+                                </Grid>
+                            </Grid>
+
+                            <Grid
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "row", // Mantiene los elementos en línea
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    padding: "2px 16px",
+                                    gap: 1, // Espacio entre los Typography
+                                    flexWrap: "wrap", // Permite que el contenido se ajuste en pantallas pequeñas
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    MOTIVACIÓN:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        maxWidth: "100%",
+                                        textAlign: "left",
+                                    }}
+                                >
+                                    (adjuntar anexo si lo posee)
+                                </Typography>
+                            </Grid>
+
+                            <Grid
+                                container
+                                sx={{
+                                    borderTop: "1px solid #000000",
+                                    // borderBottom: "1px solid #000000",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        minHeight: "135px",
+                                        maxHeight: "250px",
+                                        overflow: "auto",
+                                        padding: "2px 16px"
+
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            maxWidth: "100%",
+                                            textAlign: "left",
+                                        }}
+                                    >
+                                        {data.explicacion}
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+                        <Grid
+                            container
+                            sx={{
+                                borderBottom: "1px solid #000000",
+                                borderLeft: "1px solid #000000",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    SITUACION ACTUAL
+                                </Typography>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRight: "1px solid #000000",
+                                    borderLeft: "1px solid #000000",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    SITUACION PROPUESTA
+                                </Typography>
+                            </Grid>
+                        </Grid>
+
+                        <Grid
+                            container
+                            sx={{
+                                borderBottom: "1px solid #000000",
+                                borderLeft: "1px solid #000000",
+                                pading: "4px"
+                                // alignItems: "center",
+                            }}
+                        >
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    padding: "2px 16px",
+                                    // gap: 1,
+                                    // alignItems: "center",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    PROCESO INSTITUCIONAL:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.proceso_actual}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    NIVEL DE GESTIÓN:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {/* {data.nivel de gestion} */}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    UNIDAD ADMINISTRATIVA:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        // whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "18px",
+                                    }}
+                                >
+                                    {data.subproceso_actual}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    LUGAR DE TRABAJO:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    TULCÁN-UPEC
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    DENOMINACIÓN DEL PUESTO:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        // whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.puesto_actual}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    GRUPO OCUPACIONAL:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.escala_ocupacional_actual}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    GRADO:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.grado_actual}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    REMUNERACIÓN MENSUAL:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.rmu_actual}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    PARTIDA INDIVIDUAL:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.partida_actual}
+                                </Typography>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    // gap: 1,
+                                    // alignItems: "center",
+                                    borderRight: "1px solid #000000",
+                                    borderLeft: "1px solid #000000",
+                                    padding: "2px 16px",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    PROCESO INSTITUCIONAL:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.proceso_propuesta}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    NIVEL DE GESTIÓN:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {/* {data.proceso_propuesta} */}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    UNIDAD ADMINISTRATIVA:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.subproceso_propuesta}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    LUGAR DE TRABAJO:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {lugarTrabajo}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    DENOMINACIÓN DEL PUESTO:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.puesto_propuesta}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    GRUPO OCUPACIONAL:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.grupo_ocupacional_actual_propuesta}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    GRADO:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.grado_propuesta}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    REMUNERACIÓN MENSUAL:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.rmu_propuesta}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    PARTIDA INDIVIDUAL:
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        display: "flex",
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                        minHeight: "9px",
+                                        maxHeight: "9px",
+                                    }}
+                                >
+                                    {data.partida_propuesta}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+
+                        <Grid
+                            sx={{
+                                display: "flex",
+                                flexDirection: "row", // Mantiene los elementos en línea
+                                padding: "2px 16px",
+                                gap: 1, // Espacio entre los Typography
+                                flexWrap: "wrap", // Permite que el contenido se ajuste en pantallas pequeñas
+                                borderRight: "1px solid #000000",
+                                borderLeft: "1px solid #000000",
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontSize: "9px",
+                                    color: "#000000",
+                                    fontWeight: "bold",
+                                    whiteSpace: "nowrap", // Evita que el título se rompa
+                                }}
+                            >
+                                POSESIÓN DEL PUESTO:
+                            </Typography>
+                        </Grid>
+
+                        <Grid
+                            container
+                            sx={{
+                                borderTop: "1px solid #000000",
+                                // borderBottom: "1px solid #000000",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Grid
+                                item
+                                xs={12}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    padding: "4px 16px",
+
+                                    overflow: "auto",
+                                    borderRight: "1px solid #000000",
+                                    borderLeft: "1px solid #000000",
+                                    borderBottom: "1px solid #000000",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        maxWidth: "100%",
+                                        textAlign: "left",
+                                    }}
+                                >
+                                    YO, _______________________________________________________ CON NRO DE DOCUMENTO DE
+                                    IDENTIDAD ____________________________ JURO LEALTAD AL ESTADO ECUATORIANO.
+                                    {/* YO, {data.nombres} {data.apellido_paterno} {data.apellido_materno} CON NRO DE DOCUMENTO DE
+                                    IDENTIDAD {data.numero_identidad} JURO LEALTAD AL ESTADO ECUATORIANO. */}
+                                </Typography>
+                                <Grid
+                                    container
+                                    sx={{
+                                        // borderBottom: "1px solid #000000",
+                                        // borderLeft: "1px solid #000000",
+                                        // alignItems: "center",
+                                        padding: "6px",
+                                    }}
+                                >
+                                    <Grid
+                                        item
+                                        xs={6}
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            // justifyContent: "center",
+                                            // alignItems: "center",
+                                        }}
+                                    >
+                                        <Grid
+                                            container
+                                            sx={
+                                                {
+                                                    // borderBottom: "1px solid #000000",
+                                                    // borderLeft: "1px solid #000000",
+                                                    // alignItems: "center",
+                                                }
+                                            }
+                                        >
+                                            <Grid
+                                                item
+                                                xs={6}
+                                                sx={{
+                                                    display: "flex",
+                                                    // flexDirection: "column",
+                                                    // justifyContent: "center",
+                                                    // alignItems: "center",
+                                                }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "9px",
+                                                        color: "#000000",
+                                                        fontWeight: "bold",
+                                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                                    }}
+                                                >
+                                                    LUGAR:
+                                                </Typography>
+                                            </Grid>
+                                            <Grid
+                                                item
+                                                xs={6}
+                                                sx={{
+                                                    display: "flex",
+                                                    flexDirection: "column",
+                                                    // justifyContent: "center",
+                                                    // alignItems: "center",
+                                                    // borderRight: "1px solid #000000",
+                                                    // borderLeft: "1px solid #000000",
+                                                }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "9px",
+                                                        color: "#000000",
+                                                        fontWeight: "bold",
+                                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                                    }}
+                                                >
+                                                    FECHA:
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid
+                                        item
+                                        xs={6}
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            // justifyContent: "center",
+                                            // alignItems: "center",
+                                            // borderRight: "1px solid #000000",
+                                            // borderLeft: "1px solid #000000",
+                                        }}
+                                    >
+                                        <Typography
+                                            sx={{
+                                                fontSize: "9px",
+                                                color: "#000000",
+                                                fontWeight: "bold",
+                                                whiteSpace: "nowrap", // Evita que el título se rompa
+                                            }}
+                                        ></Typography>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid
+                                    container
+                                    sx={{
+                                        // borderBottom: "1px solid #000000",
+                                        // borderLeft: "1px solid #000000",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    <Grid
+                                        item
+                                        xs={6}
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            // justifyContent: "center",
+                                            alignItems: "center",
+                                        }}
+                                    >
+                                        <Grid
+                                            container
+                                            sx={{
+                                                // borderBottom: "1px solid #000000",
+                                                // borderLeft: "1px solid #000000",
+                                                alignItems: "center",
+                                            }}
+                                        >
+                                            <Grid
+                                                item
+                                                xs={6}
+                                                sx={{
+                                                    display: "flex",
+                                                    // flexDirection: "column",
+                                                    // justifyContent: "center",
+                                                    alignItems: "center",
+                                                    padding: "6px",
+                                                }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "8px",
+                                                        color: "#000000",
+                                                        fontWeight: "bold",
+                                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                                    }}
+                                                >
+                                                    **(EN CASO DE GANADOR DE CONCURSO DE MÉRITOS Y OPOSICIÓN)
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid
+                                        item
+                                        xs={6}
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            // justifyContent: "center",
+                                            // alignItems: "center",
+                                            // borderRight: "1px solid #000000",
+                                            // borderLeft: "1px solid #000000",
+                                        }}
+                                    >
+                                        <Typography
+                                            sx={{
+                                                fontSize: "9px",
+                                                color: "#000000",
+                                                fontWeight: "bold",
+                                                whiteSpace: "nowrap", // Evita que el título se rompa
+                                            }}
+                                        ></Typography>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid
+                                    container
+                                    sx={
+                                        {
+                                            // borderBottom: "1px solid #000000",
+                                            // borderLeft: "1px solid #000000",
+                                            // alignItems: "center",
+                                        }
+                                    }
+                                >
+                                    <Grid
+                                        item
+                                        xs={6}
+                                        sx={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            // justifyContent: "center",
+                                            // alignItems: "center",
+                                        }}
+                                    >
+                                        <Grid
+                                            container
+                                            sx={
+                                                {
+                                                    // borderBottom: "1px solid #000000",
+                                                    // borderLeft: "1px solid #000000",
+                                                    // alignItems: "center",
+                                                }
+                                            }
+                                        >
+                                            <Grid
+                                                item
+                                                xs={6}
+                                                sx={{
+                                                    display: "flex",
+                                                    flexDirection: "column",
+                                                    alignItems: "center",
+                                                }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "9px",
+                                                        color: "#000000",
+                                                        fontWeight: "bold",
+                                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                                    }}
+                                                >
+                                                    _________________________
+                                                </Typography>
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "9px",
+                                                        color: "#000000",
+                                                        fontWeight: "bold",
+                                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                                    }}
+                                                >
+                                                    NRO. ACTA FINAL
+                                                </Typography>
+                                            </Grid>
+                                            <Grid
+                                                item
+                                                xs={6}
+                                                sx={{
+                                                    display: "flex",
+                                                    flexDirection: "column",
+                                                    // justifyContent: "center",
+                                                    alignItems: "center",
+                                                    // borderRight: "1px solid #000000",
+                                                    // borderLeft: "1px solid #000000",
+                                                }}
+                                            >
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "9px",
+                                                        color: "#000000",
+                                                        fontWeight: "bold",
+                                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                                    }}
+                                                >
+                                                    _______________________
+                                                </Typography>
+                                                <Typography
+                                                    sx={{
+                                                        fontSize: "9px",
+                                                        color: "#000000",
+                                                        fontWeight: "bold",
+                                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                                    }}
+                                                >
+                                                    FECHA
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid
+                                        item
+                                        xs={6}
+                                        sx={{
+                                            display: "flex",
+                                            // flexDirection: "column",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            // borderRight: "1px solid #000000",
+                                            // borderLeft: "1px solid #000000",
+                                        }}
+                                    >
+                                        <Typography
+                                            sx={{
+                                                fontSize: "9px",
+                                                color: "#000000",
+                                                fontWeight: "bold",
+                                                whiteSpace: "nowrap", // Evita que el título se rompa
+                                            }}
+                                        >
+                                            FIRMA:
+                                        </Typography>
+                                        <Grid
+                                            item
+                                            xs={6}
+                                            sx={{
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                // justifyContent: "center",
+                                                alignItems: "center",
+                                                // borderRight: "1px solid #000000",
+                                                // borderLeft: "1px solid #000000",
+                                            }}
+                                        >
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "9px",
+                                                    color: "#000000",
+
+                                                    fontWeight: "bold",
+                                                    whiteSpace: "nowrap", // Evita que el título se rompa
+                                                }}
+                                            >
+                                                ____________________________
+                                            </Typography>
+                                            <Typography
+                                                sx={{
+                                                    fontSize: "9px",
+                                                    color: "#000000",
+
+                                                    fontWeight: "bold",
+                                                    whiteSpace: "nowrap", // Evita que el título se rompa
+                                                }}
+                                            >
+                                                SERVIDOR PÚBLICO:
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid
+                            sx={{
+                                display: "flex",
+                                flexDirection: "row", // Mantiene los elementos en línea
+                                padding: "2px 16px",
+                                gap: 1, // Espacio entre los Typography
+                                flexWrap: "wrap", // Permite que el contenido se ajuste en pantallas pequeñas
+                                borderRight: "1px solid #000000",
+                                borderLeft: "1px solid #000000",
+                                borderBottom: "1px solid #000000",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontSize: "9px",
+                                    color: "#000000",
+                                    fontWeight: "bold",
+                                    whiteSpace: "nowrap", // Evita que el título se rompa
+                                }}
+                            >
+                                RESPONSABLES DE APROBACIÓN
+                            </Typography>
+                        </Grid>
+                        <Grid
+                            container
+                            sx={{
+                                borderBottom: "1px solid #000000",
+                                borderLeft: "1px solid #000000",
+
+                                alignItems: "center",
+                            }}
+                        >
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    DIRECTOR (A) O RESPONSABLE DE TALENTO HUMANO
+                                </Typography>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRight: "1px solid #000000",
+                                    borderLeft: "1px solid #000000",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    AUTORIDAD NOMINADORA O SU DELEGADO
+                                </Typography>
+                            </Grid>
+                        </Grid>
+
+                        <Grid
+                            container
+                            sx={{
+                                borderBottom: "1px solid #000000",
+                                borderLeft: "1px solid #000000",
+                                borderRight: "1px solid #000000",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "flex-end",
+                                    minHeight: "90px",
+                                    maxHeight: "200px",
+                                    overflow: "auto",
+                                    padding: "2px 16px",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    FIRMA: _______________________________________________
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    NOMBRE:   : Dra: Rocío Montenegro A.
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    PUESTO: Jefe de Talento Humano
+                                </Typography>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "flex-end",
+                                    minHeight: "90px",
+                                    maxHeight: "200px",
+                                    overflow: "auto",
+                                    padding: "2px 16px",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    FIRMA: _______________________________________________
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    NOMBRE: PhD. Jorge Mina Ortega
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    PUESTO: Rector/a
+                                </Typography>
+
+                                {/* firma rector sustituto */}
+                                {/* <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    NOMBRE: PhD. Benavides Rosales Hernán
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    PUESTO: Rector(S)
+                                </Typography> */}
+                            </Grid>
+                        </Grid>
+                        <Grid
+                            sx={{
+                                display: "flex",
+                                flexDirection: "row", // Mantiene los elementos en línea
+                                padding: "2px 64px",
+                                justifyContent: "space-between",
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontSize: "6px",
+                                    color: "#000000",
+                                    // fontWeight: "bold",
+                                    whiteSpace: "nowrap", // Evita que el título se rompa
+                                }}
+                            >
+                                Elaborado por el Ministerio del Trabajo
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    fontSize: "6px",
+                                    color: "#000000",
+                                    // fontWeight: "bold",
+                                    whiteSpace: "nowrap", // Evita que el título se rompa
+                                }}
+                            >
+                                Fecha de actualización de formato: 2024-08-23 / Version:01.1 /
+                                Página 1 de 2
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    {/* HOJA DOS */}
+                    <Grid
+                        size="A4"
+                        sx={{
+                            flexDirection: "column",
+                            width: "100%",
+                            padding: "70px 55px",
+                        }}
+                    >
+                        <Grid
+                            sx={{
+                                display: "flex",
+                                flexDirection: "row", // Mantiene los elementos en línea
+                                padding: "2px 16px",
+                                gap: 1, // Espacio entre los Typography
+                                flexWrap: "wrap", // Permite que el contenido se ajuste en pantallas pequeñas
+                                border: "1px solid #000000",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontSize: "9px",
+                                    color: "#000000",
+                                    fontWeight: "bold",
+                                    whiteSpace: "nowrap", // Evita que el título se rompa
+                                }}
+                            >
+                                RESPONSABLES DE FIRMAS
+                            </Typography>
+                        </Grid>
+                        <Grid
+                            container
+                            sx={{
+                                borderBottom: "1px solid #000000",
+                                borderLeft: "1px solid #000000",
+
+                                alignItems: "center",
+                            }}
+                        >
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    ACEPTACIÓN Y/O RECEPCIÓN DEL SERVIDOR PÚBLICO{" "}
+                                </Typography>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRight: "1px solid #000000",
+                                    borderLeft: "1px solid #000000",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    EN CASO DE NEGATIVA DE LA RECEPCIÓN (TESTIGO){" "}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+
+                        <Grid
+                            container
+                            sx={{
+                                borderBottom: "1px solid #000000",
+                                borderLeft: "1px solid #000000",
+                                borderRight: "1px solid #000000",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "flex-end",
+                                    minHeight: "90px",
+                                    maxHeight: "200px",
+                                    overflow: "auto",
+                                    padding: "2px 16px",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    FIRMA: _______________________________________________
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    NOMBRE: {data.apellido_paterno} {data.apellido_materno} {data.nombres}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    FECHA: {fechaSolo}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    FECHA: {horaSolo}
+                                </Typography>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "flex-end",
+                                    minHeight: "170px",
+                                    maxHeight: "400px",
+                                    overflow: "auto",
+                                    padding: "2px 16px",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    FIRMA: _______________________________________________
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    NOMBRE:_____________________________________________
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    FECHA:_______________________________________________
+                                </Typography>
+                                <Grid
+                                    item
+                                    sx={{
+                                        display: "flex",
+                                        gap: 1,
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                        }}
+                                    >
+                                        RAZÓN:
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "8px",
+                                            color: "#000000",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                        }}
+                                    >
+                                        En presencia del testigo se deja constancia de que la o el
+                                        servidor público tiene la negativa de recibir la comunicación de
+                                        registro de esta accion de personal
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+
+                            <Grid
+                                container
+                                sx={{
+                                    borderBottom: "1px solid #000000",
+                                    borderTop: "1px solid #000000",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <Grid
+                                    item
+                                    xs={4}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: "8px",
+                                            color: "#000000",
+                                            pading: "2px 16px",
+                                            fontWeight: "bold",
+                                            whiteSpace: "nowrap", // Evita que el título se rompa
+                                        }}
+                                    >
+                                        RESPONSABLE DE ELABORACIÓN
+                                    </Typography>
+                                </Grid>
+                                <Grid
+                                    item
+                                    xs={4}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderRight: "1px solid #000000",
+                                        borderLeft: "1px solid #000000",
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: "8px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                            whiteSpace: "nowrap", // Evita que el título se rompa
+                                        }}
+                                    >
+                                        RESPONSABLE DE REVISIÓN
+                                    </Typography>
+                                </Grid>
+                                <Grid
+                                    item
+                                    xs={4}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: "8px",
+                                            color: "#000000",
+                                            pading: "2px 16px",
+                                            fontWeight: "bold",
+                                            whiteSpace: "nowrap", // Evita que el título se rompa
+                                        }}
+                                    >
+                                        RESPONSABLE DE REGISTRO Y CONTROL
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+
+                            <Grid
+                                container
+                                sx={{
+                                    alignItems: "center",
+                                }}
+                            >
+                                <Grid
+                                    item
+                                    xs={4}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "flex-end",
+                                        minHeight: "150px",
+                                        maxHeight: "150px",
+                                        overflow: "auto",
+                                        padding: "1px 16px",
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                            whiteSpace: "nowrap", // Evita que el título se rompa
+                                        }}
+                                    >
+                                        FIRMA: ___________________________
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                        }}
+                                    >
+                                        NOMBRE: Msc: Sully Gustinez C.
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                        }}
+                                    >
+                                        PUESTO: Analista de Talento Humano
+                                    </Typography>
+                                </Grid>
+                                <Grid
+                                    item
+                                    xs={4}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "flex-end",
+                                        minHeight: "150px",
+                                        maxHeight: "150px",
+                                        overflow: "auto",
+                                        padding: "1px 16px",
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                            whiteSpace: "nowrap", // Evita que el título se rompa
+                                        }}
+                                    >
+                                        FIRMA: ___________________________
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                        }}
+                                    >
+                                        NOMBRE: : Dra: Rocío Montenegro A.
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                        }}
+                                    >
+                                        PUESTO: Jefe de Talento Humano
+                                    </Typography>
+                                </Grid>
+                                <Grid
+                                    item
+                                    xs={4}
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "flex-end",
+                                        minHeight: "150px",
+                                        maxHeight: "150px",
+                                        overflow: "auto",
+                                        padding: "1px 16px",
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                            whiteSpace: "nowrap", // Evita que el título se rompa
+                                        }}
+                                    >
+                                        FIRMA: ___________________________
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                        }}
+                                    >
+                                        NOMBRE: : Dra: Rocío Montenegro A.
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "9px",
+                                            color: "#000000",
+                                            fontWeight: "bold",
+                                        }}
+                                    >
+                                        PUESTO: Jefe de Talento Humano
+                                    </Typography>
+                                </Grid>{" "}
+                            </Grid>
+                        </Grid>
+
+                        <Grid
+                            container
+                            sx={{
+                                paddingTop: "60px",
+                                paddingBottom: "10px",
+                                // borderBottom: "1px solid #000000",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Grid
+                                item
+                                xs={12}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    padding: "2px ",
+                                    overflow: "auto",
+                                    // borderBottom: "1px solid #000000",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        borderTop: "1px dashed #000000",
+                                        borderBottom: "1px dashed #000000",
+                                        padding: "10px",
+                                        fontSize: "12px",
+                                        color: "#000000",
+                                        maxWidth: "100%",
+                                        textAlign: "left",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    **USO EXCLUSIVO PARA TALENTO HUMANO
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid
+                            sx={{
+                                display: "flex",
+                                flexDirection: "row", // Mantiene los elementos en línea
+                                padding: "2px 16px",
+                                // flexWrap: "wrap", // Permite que el contenido se ajuste en pantallas pequeñas
+                                border: "1px solid #000000",
+                                gap: 1,
+                                justifyContent: "center",
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontSize: "9px",
+                                    color: "#000000",
+                                    fontWeight: "bold",
+                                    whiteSpace: "nowrap", // Evita que el título se rompa
+                                }}
+                            >
+                                REGISTRO DE NOTIFICACIÓN AL SERVIDOR PÚBLICO DE LA ACCIÓN DE
+                                PERSONAL
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    fontSize: "6px",
+                                    color: "#000000",
+                                    whiteSpace: "nowrap", // Evita que el título se rompa
+                                }}
+                            >
+                                (primer inciso del art. 22 RGLOSEP, art. 101 CDA, art 66 y 126
+                                ERJAFE)
+                            </Typography>
+                        </Grid>
+
+                        <Grid
+                            container
+                            sx={{
+                                display: "flex",
+                                flexDirection: "row",
+                                borderBottom: "1px solid #000000",
+                                borderLeft: "1px solid #000000",
+                                borderRight: "1px solid #000000",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Grid
+                                xs={12}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "row", // Mantiene los elementos en línea
+                                    // justifyContent: "center",
+                                    // alignItems: "center",
+                                    padding: "2px 64px",
+                                    paddingTop: "30px",
+                                    gap: 1, // Espacio entre los Typography
+                                    flexWrap: "wrap", // Permite que el contenido se ajuste en pantallas pequeñas
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    COMUNICACIÓN ELECTRÓNICA:
+                                </Typography>
+
+                                <Checkbox
+                                    //defaultChecked={check}
+                                    sx={{
+                                        "& .MuiSvgIcon-root": {
+                                            fontSize: 11,
+                                        },
+                                        padding: "1px",
+                                        marginLeft: 1, // Espacio entre el texto y el checkbox
+                                    }}
+                                />
+                            </Grid>
+
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "flex-end",
+                                    minHeight: "90px",
+                                    maxHeight: "200px",
+                                    overflow: "auto",
+                                    padding: "2px 64px",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    FECHA: {fechaSolo}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    **MEDIO: FISICO
+                                </Typography>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={6}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "flex-end",
+                                    minHeight: "90px",
+                                    maxHeight: "200px",
+                                    overflow: "auto",
+                                    padding: "2px 16px",
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    HORA: {horaSolo}
+                                </Typography>
+                            </Grid>
+
+                            <Grid
+                                xs={12}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    padding: "2px 64px",
+                                    paddingTop: "90px",
+                                    flexWrap: "wrap", // Permite que el contenido se ajuste en pantallas pequeñas
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    ______________________________________________
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    FIRMA DEL RESPONSABLE QUE NOTIFICÓ
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    NOMBRE: : Dra: Rocío Montenegro A.
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: "9px",
+                                        color: "#000000",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    PUESTO: Jefe de Talento Humano
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        paddingTop: "20px",
+                                        paddingBottom: "20px",
+                                        fontSize: "7px",
+                                        color: "#000000",
+                                        whiteSpace: "nowrap", // Evita que el título se rompa
+                                    }}
+                                >
+                                    **Si la comunicación fue electrónica se deberá colocar el medio
+                                    por el cual se notificó al servidor, así como, el número del
+                                    documento.{" "}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid
+                            sx={{
+                                display: "flex",
+                                flexDirection: "row", // Mantiene los elementos en línea
+                                padding: "2px 64px",
+                                justifyContent: "space-between",
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontSize: "6px",
+                                    color: "#000000",
+                                    // fontWeight: "bold",
+                                    whiteSpace: "nowrap", // Evita que el título se rompa
+                                }}
+                            >
+                                Elaborado por el Ministerio del Trabajo
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    fontSize: "6px",
+                                    color: "#000000",
+                                    // fontWeight: "bold",
+                                    whiteSpace: "nowrap", // Evita que el título se rompa
+                                }}
+                            >
+                                Fecha de actualización de formato: 2024-08-23 / Version:01.1 /
+                                Página 2 de 2
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
                 </Box>
+
             )
         )
 

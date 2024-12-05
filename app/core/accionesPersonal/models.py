@@ -11,9 +11,12 @@ class AccionPersonal(BaseModel):
         Trabajador, blank=True, null=True, on_delete=models.SET_NULL)
     contador = models.IntegerField(
         'Contador', blank=True, null=True, default=1)
-    fecha_accion = models.DateField(
+    fecha_accion = models.DateTimeField(
         'Fecha acción de personal', blank=True, null=True)
     fecha_rigue = models.DateField('Fecha rigue', blank=True, null=True)
+    fecha_rigue_hasta = models.DateField('Fecha rigue hasta', blank=True, null=True)
+
+    declaracion_jurada = models.BooleanField('Delcaracion jurada', default= True)
 
     proceso_actual = models.CharField(
         'proceso_actual', max_length=255, blank=True, null=True)
@@ -27,6 +30,10 @@ class AccionPersonal(BaseModel):
         'estructura_actual', max_length=255, blank=True, null=True)
     partida_actual = models.CharField(
         'partida_actual', max_length=255, blank=True, null=True)
+    escala_ocupacional_actual = models.CharField(
+        'escala_ocupacional_actual', max_length=255, blank=True, null=True)
+    grado_actual = models.CharField(
+        'grado_actual', max_length=255, blank=True, null=True)
 
     proceso_propuesta = models.CharField(
         'proceso_propuesta', max_length=255, blank=True, null=True)
@@ -40,37 +47,40 @@ class AccionPersonal(BaseModel):
         'estructura_propuesta', max_length=255, blank=True, null=True)
     partida_propuesta = models.CharField(
         'partida_propuesta', max_length=255, blank=True, null=True)
+    escala_ocupacional_propuesta = models.CharField(
+        'escala_ocupacional_actual_propuesta', max_length=255, blank=True, null=True)
+    grado_propuesta = models.CharField(
+        'grado_propuesta', max_length=255, blank=True, null=True)
 
     explicacion = models.CharField(
         'Explicacion', max_length=600, blank=True, null=True)
     otro_tipo = models.CharField('Otro tipo de acción', max_length=155, blank=True, null=True)
     TIPOS_ACCION = (
         ('INGRESO', 'INGRESO'),
-        ('NOMBRAMIENTO', 'NOMBRAMIENTO'),
+        ('REINGRESO', 'REINGRESO'),
+        ('RESTITUCION', 'RESTITUCION'),
+        ('REINTEGRO', 'REINTEGRO'),
         ('ASCENSO', 'ASCENSO'),
-        ('SUBROGACION', 'SUBROGACION'),
-        ('ENCARGO', 'ENCARGO'),
-        ('VACACIONES', 'VACACIONES'),
         ('TRASLADO', 'TRASLADO'),
         ('TRASPASO', 'TRASPASO'),
         ('CAMBIO ADMINISTRATIVO', 'CAMBIO ADMINISTRATIVO'),
-        ('INTERCAMBIO', 'INTERCAMBIO'),
-        ('COMISION DE SERVICIOS', 'COMISION DE SERVICIOS'),
+        ('INTERCAMBIO VOLUNTARIO', 'INTERCAMBIO VOLUNTARIO'),
         ('LICENCIA', 'LICENCIA'),
-        ('REVALORIZACION', 'REVALORIZACION'),
-        ('RECLASIFICACION', 'RECLASIFICACION'),
-        ('UBICACION', 'UBICACION'),
-        ('REINTEGRO', 'REINTEGRO'),
-        ('RESTITUCION', 'RESTITUCION'),
-        ('RENUNCIA', 'RENUNCIA'),
-        ('SUPRESION', 'SUPRESION'),
+        ('COMISION DE SERVICIOS', 'COMISION DE SERVICIOS'),
+        ('SANCIONES', 'SANCIONES'),
+        ('INCREMENTO RMU', 'INCREMENTO RMU'),
+        ('SUBROGACION', 'SUBROGACION'),
+        ('ENCARGO', 'ENCARGO'),
+        ('CESACION DE FUNCIONES', 'CESACION DE FUNCIONES'),
         ('DESTITUCION', 'DESTITUCION'),
-        ('REMOCION', 'REMOCION'),
-        ('JUBILACION', 'JUBILACION'),
+        ('VACACIONES', 'VACACIONES'),
+        ('REVISION CLASI. PUESTO', 'REVISION CLASI. PUESTO'),
         ('OTRO', 'OTRO'),
+        
     )
     tipo_accion = models.CharField(max_length=255, choices=TIPOS_ACCION,
                                    blank=True, null=True, verbose_name='Tipo acción de personal')
+    detalle_tipo_accion = models.CharField('Detalle tipo accion',max_length=255, blank=True, null=True)
 
     DOC_BASE = (
         ('DECRETO', 'DECRETO'),

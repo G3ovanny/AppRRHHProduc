@@ -1,46 +1,45 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react';
 import ReactECharts from 'echarts-for-react';
 import { usePermisoStore } from '../../../../hooks';
 import dayjs from 'dayjs';
 
 export const ChartPermisosMes = () => {
-    const { listPermiso, startLoadingPermiso } = usePermisoStore()
+    const { listPermiso, startLoadingPermiso } = usePermisoStore();
+    const anioActual = dayjs().year();
 
-    //console.log('lista permisos', listPermiso)
-    const anioActual = dayjs().year()
+    // Memoriza la lista filtrada de permisos y el cálculo de permisos por mes
+    const groupedData = useMemo(() => {
+        // Filtrar permisos del año actual
+        const lista = listPermiso.filter((permisos) => 
+            dayjs(permisos.fecha_hora_salida).year() === anioActual
+        );
 
-    const lista = listPermiso.filter((permisos) =>
-        dayjs(permisos.fecha_hora_salida).year() === anioActual
-    )
-    const groupedData = {};
-    if (lista.length !== 0) {
-
+        // Agrupar por mes
+        const data = {};
         lista.forEach(permiso => {
-            const fecha = dayjs(permiso.fecha_hora_salida)
-            const year = fecha.year()
-            const month = fecha.month() + 1
+            const fecha = dayjs(permiso.fecha_hora_salida);
+            const month = fecha.month() + 1; // Mes de 1 a 12
 
-            const key = `${year}-${month}`;
-
-            if (!groupedData[key]) {
-                groupedData[key] = 0;
+            const key = `${anioActual}-${month}`;
+            if (!data[key]) {
+                data[key] = 0;
             }
-
-            groupedData[key]++;
+            data[key]++;
         });
-    }
 
+        // Completar todos los meses con 0 en caso de que no haya permisos
+        const mesesDelAnio = Array.from({ length: 12 }, (_, index) => {
+            const month = index + 1;
+            return `${anioActual}-${month}`;
+        });
 
-    const mesesDelAnio = Array.from({ length: 12 }, (_, index) => {
-        const month = index + 1;
-        return `${anioActual}-${month.toString().padStart(1)}`;
-    });
+        return mesesDelAnio.reduce((result, key) => {
+            result[key] = data[key] || 0;
+            return result;
+        }, {});
+    }, [listPermiso, anioActual]);
 
-    const countsByMonth = mesesDelAnio.reduce((result, key) => {
-        result[key] = groupedData[key] || 0;
-        return result;
-    }, {});
-    const data = Object.values(countsByMonth);
+    const data = Object.values(groupedData);
 
     const option = {
         tooltip: {
@@ -75,33 +74,13 @@ export const ChartPermisosMes = () => {
                 type: 'bar',
                 barWidth: '60%',
                 data
-                // data: [
-                //     10,
-                //     300,
-                //     //{value: 200, itemStyle: { color: '#a90000'}},
-                //     200,
-                //     334,
-                //     390,
-                //     330,
-                //     220,
-                //     10,
-                //     52,
-                //     200,
-                //     334,
-                //     500,
-                // ]
             }
         ]
     };
-    useEffect(() => {
-        startLoadingPermiso()
-    }, [])
 
-    return (
-        <>
-            <ReactECharts
-                option={option}
-            />
-        </>
-    )
-}
+    useEffect(() => {
+        startLoadingPermiso();
+    }, [startLoadingPermiso]);
+
+    return <ReactECharts option={option} />;
+};

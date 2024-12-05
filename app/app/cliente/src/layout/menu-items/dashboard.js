@@ -10,13 +10,13 @@ export const dashboard = {
     title: 'Panel de control',
     type: 'group',
     children: [
-        {
-            id: 'dashboard',
-            title: 'Dashboard',
-            type: 'item',
-            url: '/dashboard',
-            icon: icons.Dashboard,
-        },
+        // {
+        //     id: 'dashboard',
+        //     title: 'Dashboard',
+        //     type: 'item',
+        //     url: '/dashboard',
+        //     icon: icons.Dashboard,
+        // },
         {
             id: 'profile',
             title: 'Mi perfil',

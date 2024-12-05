@@ -69,8 +69,11 @@ export const TableButtons = () => {
                     rmu_actual: trabajador.rmu_puesto,
                     estructura_actual: trabajador.estructura_programatica,
                     partida_actual: trabajador.partida_individual,
+                    escala_ocupacional_actual:trabajador.escala_ocupacional,
+                    grado_actual: trabajador.grado,
 
-                    fecha_accion: dayjs(Date.now()).format('YYYY-MM-DD'),
+                    // fecha_accion: dayjs(Date.now()).format('YYYY-MM-DD-HH-MM'),
+                    fecha_accion: dayjs().format('YYYY-MM-DD HH:mm:ss'),
                     fecha_rigue: activeCronograma[i].fecha_inicio,
                     tipo_accion: 'VACACIONES',
                     contador: sigCont

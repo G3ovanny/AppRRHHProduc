@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import ReactEChart from 'echarts-for-react'
-import { useTrabStore } from '../../../../hooks'
+import { useModalidadLaboralStore, useTrabStore } from '../../../../hooks'
 
 export const ChartTrabModalidad = () => {
   const { trabajadores, startLoadingTrab } = useTrabStore()
+
 
   let nombramiento = [] //1.NOMBRAMIENTO
   let aut_univ = [] // AUTORIDAD UNIVERSITARIA
@@ -19,7 +20,7 @@ export const ChartTrabModalidad = () => {
       case modalidad.includes("NOMBRAMIENTO"):
         nombramiento.push(modalidad);
         break;
-      case modalidad.includes("AUTORIDAD"):
+      case modalidad.includes("NOMBRAMIENTO AUTORIDAD UNIVERSITARIA"):
         aut_univ.push(modalidad);
         break;
       case modalidad.includes("INDEFINIDO"):
@@ -68,7 +69,7 @@ export const ChartTrabModalidad = () => {
           show: false
         },
         data: [
-          { value: aut_univ.length, name: 'AUTORIDAD UNIVERSITARIA' },
+          { value: aut_univ.length, name: 'NOMBRAMIENTO AUTORIDAD UNIVERSITARIA' },
           { value: cont_indef.length, name: 'CONTRATO INDEFINIDO' },
           { value: cont_ocac.length, name: 'CONTRATOS OCASIONALES' },
           { value: nombramiento.length, name: 'NOMBRAMIENT0' },

@@ -84,6 +84,9 @@ class AccionPersonalSerializer(serializers.ModelSerializer):
             'contador': instance.contador,
             'fecha_accion': instance.fecha_accion,
             'fecha_rigue': instance.fecha_rigue,
+            'fecha_rigue_hasta': instance.fecha_rigue_hasta,
+            'declaracion_jurada': instance.declaracion_jurada,
+
             'explicacion': instance.explicacion,
             'tipo_accion': instance.tipo_accion,
             'estado_accion': instance.estado_accion,
@@ -91,14 +94,15 @@ class AccionPersonalSerializer(serializers.ModelSerializer):
             'doc_base': instance.doc_base,
             'num_doc': instance.num_doc,
             'fecha_doc': instance.fecha_doc,
-
-
+            
             'proceso_actual': instance.proceso_actual,
             'subproceso_actual': instance.subproceso_actual,
             'puesto_actual': instance.puesto_actual,
             'rmu_actual': instance.rmu_actual,
             'estructura_actual': instance.estructura_actual,
             'partida_actual': instance.partida_actual,
+            'escala_ocupacional_actual': instance.escala_ocupacional_actual,
+            'grado_actual' : instance.grado_actual,
 
             'proceso_propuesta': instance.proceso_propuesta,
             'subproceso_propuesta': instance.subproceso_propuesta,
@@ -106,6 +110,9 @@ class AccionPersonalSerializer(serializers.ModelSerializer):
             'rmu_propuesta': instance.rmu_propuesta,
             'estructura_propuesta': instance.estructura_propuesta,
             'partida_propuesta': instance.partida_propuesta,
+            'escala_ocupacional_propuesta': instance.escala_ocupacional_propuesta,
+            'grado_propuesta' : instance.grado_propuesta,
 
+            'detalle_tipo_accion': instance.detalle_tipo_accion,
             'created_date': instance.created_date,
         }

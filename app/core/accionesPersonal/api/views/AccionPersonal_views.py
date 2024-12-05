@@ -1,8 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from core.trabajadores.models import Trabajador
-from core.distributivo.models import Unidad_Organica
-from core.distributivo.models import Denominacion_Puesto, Estructura_Programatica
+from core.distributivo.models import *
 from ..serializers.serializers import AccionPersonalSerializer
 from ...models import AccionPersonal
 class AccionPersonalViewSet(viewsets.ModelViewSet):
@@ -45,6 +44,11 @@ class AccionPersonalViewSet(viewsets.ModelViewSet):
                     estructura_propuesta = accion_serializer.validated_data.get('estructura_propuesta')
                     id_estructura = Estructura_Programatica.objects.all().filter(id=estructura_propuesta).first()
                     trabajador.id_estructura_programatica = id_estructura
+                    
+                if accion_serializer.validated_data.get('grado_propuesta'):
+                    grado_propuesta = accion_serializer.validated_data.get('grado_propuesta')
+                    id_grado = Grado.objects.all().filter(id=grado_propuesta).first()
+                    trabajador.id_grado = id_grado
 
                 trabajador.save()
 

@@ -42,7 +42,7 @@ export const AppRouter = () => {
                     ? (
                         <Routes>
                             <Route path='/' element={<LoginPage />} />
-                            <Route path='/*' element={<Navigate to="/enlace_formularios" />} />
+                            <Route path='/*' element={<Navigate to="/" />} />
                             {/* <Route path='/enlace_formulario' element={<EnlaceDatosTrab />} /> */}
                             {(estadoCed === "not-linked")
                                 ? (
@@ -75,8 +75,8 @@ export const AppRouter = () => {
                                 <Outlet />
                                 <Routes>
                                     {/* DASHBOARD */}
-                                    <Route path='/*' element={<Navigate to="/dashboard" />} />
-                                    <Route path='/dashboard' element={<Dashboard />} />
+                                    <Route path='/*' element={<Navigate to="/servidores" />} />
+                                    {/* <Route path='/dashboard' element={<Dashboard />} /> */}
                                     <Route path='/perfil' element={<Profile />} />
 
                                     {/* NOMINA */}

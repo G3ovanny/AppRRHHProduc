@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useAccionPersonalStore, useDenominacionPuestoStore, useEstructuraProgramaticaStore, useForm, useModalStore, useTrabStore, useUnidadOrganicaStore } from '../../../../hooks'
 import { BaseModal } from '../../../../ui'
-import { Autocomplete, Box, Button, Divider, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField, Toolbar, Typography } from '@mui/material'
+import { Autocomplete, Box, Button, Divider, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField, Toolbar, Typography, Checkbox, FormControlLabel, FormGroup } from '@mui/material'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import dayjs from 'dayjs'
@@ -38,6 +38,9 @@ const formData = {
     rmu_actual: '',
     estructura_actual: '',
     partida_actual: '',
+    detalle_tipo_accion: '',
+    escala_ocupacional_actual: '',
+    grado_actual: '',
 
     proceso_propuesta: '',
     subproceso_propuesta: '',
@@ -45,6 +48,8 @@ const formData = {
     rmu_propuesta: '',
     estructura_propuesta: '',
     partida_propuesta: '',
+    escala_ocupacional_propuesta: '',
+    grado_propuesta: '',
 
     fecha_accion: '',
     fecha_rigue: '',
@@ -54,6 +59,8 @@ const formData = {
     num_doc: '',
     fecha_doc: '',
     explicacion: '',
+    declaracion_jurada: '',
+
     contador: '',
 }
 export const AccionesPersonalModal = ({ titleModal }) => {
@@ -64,8 +71,8 @@ export const AccionesPersonalModal = ({ titleModal }) => {
     const { listEstructura, startLoadingEstructura } = useEstructuraProgramaticaStore();
     const { trabajadores, startLoadingTrab } = useTrabStore();
     const [inputValue, setInputValue] = useState('');
+    const [tipoEnf, setTipoEnf] = useState(false)
     //const [trabajador, setTrabajador] = useState([]);
-
     let component = null;
     const formValidations = {
         id_trabajador: [
@@ -106,6 +113,8 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         rmu_actual,
         estructura_actual,
         partida_actual,
+        escala_ocupacional_actual,
+        grado_actual,
 
         proceso_propuesta,
         subproceso_propuesta,
@@ -113,6 +122,8 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         rmu_propuesta,
         estructura_propuesta,
         partida_propuesta,
+        escala_ocupacional_propuesta,
+        grado_propuesta,
 
 
         fecha_accion,
@@ -122,6 +133,8 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         doc_base,
         num_doc,
         fecha_doc,
+        detalle_tipo_accion,
+        declaracion_jurada,
         explicacion,
         contador,
         onInputChange,
@@ -145,13 +158,17 @@ export const AccionesPersonalModal = ({ titleModal }) => {
             rmu_actual = trabajador.rmu_puesto;
             estructura_actual = trabajador.estructura_programatica;
             partida_actual = trabajador.partida_individual;
+            escala_ocupacional_actual = trabajador.escala_ocupacional,
+                grado_actual = trabajador.grado,
 
-            formState.proceso_actual = trabajador.proceso[0];
+                formState.proceso_actual = trabajador.proceso[0];
             formState.subproceso_actual = trabajador.unidad_organica;
             formState.puesto_actual = trabajador.denominacion_puesto;
             formState.rmu_actual = trabajador.rmu_puesto;
             formState.estructura_actual = trabajador.estructura_programatica;
             formState.partida_actual = trabajador.partida_individual;
+            formState.escala_ocupacional_actual = trabajador.escala_ocupacional_actual,
+                formState.grado_actual = trabajador.grado_actual
         }
     };
 
@@ -322,6 +339,24 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <DatePicker
                                         error={fecha_accionValid !== null}
+                                        format="D/M/YYYY HH:mm"  // Asegúrate de que el formato incluye la hora
+                                        label="Fecha de acción personal"
+                                        slotProps={{ textField: { size: 'small' } }}
+                                        id="fecha_accion"
+                                        value={dayjs(fecha_accion)}  // Asegúrate de que el valor incluye la hora
+                                        onChange={(date) => {
+                                            onInputChange({
+                                                target: {
+                                                    value: dayjs(date).format('YYYY-MM-DD HH:mm'), // Asegúrate de que el valor también incluye la hora
+                                                    name: 'fecha_accion',
+                                                },
+                                            });
+                                        }}
+                                    />
+                                </LocalizationProvider>
+                                {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                    <DatePicker
+                                        error={fecha_accionValid !== null}
                                         format="D/M/YYYY"
                                         label="Fecha de acción personal"
                                         slotProps={{ textField: { size: 'small' } }}
@@ -329,7 +364,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                         value={dayjs(fecha_accion)}
                                         onChange={date => onInputChange({ target: { value: dayjs(date).format('YYYY-MM-DD'), name: 'fecha_accion' } })}
                                     />
-                                </LocalizationProvider>
+                                </LocalizationProvider> */}
                             </Grid>
                             <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -387,12 +422,45 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                     autoComplete='false'
                                     label='Número acción de personal'
                                     type='text'
-                                    placeholder='Ingrese el número de accion de'
+                                    placeholder='Ingrese el número de accion de personal'
                                     fullWidth
                                     name='contador'
                                     value={contador || ''}
                                     onChange={onInputChange}
                                 />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
+                                <FormGroup>
+                                    <FormControlLabel
+                                        // disabled={!tipoEnf}
+                                        control={
+                                            <Checkbox
+                                                checked={declaracion_jurada || false}
+                                                onChange={e => onInputChange({ target: { value: e.target.checked, name: 'declaracion_jurada' } })}
+                                            />
+                                        }
+                                        label="Declaración jurada" />
+                                </FormGroup>
+                            </Grid>
+                            <Grid item container columnSpacing={{ xs: 2, sm: 2, md: 2 }}>
+                                <Grid item xs={12} sm={12} md={12}>
+                                    <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
+                                        <Typography>Especificación del tipo de acción de personal</Typography>
+                                        <TextField
+                                            id='detalle_tipo_accion'
+                                            autoComplete='false'
+                                            sx={{ minWidth: 180 }}
+                                            size="small"
+                                            label='En caso de requerir especificación del tipo de acción de personal seleccionada'
+                                            fullWidth
+                                            placeholder="Especificación de lo seleccionado"
+                                            name='detalle_tipo_accion'
+                                            value={detalle_tipo_accion || ''}
+                                            onChange={onInputChange}
+                                            inputProps={{ maxLength: 100 }}
+                                        />
+                                    </Grid>
+                                </Grid>
                             </Grid>
                         </Grid>
 
@@ -464,6 +532,28 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                         readOnly
                                         fullWidth
                                         value={partida_actual || mensaje}
+                                        onChange={onInputChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
+                                    <TextField sx={{ minWidth: 180 }} size="small"
+                                        id="outlined-read-only-input"
+                                        label="Escala ocupacional actual"
+                                        defaultValue={escala_ocupacional_actual}
+                                        readOnly
+                                        fullWidth
+                                        value={escala_ocupacional_actual || mensaje}
+                                        onChange={onInputChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
+                                    <TextField sx={{ minWidth: 180 }} size="small"
+                                        id="outlined-read-only-input"
+                                        label="Grado actual"
+                                        defaultValue={grado_actual}
+                                        readOnly
+                                        fullWidth
+                                        value={grado_actual || mensaje}
                                         onChange={onInputChange}
                                     />
                                 </Grid>
@@ -603,6 +693,50 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                             onChange={onInputChange}
                                         />
                                     </Grid>
+                                    <Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
+                                        <FormControl sx={{
+                                            minWidth: 300,
+                                            maxWidth: "100%",
+                                        }}
+                                            size="small"
+                                        >
+                                            <InputLabel id="escala_ocupacional_propuesta">Escala ocupacional propuesta</InputLabel>
+                                            <Select
+                                                labelId="escala_ocupacional_propuesta"
+                                                id="escala_ocupacional_propuesta"
+                                                label="Escala ocupacional propuesta"
+                                                fullWidth
+                                                value={escala_ocupacional_propuesta || ''}
+                                                onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'escala_ocupacional_propuesta' } })}
+                                            >
+                                                {listEstructura.map(option => (
+                                                    <MenuItem key={option.id} value={option.id}> {option.estructura_programatica}</MenuItem>
+                                                ))}
+                                            </Select>
+                                        </FormControl>
+                                    </Grid><Grid item xs={12} sm={12} md={12} sx={{ mt: 2 }}>
+                                        <FormControl sx={{
+                                            minWidth: 300,
+                                            maxWidth: "100%",
+                                        }}
+                                            size="small"
+                                        >
+                                            <InputLabel id="grado_propuesta">Grado propuesta</InputLabel>
+                                            <Select
+                                                labelId="grado_propuesta"
+                                                id="grado_propuesta"
+                                                label="Grado propuesta"
+                                                fullWidth
+                                                value={grado_propuesta || ''}
+                                                onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'grado_propuesta' } })}
+                                            >
+                                                {/* {listEstructura.map(option => (
+                                                    <MenuItem key={option.id} value={option.id}> {option.grado}</MenuItem>
+                                                ))} */}
+                                            </Select>
+                                        </FormControl>
+                                    </Grid>
+                                   
                                 </Grid>
                             </Grid>
                         </Grid>

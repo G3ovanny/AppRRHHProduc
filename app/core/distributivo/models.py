@@ -104,8 +104,7 @@ class Estado_Puesto(BaseModel):
 
 
 class Grado(BaseModel):
-    grado = models.CharField(max_length=255, blank=True,
-                             null=True, verbose_name='Grado')
+    grado = models.CharField(max_length=255, blank=True,null=True, verbose_name='Grado')
     historical = HistoricalRecords()
 
     @property
@@ -123,7 +122,7 @@ class Grado(BaseModel):
         verbose_name = 'grado'
         verbose_name_plural = 'grados'
         db_table = 'Grado'
-        ordering = ['grado']
+        ordering = ['id']
 
 
 class Proceso(BaseModel):
@@ -198,8 +197,7 @@ class Unidad_Organica(BaseModel):
 
 
 class Estructura_Programatica(BaseModel):
-    estructura_programatica = models.CharField(
-        max_length=255, blank=True, null=True, verbose_name='Estructura programatica')
+    estructura_programatica = models.CharField(max_length=255, blank=True, null=True, verbose_name='Estructura programatica')
     historical = HistoricalRecords()
 
     @property
@@ -219,3 +217,27 @@ class Estructura_Programatica(BaseModel):
         db_table = 'Estructura_Programatica'
         ordering = ['id']
 
+
+class Escala_Ocupacional(BaseModel):
+    cod_escala_ocupacional = models.CharField(
+        max_length=255, blank=True, null=True, verbose_name='Código escala ocupacional')
+    escala_ocupacional = models.CharField(
+        max_length=255, blank=True, null=True, verbose_name='Nombre escala ocupacional')
+    historical = HistoricalRecords()
+
+    @property
+    def _history_user(self):
+        return self.changed_by
+
+    @_history_user.setter
+    def _history_user(self, value):
+        self.changed_by = value
+
+    def __str__(self):
+        return self.escala_ocupacional
+
+    class Meta:
+        verbose_name = 'escala ocupacional'
+        verbose_name_plural = 'escalas ocupacionales'
+        db_table = 'Escala_ocupacional'
+        ordering = ['escala_ocupacional']

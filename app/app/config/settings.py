@@ -103,7 +103,7 @@ WSGI_APPLICATION = 'app.config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = DESARROLLOTH
+# DATABASES = POSTGRESQL
 # SQLITE
 
 if DEBUG:

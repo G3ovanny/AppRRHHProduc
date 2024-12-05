@@ -4,7 +4,7 @@ from .models import *
 
 @admin.register(Denominacion_Puesto)
 class DenominacionPuesto_Admin(admin.ModelAdmin):
-    list_display= ('id', 'cod_denominacion_puesto', 'denominacion_puesto')
+    list_display= ('id', 'cod_denominacion_puesto', 'denominacion_puesto', 'id_proceso')
 
 @admin.register(Estructura_Programatica)
 class EstruecturaProgramatica_Admin(admin.ModelAdmin):
@@ -29,3 +29,11 @@ class RegimenLaboral_Admin(admin.ModelAdmin):
 @admin.register(Unidad_Organica)
 class UnidadOrganica_Admin(admin.ModelAdmin):
     list_display= ('id', 'cod_unidad', 'unidad_organica')
+
+@admin.register(Grado)
+class Grado_Admin(admin.ModelAdmin):
+    list_display= ('id', 'grado')
+
+@admin.register(Escala_Ocupacional)
+class EscalaOcupacional_Admin(admin.ModelAdmin):
+    list_display= ('id', 'cod_escala_ocupacional', 'escala_ocupacional')

@@ -1,36 +1,30 @@
 
 export const tipos_accion = {
     tipos: [
-
         {
             id: 'ingreso',
             nombre: 'INGRESO',
             cod: 'IN'
         },
         {
-            id: 'nombramiento',
-            nombre: 'NOMBRAMIENTO',
-            cod: 'NO'
+            id: 'reingreso',
+            nombre: 'REINGRESO',
+            cod: 'RG'
+        },
+        {
+            id: 'restitucion',
+            nombre: 'RESTITUCION',
+            cod: 'RT'
+        },
+        {
+            id: 'reintegro',
+            nombre: 'REINTEGRO',
+            cod: 'RI'
         },
         {
             id: 'ascenso',
             nombre: 'ASCENSO',
             cod: 'AS'
-        },
-        {
-            id: 'subrogacion',
-            nombre: 'SUBROGACION',
-            cod: 'SU'
-        },
-        {
-            id: 'encargo',
-            nombre: 'ENCARGO',
-            cod: 'EN'
-        },
-        {
-            id: 'vacaciones',
-            nombre: 'VACACIONES',
-            cod: 'VA'
         },
         {
             id: 'traslado',
@@ -48,14 +42,9 @@ export const tipos_accion = {
             cod: 'CA'
         },
         {
-            id: 'intercambio',
-            nombre: 'INTERCAMBIO',
-            cod: 'IT'
-        },
-        {
-            id: 'comision_servicios',
-            nombre: 'COMISION DE SERVICIOS',
-            cod: 'CS'
+            id: 'intercambio voluntario',
+            nombre: 'INTERCAMBIO VOLUNTARIO',
+            cod: 'IV'
         },
         {
             id: 'licencia',
@@ -63,41 +52,34 @@ export const tipos_accion = {
             cod: 'LI'
         },
         {
-            id: 'revalorizacion',
-            nombre: 'REVALORIZACION',
-            cod: 'RE'
+            id: 'comision_servicios',
+            nombre: 'COMISION DE SERVICIOS',
+            cod: 'CS'
         },
         {
-            id: 'reclasificacion',
-            nombre: 'RECLASIFICACION',
-            cod: 'RC'
+            id: 'sanciones',
+            nombre: 'SANCIONES',
+            cod: 'SA'
         },
         {
-            id: 'ubicacion',
-            nombre: 'UBICACION',
-            cod: 'UB'
+            id: 'incremento_rmu',
+            nombre: 'INCREMENTO RMU',
+            cod: 'IR'
         },
         {
-            id: 'reintegro',
-            nombre: 'REINTEGRO',
-            cod: 'RI'
-        },
-        {
-            id: 'restitucion',
-            nombre: 'RESTITUCION',
-            cod: 'RS'
-
-        },
-        {
-            id: 'renuncia',
-            nombre: 'RENUNCIA',
-            cod: 'RN',
-        },
-        {
-            id: 'supresion',
-            nombre: 'SUPRESION',
+            id: 'subrogacion',
+            nombre: 'SUBROGACION',
             cod: 'SU'
-
+        },
+        {
+            id: 'encargo',
+            nombre: 'ENCARGO',
+            cod: 'EN'
+        },
+        {
+            id: 'cesacion_funciones',
+            nombre: 'CESACION DE FUNCIONES',
+            cod: 'CF'
         },
         {
             id: 'destitucion',
@@ -105,14 +87,15 @@ export const tipos_accion = {
             cod: 'DE'
         },
         {
-            id: 'remocion',
-            nombre: 'REMOCION',
-            cod: 'RM'
+            id: 'vacaciones',
+            nombre: 'VACACIONES',
+            cod: 'VA'
         },
+       
         {
-            id: 'jubilacion',
-            nombre: 'JUBILACION',
-            cod: 'JU'
+            id: 'revision_puesto',
+            nombre: 'REVISION CLASI. PUESTO',
+            cod: 'RP'
         },
         {
             id: 'otro',

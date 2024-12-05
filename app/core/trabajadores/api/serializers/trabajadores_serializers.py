@@ -66,6 +66,12 @@ class TrabajadorSerializer(serializers.ModelSerializer):
             'id_denominacion_puesto': instance.id_denominacion_puesto.id if instance.id_denominacion_puesto else None,
             'denominacion_puesto': getattr(instance.id_denominacion_puesto, 'denominacion_puesto', None),
             
+            'id_escala_ocupacional': instance.id_escala_ocupacional.id if instance.id_escala_ocupacional else None,
+            'escala_ocupacional': getattr(instance.id_escala_ocupacional, 'escala_ocupacional', None),
+
+            'id_grado': instance.id_grado.id if instance.id_grado else None,
+            'grado': getattr(instance.id_grado, 'grado', None),
+
             "id_proceso": id_proces,
             "proceso":  proceso,
             'dias_vacaciones': instance.dias_vacaciones,
