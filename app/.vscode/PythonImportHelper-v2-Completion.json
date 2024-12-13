@@ -3842,6 +3842,15 @@
         "documentation": {}
     },
     {
+        "label": "locale",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "locale",
+        "description": "locale",
+        "detail": "locale",
+        "documentation": {}
+    },
+    {
         "label": "annotations",
         "importPath": "__future__",
         "description": "__future__",
@@ -6373,7 +6382,7 @@
         "kind": 2,
         "importPath": "core.vacaciones.cargarDocumento.cronogramaVacaciones",
         "description": "core.vacaciones.cargarDocumento.cronogramaVacaciones",
-        "peekOfCode": "def cargarCronograma():\n    database_settings = settings.DATABASES['default']\n    #database_settings = POSTGRESQL['default']\n    engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    documento = ArchivoCronograma.objects.latest('id').doc\n    cronograma = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)})\n    fecha_actual = datetime.datetime.now()\n    tiempo_actual = fecha_actual + datetime.timedelta(hours=5)\n    success_message = []\n    error_messages= []",
+        "peekOfCode": "def cargarCronograma():\n    database_settings = settings.DATABASES['default']\n    #database_settings = POSTGRESQL['default']\n    engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')\n    documento = ArchivoCronograma.objects.latest('id').doc\n    cronograma = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)})\n    fecha_actual = datetime.datetime.now()\n    tiempo_actual = fecha_actual + datetime.timedelta(hours=5)\n    success_message = []",
         "detail": "core.vacaciones.cargarDocumento.cronogramaVacaciones",
         "documentation": {}
     },
