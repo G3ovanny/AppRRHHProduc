@@ -22,6 +22,7 @@ export const TableButtons = () => {
     const componentRef = useRef();
     const numActivos = activeCronograma.length;
 
+
     const ultAccion = () => {
         if (listAccion.length > 0) {
             let ultimoID = -1;
@@ -46,6 +47,26 @@ export const TableButtons = () => {
 
         let contUltiAccion
 
+        const handle_explicacion = (inicio, fin, total_dias) => {
+            const fecha_inicio = dayjs(inicio)
+            const fecha_fin = dayjs(fin)
+            const fecha_reincorporacion = dayjs(fin).add(1,'day')
+
+            const explicacionAccionVacaciones = 'En cumplimiento de la normativa vigente, se autoriza el uso de vacaciones,' 
+            const reincorporacion = 'Debiendo reincorporarse a sus actividades el día'
+            // desde el 26 al 28 de noviembre del 2024, por un total de 3 días. Debiendo reincorporarse a sus actividades el viernes 29 de noviembre del  2024.'
+
+            const dias = [
+                'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado','domingo'
+            ]
+            const meses = [
+                'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+                'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+            ];
+
+            return `${explicacionAccionVacaciones} desde el ${fecha_inicio.date()} de ${meses[fecha_inicio.month()]} del ${fecha_inicio.year()} hasta el ${fecha_fin.date()} de ${meses[fecha_fin.month()]} del ${fecha_fin.year()} por un total de ${total_dias} días, ${reincorporacion} ${dias[fecha_reincorporacion.day()]} ${fecha_reincorporacion.date()} de ${meses[fecha_reincorporacion.month()]} del ${fecha_reincorporacion.year()}`;
+        }
+
         for (let i = 0; i < activeCronograma.length; i++) {
 
             if (accionUltimoId) {
@@ -57,10 +78,12 @@ export const TableButtons = () => {
             const sigCont = contUltiAccion + i
             const element = activeCronograma[i];
             const estadoAccion = element.estado_accion
+            const dias = activeCronograma[i].min_acumulados / 480
 
             if (estadoAccion !== true) {
                 let lista_trabajadores = trabajadores.filter(trab => trab.id === element.id_trabajador)
                 let trabajador = lista_trabajadores[0]
+                console.log(handle_explicacion(activeCronograma[i].fecha_inicio,activeCronograma[i].fecha_fin,dias))
                 const formDataAccion = {
                     id_trabajador: element.id_trabajador,
                     proceso_actual: trabajador.proceso[0],
@@ -75,8 +98,11 @@ export const TableButtons = () => {
                     // fecha_accion: dayjs(Date.now()).format('YYYY-MM-DD-HH-MM'),
                     fecha_accion: dayjs().format('YYYY-MM-DD HH:mm:ss'),
                     fecha_rigue: activeCronograma[i].fecha_inicio,
+                    fecha_rigue_hasta: activeCronograma[i].fecha_fin,
                     tipo_accion: 'VACACIONES',
-                    contador: sigCont
+                    // explicacion: activeCronograma[i].explicacion,
+                    contador: sigCont,
+                    explicacion : handle_explicacion(activeCronograma[i].fecha_inicio,activeCronograma[i].fecha_fin, dias)
                 }
                 try {
 

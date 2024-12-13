@@ -184,7 +184,7 @@ export const VacacionesDocPdf = React.forwardRef((props, ref) => {
                                         <Typography style={styles.subtitulos}>
                                             APELLIDOS Y NOMBRES
                                         </Typography>
-                                        <Typography>
+                                        <Typography style={styles.text_check}>
                                             {data.nombres}
                                         </Typography>
                                     </Box>
@@ -192,7 +192,7 @@ export const VacacionesDocPdf = React.forwardRef((props, ref) => {
                                         <Typography style={styles.subtitulos}>
                                             N° DE CÉDULA
                                         </Typography>
-                                        <Typography>
+                                        <Typography style={styles.text_check}>
                                             {data.numero_identificacion}
                                         </Typography>
                                     </Box>

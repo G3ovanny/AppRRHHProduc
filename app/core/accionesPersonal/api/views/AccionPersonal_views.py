@@ -45,6 +45,11 @@ class AccionPersonalViewSet(viewsets.ModelViewSet):
                     id_estructura = Estructura_Programatica.objects.all().filter(id=estructura_propuesta).first()
                     trabajador.id_estructura_programatica = id_estructura
                     
+                if accion_serializer.validated_data.get('escala_ocupacional_propuesta'):
+                    escala_ocupacional_propuesta = accion_serializer.validated_data.get('escala_ocupacional_propuesta')
+                    id_escala_ocupacional = Escala_Ocupacional.objects.all().filter(id=escala_ocupacional_propuesta).first()
+                    trabajador.id_escala_ocupacional = id_escala_ocupacional    
+
                 if accion_serializer.validated_data.get('grado_propuesta'):
                     grado_propuesta = accion_serializer.validated_data.get('grado_propuesta')
                     id_grado = Grado.objects.all().filter(id=grado_propuesta).first()
@@ -61,7 +66,7 @@ class AccionPersonalViewSet(viewsets.ModelViewSet):
                     accion_serializer.save(contador = conta + 1)
                 else:
                     accion_serializer.save()
-           
+            print(accion_serializer.data)
             return Response({'mensaje': 'Acción de personal creada correctamente'}, status= status.HTTP_200_OK)
         return Response(accion_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     

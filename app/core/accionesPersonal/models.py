@@ -48,7 +48,7 @@ class AccionPersonal(BaseModel):
     partida_propuesta = models.CharField(
         'partida_propuesta', max_length=255, blank=True, null=True)
     escala_ocupacional_propuesta = models.CharField(
-        'escala_ocupacional_actual_propuesta', max_length=255, blank=True, null=True)
+        'escala_ocupacional_propuesta', max_length=255, blank=True, null=True)
     grado_propuesta = models.CharField(
         'grado_propuesta', max_length=255, blank=True, null=True)
 

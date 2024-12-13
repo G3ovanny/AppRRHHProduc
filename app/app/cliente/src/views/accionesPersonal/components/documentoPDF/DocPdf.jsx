@@ -1015,8 +1015,8 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                         flexDirection: "column",
                                         justifyContent: "center",
                                         alignItems: "center",
-                                        minHeight: "135px",
-                                        maxHeight: "250px",
+                                        minHeight: "120px",
+                                        maxHeight: "120px",
                                         overflow: "auto",
                                         padding: "2px 16px"
 
@@ -2597,7 +2597,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                             fontWeight: "bold",
                                         }}
                                     >
-                                        NOMBRE: : Dra: Rocío Montenegro A.
+                                        NOMBRE: Msc: Sully Gustinez C.
                                     </Typography>
                                     <Typography
                                         sx={{
@@ -2606,7 +2606,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                             fontWeight: "bold",
                                         }}
                                     >
-                                        PUESTO: Jefe de Talento Humano
+                                        PUESTO: Analista de Talento Humano
                                     </Typography>
                                 </Grid>{" "}
                             </Grid>

@@ -1,3 +1,4 @@
+import locale
 import datetime
 import pandas as pd
 from dateutil.relativedelta import *
@@ -12,6 +13,7 @@ def cargarCronograma():
     #database_settings = POSTGRESQL['default']
     engine = create_engine(f"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}")
     
+    locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
     documento = ArchivoCronograma.objects.latest('id').doc
     cronograma = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)})
     fecha_actual = datetime.datetime.now()
@@ -19,9 +21,9 @@ def cargarCronograma():
     success_message = []
     error_messages= []
     
-    loes = 'Por lo dispuesto en la Ley y en cumplimiento al candelario académico, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo antes citado. Fecha de reincorporación a mis actividades,'
-    losep = 'Por lo dispuesto en la Ley y en cumplimiento al candelario académico, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo antes citado. Fecha de reincorporación a mis actividades,'
-    codigo = 'Por lo dispuesto en la Ley y en cumplimiento al candelario académico, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo antes citado. Fecha de reincorporación a mis actividades,'
+    loes = 'En cumplimiento de la normativa vigente, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo indicado. Fecha de reincorporación a mis actividades,'
+    losep = 'En cumplimiento de la normativa vigente, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo indicado. Fecha de reincorporación a mis actividades,'
+    codigo = 'En cumplimiento de la normativa vigente, me permito solicitar de la manera más comedida se autorice mis vacaciones en el periodo indicado. Fecha de reincorporación a mis actividades,'
     
     cedula = 'numero_identificacion' in cronograma.columns
 
@@ -45,7 +47,7 @@ def cargarCronograma():
                 cronograma['fecha_inicio'] = pd.to_datetime(cronograma['fecha_inicio'])
                 cronograma['fecha_fin'] = pd.to_datetime(cronograma['fecha_fin'])
                 cronograma['fecha_retorno'] = cronograma['fecha_fin'] + pd.Timedelta(days=1)
-                fecha_retorno = cronograma['fecha_retorno'].astype(str)
+                fecha_retorno = cronograma['fecha_retorno'].dt.strftime('%d de %B del %Y')
                 
                 ## DETERMINAR REGIMEN
                 regimen = trabajador.get().id_regimen_laboral

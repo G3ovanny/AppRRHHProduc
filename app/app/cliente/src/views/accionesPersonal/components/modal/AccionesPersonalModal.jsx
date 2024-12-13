@@ -53,6 +53,7 @@ const formData = {
 
     fecha_accion: '',
     fecha_rigue: '',
+    fecha_rigue_hasta: '',
     tipo_accion: '',
     otro_tipo: '',
     doc_base: '',
@@ -128,6 +129,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
 
         fecha_accion,
         fecha_rigue,
+        fecha_rigue_hasta,
         tipo_accion,
         otro_tipo,
         doc_base,
@@ -167,8 +169,8 @@ export const AccionesPersonalModal = ({ titleModal }) => {
             formState.rmu_actual = trabajador.rmu_puesto;
             formState.estructura_actual = trabajador.estructura_programatica;
             formState.partida_actual = trabajador.partida_individual;
-            formState.escala_ocupacional_actual = trabajador.escala_ocupacional_actual,
-                formState.grado_actual = trabajador.grado_actual
+            formState.escala_ocupacional_actual = trabajador.escala_ocupacional,
+                formState.grado_actual = trabajador.grado
         }
     };
 
@@ -196,8 +198,6 @@ export const AccionesPersonalModal = ({ titleModal }) => {
             break;
     }
 
-    //console.log(id_trabajador);
-    //let proceso = 'null'
     if (puesto_propuesta) {
         const denominacion = listDenominacion.find(denomin => denomin.id == puesto_propuesta);
         proceso_propuesta = denominacion.proceso[0]
@@ -209,7 +209,6 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         if (isFormValid) {
             startSavingAccion(formState)
             //console.log(formData)
-            //console.log(formState);
             closeModal()
             onResetForm()
         } else {
@@ -300,14 +299,47 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                     onChange={onInputChange}
                                 />
                             </Grid>
+                            {/* <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
+                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                    <DatePicker
+                                        format="D/M/YYYY"
+                                        label="Fecha de documento base"
+                                        slotProps={{
+                                            textField: {
+                                                size: 'small',
+                                                error: fecha_doc === null || fecha_doc === '', // Add error state
+                                                helperText: fecha_doc === null || fecha_doc === '' ? 'Fecha requerida' : '' // Add error message
+                                            }
+                                        }}
+                                        id='fecha_doc'
+                                        value={fecha_doc ? dayjs(fecha_doc) : null} // Handle null/undefined values
+                                        onChange={(date) => {
+                                            if (date) {
+                                                onInputChange({
+                                                    target: {
+                                                        value: dayjs(date).format('YYYY-MM-DD'),
+                                                        name: 'fecha_doc'
+                                                    }
+                                                });
+                                            }
+                                        }}
+                                        maxDate={dayjs()} // Optional: Prevent future dates
+                                        disableFuture // Optional: Prevent selecting future dates
+                                    />
+                                </LocalizationProvider>
+                            </Grid> */}
                             <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <DatePicker
                                         format="D/M/YYYY"
                                         label="Fecha de documento base"
-                                        slotProps={{ textField: { size: 'small' } }}
+                                        slotProps={{
+                                            textField: {
+                                                size: 'small',
+                                            }
+                                        }}
                                         id='fecha_doc'
-                                        value={dayjs(fecha_doc)}
+                                        value={fecha_doc ? dayjs(fecha_doc) : null} // Handle null/undefined values
                                         onChange={date => onInputChange({ target: { value: dayjs(date).format('YYYY-MM-DD'), name: 'fecha_doc' } })}
                                     />
                                 </LocalizationProvider>
@@ -343,7 +375,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                         label="Fecha de acción personal"
                                         slotProps={{ textField: { size: 'small' } }}
                                         id="fecha_accion"
-                                        value={dayjs(fecha_accion)}  // Asegúrate de que el valor incluye la hora
+                                        value={dayjs(fecha_accion ? dayjs(fecha_accion) : null)}  // Asegúrate de que el valor incluye la hora
                                         onChange={(date) => {
                                             onInputChange({
                                                 target: {
@@ -374,8 +406,20 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                         label="Rigue a partir de:"
                                         slotProps={{ textField: { size: 'small' } }}
                                         id='fecha_rigue'
-                                        value={dayjs(fecha_rigue)}
+                                        value={dayjs(fecha_rigue ? dayjs(fecha_rigue) : null)}
                                         onChange={date => onInputChange({ target: { value: dayjs(date).format('YYYY-MM-DD'), name: 'fecha_rigue' } })}
+                                    />
+                                </LocalizationProvider>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={3} sx={{ mt: 2 }}>
+                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                    <DatePicker
+                                        format="D/M/YYYY"
+                                        label="Rigue hasta:"
+                                        slotProps={{ textField: { size: 'small' } }}
+                                        id='fecha_rigue_hasta'
+                                        value={dayjs(fecha_rigue_hasta ? dayjs(fecha_rigue_hasta) : null)}
+                                        onChange={date => onInputChange({ target: { value: dayjs(date).format('YYYY-MM-DD'), name: 'fecha_rigue_hasta' } })}
                                     />
                                 </LocalizationProvider>
                             </Grid>
@@ -736,7 +780,7 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                             </Select>
                                         </FormControl>
                                     </Grid>
-                                   
+
                                 </Grid>
                             </Grid>
                         </Grid>
