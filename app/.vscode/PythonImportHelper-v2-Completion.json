@@ -1618,23 +1618,7 @@
         "documentation": {}
     },
     {
-        "label": "Unidad_Organica",
-        "importPath": "core.distributivo.models",
-        "description": "core.distributivo.models",
-        "isExtraImport": true,
-        "detail": "core.distributivo.models",
-        "documentation": {}
-    },
-    {
-        "label": "Denominacion_Puesto",
-        "importPath": "core.distributivo.models",
-        "description": "core.distributivo.models",
-        "isExtraImport": true,
-        "detail": "core.distributivo.models",
-        "documentation": {}
-    },
-    {
-        "label": "Estructura_Programatica",
+        "label": "*",
         "importPath": "core.distributivo.models",
         "description": "core.distributivo.models",
         "isExtraImport": true,
@@ -2011,86 +1995,6 @@
         "documentation": {}
     },
     {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
         "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
@@ -2219,6 +2123,30 @@
         "documentation": {}
     },
     {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
@@ -2244,6 +2172,126 @@
     },
     {
         "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
@@ -3877,7 +3925,7 @@
         "kind": 5,
         "importPath": "app.config.settings",
         "description": "app.config.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
         "detail": "app.config.settings",
         "documentation": {}
     },
@@ -3886,7 +3934,7 @@
         "kind": 5,
         "importPath": "app.config.settings",
         "description": "app.config.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-p)@3(-o3_qi@cr_fir4w8w-p#2$s_olh&e2i++))xf5tmz6+-y'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
         "detail": "app.config.settings",
         "documentation": {}
     },
@@ -3895,7 +3943,7 @@
         "kind": 5,
         "importPath": "app.config.settings",
         "description": "app.config.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
         "detail": "app.config.settings",
         "documentation": {}
     },
@@ -4431,6 +4479,42 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "core.accionesPersonal.migrations.0019_alter_accionpersonal_fecha_accion_and_more",
+        "description": "core.accionesPersonal.migrations.0019_alter_accionpersonal_fecha_accion_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('accionesPersonal', '0018_remove_accionpersonal_grado_propuesto_and_more'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='accionpersonal',\n            name='fecha_accion',\n            field=models.DateTimeField(blank=True, null=True, verbose_name='Fecha acción de personal'),\n        ),",
+        "detail": "core.accionesPersonal.migrations.0019_alter_accionpersonal_fecha_accion_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "core.accionesPersonal.migrations.0020_remove_accionpersonal_grupo_ocupacional_actual_propuesta_and_more",
+        "description": "core.accionesPersonal.migrations.0020_remove_accionpersonal_grupo_ocupacional_actual_propuesta_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('accionesPersonal', '0019_alter_accionpersonal_fecha_accion_and_more'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='accionpersonal',\n            name='grupo_ocupacional_actual_propuesta',\n        ),\n        migrations.RemoveField(",
+        "detail": "core.accionesPersonal.migrations.0020_remove_accionpersonal_grupo_ocupacional_actual_propuesta_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "core.accionesPersonal.migrations.0021_remove_accionpersonal_grupo_ocupacional_actual_and_more",
+        "description": "core.accionesPersonal.migrations.0021_remove_accionpersonal_grupo_ocupacional_actual_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('accionesPersonal', '0020_remove_accionpersonal_grupo_ocupacional_actual_propuesta_and_more'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='accionpersonal',\n            name='grupo_ocupacional_actual',\n        ),\n        migrations.RemoveField(",
+        "detail": "core.accionesPersonal.migrations.0021_remove_accionpersonal_grupo_ocupacional_actual_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "core.accionesPersonal.migrations.0022_rename_escala_ocupacional_actual_propuesta_accionpersonal_escala_ocupacional_propuesta_and_more",
+        "description": "core.accionesPersonal.migrations.0022_rename_escala_ocupacional_actual_propuesta_accionpersonal_escala_ocupacional_propuesta_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('accionesPersonal', '0021_remove_accionpersonal_grupo_ocupacional_actual_and_more'),\n    ]\n    operations = [\n        migrations.RenameField(\n            model_name='accionpersonal',\n            old_name='escala_ocupacional_actual_propuesta',\n            new_name='escala_ocupacional_propuesta',\n        ),",
+        "detail": "core.accionesPersonal.migrations.0022_rename_escala_ocupacional_actual_propuesta_accionpersonal_escala_ocupacional_propuesta_and_more",
+        "documentation": {}
+    },
+    {
         "label": "AccionPersonal_Admin",
         "kind": 6,
         "importPath": "core.accionesPersonal.admin",
@@ -4453,7 +4537,7 @@
         "kind": 6,
         "importPath": "core.accionesPersonal.models",
         "description": "core.accionesPersonal.models",
-        "peekOfCode": "class AccionPersonal(BaseModel):\n    id_trabajador = models.ForeignKey(\n        Trabajador, blank=True, null=True, on_delete=models.SET_NULL)\n    contador = models.IntegerField(\n        'Contador', blank=True, null=True, default=1)\n    fecha_accion = models.DateField(\n        'Fecha acción de personal', blank=True, null=True)\n    fecha_rigue = models.DateField('Fecha rigue', blank=True, null=True)\n    fecha_rigue_hasta = models.DateField('Fecha rigue hasta', blank=True, null=True)\n    declaracion_jurada = models.BooleanField('Delcaracion jurada', default= True)",
+        "peekOfCode": "class AccionPersonal(BaseModel):\n    id_trabajador = models.ForeignKey(\n        Trabajador, blank=True, null=True, on_delete=models.SET_NULL)\n    contador = models.IntegerField(\n        'Contador', blank=True, null=True, default=1)\n    fecha_accion = models.DateTimeField(\n        'Fecha acción de personal', blank=True, null=True)\n    fecha_rigue = models.DateField('Fecha rigue', blank=True, null=True)\n    fecha_rigue_hasta = models.DateField('Fecha rigue hasta', blank=True, null=True)\n    declaracion_jurada = models.BooleanField('Delcaracion jurada', default= True)",
         "detail": "core.accionesPersonal.models",
         "documentation": {}
     },
@@ -5097,6 +5181,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "core.distributivo.migrations.0012_alter_grado_options",
+        "description": "core.distributivo.migrations.0012_alter_grado_options",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('distributivo', '0011_alter_escala_ocupacional_options_and_more'),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='grado',\n            options={'ordering': ['id'], 'verbose_name': 'grado', 'verbose_name_plural': 'grados'},\n        ),\n    ]",
+        "detail": "core.distributivo.migrations.0012_alter_grado_options",
+        "documentation": {}
+    },
+    {
         "label": "DenominacionPuesto_Admin",
         "kind": 6,
         "importPath": "core.distributivo.admin",
@@ -5227,7 +5320,7 @@
         "kind": 6,
         "importPath": "core.distributivo.models",
         "description": "core.distributivo.models",
-        "peekOfCode": "class Grado(BaseModel):\n    grado = models.CharField(max_length=255, blank=True,\n                             null=True, verbose_name='Grado')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value",
+        "peekOfCode": "class Grado(BaseModel):\n    grado = models.CharField(max_length=255, blank=True,null=True, verbose_name='Grado')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    def __str__(self):",
         "detail": "core.distributivo.models",
         "documentation": {}
     },
@@ -5263,7 +5356,7 @@
         "kind": 6,
         "importPath": "core.distributivo.models",
         "description": "core.distributivo.models",
-        "peekOfCode": "class Estructura_Programatica(BaseModel):\n    estructura_programatica = models.CharField(\n        max_length=255, blank=True, null=True, verbose_name='Estructura programatica')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value",
+        "peekOfCode": "class Estructura_Programatica(BaseModel):\n    estructura_programatica = models.CharField(max_length=255, blank=True, null=True, verbose_name='Estructura programatica')\n    historical = HistoricalRecords()\n    @property\n    def _history_user(self):\n        return self.changed_by\n    @_history_user.setter\n    def _history_user(self, value):\n        self.changed_by = value\n    def __str__(self):",
         "detail": "core.distributivo.models",
         "documentation": {}
     },
@@ -5884,7 +5977,7 @@
         "kind": 2,
         "importPath": "core.trabajadores.views",
         "description": "core.trabajadores.views",
-        "peekOfCode": "def analisis_trabajadores():\n    database_settings = settings.DATABASES['default']\n    engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    documento = ArchivoTrabajadores.objects.latest('id').doc\n    distributivo = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)}, dtype={'cod_unidad_organica': str, 'cod_denominacion_puesto': str,'cod_regimen': str,'cod_modalidad': str,'nivel_ocupacional': str,'estructura_programatica': str})\n    documento = ArchivoTrabajadores.objects.latest('id').doc\n    distributivo = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)})\n    id_doc = ArchivoTrabajadores.objects.latest('id').id  # permite obtener el id del documento\n    success_message = []\n    error_messages= []",
+        "peekOfCode": "def analisis_trabajadores():\n    database_settings = settings.DATABASES['default']\n    engine = create_engine(f\"postgresql+psycopg2://{database_settings['USER']}:{database_settings['PASSWORD']}@{database_settings['HOST']}:{database_settings['PORT']}/{database_settings['NAME']}\")\n    documento = ArchivoTrabajadores.objects.latest('id').doc\n    distributivo = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)}, dtype={'cod_unidad_organica': str, 'cod_denominacion_puesto': str,'cod_regimen': str,'cod_modalidad': str,'nivel_ocupacional': str,'estructura_programatica': str, 'grado': str,})\n    documento = ArchivoTrabajadores.objects.latest('id').doc\n    distributivo = pd.read_excel(documento, index_col=False, converters={'numero_identificacion': lambda x: str(x)})\n    id_doc = ArchivoTrabajadores.objects.latest('id').id  # permite obtener el id del documento\n    success_message = []\n    error_messages= []",
         "detail": "core.trabajadores.views",
         "documentation": {}
     },
