@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect } from 'react'
 
 import { StyleSheet } from '@react-pdf/renderer'
-import { useAccionPersonalStore, useDenominacionPuestoStore, useEstructuraProgramaticaStore, useUnidadOrganicaStore } from '../../../../hooks';
+import { useAccionPersonalStore, useDenominacionPuestoStore, useEscalaOcupacionalStore, useEstructuraProgramaticaStore, useGradoStore, useUnidadOrganicaStore } from '../../../../hooks';
 import { tipos_accion, tipos_doc } from '../../tipos-accion';
 import { Checkbox, Grid, Typography, Box } from "@mui/material";
 import { red } from '@mui/material/colors';
@@ -23,7 +23,9 @@ for (let i = 0; i < tipos.length; i += longitud) {
 export const DocPdf = React.forwardRef((props, ref) => {
     const { activeAccion } = useAccionPersonalStore();
     const { listDenominacion, startLoadingDenominacion } = useDenominacionPuestoStore();
+    const { listEscala, startLoadingEscala } = useEscalaOcupacionalStore()
     const { listUnidad, startLoadingUnidad } = useUnidadOrganicaStore();
+    const { listGrado, startLoadingGrado } = useGradoStore();
     const { listEstructura, startLoadingEstructura } = useEstructuraProgramaticaStore();
     let document = []
     activeAccion.map((data, index) => {
@@ -54,12 +56,12 @@ export const DocPdf = React.forwardRef((props, ref) => {
             lugarTrabajo = 'TULCÁN-UPEC'
         }
 
-        let unidad_propuesta = ''
+        let nombre_unidad = ''
         if (data.subproceso_propuesta) {
             startLoadingUnidad()
             const id_unidad = data.subproceso_propuesta
             const unidad = listUnidad.find(unidad => unidad.id == id_unidad)
-            unidad_propuesta = unidad.unidad_organica
+            nombre_unidad = unidad.unidad_organica
         }
         // estructura_propuesta: "7"
         let num_estructura = ''
@@ -76,6 +78,20 @@ export const DocPdf = React.forwardRef((props, ref) => {
             const id_puesto = data.puesto_propuesta
             const denominacion = listDenominacion.find(denomin => denomin.id == id_puesto);
             nombre_denominacion = denominacion.denominacion_puesto
+        }
+        let grados = ''
+        if (data.grado_propuesta) {
+            startLoadingGrado()
+            const id_grado = data.grado_propuesta
+            const grado = listGrado.find(grado => grado.id == id_grado);
+            grados = grado.grado
+        }
+        let escala_ocupacional = ''
+        if (data.escala_ocupacional_propuesta) {
+            startLoadingEscala()
+            const id_escala = data.escala_ocupacional_propuesta
+            const escala = listEscala.find(escala => escala.id == id_escala);
+            escala_ocupacional = escala.escala_ocupacional
         }
 
         const fechaHora = (data.fecha_accion)
@@ -103,7 +119,10 @@ export const DocPdf = React.forwardRef((props, ref) => {
                         sx={{
                             flexDirection: "column",
                             width: "100%",
-                            padding: "70px 55px",
+                            height: "100vh", // Para asegurar que ocupe toda la altura de la página
+                            padding: "70px 55px", // Padding interno para el contenido
+                            margin: "0", // Para eliminar cualquier margen por defecto del contenedor
+                            boxSizing: "border-box",
                         }}
                     >
                         <Grid
@@ -1362,7 +1381,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                         maxHeight: "9px",
                                     }}
                                 >
-                                    {data.proceso_propuesta}
+                                    {nombre_denominacion}
                                 </Typography>
                                 <Typography
                                     sx={{
@@ -1410,7 +1429,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                         maxHeight: "9px",
                                     }}
                                 >
-                                    {data.subproceso_propuesta}
+                                    {nombre_unidad}
                                 </Typography>
                                 <Typography
                                     sx={{
@@ -1458,7 +1477,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                         maxHeight: "9px",
                                     }}
                                 >
-                                    {data.puesto_propuesta}
+                                    {nombre_denominacion}
                                 </Typography>
                                 <Typography
                                     sx={{
@@ -1482,7 +1501,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                         maxHeight: "9px",
                                     }}
                                 >
-                                    {data.grupo_ocupacional_actual_propuesta}
+                                    {escala_ocupacional}
                                 </Typography>
                                 <Typography
                                     sx={{
@@ -1506,7 +1525,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                         maxHeight: "9px",
                                     }}
                                 >
-                                    {data.grado_propuesta}
+                                    {grados}
                                 </Typography>
                                 <Typography
                                     sx={{
@@ -2101,7 +2120,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                 >
                                     FIRMA: _______________________________________________
                                 </Typography>
-                                <Typography
+                                {/* <Typography
                                     sx={{
                                         fontSize: "9px",
                                         color: "#000000",
@@ -2120,10 +2139,10 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                     }}
                                 >
                                     PUESTO: Rector/a
-                                </Typography>
+                                </Typography> */}
 
                                 {/* firma rector sustituto */}
-                                {/* <Typography
+                                <Typography
                                     sx={{
                                         fontSize: "9px",
                                         color: "#000000",
@@ -2142,7 +2161,7 @@ export const DocPdf = React.forwardRef((props, ref) => {
                                     }}
                                 >
                                     PUESTO: Rector(S)
-                                </Typography> */}
+                                </Typography>
                             </Grid>
                         </Grid>
                         <Grid
@@ -2183,7 +2202,10 @@ export const DocPdf = React.forwardRef((props, ref) => {
                         sx={{
                             flexDirection: "column",
                             width: "100%",
-                            padding: "70px 55px",
+                            height: "100vh", // Para asegurar que ocupe toda la altura de la página
+                            padding: "70px 55px", // Padding interno para el contenido
+                            margin: "0", // Para eliminar cualquier margen por defecto del contenedor
+                            boxSizing: "border-box",
                         }}
                     >
                         <Grid

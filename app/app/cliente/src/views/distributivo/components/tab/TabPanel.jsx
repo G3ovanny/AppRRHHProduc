@@ -2,6 +2,8 @@ import React from 'react'
 import { BaseTab } from '../../../../ui'
 import { Box, Tab, Tabs } from '@mui/material'
 import { DominacionPuesto, ModalidadLaboral, NivelOcupacional, RegimenLaboral, UnidadOrganica, EstructuraProgramatica, Procesos } from '../../pages';
+import { Grado } from '../../pages/Grado';
+import { EscalaOcupacional } from '../../pages/EscalaOcupacional';
 
 function a11yProps(index) {
     return {
@@ -35,7 +37,9 @@ export const TabPanel = () => {
                     <Tab label='Proceso' {...a11yProps(3)} />
                     <Tab label='Unidad orgánica' {...a11yProps(4)} />
                     <Tab label='Denominación puesto' {...a11yProps(5)} />
-                    <Tab label='Estructura programática' {...a11yProps(6)} />
+                    <Tab label='Grado' {...a11yProps(6)} />
+                    <Tab label='Escala ocupacional' {...a11yProps(7)} />
+                    <Tab label='Estructura programática' {...a11yProps(8)} />
                 </Tabs>
             </Box>
             <Box component='div'>
@@ -45,7 +49,9 @@ export const TabPanel = () => {
                 <BaseTab value={value} index={3} > <Procesos /> </BaseTab>
                 <BaseTab value={value} index={4} > <UnidadOrganica /> </BaseTab>
                 <BaseTab value={value} index={5} > <DominacionPuesto /> </BaseTab>
-                <BaseTab value={value} index={6} > <EstructuraProgramatica /> </BaseTab>
+                <BaseTab value={value} index={6} > <Grado /> </BaseTab>
+                <BaseTab value={value} index={7} > <EscalaOcupacional /> </BaseTab>
+                <BaseTab value={value} index={8} > <EstructuraProgramatica /> </BaseTab>
             </Box>
         </Box>
     )

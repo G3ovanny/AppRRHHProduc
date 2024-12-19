@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useAccionPersonalStore, useDenominacionPuestoStore, useEstructuraProgramaticaStore, useForm, useModalStore, useTrabStore, useUnidadOrganicaStore } from '../../../../hooks'
+import { useAccionPersonalStore, useDenominacionPuestoStore, useEscalaOcupacionalStore, useEstructuraProgramaticaStore, useForm, useGradoStore, useModalStore, useTrabStore, useUnidadOrganicaStore } from '../../../../hooks'
 import { BaseModal } from '../../../../ui'
 import { Autocomplete, Box, Button, Divider, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField, Toolbar, Typography, Checkbox, FormControlLabel, FormGroup } from '@mui/material'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
@@ -70,6 +70,8 @@ export const AccionesPersonalModal = ({ titleModal }) => {
     const { listDenominacion, startLoadingDenominacion } = useDenominacionPuestoStore();
     const { listUnidad, startLoadingUnidad } = useUnidadOrganicaStore();
     const { listEstructura, startLoadingEstructura } = useEstructuraProgramaticaStore();
+    const { listEscala, startLoadingEscala } = useEscalaOcupacionalStore()
+    const { listGrado, startLoadingGrado } = useGradoStore()
     const { trabajadores, startLoadingTrab } = useTrabStore();
     const [inputValue, setInputValue] = useState('');
     const [tipoEnf, setTipoEnf] = useState(false)
@@ -224,6 +226,8 @@ export const AccionesPersonalModal = ({ titleModal }) => {
         startLoadingDenominacion()
         startLoadingUnidad()
         startLoadingEstructura()
+        startLoadingGrado()
+        startLoadingEscala()
 
         //completarDatosServidor(id_trabajador);
         if (activeAccion !== null) {
@@ -753,8 +757,8 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                                 value={escala_ocupacional_propuesta || ''}
                                                 onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'escala_ocupacional_propuesta' } })}
                                             >
-                                                {listEstructura.map(option => (
-                                                    <MenuItem key={option.id} value={option.id}> {option.estructura_programatica}</MenuItem>
+                                                {listEscala.map(option => (
+                                                    <MenuItem key={option.id} value={option.id}> {option.escala_ocupacional}</MenuItem>
                                                 ))}
                                             </Select>
                                         </FormControl>
@@ -774,9 +778,9 @@ export const AccionesPersonalModal = ({ titleModal }) => {
                                                 value={grado_propuesta || ''}
                                                 onChange={(e) => onInputChange({ target: { value: e.target.value, name: 'grado_propuesta' } })}
                                             >
-                                                {/* {listEstructura.map(option => (
+                                                {listGrado.map(option => (
                                                     <MenuItem key={option.id} value={option.id}> {option.grado}</MenuItem>
-                                                ))} */}
+                                                ))}
                                             </Select>
                                         </FormControl>
                                     </Grid>

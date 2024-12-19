@@ -906,6 +906,38 @@
         "documentation": {}
     },
     {
+        "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "serializers",
         "importPath": "rest_framework",
         "description": "rest_framework",
@@ -1247,6 +1279,22 @@
         "description": "rest_framework",
         "isExtraImport": true,
         "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
@@ -3192,6 +3240,14 @@
         "documentation": {}
     },
     {
+        "label": "EscalaOcupacionalViewSet",
+        "importPath": "core.distributivo.api.views.escalaOcupacional_view",
+        "description": "core.distributivo.api.views.escalaOcupacional_view",
+        "isExtraImport": true,
+        "detail": "core.distributivo.api.views.escalaOcupacional_view",
+        "documentation": {}
+    },
+    {
         "label": "Permiso",
         "importPath": "core.permisos.models",
         "description": "core.permisos.models",
@@ -4969,7 +5025,7 @@
         "kind": 6,
         "importPath": "core.distributivo.api.serializers.serializers",
         "description": "core.distributivo.api.serializers.serializers",
-        "peekOfCode": "class ModalidadLaboralSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Modalidad_Laboral\n        fields = '__all__'\nclass UnidadOrganicaSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Unidad_Organica\n        fields = '__all__'\n        #fields = '__all__'\nclass DenominacionPuestoSerializer(serializers.ModelSerializer):",
+        "peekOfCode": "class ModalidadLaboralSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Modalidad_Laboral\n        fields = '__all__'\nclass UnidadOrganicaSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Unidad_Organica\n        fields = '__all__'\n        #fields = '__all__'\nclass GradoSerializer(serializers.ModelSerializer):",
         "detail": "core.distributivo.api.serializers.serializers",
         "documentation": {}
     },
@@ -4978,7 +5034,25 @@
         "kind": 6,
         "importPath": "core.distributivo.api.serializers.serializers",
         "description": "core.distributivo.api.serializers.serializers",
-        "peekOfCode": "class UnidadOrganicaSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Unidad_Organica\n        fields = '__all__'\n        #fields = '__all__'\nclass DenominacionPuestoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Denominacion_Puesto\n        fields = '__all__'\n    def to_representation(self, instance):",
+        "peekOfCode": "class UnidadOrganicaSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Unidad_Organica\n        fields = '__all__'\n        #fields = '__all__'\nclass GradoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Grado\n        fields = '__all__'\nclass EscalaOcupacionalSerializer(serializers.ModelSerializer):",
+        "detail": "core.distributivo.api.serializers.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "GradoSerializer",
+        "kind": 6,
+        "importPath": "core.distributivo.api.serializers.serializers",
+        "description": "core.distributivo.api.serializers.serializers",
+        "peekOfCode": "class GradoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Grado\n        fields = '__all__'\nclass EscalaOcupacionalSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Escala_Ocupacional\n        fields = '__all__'\nclass DenominacionPuestoSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "detail": "core.distributivo.api.serializers.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "EscalaOcupacionalSerializer",
+        "kind": 6,
+        "importPath": "core.distributivo.api.serializers.serializers",
+        "description": "core.distributivo.api.serializers.serializers",
+        "peekOfCode": "class EscalaOcupacionalSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Escala_Ocupacional\n        fields = '__all__'\nclass DenominacionPuestoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Denominacion_Puesto\n        fields = '__all__'\n    def to_representation(self, instance):\n        id_proceso = instance.id_proceso",
         "detail": "core.distributivo.api.serializers.serializers",
         "documentation": {}
     },
@@ -5019,12 +5093,30 @@
         "documentation": {}
     },
     {
+        "label": "EscalaOcupacionalViewSet",
+        "kind": 6,
+        "importPath": "core.distributivo.api.views.escalaOcupacional_view",
+        "description": "core.distributivo.api.views.escalaOcupacional_view",
+        "peekOfCode": "class EscalaOcupacionalViewSet(viewsets.ModelViewSet):\n    serializer_class = EscalaOcupacionalSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state=True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state=True).first()\n    def create(self, request):\n        escalaOcupacional_serializer = self.serializer_class(data=request.data)\n        if escalaOcupacional_serializer.is_valid():\n            escalaOcupacional_serializer.save()",
+        "detail": "core.distributivo.api.views.escalaOcupacional_view",
+        "documentation": {}
+    },
+    {
         "label": "EstructuraViewSet",
         "kind": 6,
         "importPath": "core.distributivo.api.views.estructuraProgramatica_view",
         "description": "core.distributivo.api.views.estructuraProgramatica_view",
         "peekOfCode": "class EstructuraViewSet(viewsets.ModelViewSet):\n    serializer_class = EstructuraProgramaticaSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state=True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state=True).first()\n    def create(self, request):\n        estructura_serializer = self.serializer_class(data=request.data)\n        if estructura_serializer.is_valid():\n            estructura_serializer.save()",
         "detail": "core.distributivo.api.views.estructuraProgramatica_view",
+        "documentation": {}
+    },
+    {
+        "label": "GradoViewSet",
+        "kind": 6,
+        "importPath": "core.distributivo.api.views.grado_view",
+        "description": "core.distributivo.api.views.grado_view",
+        "peekOfCode": "class GradoViewSet(viewsets.ModelViewSet):\n    serializer_class = GradoSerializer\n    def get_queryset(self, pk=None):\n        if pk is None:\n            return self.get_serializer().Meta.model.objects.filter(state=True)\n        return self.get_serializer().Meta.model.objects.filter(id=pk, state=True).first()\n    def create(self, request):\n        grado_serializer = self.serializer_class(data=request.data)\n        if grado_serializer.is_valid():\n            grado_serializer.save()",
+        "detail": "core.distributivo.api.views.grado_view",
         "documentation": {}
     },
     {
@@ -5077,7 +5169,7 @@
         "kind": 5,
         "importPath": "core.distributivo.api.routers",
         "description": "core.distributivo.api.routers",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'regimen', RegimenViewSet, basename='regimen'),\nrouter.register(r'nivel', NivelOcupacionalViewSet, basename='nivel ocupacional'),\nrouter.register(r'modalidad', ModalidadLaboralViewSet,basename='modalidad laboral'),\nrouter.register(r'unidad', UnidadOrganicaViewSet, basename='unidad organica'),\nrouter.register(r'denominacion', DenominacionPuestoViewSet, basename='denominacion del puesto'),\nrouter.register(r'estructura', EstructuraViewSet, basename='estructura programatica'),\nrouter.register(r'proceso', ProcesoViewSet, basename='proceso'),\nurlpatterns = router.urls",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'regimen', RegimenViewSet, basename='regimen'),\nrouter.register(r'nivel', NivelOcupacionalViewSet, basename='nivel ocupacional'),\nrouter.register(r'modalidad', ModalidadLaboralViewSet,basename='modalidad laboral'),\nrouter.register(r'unidad', UnidadOrganicaViewSet, basename='unidad organica'),\nrouter.register(r'denominacion', DenominacionPuestoViewSet, basename='denominacion del puesto'),\nrouter.register(r'estructura', EstructuraViewSet, basename='estructura programatica'),\nrouter.register(r'proceso', ProcesoViewSet, basename='proceso'),\nrouter.register(r'grado', GradoViewSet, basename='grado'),\nrouter.register(r'escala', EscalaOcupacionalViewSet, basename='escala ocupacional'),",
         "detail": "core.distributivo.api.routers",
         "documentation": {}
     },

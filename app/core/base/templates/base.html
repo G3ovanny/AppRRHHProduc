@@ -27,8 +27,10 @@
     </script>
     <script type="module" src=" http://localhost:5173/main.jsx"></script>
   {% else %}
-{% comment %}   
-  <script type="module" src=" http://localhost:5173/@vite/client"></script>
+  
+  {% comment %} habilitar en el entorno de desarrollo {% endcomment %}
+  
+  {% comment %} <script type="module" src=" http://localhost:5173/@vite/client"></script>
   <!-- If you're using vite with React, this next script will be needed for HMR -->
   <script type="module">
     import RefreshRuntime from ' http://localhost:5173/@react-refresh'
@@ -39,11 +41,17 @@
       window.__vite_plugin_react_preamble_installed__ = true
     }
   </script>
-  <script type="module" src=" http://localhost:5173/main.jsx"></script> {% endcomment %}
-     {% load render_vite_bundle %}
+  <script type="module" src=" http://localhost:5173/main.jsx"></script> 
+    
+   {% endcomment %}
+   
+    {% load render_vite_bundle %}
  
-    {% render_vite_bundle %} 
-  {% endif %}
+    {% render_vite_bundle %}  
+  
+  
+  
+    {% endif %}
 </body>
 
 </html>

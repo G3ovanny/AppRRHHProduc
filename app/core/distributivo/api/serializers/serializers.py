@@ -27,6 +27,15 @@ class UnidadOrganicaSerializer(serializers.ModelSerializer):
         fields = '__all__'
         #fields = '__all__'
 
+class GradoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Grado
+        fields = '__all__'
+
+class EscalaOcupacionalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Escala_Ocupacional
+        fields = '__all__'
 
 class DenominacionPuestoSerializer(serializers.ModelSerializer):
     class Meta:

@@ -14,6 +14,8 @@ import { grupoSlice } from './grupos'
 import { formularioSlice } from './trabajadores/formularioSlice'
 import { resetPassSlice } from './auth/resetPassSlice'
 import { archivoCronogramaSlice } from './vacaciones/archivoCronogramaSlice'
+import { EscalaOcupacionalSlice } from './distributivo/escalaOcupacionalSlice'
+import { gradoSlice } from './distributivo/gradoSlice'
 
 export const store = configureStore({
     reducer: {
@@ -44,6 +46,8 @@ export const store = configureStore({
         asistencia: asistenciasSlice.reducer,
         usuarios: usuariosSlice.reducer,
         grupos: grupoSlice.reducer,
+        grados: gradoSlice.reducer,
+        escalaOcupacional: EscalaOcupacionalSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false
