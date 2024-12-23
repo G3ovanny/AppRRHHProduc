@@ -31,7 +31,7 @@ class Trabajador(BaseModel):
     fecha_nacimiento = models.DateField(blank=True, null=True)
     #fecha_ingreso = models.DateField(blank=True, null=True)
     direccion_domicilio = models.CharField('Direccioón domicilio', max_length=255, blank=True, null=True)
-    dias_vacaciones = models.DecimalField('Dias de vacaciones acumulados', max_digits=5, decimal_places=2, blank=True, null=True)
+    dias_vacaciones = models.DecimalField('Dias de vacaciones acumulados', max_digits=5, decimal_places=2, blank=True, null=True, default=0.00)
     cod_biometrico = models.CharField('Codigo Biometrico', max_length=100, blank=True, null= True)
 
     TIPO_IDENTIFICACION=(

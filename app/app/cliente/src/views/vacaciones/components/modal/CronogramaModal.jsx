@@ -84,12 +84,16 @@ export const CronogramaModal = ({ titleModal }) => {
 
     // Formatear fechas
     const formatearFecha = (fecha) => {
+        // const fechaModificada = dayjs(fecha);
+
         const fechaModificada = dayjs(fecha).add(1, 'day');
 
+        // Definir los nombres de los meses
         const meses = [
             'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
             'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
         ];
+
         return `${fechaModificada.date()} de ${meses[fechaModificada.month()]} del ${fechaModificada.year()}`;
     };
 
@@ -113,16 +117,16 @@ export const CronogramaModal = ({ titleModal }) => {
         };
     }, [id_trabajador, trabajadores, listReg, fecha_fin, explicaciones]);
 
-    const handle_explicacion = () => {
-        if (id_trabajador) {
-            formState.explicacion = trabajadorInfo.mensajeExplicacion
-        }
-    }
+    // const handle_explicacion = () => {
+    //     if (id_trabajador) {
+    //         formState.explicacion = trabajadorInfo.mensajeExplicacion
+    //     }
+    // }
 
     // Handlers
     const onSubmit = () => {
         if (isFormValid) {
-            handle_explicacion()
+            // handle_explicacion()
             startSavingCronograma(formState);
             closeModal();
             onResetForm();
@@ -307,18 +311,20 @@ export const CronogramaModal = ({ titleModal }) => {
                         </Grid>
 
                         {/* Explicación */}
-                        <Grid item container columnSpacing={{ xs: 2, sm: 2, md: 2 }}>
+                        {/* <Grid item container columnSpacing={{ xs: 2, sm: 2, md: 2 }}>
                             <Grid item xs={12} sx={{ mt: 2 }}>
                                 <TextField
                                     label="Explicación"
                                     multiline
                                     rows={4}
                                     fullWidth
-                                    value={explicacion || (trabajadorInfo?.mensajeExplicacion || '')}
+                                    value={explicacion || trabajadorInfo?.mensajeExplicacion || ''}
                                     onChange={(e) => {
-                                        // Si el usuario modifica el campo, se guardará su valor
+                                        // Si el usuario modifica el campo, se guarda el valor ingresado
                                         onInputChange(e);
-                                        // Si es el valor automático, también lo guardamos
+
+                                        // Si el valor de la explicacion es vacío y existe la explicacion automática, 
+                                        // actualizamos el estado con el valor automático
                                         if (!explicacion && trabajadorInfo?.mensajeExplicacion) {
                                             onInputChange({
                                                 target: {
@@ -339,11 +345,12 @@ export const CronogramaModal = ({ titleModal }) => {
                                             });
                                         }
                                     }}
-                                    name='explicacion'
+                                    name="explicacion"
                                 />
                             </Grid>
-                        </Grid>
-                        {/* <Grid item container columnSpacing={{ xs: 2, sm: 2, md: 2 }}>
+                        </Grid> */}
+
+                        <Grid item container columnSpacing={{ xs: 2, sm: 2, md: 2 }}>
                             <Grid item xs={12} sx={{ mt: 2 }}>
                                 <TextField
                                     label="Explicación"
@@ -355,7 +362,7 @@ export const CronogramaModal = ({ titleModal }) => {
                                     name='explicacion'
                                 />
                             </Grid>
-                        </Grid> */}
+                        </Grid>
                     </Grid>
 
                     <Divider sx={{ my: 2 }} />
